@@ -1,0 +1,461 @@
+<main>
+	<script type="application/json"><%= data |> filterKeys(["-*_html", "*"]) %></script>
+	<h1><%= data.name %></h1>
+	<p><i><%= data.roomFormat == "OpenGroup" ? "open group" : "1v1" %> created by <%=data.created_by.name%></i></p>
+
+	<if-true cond="data.closed">
+		<strong>This room is closed.</strong>
+	</if-true>
+
+	<div class="room-info">
+		<section>
+			<h2>Players</h2>
+
+			<for-each over="data.players" as="player" index="number">
+				<if-true cond="number">
+					vs
+				</if-true>
+				<div id="player-id-<%=player.id%>">
+					<span data-player-state="<%= (1 << number) %>" class="player-<%=number%>-checked">&nbsp;&nbsp;&nbsp;</span> <%=player.name%>
+					<if-true cond="false || (player.selection.length == 0) || (player.selection == 'null')">
+						<abbr title="This player hasn't selected their opponent's challenge yet." class="needs-challenge">*</abbr>
+					</if-true>
+					<render-template file="player-controls.html" />
+				</div>
+			</for-each>
+
+			<if-true cond="data.can_join">
+			<form method="POST" action="join-game">
+				<button type="submit">Join game</button>
+			</form>
+			</if-true>
+			<or-else>
+			<if-true cond="data.current_user.id == 0">
+				<p><a href="/login">Log in to join</a></p>
+			</if-true>
+			</or-else>
+		</section>
+
+		<if-true cond="data.can_edit">
+		<section>
+			<h2>Room Controls</h2>
+
+			<p>Current seed: <%= data.seed %></p>
+
+			<form method="POST" action="close-room">
+				<p>
+				All done playing?
+				<button type="submit">Close room</button>
+				</p>
+			</form>
+
+			<if-true cond="!data.locked_in">
+			<form method="POST" action="new-seed">
+				<p>
+				Card impossible? You can
+				<button type="submit">roll a new seed</button>
+				</p>
+			</form>
+			</if-true>
+
+			<if-true cond="!data.locked_in &amp;&amp; (data.roomFormat == 'OpenGroup')">
+			<form method="POST" action="shuffle-players">
+				<p>
+				Challenges are assigned by players to the next player in the list. You can
+				<button type="submit">shuffle player list</button>
+				once everyone has joined so your challenges get assigned to random players.
+				</p>
+			</form>
+			</if-true>
+
+			<if-true cond="!data.locked_in &amp;&amp; ( false || (data.roomFormat == 'OpenGroup') || (data.players.length == 2))">
+			<form method="POST" action="lock-in">
+				<p>
+				After you are satisfied the card is playable and both players have chosen their rows/columns, you can
+				<button type="submit">lock-in game setup</button>
+				</p>
+			</form>
+			</if-true>
+		</section>
+		</if-true>
+	</div>
+
+	<hr />
+
+	<div class="room-main">
+		<%=HTML data.card_html %>
+
+		<section class="chat">
+			<!--
+			<h2>Counters</h2>
+			<div id="counters">
+				<span>
+					3
+					<span class="player-0-checked">&nbsp;</span>
+					Sand Worms
+					<span class="player-1-checked">&nbsp;</span>
+					0
+				</span>
+				<span>
+					1
+					<span class="player-0-checked">&nbsp;</span>
+					Gr Worms
+					<span class="player-1-checked">&nbsp;</span>
+					2
+				</span>
+				<span>
+					0
+					<span class="player-0-checked">&nbsp;</span>
+					Purple Worms
+					<span class="player-1-checked">&nbsp;</span>
+					0
+				</span>
+			</div>
+			-->
+
+			<div style="float: right;" id="clock"></div>
+			<if-true cond="data.created_by.id == data.current_user.id">
+			<form style="display:inline;" class="background-submit" method="POST" action="toggle-clock">
+				<button type="submit">start/stop clock</button>
+			</form>
+			<form style="display:inline;" class="background-submit" method="POST" action="reset-clock">
+				<input style="width: 3em;" type="number" value="5" name="countdown" />
+				<button type="submit">set</button>
+			</form>
+			</if-true>
+
+			<br style="clear: right;" />
+
+			<h2>Chat</h2>
+			<button class="clear-button" onclick="document.getElementById('chat').innerHTML = '';" type="button">Clear</button>
+			<div id="chat">
+			<for-each over="data.feed_html" as="item">
+				<%=HTML item %>
+			</for-each>
+			</div>
+			<if-true cond="data.current_user.id == 0">
+				<p><a href="/login">Log in to chat</a></p>
+			</if-true>
+			<or-else>
+				<form class="background-submit send-chat" method="POST" action="send-chat">
+					<input autocomplete="off" type="text" name="message" />
+					<button type="submit">Send</button>
+				</form>
+			</or-else>
+		</section>
+	</div>
+
+	<form id="toggle" style="display: none;" method="POST" action="toggle-square">
+		<input type="number" name="squareId" />
+	</form>
+
+	<hr />
+
+	<if-true cond="data.locked_in">
+	<script>
+		window.roomLockedIn = true;
+	</script>
+	</if-true>
+
+	<script>
+		window.inRoom = true;
+		window.currentPlayerNumber = <%=data.current_player_number%>;
+
+		var personalStars = {};
+
+		var colorChooser = document.getElementById("color-chooser");
+
+		function highlightChallenge(player, challenge) {
+			console.log(challenge);
+			if(challenge === null)
+				return;
+
+			// opposite player here because you select it for your opponent
+			var cls = "player-" + (player == 1 ? "0" : "1") + "-checked";
+
+			// and it clears any other selection because you only choose one
+			var keep;
+			document.querySelectorAll(".bingo-card th").forEach(function(e) {
+				e.classList.remove(cls);
+				e.style.background = null;
+				e.dataset.playerState = 0;
+				if(e.textContent == challenge)
+					keep = e;
+			});
+			if(!keep)
+				return;
+			keep.classList.add(cls);
+			keep.dataset.playerState = (1 << player);
+
+			keep.style.background = gradientForCheckedState(keep.dataset.playerState|0);
+		}
+
+		document.querySelectorAll(".bingo-card").forEach(function(e) {
+			var desc = e.querySelector(".description");
+			e.addEventListener("mouseover", function(event) {
+				var tgt = event.target;
+				if((tgt.classList && tgt.classList.contains("bingo-square"))) {
+					desc.textContent = "";
+					var difficultyHolder = document.createElement("b");
+					for(var i = 0; i < tgt.dataset.difficulty|0; i++)
+						difficultyHolder.innerHTML += "* ";
+					desc.appendChild(difficultyHolder);
+					desc.appendChild(document.createElement("BR"));
+					desc.appendChild(document.createTextNode(tgt.dataset.details));
+				}
+			});
+			e.addEventListener("mouseout", function(event) {
+				var tgt = event.target;
+				if((tgt.classList && tgt.classList.contains("bingo-square"))) {
+					desc.textContent = "";
+				}
+			});
+
+
+			e.addEventListener("click", function(event) {
+
+				if(!event.target.classList)
+					return;
+
+				var player = <%= data.current_player_number %>;
+
+				if(player === null || player == -1)
+					return;
+
+				//if(event.target.classList.contains("row") || event.target.classList.contains("col")) {
+				if(event.target.tagName == "TH") {
+					if(window.roomLockedIn) {
+						// once it is locked in, you can no longer assign a challenge
+						// and instead you just star a row as a personal note to self.
+
+						//personalStars[<%= data.id %>]
+
+						window.sessionStorage.setItem("personalStars", personalStars);
+
+						event.target.classList.toggle("personal-starred");
+
+						return;
+					}
+
+					var req = new XMLHttpRequest();
+					req.open("POST", "assign-opponent-challenge");
+					var fd = new FormData();
+					fd.append("challenge", event.target.textContent);
+					req.send(fd);
+
+					keepalive(1000);
+
+					var dispplayer = player + 1;
+					if(dispplayer >= <%=data.players.length%>)
+						dispplayer = 0;
+
+					highlightChallenge(dispplayer, event.target.textContent);
+
+					return;
+				}
+
+				if(!event.target.classList.contains("bingo-square"))
+					return;
+
+				var f = document.getElementById("toggle");
+				f.elements.squareId.value = event.target.dataset.squareId;
+
+				var req = new XMLHttpRequest();
+				req.open("POST", f.action);
+				req.send(new FormData(f));
+
+				keepalive(1000);
+			});
+		});
+
+
+		var chat = document.getElementById("chat");
+
+		function reloadPage() {
+			try {
+				sessionStorage.setItem("scrollPosition", JSON.stringify({ "x": window.scrollTop, "y": window.scrollLeft }));
+			} catch(e) {
+				console.log(e);
+			}
+			location.reload();
+		}
+
+		function processMessage(data) {
+			var p = JSON.parse(data);
+			chat.innerHTML += p.feedHtml;
+			chat.scrollTo(0, chat.scrollHeight);
+			return p;
+		}
+
+		var source = new EventSource("event-stream");
+
+		var sourceTimeout;
+		function keepalive(period) {
+			if(!period)
+				period = 18000;
+			// console.log(period);
+			if(sourceTimeout)
+				clearTimeout(sourceTimeout);
+			sourceTimeout = setTimeout(reloadPage, period);
+		}
+
+		keepalive();
+
+		source.addEventListener("chat_message", function(event) {
+			processMessage(event.data);
+			if(chatSoundsEnabled)
+				beep(100, 0.050);
+			keepalive();
+		});
+
+		function squareSetter(set, info) {
+			var ele = document.querySelector(".bingo-card [data-square-id=\"" + info.squareId + "\"]");
+			ele.classList[set ? "add" : "remove"]("player-" + (info.player == 0 ? "0" : "1") + "-checked");
+
+			ele.dataset.playerState ^= 1 << info.player;
+
+			ele.style.background = gradientForCheckedState(ele.dataset.playerState|0);
+		}
+
+		source.addEventListener("set", function(event) {
+			squareSetter(true, JSON.parse(processMessage(event.data).eventMessage));
+			keepalive();
+		});
+		source.addEventListener("unset", function(event) {
+			squareSetter(false, JSON.parse(processMessage(event.data).eventMessage));
+			keepalive();
+		});
+		source.addEventListener("new_seed", reloadPage);
+		source.addEventListener("joined", reloadPage);
+		source.addEventListener("quit", reloadPage);
+		source.addEventListener("swapped", reloadPage);
+		source.addEventListener("swapped", reloadPage);
+		source.addEventListener("lock_in", reloadPage);
+
+		source.addEventListener("set_challenge", function(event) {
+			var o = JSON.parse(processMessage(event.data).eventMessage);
+			keepalive();
+
+			var e = document.querySelector("#player-id-" + o.player_id + " .needs-challenge");
+			if(e)
+				e.parentNode.removeChild(e);
+
+			// FIXME: this should unlock the lock button when everyone has selected.
+
+			// highlightChallenge(o.player, o.challenge);
+		});
+
+		var clockTicks = <%= data.clockTicks %>;
+		var clockTicksPerformanceCounter;
+		var clockTimeout;
+		var playedAlert = false;
+
+		function updateClock() {
+			var c = document.querySelector("#clock");
+			var totalSeconds = clockTicks / 1000;
+
+			var string;
+			var seconds;
+
+			if(totalSeconds >= 0) {
+				var hours = Math.floor(totalSeconds / 3600);
+				var minutes = Math.floor((totalSeconds - (hours * 3600)) / 60);
+				seconds = Math.floor((totalSeconds|0) % 60);
+
+				string = hours + ":" + (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+			} else {
+				seconds = Math.floor(totalSeconds + .5);
+				string = "-0:00:" + (seconds > -10 ? '0' : '') + -seconds;
+			}
+
+			c.textContent = string;
+
+
+			if(typeof clockSoundsEnabled != "undefined")
+			if(clockSoundsEnabled) {
+				if(seconds >= -3 && seconds < 0) {
+					beep(500, 0.050);
+					playedAlert = true;
+				} else if(playedAlert && string == "0:00:00") {
+					beep(700, 0.250);
+					playedAlert = false;
+				}
+			}
+		}
+
+		function pauseClock() {
+			updateClock();
+			if(clockTimeout) {
+				clearInterval(clockTimeout);
+				clockTimeout = null;
+			}
+		}
+
+
+		var audioContext;
+
+		function beep(freq, duration){
+			if(!audioContext)
+				audioContext = new AudioContext();
+			var oscillator = audioContext.createOscillator();
+			var gain = audioContext.createGain();
+			oscillator.connect(gain);
+			oscillator.type = "square";
+			oscillator.frequency.value = freq;
+			gain.connect(audioContext.destination);
+			gain.gain.value = 0.1;
+			oscillator.start(audioContext.currentTime);
+			oscillator.stop(audioContext.currentTime + duration);
+		}
+
+		function startClock() {
+			updateClock();
+
+			var diff = clockTicks % 1000;
+			if(diff < 0)
+				diff = -diff;
+
+			setTimeout(function() {
+				clockTicks += diff;
+				updateClock();
+
+				clockTicksPerformanceCounter = performance.now();
+
+				clockTimeout = setInterval(function() {
+					var now = performance.now();
+					clockTicks += now - clockTicksPerformanceCounter;
+					clockTicksPerformanceCounter = now;
+
+					updateClock();
+				}, 1000);
+			}, diff);
+		}
+
+		if(<%=data.clockRunning%>)
+			startClock();
+
+		function clockevent(time, state) {
+			keepalive();
+
+			clockTicks = time;
+
+			if(state == "paused")
+				pauseClock();
+			else
+				startClock();
+		}
+		source.addEventListener("clock", function(event) {
+			var o = JSON.parse(processMessage(event.data).eventMessage);
+			clockevent(o.time, o.state);
+		});
+		source.addEventListener("clock_update", function(event) {
+			var o = JSON.parse(event.data);
+			clockevent(o.time, o.state ? "running" : "paused");
+		});
+
+		source.addEventListener("keepalive", function() { keepalive(); });
+
+
+		chat.scrollTo(0, chat.scrollHeight);
+	</script>
+</main>

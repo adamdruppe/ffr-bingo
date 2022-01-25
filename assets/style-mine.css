@@ -1,0 +1,92 @@
+* {
+	box-sizing: border-box;
+}
+body {
+	background-color: #003;
+	color: white;
+}
+
+a {
+	color: #3f3;
+}
+
+.bingo-card {
+	border: solid 1px #ccc;
+	outline: solid 1px white;
+	padding: 4px;
+
+	display: grid;
+	grid-template-columns: 2em repeat(5, 1fr);
+	grid-template-rows: 2em repeat(5, 1fr) 5em;
+	grid-gap: 2px 2px;
+}
+
+.bingo-card .description {
+	grid-column: 2 / span 5;
+}
+
+.bingo-square {
+	padding: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	border: solid 1px black;
+	height: 100%;
+	background: black;
+}
+
+.row, .col {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.description {
+	padding: 1em;
+}
+
+.row, .col, .description {
+	background: #444;
+}
+
+.bingo-square.player-one-checked {
+	background-color: #b00;
+	background: linear-gradient(45deg,
+		#f00 0%,
+		#a00 50%,
+		#f00 100%);
+}
+.bingo-square.player-two-checked {
+	background-color: #0a0;
+	background: linear-gradient(45deg,
+		#00f 0%,
+		#00a 50%,
+		#00f 100%);
+}
+.bingo-square.player-one-checked.player-two-checked {
+	background-color: #ba0;
+	background: linear-gradient(45deg,
+		#f00 0%,
+		#a00 48%,
+		#00a 52%,
+		#00f 100%);
+}
+
+.room-main {
+	display: flex;
+}
+
+.chat {
+	padding: 0px 4px;
+}
+
+.chat #chat {
+	height: 55vh;
+	overflow: auto;
+}
+
+.chat form {
+	white-space: nowrap;
+}

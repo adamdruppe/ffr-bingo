@@ -1,0 +1,13 @@
+<if-true cond="player.id &amp;&amp; !data.locked_in &amp;&amp; (data.can_edit || data.current_user.id == player.id)">
+	<form style="display: inline;" method="POST" action="leave-game">
+		<input type="hidden" name="playerId" value="<%=player.id%>" />
+		<button type="submit">
+			<%= (data.current_user.id == player.id) ? "Quit" : "Kick" %>
+		</button>
+	</form>
+</if-true>
+<if-true cond="!player &amp;&amp; player.id &amp;&amp; !data.locked_in &amp;&amp; data.current_user.id == player.id">
+	<form style="display: inline;" method="POST" action="swap-players">
+		<button type="submit">Swap Colors</button>
+	</form>
+</if-true>

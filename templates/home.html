@@ -1,0 +1,87 @@
+<main>
+	<h1>Final Fantasy Randomizer Bingo</h1>
+
+	<p><strong>If you are a returning visitor, press ctrl+f5 to refresh to ensure you have the new version of the site.</strong></p>
+
+	<p>Warning: you should only have two, maybe three, rooms open at one time in your browser. Any more might hit a connection limit on real time updates.</p>
+
+	<p>Note: if clicking a square doesn't work when you're in a game, just try pressing refresh.</p>
+
+	<if-true cond="data.user.id">
+		<p>Hello, <strong><%= data.user.name %></strong>!</p>
+	</if-true>
+
+	<section>
+		<h2>Active Rooms</h2>
+
+		<ul>
+		<for-each over="data.rooms" as="room">
+			<li><a href="/room/<%=room.id%>/"><%=room.name%></a></li>
+		</for-each>
+		</ul>
+	</section>
+
+	<if-true cond="data.user.id">
+	<section>
+		<h2>Create Room</h2>
+		<form method="POST" action="create-room">
+			<label><span class="label-text">Room name</span>
+			<input type="text" name="name" /></label>
+			<label><span class="label-text">Square pool</span>
+			<select name="squareSetId">
+				<option value="2">Winter DAB 2022</option>
+				<option value="1">Winter DAB 2021</option>
+			</select></label>
+			<label><span class="label-text">Format</span>
+			<select name="roomFormat">
+				<option value="OneVsOne">1v1</option>
+				<option value="OpenGroup">Open Group</option>
+			</select></label>
+
+			<details>
+			<label><span class="label-text">Seed (leave 0 for automatic random)</span>
+			<input type="text" value="0" name="seed" /></label>
+			<!-- not going to be used for the tournament so gonna just simplify the display for now-->
+			<br />
+			<label><input type="checkbox" name="ignoreRarity" /> Treat all squares as equally common (the pool designers may have designated some squares to be more or less common than others. this ignores that design.)</label>
+			<br />
+			<label><input type="checkbox" name="ignoreDifficulty" /> Unbalanced difficulty (the generator tries to balance the difficulty of each row, column, and diagonal on the card. checking this tells it to ignore that and go full random)</label>
+			</details>
+			<br />
+			<button type="submit">Create</button>
+		</form>
+	</section>
+	</if-true>
+	<or-else>
+		Please <a href="/login">log in to create a room</a>. It may ask you for permission to sync up your Discord username when you click that link.
+	</or-else>
+
+	<h2>Useful Links</h2>
+	<a href="https://4-3-2.finalfantasyrandomizer.com/?s=00000000&amp;f=QPJmvvZME4LV.cgJ4GWO5.pBVJKXnERZs4Eqo7XIX8GGqjpDJdHdgsGriKI1NvZgHDO6xFoYUHSAFbyr1OqLNe.dFya9YTTPoTMgaS.GcmXwiCT9aWBD2ZzF1sUN4EhwLxGSQpDvhIXhdJKYcheLQRPEM">Flagset for Winter DAB February 2022</a>
+
+	<h2>Personalization Preferences</h2>
+
+	<p>You can set a color that will display for yourself on your screen, no matter which color you show as for observers and restreamers.</p>
+
+	<label><span class="label-text">Personal color</span>
+		<input id="personal-color-picker" value="0" type="range" min="0" max="360" step="15" oninput="newPersonalColor(this.value);" />
+		<div class="bingo-square player-0-checked my-own-color"></div>
+	</label>
+
+	<p>Bingo rooms have a in-site clock and chat that can sound brief tones. The clock will do a "beep, beep, beep, go" sound and chat can make a tone on new messages. You can turn these on and off here.</p>
+
+	<label><input type="checkbox" id="clock-sound-picker" /> <span class="label-text">Clock tones</span></label>
+	<br />
+	<label><input type="checkbox" id="chat-sound-picker" /> <span class="label-text">Chat notifications</span></label>
+
+	<h2>Information</h2>
+
+	<p>Tip: you can click headers after the game is locked in to star them for your personal information. You can use this to mark one you intend to complete so it is easier to find at a glance.</p>
+
+	<h2>Test / Debugging Links</h2>
+	<!--
+	<a href="/squares">See squares in the database</a> (the number in parenthesis is how easy the database thinks it is. 0 = not easy at all, 4 = very easy.)
+	<br />
+	-->
+	<a href="/become-guest">Guest test login</a>
+</main>

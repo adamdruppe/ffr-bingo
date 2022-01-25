@@ -1,0 +1,27 @@
+
+* note that a tofr run is only when you intending to defeat chaos
+	- you need to light the square as you move past the fiend planning
+	  on fighting chaos, then unlight it if you wipe.
+* you can leave shop to free up inventory then reenter
+
+shoombabi request:
+* can you extend the highlight for the selected row/col to encompass the entirety of 5 boxes maybe in a muted version of the color
+
+* show who still needs to assign challenge before lock in
+* make sure you can't lock in until selections actually made...
+* but let room creator bypass this for blackout bingo for example
+
+* show player colors in the chat and bold the username in chat messages (but
+  not in update messages)
+
+* put the mutext group in the text file somehow
+
+* room timer
+* show square difficulty either via [] or details or colored border.
+
+* hex spiral of colored icons
+
+
+* check discord display name in the log in bridge. notyoung became thomas
+* figure out why live updates stop.
+* flash of color as it loads personal color...

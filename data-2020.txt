@@ -1,0 +1,131 @@
+1
+Visit Every Room on Lich 1 Floor
+Talk to Hurray Dwarf
+Visit Bahamut - you do not need the TAIL
+
+2
+Garland Boxing - Defeat garland with only unarmed punches.  Buffs/debuffs are allowed, but no direct damage or instant death spells.
+Kill 3 Different Wolves - Wolf, GrWolf, WrWolf
+Visit the Bat Party Room - Top left room of Vampire floor
+Inspect All of Sarda's Furniture - Press A on each tile that contains a vase, bed, stool, etc
+
+3
+Talk to a Lefeinish without translating the SLAB - You must see the text "Lu...pa...?" 
+Talk to 5 Cardia Dragons - Any 5 different dragons in Cardia Isle locations (Bahamut counts as 1)
+Talk to 5 Bats in Marsh - Any 5 different bats among all Marsh floors.  You do not have to talk to all 5 on the same floor.
+Do a Full Lap of Ice Floor 2 - Walk from the entrance stairs to the exit stairs and back again without leaving the floor.
+Buy Everything at the Caravan - Purchase one of each item available at the caravan
+
+4
+Collect and Keep a Copper, Silver, and Gold Bracelet - You must hold on to these to retain the square as completed
+Talk to 5 Mermaids - any 5 different mermaids in sea shrine
+Kill 4 Different Zombies - Ghoul, Gheist, Zombie, Specter
+Save in the Lake North of Waterfall - To reach the lake, walk out of waterfall and go UP instead of down.  Use a save item, you may not reset out of going here.
+
+5
+Melee the Pirates - Defeat the pirates with no offensive spells.  Buffs are fine.
+Kill 3 Different Ogres - Ogre, GrOgre, WzOgre, Bull, ZomBull.
+Use No Caster Items - Defaults to completed.  If you use a caster item during the game you must un-check the square.
+Visit Every Room on Kraken 1 Floor
+
+6
+Collect and Keep a Wood, Iron, and Steel Armor - You must hold on to these to keep the square.
+Do Not Use CUR4 - Defaults to completed.  If you use CUR4 during the game you must un-check the square.
+Collect and Keep Gloves, Cap, Buckler, and Cloth - You must hold on to these items to keep the square.
+Visit Every Room on Kary 1 Floor
+
+7
+Defeat Lich 1
+Kill 3 Different Ghosts - Ghost, Image, Wraith, Shadow
+Talk to 10 Bats in Earth Cave - any 10 different bats across all earth floors
+Kill 3 Different Slimes - Scum, Muck, Ooze, MtlSlime
+Talk to 3 Robots in Mirage/Sky
+
+8
+Walk the Hall of Giants - You must walk from one end of the trap tile section to the other end, north to south
+Kill 3 Different Sahags - Sahag, R. Sahag, WzSahag
+Do Not Use FAST - Defaults to completed.  If you use FAST you must un-check the square.
+Do Not Use TMPR - Defaults to completed.  If you use TMPR you must un-check the square.
+Examine All Computers in Sky 3 - Press A on each accessible computer tile in the 2 rooms on the south part of the floor.
+
+9
+Defeat Kary 1
+Throw Masmune Into Space (3F Window) - Drop the Masmune while standing in front of the space window on Sky 3F.  You must save this to keep the square; you are throwing masa away for good.
+Gain 40,000G in One Shop - Gain 40,000 gold by selling items in one shopping trip.  You must save after completing this goal.
+Kill 3 Different Dinosaurs - Tyro, T Rex, Ankylo, R. Ankylo
+Do Not Talk to Hint NPCs - Defaults to completed.  If you talk to a hint NPC you lose the square.
+
+10
+Do Not Use FADE - Defaults to completed.  If you use FADE you must un-check the square.
+Kill 3 Different Lizards- Agama, Iguana, Sauria, Gator, Fr.Gator.
+Spend 100,000G in One Shop - You must save after completing this goal.
+Visit Every Room in Marsh 3 - includes keylocked
+
+11
+Do Not Use NUKE - Defaults to completed.  If you use NUKE you must un-check the square.
+Defeat Kraken 1
+Do Not Use WARP - Defaults to completed.  If you use WARP you must un-check the square.
+Defeat Every Trap Tile in Ice Cave - Each of the 5 unique trap tiles in ice
+
+12
+Purchase a spell from levels 1-7
+Promote as Soon as Possible - Upon finding the TAIL, you must go to Bahamut as soon as you know his location.  If you already know his location upon finding the TAIL, you must leave wherever you are and go promote immediately.
+Never Promote
+Do Not Use EXIT - Defaults to completed.  If you use EXIT you must un-check the square
+
+13
+See a Fire-elemental Skill or Spell - HEAT, SCORCH, BLAZE, INFERNO, CREMATE, FIRE, FIR2, FIR3
+Defeat Tiamat 1
+Talk to 5 Different Hint NPCs - Can be from either dungeons or towns.
+
+14
+Kill 2 Different Worms - Sand Worm, Gr Worm, Worm
+Use Only Blessed Equipment - Weapons and Armor must have at LEAST +1 or you may not equip it.
+
+15
+Take 0 or 3 Black Belts - To take this square, you must both start AND finish the seed with the selected classes.  This is the case for all class composition squares.
+Kill 3 Different Giants - Giant, R. Giant, FrGiant, Troll, SeaTroll.
+Hit Level 30 on at Least One Character - Must be saved afterwards
+
+16
+Take 2 Black Mages  - To take this square, you must both start AND finish the seed with the selected classes.  This is the case for all class composition squares.
+Canoe from Elfland to Ice Cave - Start at Elfland Town.  Proceed to Ice Cave.  You can reset once finished.
+
+17
+Defeat Lich with QAKE - 1 or 2 is fine.
+
+18
+Take 0 or 3 Fighters - To take this square, you must both start AND finish the seed with the selected classes.  This is the case for all class composition squares.
+Successfully Confuse Kary - 1 or 2 is fine.
+
+19
+Hit Level 40 on at Least One Character
+Use Only Cursed Weapons - Weapons must be at least -1 or lower for you to equip them.
+
+20
+Kill 3 Different Dragons - ZombieD, FrostD, RedD, BlueD, GasD
+Use Only Cursed Armor - Armor must be at least -1 or lower for you to equip it.
+
+21
+Take 1 None - To take this square, you must both start AND finish the seed with the selected classes.  This is the case for all class composition squares.  You may not fill the slot with a character and dan them later; the slot must remain empty for the entire duration of the seed.
+Defeat Kraken with BRAK - 1 or 2 is fine.
+
+22
+Take 0 or 4 Red Mages - To take this square, you must both start AND finish the seed with the selected classes.  This is the case for all class composition squares.
+Defeat WarMECH - He is Patrolling.
+Use No CABINs or HOUSEs - If you accidentally use one, reset before saving.  If you accidentally save and you require this square, you incur the time penalty for bricking a square.
+
+23
+Take Two White Mages - To take this square, you must both start AND finish the seed with the selected classes.  This is the case for all class composition squares.
+Defeat Tiamat with BANE - 1 or 2 is fine.  Bane Sword is also fine.
+
+24
+See a Status-elemental Skill or Spell - SLEP, MUTE, DARK, SLOW, HOLD, FEAR, CONF, STUN, BLND, GAZE, FLASH, SNORTING, INK, DAZZLE 
+Equip No Swords - Defaults to completed. If you equip a sword, you must uncheck it. Includes any weapon with a Sword icon, Sabre, Scimitar, Falchon, Masmune, Katana, Vorpal, Defense, and anything else you should know what a sword is.
+Hit Level 50 on at Least One Character
+
+25
+Take Two Thieves - To take this square, you must both start AND finish the seed with the selected classes.  This is the case for all class composition squares.
+See a Poison-elemental Skill or Spell - BANE, BRAK, GLANCE, POISON (Petrify), POISON (Damage), STINGER
+Successfully Cure a Status Ailment in Battle with White Magic - CUR4, PURE, or if you're a hero, LAMP
+Cast a Spell of Every Element in Battle - Over the course of the seed, includes non-elemental.  See AstralEsper's FAQ if you are unsure of a spell's element.

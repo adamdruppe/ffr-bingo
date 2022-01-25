@@ -1,0 +1,180 @@
+:root {
+	--personal-color: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #111111;
+	color: white;
+	font-family: arial, helvetica, verdana, sans-serif;
+}
+
+main {
+	max-width: 940px;
+	margin: auto;
+}
+
+a {
+	color: #3f3;
+}
+
+h2 {
+	background-color: #333;
+	padding-left: 2px;
+	margin-bottom: 0px;
+	padding-bottom 2px;
+}
+
+.label-text {
+	display: block;
+	font-weight: bold;
+}
+
+.bingo-card {
+	user-select: none;
+	flex: 0;
+	flex-basis: 600px;
+	table-layout: fixed;
+	width: 600px;
+}
+
+.bingo-card th:first-child {
+	width: 2em;
+}
+
+.bingo-square {
+	padding: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	border: solid 1px #666;
+	background: black;
+
+	width: 110px;
+	height: 110px;
+}
+
+tfoot th {
+	vertical-align: top;
+}
+
+.personal-starred::after {
+	content: " *";
+}
+
+.row, .col {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.description {
+	padding: 1em;
+	min-height: 6.5em;
+}
+
+.row, .col, .description {
+	background: #333333;
+}
+
+.bingo-square {
+	text-shadow: 1px 1px 1px #000000;
+}
+
+.player-0-checked {
+	background-color: #ff0000;
+	background: linear-gradient(45deg,
+		#f00 0%,
+		#700 50%,
+		#f00 100%);
+
+	background: linear-gradient(45deg,
+		hsl(var(--personal-color), 100%, 50%) 0%,
+		hsl(var(--personal-color), 100%, 25%) 50%,
+		hsl(var(--personal-color), 100%, 50%) 100%);
+
+}
+.player-1-checked{
+	background-color: #0ff;
+	background: linear-gradient(45deg,
+		#0ff 0%,
+		#077 50%,
+		#0ff 100%);
+}
+.player-0-checked.player-1-checked {
+	background-color: #ba0;
+	background: linear-gradient(45deg,
+		#f00 0%,
+		#a00 48%,
+		#077 52%,
+		#0ff 100%);
+}
+
+.room-main {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.room-info > section {
+	flex-basis: 50%;
+	flex: 1;
+	min-width: 300px;
+}
+
+.room-info {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#counters > * {
+	display: inline-block;
+	vertical-align: top;
+	border: solid 1px white;
+	padding: 4px;
+}
+
+.chat {
+	margin-left: 10px;
+	flex: 1;
+	max-width: 330px; /* a bit of a hack but i don't want it ever wrapping */
+}
+
+.chat .timestamp {
+	font-size: 90%;
+}
+
+.chat .clear-button {
+	float: right;
+	margin-top: -1.75em;
+	margin-right: 0.25em;
+}
+
+.chat #chat {
+	height: 55vh;
+	overflow: auto;
+	padding: 4px;
+	border: 1px solid #555555;
+	font-style: italic;
+}
+
+#chat .chat_message {
+	font-style: normal;
+	word-wrap: break-all;
+}
+
+.chat form {
+	white-space: nowrap;
+}
+
+.chat form.send-chat input {
+	width: calc(100% - 4em);
+}
+
+.chat form.send-chat button {
+	width: 4em;
+}

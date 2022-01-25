@@ -1,0 +1,6 @@
+* create room
+* let people pick colors
+* pick goal rows
+* chat room with event log
+* clicks update it. multiple colors can be slashed
+* select center square - random, free, text
