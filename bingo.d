@@ -22,43 +22,33 @@ enum RoomFormat {
 	OpenGroup
 }
 
+void importSet(Sqlite db, string name, string description, string created_by, string text) {
+	import ffr_bingo.data_importer;
+
+	db.query("INSERT INTO square_sets (name, description, created_by) VALUES (?, ?, ?)", name, description, created_by);
+
+	auto ssid = db.lastInsertId;
+
+	foreach(square; importText(text)) {
+		db.query("INSERT INTO
+			squares
+			(name, details, easiness, how_common, starts_game_checked, mutex_group)
+			VALUES
+			(?, ?, ?, ?, ?, ?)",
+			square.name, square.details, square.easiness, square.how_common, square.starts_game_checked, square.mutex_group);
+		db.query("INSERT INTO square_set_members (square_set_id, square_id) VALUES (?, ?)", ssid, db.lastInsertId);
+	}
+
+}
+
 Sqlite getDatabase() {
 	import std.string;
 	static Sqlite db;
 	if(db is null)
 		db = openDBAndCreateIfNotPresent("bingo.db", import("db.sql").replace("SERIAL", "INTEGER"), (db) {
-			import ffr_bingo.data_importer;
-
-			db.query("INSERT INTO square_sets (name, description) VALUES (?, ?)", "2020-2021 Winter DAB", "The bingo squares used for the 2020-2021 tournament.");
-
-			auto ssid = db.lastInsertId;
-
 			import std.file;
-			foreach(square; importText(readText("data-2020.txt"))) {
-				db.query("INSERT INTO
-					squares
-					(name, details, easiness, how_common, starts_game_checked, mutex_group)
-					VALUES
-					(?, ?, ?, ?, ?, ?)",
-					square.name, square.details, square.easiness, square.how_common, square.starts_game_checked, square.mutex_group);
-				db.query("INSERT INTO square_set_members (square_set_id, square_id) VALUES (?, ?)", ssid, db.lastInsertId);
-			}
-
-			db.query("INSERT INTO square_sets (name, description) VALUES (?, ?)", "2021-2022 Winter DAB", "The bingo squares used for the 2021-2022 tournament held in February 2022.");
-
-			ssid = db.lastInsertId;
-
-			import std.file;
-			foreach(square; importText(readText("data-2021.txt"))) {
-				db.query("INSERT INTO
-					squares
-					(name, details, easiness, how_common, starts_game_checked, mutex_group)
-					VALUES
-					(?, ?, ?, ?, ?, ?)",
-					square.name, square.details, square.easiness, square.how_common, square.starts_game_checked, square.mutex_group);
-				db.query("INSERT INTO square_set_members (square_set_id, square_id) VALUES (?, ?)", ssid, db.lastInsertId);
-			}
-
+			importSet(db, "2020-2021 Winter DAB", "The bingo squares used for the 2020-2021 tournament.", null, readText("data-2020.txt"));
+			importSet(db, "2021-2022 Winter DAB", "The bingo squares used for the 2021-2022 tournament held in February 2022.", null, readText("data-2021.txt"));
 		});
 	return db;
 }
@@ -103,6 +93,8 @@ struct User {
 struct HomeInfo {
 	string[string][] rooms;
 	User user;
+
+	string[string][] square_sets;
 }
 
 class Bingo : WebObject {
@@ -112,7 +104,32 @@ class Bingo : WebObject {
 		string[string][] ret;
 		foreach(row; getDatabase().query("SELECT * FROM rooms where closed_at is null"))
 			ret ~= row.toAA;
-		return HomeInfo(ret, user);
+
+		string[string][] square_sets;
+		foreach(row; getDatabase().query("
+			SELECT
+				square_sets.id,
+				square_sets.name,
+				users.display_name AS creator_name
+			FROM
+				square_sets
+			LEFT OUTER JOIN
+				users ON square_sets.created_by = users.id
+			WHERE
+				square_sets.id > 2
+		"))
+			square_sets ~= row.toAA;
+
+		return HomeInfo(ret, user, square_sets);
+	}
+
+	@AutomaticForm
+	@POST
+	Redirection importSquareSet(User user, string name, Cgi.UploadedFile squaresTxt) {
+		if(user.id == 0)
+			throw new Exception("you aren't logged in");
+		importSet(getDatabase(), name, "", to!string(user.id), cast(string) squaresTxt.content);
+		return Redirection("/");
 	}
 
 	@AutomaticForm
@@ -818,5 +835,6 @@ class Presenter : WebPresenterWithTemplateSupport!Presenter {}
 mixin DispatcherMain!(Presenter,
 	"/assets/".serveStaticFileDirectory,
 	"/room/".serveApi!Room,
+	"/pages/".serveTemplateDirectory,
 	"/".serveApi!Bingo,
 );

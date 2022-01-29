@@ -8,20 +8,48 @@ shoombabi request:
 * can you extend the highlight for the selected row/col to encompass the entirety of 5 boxes maybe in a muted version of the color
 
 * show who still needs to assign challenge before lock in
-* make sure you can't lock in until selections actually made...
-* but let room creator bypass this for blackout bingo for example
+	* make sure you can't lock in until selections actually made...
+	* but let room creator bypass this for blackout bingo for example
 
-* show player colors in the chat and bold the username in chat messages (but
-  not in update messages)
+* show player colors in the chat and bold the username in chat messages (but not in update messages)
 
-* put the mutext group in the text file somehow
+* fix "null" in arsd.sqlite and remove those hax.
 
-* room timer
-* show square difficulty either via [] or details or colored border.
+* TEST THIS ---- put the mutext group in the text file somehow
+
+* TEST THIS room timer
+	- resync periodically with events
+	- store game clock time in the database
+	- when displaying, +5:34 would be on the game clock. <abbr> can show
+	  the US Eastern date/time or maybe the html5 tag.
+	- show who started/stopped the clock and do the permission checks.
 
 * hex spiral of colored icons
 
+* clean up homepage and layout
+* test with an actual restreamer
 
 * check discord display name in the log in bridge. notyoung became thomas
 * figure out why live updates stop.
 * flash of color as it loads personal color...
+
+* counters!
+
+
+* lockout mode. flip mode. teams - offense try to score for you, defense tries
+  to deny other guy a row. like connect 4 lololol
+* you might select multiple challenges for the opponents in like triple
+  anti-bingo mode.
+
+* right click to private star something you intend to do.......
+
+
+* show bingos on the player list or something (maybe with a note if they did
+  the required one)
+
+* mark squares impossible
+
+* turn off display of other players.
+
+
+* flag to ignore mutex group.

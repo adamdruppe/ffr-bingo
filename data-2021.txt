@@ -41,7 +41,7 @@ Defeat Lich 1 - You can kill the boss any way you choose, but they must die.
 Kill 4 Different Ghosts OR 15 Total Ghosts - Ghost, Image, Wraith, and Shadow all count.
 Talk to 10 Bats in Earth Cave - You may talk to any 10 different bats across all of the Earth Cave floors.
 Kill 4 Different Slimes OR 15 Total Slimes - Scum, Muck, Ooze, and Slime (aka MtlSlime) all count.
-Talk to All of the Robots in Mirage/Sky - There are 4 robots total (1 on Mirage 1, 1 on Mirage 2, and 2 on Sky 3. The patrolling robot on Sky 4 (which could be a WarMECH) is not necessary.
+Talk to All of the Robots in Mirage/Sky - There are 4 robots total (1 on Mirage 1, 1 on Mirage 2, 1 on Mirage 3, and 1 on Sky 3. The patrolling robot on Sky 4 (which could be a WarMECH) is not necessary.
 
 8
 Walk the Hall of Giants - The Hall of Giants is the long loop found (traditionally) on the left side of Earth 1. You must walk from one end of this trap tile-filled hallways to the other, north to south (or south to north if you feel saucy).
@@ -52,12 +52,12 @@ Defeat Every Trap Tile in Ordeals - There are three trap tiles (1 in the pillar 
 9
 Defeat Kary 1 - You can kill the boss any way you choose, but they must die.
 Throw Masmune Into Space (3F Window) - Drop the Masmune while standing in front of the space window on Sky 3 floor. You must save this to keep the square and may not reset out of it after; you are throwing masa away for good.
-Sell a Ribbon and then Save - You must save after selling the Ribbon as you are selling it for good. You may not reset out of this.
+Sell a Ribbon and then Save - You must save after selling the Ribbon as you are selling it for good. You may not reset out of this or if you make a new game and reroll party, you must unlight the square.
 Kill 4 Different Dinosaurs OR 15 Total Dinosaurs - Tyro, TRex, Ankylo, and R.Ankylo all count.
 
 10
 Kill 3 Different Lizards or 12 Total Lizards - Agama, Iguana, and Sauria all count.
-Spend 100,000G in One Shop - You can spend this in multiple shops, or multiple visits to a shop, so long as you do it all in a single shopping trip. Buy and sell as much as you need to so you reach the goal. You must save after completing this goal and may not reset out of it after.
+Spend 100,000G in One Town Visit - You can spend this in multiple shops, or multiple visits to a shop, so long as you do it all in a single shopping trip. Buy and sell as much as you need to so you reach the goal. You must save after completing this goal and may not reset out of it after.
 Visit Every Room in Marsh 3 - This is the floor full of small rooms with chests, traditionally called "Marsh Bottom". You must visit all of them, including the keylocked rooms. 16 rooms total.
 Open Every Chest on TFC and Mermaid Floors - There are 5 chests on the TFC floor (right side Sea Shrine, middle floor) and an additional 13 chests on Mermaids (right side Sea Shrine top floor). You must open all of them, 18 chests total.
 
@@ -83,7 +83,7 @@ Open Every Chest in Ice Cave - There are 3 chests on Ice B2, 8 chests on B3, and
 15
 Take 1 Black Belt to level 25 - Only needs to be one black belt, unless you want to show off.
 Kill 3 Different Giants OR 12 Total Giants - Giant, R. Giant, and FrGiant all count
-Hit Level 30 on at Least One Character - It can be any character, any class, but you must be save after reaching level 30. If you die after your grind but before you save you have to do the grind again.
+Hit Level 30 on at Least One Character - It can be any character, any class, but you must be save after reaching level 30. If you die after your grind but before you save you have to do the grind again. {level}
 Defeat Kary 2 Three Times on Every ToFR Run - A "ToFR Run" is defined as a dive with the intent to kill Chaos. If you're in the dungeon simply to hunt enemies and don't kill Kary 2 three times before proceeding you need to EXIT out and then reenter to officially begin your dive.
 
 16

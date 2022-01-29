@@ -31,6 +31,10 @@
 			<select name="squareSetId">
 				<option value="2">Winter DAB 2022</option>
 				<option value="1">Winter DAB 2021</option>
+
+				<for-each over="data.square_sets" as="set">
+					<option value="<%=set.id%>">[from user <%=set.creator_name%>] <%=set.name%></option>
+				</for-each>
 			</select></label>
 			<label><span class="label-text">Format</span>
 			<select name="roomFormat">
@@ -77,6 +81,9 @@
 	<h2>Information</h2>
 
 	<p>Tip: you can click headers after the game is locked in to star them for your personal information. You can use this to mark one you intend to complete so it is easier to find at a glance.</p>
+
+	<p><a href="pages/how-to-play">How do I play FFR bingo?</a></p>
+	<p><a href="pages/design-guidelines">How are bingo square sets designed?</a></p>
 
 	<h2>Test / Debugging Links</h2>
 	<!--

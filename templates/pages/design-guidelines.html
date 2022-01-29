@@ -1,0 +1,29 @@
+<main>
+	<h1>Design guidelines for ffr bingo squares</h1>
+
+	<p><i>Opinion of adr</i></p>
+
+	<p>There's two goals (to me, remember this whole document is just one person's opinion) to ffr bingo: to make for competitive races and to showcase parts of the game we don't see as often.</p>
+
+	<p>Competitive races have a simple goal: finish faster than your opponent. When you assign them a challenge row, you'll aim to have them spend more time completing it then you spend completing your own row. If you know a particular player, you might choose a row that doesn't play to their strengths. For example, if you know your opponent likes black belts, you might give them a row that includes "take a white mage to level 25", since that'd throw off their preferred grind.</p>
+
+	<p>Ideally, though, the different rows and columns would be about equal in terms of time on average. If you had a collection of random players, the challenge selection should similarly look random; there shouldn't be one row obviously much slower or faster than another. This would make challenge selection more of a skill - you'd want to base it on your specific opponent - and it helps the second goal of showcasing more of the game, by letting the squares be more equally played.</p>
+
+	<p>To this end, each square is assigned a difficulty level of 1 through 5. On the site, it represents these by "* * *" stars in the details box. The card generator uses this information to try to balance rows, columns, and diagonals - each one of those will have exactly one of each difficulty. (exception: if you create the room and check the "ignore difficulty" box, of course then the generator will ignore it and be fully random! but the normal settings is to respect this and balance it.)</p>
+
+	<p>Of course, this depends on the squares being labeled correctly: the computer just sees the number, it doesn't understand the challenge. So, how can a square designer know what difficulty is fair and accurate?</p>
+
+	<p>This is where the goal of the race helps us: you want to finish faster, so a square that adds more time to your run is going to be more "difficult". Even if the technique itself is very simple, if it would be slower than the way an average racer would do it, that'd mean it is a higher difficulty. For example, "run from all runnable encounters" would be very hard since it would throw off most grinding strategies, causing a big time loss.</p>
+
+	<p>Of course, rando gonna rando, etc., but it should still be reasonable to estimate the amount of time spent on average and base the difficulty on that. My thought is for about every minute it'd take to finish a square, you give it another difficulty square.</p>
+
+	<p>Part of the average calculation would be both how long completing it takes vs the typical alternative, but also the risk of needing a lengthy fetch quest or party wipes. For example, "talk to robots in sky" is relatively simple and not too far out of the way if you're going to Tiamat anyway - probably just one minute out of your way, possibly less. However, consider that you don't have to go to Tiamat in the bingo flags. This square can thus waste a lot more time, since you'll have to hunt down the Chime and the Cube. The rando might give you those on the way. But you might also last-location one of them and end up eating a lot more time. There's no way to know ahead of time, but you can take a rough estimate of how long this would be on average. (In fact, if we had a large enough dataset of games, we might refine this with real world data. But that's a lot of work.)</p>
+
+	<p>That square is, at the time of writing this document, a level 2 difficulty. One level because it is on the way, but a +1 on top of that to try to account for the risk of the cube being out of the way.</p>
+
+	<p>Defeat WarMECH would naturally be higher, since the same Chime+Cube requirement applies, plus the increased level requirement to actually defeat that nuclear robot chicken to hedge the risk of wiping to it and losing another minute or two needing to run back up to try again. The time is not entirely wasted though, since WarMECH gives valuable experience points in the game which can offset time grinding or risk in ToFR. So the designer would want to balance these factors.</p>
+
+	<p>Another thing to consider are squares that should not appear together in a row. Difficulty alone would not give a fair balance if one square is a stepping-stone to another in the same row, since the total time would be less than if you had two entirely separate challenges to complete. The generator lets you put squares into "mutually exclusive groups" that lets a designer ensure they won't appear together. For example, "Bring one character to level 30" and "Bring one character to level 40" are obviously on the same path. So you might put them both in the mutually exclusive group of "{level grinding}", so the generator knows to space them apart. Whether you'd actually do this in any particular case is a judgement call for the designer to make, but another factor to consider and another feature to help you design better sets.</p>
+
+	<p>Once we have the challenges fairly labeled, then it is about make for a fun showcase of the game!</p>
+</main>

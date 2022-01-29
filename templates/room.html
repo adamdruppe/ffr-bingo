@@ -317,12 +317,18 @@
 			ele.style.background = gradientForCheckedState(ele.dataset.playerState|0);
 		}
 
+		var displayDelay = 0;
+
 		source.addEventListener("set", function(event) {
+			setTimeout(function() {
 			squareSetter(true, JSON.parse(processMessage(event.data).eventMessage));
+			}, displayDelay);
 			keepalive();
 		});
 		source.addEventListener("unset", function(event) {
+			setTimeout(function() {
 			squareSetter(false, JSON.parse(processMessage(event.data).eventMessage));
+			}, displayDelay);
 			keepalive();
 		});
 		source.addEventListener("new_seed", reloadPage);
@@ -458,4 +464,25 @@
 
 		chat.scrollTo(0, chat.scrollHeight);
 	</script>
+
+	<div style="margin-top: 3em;">
+		(for restreamers)
+		<input id="displayDelaySlider" type="range" value="0" min="0" max="30000" step="1000" onchange="
+			displayDelay = this.value;
+			this.nextElementSibling.textContent = this.value / 1000;
+			window.sessionStorage.setItem('displayDelay', this.value);
+		" /> <span>0</span> second display delay
+
+		<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			var d = window.sessionStorage.getItem('displayDelay');
+			if(d) {
+				displayDelay = d|0;
+				var dd = document.getElementById("displayDelaySlider");
+				dd.value = displayDelay;
+				dd.nextElementSibling.textContent = displayDelay / 1000;
+			}
+		});
+		</script>
+	</div>
 </main>
