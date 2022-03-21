@@ -1,0 +1,191 @@
+html, body {
+	margin: 0px;
+	padding: 0px;
+	font-family: "chicago", sans-serif;
+	font-size: 18px;
+}
+
+.final-time {
+	display: block;
+}
+
+.final-time + .active-clock {
+	display: none;
+}
+
+.final-time:empty {
+	display: none;
+}
+
+.final-time:empty + .active-clock {
+	display: block;
+}
+
+@font-face {
+	font-family: "chicago";
+	src:
+		local("Chicago"),
+		url("/assets/tracker/chicago.woff2") format("woff2");
+}
+
+.player-0-checked {
+	background-color: #f00;
+	background: linear-gradient(45deg,
+		hsl(0, 100%, 50%) 0%,
+		hsl(0, 100%, 25%) 50%,
+		hsl(0, 100%, 50%) 100%);
+
+}
+.player-1-checked{
+	background-color: #0ff;
+	background: linear-gradient(45deg,
+		#0ff 0%,
+		#077 50%,
+		#0ff 100%);
+}
+.player-2-checked{
+	background-color: #00f;
+	background: linear-gradient(45deg,
+		#00f 0%,
+		#55f 50%,
+		#00f 100%);
+}
+.player-3-checked{
+	background-color: #f0f;
+	background: linear-gradient(45deg,
+		#f0f 0%,
+		#707 50%,
+		#f0f 100%);
+}
+
+
+.tracker i {
+    background-image: url('/assets/tracker/ffr-items-sprite-2021.png');
+    background-size: 500% 1100%;
+    width: 20px;
+    height: 20px;
+    margin: 1px;
+    display: inline-block;
+    opacity: 0.3;
+}
+
+.tracker i.quad-on,
+.tracker i.tri-on,
+.tracker i.on {
+	opacity: 1.0;
+	filter: none;
+}
+
+.earth{background-position: 0 40%;}
+.earth.on{background-position: 0 50%;}
+.fire{background-position: 25% 40%;}
+.fire.on{background-position: 25% 50%;}
+.water{background-position: 50% 40%;}
+.water.on{background-position: 50% 50%;}
+.air{background-position: 75% 40%;}
+.air.on{background-position: 75% 50%;}
+
+.bridge{background-position: 0 60%;}
+.bridge.on{background-position: 0 70%;}
+.canal{background-position: 25% 60%;}
+.canal.on{background-position: 25% 70%;}
+.ship{background-position: 50% 60%;}
+.ship.on{background-position: 50% 70%;}
+.canoe{background-position: 75% 60%;}
+.canoe.on{background-position: 75% 70%;}
+
+.floater{background-position: 100% 60%;}
+.floater.on{background-position: 100% 70%;}
+.floater.tri-on{background-position: 100% 80%;}
+
+.crown{background-position: 0 0;}
+.key{background-position: 25% 0;}
+.lute{background-position: 50% 0;}
+
+.crystal{background-position: 0% 30%;}
+.herb{background-position: 100% 0;}
+.tnt{background-position: 0 10%;}
+.ruby{background-position: 25% 10%;}
+
+.tail{background-position: 50% 10%;}
+.bottle{background-position: 75% 10%;}
+.adamant{background-position: 75% 0px;}
+
+.slab{background-position: 50% 30%;}
+.slab.on{background-position: 75% 30%;}
+.slab.tri-on{background-position: 100% 30%;}
+
+.rod{background-position: 0 20%;}
+.oxyale{background-position: 25% 20%;}
+.chime{background-position: 100% 10%;}
+.cube{background-position: 75% 20%;}
+
+.ffmq-items .tracker {
+}
+
+.ffmq-items .tracker i {
+    background-image: url('/assets/tracker/ffmqr-items-sprite.png');
+    background-size: 500% 2000%;
+}
+
+.ffmq-items .sword {background-position: 0% 0%;}
+.ffmq-items .sword.on {background-position: 0% 0%;}
+.ffmq-items .sword.tri-on {background-position: 0% 5%;}
+.ffmq-items .sword.quad-on {background-position: 0% 10%;}
+
+.ffmq-items .axe {background-position: 25% 0%;}
+.ffmq-items .axe.on {background-position: 25% 0%;}
+.ffmq-items .axe.tri-on {background-position: 25% 5%;}
+.ffmq-items .axe.quad-on {background-position: 25% 10%;}
+
+.ffmq-items .claw {background-position: 50% 0%;}
+.ffmq-items .claw.on {background-position: 50% 0%;}
+.ffmq-items .claw.tri-on {background-position: 50% 5%;}
+.ffmq-items .claw.quad-on {background-position: 50% 10%;}
+
+.ffmq-items .bomb {background-position: 75% 0%;}
+.ffmq-items .bomb.on {background-position: 75% 0%;}
+.ffmq-items .bomb.tri-on {background-position: 75% 5%;}
+.ffmq-items .bomb.quad-on {background-position: 75% 10%;}
+
+.ffmq-items .helm {background-position: 0% 15%;}
+.ffmq-items .helm.on {background-position: 0% 15%;}
+.ffmq-items .helm.tri-on {background-position: 0% 20%;}
+.ffmq-items .helm.quad-on {background-position: 0% 25%;}
+
+.ffmq-items .armor {background-position: 25% 15%;}
+.ffmq-items .armor.on {background-position: 25% 15%;}
+.ffmq-items .armor.tri-on {background-position: 25% 20%;}
+.ffmq-items .armor.quad-on {background-position: 25% 25%;}
+
+.ffmq-items .shield {background-position: 50% 15%;}
+.ffmq-items .shield.on {background-position: 50% 15%;}
+.ffmq-items .shield.tri-on {background-position: 50% 20%;}
+.ffmq-items .shield.quad-on {background-position: 50% 25%;}
+
+.ffmq-items .amulet {background-position: 75% 15%;}
+.ffmq-items .amulet.on {background-position: 75% 15%;}
+.ffmq-items .amulet.tri-on {background-position: 75% 20%;}
+.ffmq-items .amulet.quad-on {background-position: 75% 25%;}
+
+.ffmq-items .elixir {background-position: 0% 30%; }
+.ffmq-items .tree-wither {background-position: 25% 30%; }
+.ffmq-items .wakewater {background-position: 50% 30%; }
+.ffmq-items .venus-key {background-position: 75% 30%; }
+
+.ffmq-items .multi-key {background-position: 0% 35%; }
+.ffmq-items .mask {background-position: 25% 35%; }
+.ffmq-items .magic-mirror {background-position: 50% 35%; }
+.ffmq-items .thunder-rock {background-position: 75% 35%; }
+
+.ffmq-items .captain-cap {background-position: 0% 40%; }
+.ffmq-items .libra-crest {background-position: 25% 40%; }
+.ffmq-items .gemini-crest {background-position: 50% 40%; }
+.ffmq-items .mobius-crest {background-position: 75% 40%; }
+
+.ffmq-items .sand-coin {background-position: 0% 45%; }
+.ffmq-items .river-coin {background-position: 25% 45%; }
+.ffmq-items .sun-coin {background-position: 50% 45%; }
+.ffmq-items .sky-coin {background-position: 75% 45%; }
+
+

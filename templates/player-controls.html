@@ -11,3 +11,15 @@
 		<button type="submit">Swap Colors</button>
 	</form>
 </if-true>
+<if-true cond="data.current_user.id &amp;&amp; !data.locked_in &amp;&amp; (data.roomFormat == 'CoOp') &amp;&amp; (data.can_edit || data.current_user.id == player.id)">
+	<form style="display: inline;" method="POST" action="change-team" onrender="this.populateFrom(json!q{'team': player.team});">
+		<input type="hidden" name="playerId" value="<%=player.id%>" />
+		<select name="team">
+			<option value="0">A</option>
+			<option value="1">B</option>
+			<option value="2">C</option>
+			<option value="3">D</option>
+		</select>
+		<button type="submit">Change Team</button>
+	</form>
+</if-true>

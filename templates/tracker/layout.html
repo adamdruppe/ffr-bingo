@@ -1,0 +1,522 @@
+<main class="ffmq-items layout-2p no-bingo">
+	<style>
+	/* body { transform: scale(0.5) } */
+
+		/*
+		        mode                   <main> class
+			-----------------------------------------
+			mutually exclusive layouts:
+				1p             .layout-1p (not implemented)
+				2p             .layout-2p
+				3p/4p          .layout-4p (please note child #ffr-layout.p4-showing)
+
+			bingo:
+				[ ] hide bingo .no-bingo
+
+			Tracker (independent of previous groups):
+				FF1            .ff1-items
+				FFMQ           .ffmq-items
+			Images (independent again):
+				whatever decorations
+		*/
+
+		* {
+			box-sizing: border-box;
+		}
+
+		#ffr-layout {
+			width: 1280px;
+			height: 720px;
+			background-image: url("/assets/tracker/background-chopped-3p.webp");
+
+			color: white;
+			position: relative;
+		}
+
+		#ffr-layout.p4-showing {
+			background-image: url("/assets/tracker/background-chopped-4p.webp");
+		}
+
+		#loading-screen {
+			background-image: url("/assets/tracker/loading_screen.webp");
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+			white-space: pre;
+			z-index: 1000;
+		}
+
+		.transparent {
+			background: transparent;
+		}
+
+		.box {
+			border: ridge 3px white;
+			border-radius: 2px;
+		}
+
+		.gameplay {
+			position: absolute;
+		}
+
+		.name {
+			white-space: nowrap;
+		}
+
+		.name, .tracker {
+			background-color: #008;
+		}
+
+		.position {
+			background-color: black;
+		}
+
+		.winner {
+			background-color: black;
+			font-size: 22px;
+			padding: 4px 20px;
+			display: none;
+		}
+
+		.tracker > img {
+			height: 20px;
+			width: 20px;
+			margin: 1px;
+		}
+
+		[class|=positioned] > * {
+			position: absolute;
+			--x: 4px;
+			--y: 4px;
+		}
+
+		.positioned-ul > * {
+			left: var(--x);
+			top: var(--y);
+		}
+		.positioned-ur > * {
+			right: var(--x);
+			top: var(--y);
+		}
+		.positioned-bl > * {
+			left: var(--x);
+			bottom: var(--y);
+		}
+		.positioned-br > * {
+			right: var(--x);
+			bottom: var(--y);
+		}
+
+		.positioned-ur .name,
+		.positioned-br .name {
+			text-align: right;
+			padding-right: 2px;
+		}
+
+		.clock {
+			background-color: black;
+		}
+
+		.comms {
+			background-color: black;
+		}
+
+		.comms > div {
+			display: none;
+		}
+
+		.gameplay.finished {
+			background: url("/assets/tracker/bridge-scene-nes.png");
+			background-size: cover;
+		}
+
+		.bingo {
+			background-color: black;
+		}
+
+		/* *************** */
+
+		.bingo {
+			width: 460px;
+			height: 576px;
+			position: absolute;
+			left: 410px;
+			top: 40px;
+
+			overflow: hidden;
+		}
+
+		.comms {
+			position: absolute;
+			bottom: 40px;
+			left: 515px;
+			width: 270px;
+			height: 60px;
+			padding-top: 4px;
+
+		}
+
+		.name {
+			--x: 408px;
+			height: 32px;
+			width: 220px;
+			font-size: 18px;
+			font-weight: bold;
+		}
+
+		.tracker {
+			font-size: 0px;
+			width: 274px;
+			--x: 130px;
+			--y: 306px;
+			height: 52px;
+		}
+
+		.color {
+			--y: 306px;
+			width: 52px;
+			height: 52px;
+		}
+
+		.clock {
+			--y: 332px;
+			--x: 54px;
+			width: 76px;
+			height: 26px;
+			font-size: 16px;
+			padding: 0px 2px;
+		}
+
+		.position {
+			text-align: center;
+			--y: 306px;
+			--x: 54px;
+			width: 40px;
+			height: 26px;
+			font-size: 13px;
+		}
+
+		.gameplay {
+			--x: 4px;
+			--y: 4px;
+
+			/*
+			width: 256px;
+			height: 240px;
+			*/
+			width: 400px;
+			height: 300px;
+		}
+
+		.winner {
+			--x: 330px;
+			--y: 150px;
+			z-index: 20;
+		}
+
+		/* no bingo */
+
+		.no-bingo .bingo {
+			display: none;
+		}
+
+		.no-bingo .color {
+			display: none;
+		}
+
+		.no-bingo .tracker {
+			--x: 408px;
+			--y: 42px;
+			width: 146px;
+			height: 216px;
+		}
+
+		.no-bingo .tracker i {
+			width: 32px;
+			height: 32px;
+		}
+
+		.no-bingo .clock {
+			--x: 408px;
+			--y: 262px;
+
+			width: 90px;
+			height: 31px;
+			font-size: 20px;
+		}
+
+		.no-bingo .position {
+			--x: 558px;
+			--y: 42px;
+		}
+
+		.no-bingo .comms {
+			bottom: 325px;
+			left: 515px;
+		}
+
+		/* all two player */
+
+		.layout-2p .positioned-bl,
+		.layout-2p .positioned-br {
+			display: none !important;
+		}
+
+		/* two player with bingo */
+
+		.layout-2p #ffr-layout {
+			background-image: url("/assets/tracker/background-chopped-2p-bingo.webp");
+		}
+
+
+		.layout-2p:not(.no-bingo) .positioned-ur > * {
+			left: var(--x);
+			bottom: var(--y);
+
+			right: auto;
+			top: auto;
+
+		}
+
+		.layout-2p .bingo {
+			left: 800px;
+		}
+
+		.layout-2p .comms {
+			bottom: 25px;
+			left: 900px;
+		}
+
+		.layout-2p .color {
+		}
+
+		.layout-2p .tracker {
+			--x: 408px;
+			--y: 42px;
+			width: 146px;
+			height: 216px;
+		}
+
+		.layout-2p .tracker i {
+			width: 32px;
+			height: 32px;
+		}
+
+		.layout-2p .clock {
+			--x: 408px;
+			--y: 262px;
+
+			width: 90px;
+			height: 31px;
+			font-size: 20px;
+		}
+
+		.layout-2p .position {
+			--x: 558px;
+			--y: 42px;
+		}
+
+		/* two player without bingo */
+
+		.layout-2p.no-bingo #ffr-layout {
+			background-image: url("/assets/tracker/background-ffmqr-chopped-2p.webp");
+		}
+
+		.layout-2p.no-bingo .gameplay {
+			width: 560px;
+			height: 420px;
+
+			--y: 70px;
+		}
+
+		.ffmq-items.layout-2p.no-bingo .tracker {
+			--x: 4px;
+			--y: 548px;
+
+			width: 328px;
+			height: 132px;
+		}
+
+		.ffmq-items.layout-2p.no-bingo .tracker i {
+			width: 40px;
+			height: 40px;
+			margin: 0px;
+		}
+
+		.layout-2p.no-bingo .clock {
+			--x: 4px;
+			--y: 498px;
+		}
+		.layout-2p.no-bingo .position {
+			--x: 4px;
+			--y: 40px;
+		}
+		.layout-2p.no-bingo .name {
+			--x: 150px;
+			--y: 30px;
+			text-align: center;
+		}
+		.layout-2p.no-bingo .winner {
+			--x: 450px;
+			--y: 300px;
+		}
+
+		.layout-2p.no-bingo .comms {
+			left: 500px;
+			bottom: auto;
+			top: 4px;
+		}
+	</style>
+
+	<div id="ffr-layout">
+		<div class="positioned-ul">
+			<render-template file="tracker/player-box.html" data="{&quot;player&quot;: 1}" />
+		</div>
+		<div class="positioned-ur">
+			<render-template file="tracker/player-box.html" data="{&quot;player&quot;: 2}" />
+		</div>
+		<div class="positioned-bl">
+			<render-template file="tracker/player-box.html" data="{&quot;player&quot;: 3}" />
+		</div>
+		<div class="positioned-br" style="display: none;" data-property="player-4-showing">
+			<render-template file="tracker/player-box.html" data="{&quot;player&quot;: 4}" />
+		</div>
+
+		<div class="comms box">
+			<div>
+				<img alt="+" width="20" height="20" src="/assets/tracker/sprite.svg#svgView(viewBox(60, 0, 20, 20))" style="
+					position: absolute;
+					left: 2px;
+					top: 14px;
+				" />
+
+				<div style="margin-left: 22px;">
+					<span data-property="comms-1"></span>
+					<br />
+					<span data-property="comms-2"></span>
+				</div>
+			</div>
+
+			<div>
+				<img alt="+" width="20" height="20" src="/assets/tracker/sprite.svg#svgView(viewBox(20, 0, 20, 20))" style="
+					position: absolute;
+					left: 2px;
+					top: 6px;
+				" />
+
+
+				<img alt="+" width="20" height="20" src="/assets/tracker/sprite.svg#svgView(viewBox(40, 0, 20, 20))" style="
+					position: absolute;
+					left: 2px;
+					top: 28px;
+				" />
+
+				<div style="margin-left: 26px;">
+					<span data-property="restreamer"></span>
+					<br />
+					<span data-property="tracker"></span>
+				</div>
+			</div>
+
+		</div>
+
+
+		<div class="bingo box">
+			<iframe
+				style="
+					position: absolute;
+					left: 0px;
+					top: 0px;
+					width: 640px;
+					height: 770px;
+					overflow: hidden;
+					transform: scaleX(0.75) scaleY(0.75);
+					transform-origin: 0 0;
+				"
+				scrolling="no"
+				src="restream?restream#card-container"></iframe>
+		</div>
+
+
+		<div id="loading-screen" style="display: none;" data-property="loading-screen-showing">
+			<div style="
+				position: absolute;
+				left: 80px;
+				top: 130px;
+				width: 405px;
+				height: 240px;
+				color: white;
+				font-size: 32px;
+
+				text-align: center;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			"><span data-property="loading-screen-text"></span>
+			</div>
+		</div>
+	</div>
+
+<script>
+	var data = <%= data %>;
+</script>
+
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+		for(key in data) {
+			var value = data[key];
+			updateTrackerProperty(key, value);
+		}
+	});
+
+	var source = new EventSource("event-stream");
+
+	function reloadPage() {
+		location.reload();
+	}
+
+	var sourceTimeout;
+	function keepalive(period) {
+		if(!period)
+			period = 18000;
+		if(sourceTimeout)
+			clearTimeout(sourceTimeout);
+		sourceTimeout = setTimeout(reloadPage, period);
+	}
+
+	keepalive();
+
+	source.addEventListener("keepalive", function() { keepalive(); });
+
+	source.addEventListener("tracker_update", function(event) {
+		var obj = JSON.parse(event.data);
+
+		updateTrackerProperty(obj.key, obj.value);
+
+		keepalive();
+	});
+
+
+</script>
+
+<script>
+	// comms / tracker rotation
+	var showingCommsCounter = 0;
+	function showingCommsUpdate() {
+		var divs = document.querySelectorAll(".comms > div");
+		for(var i = 0; i < divs.length; i++) {
+			divs[i].style.display = (i == showingCommsCounter) ? 'block' : 'none';
+		}
+		showingCommsCounter = showingCommsCounter ? 0 : 1;
+
+		if(showingCommsCounter)
+			setTimeout(showingCommsUpdate, 60000);
+		else
+			setTimeout(showingCommsUpdate, 15000);
+	}
+	showingCommsUpdate();
+</script>
+
+</main>

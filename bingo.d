@@ -1,7 +1,5 @@
 // FIXME: timestamp on messages should be prettier
 // FIXME: color usernames in chat and mark the room creator with an icon
-// FIXME: don't show opponent's selection until locked in
-// FIXME: let people star rows they intend to do for their own view
 
 module ffr_bingo.main;
 
@@ -19,7 +17,9 @@ alias POST = Cgi.RequestMethod.POST;
 
 enum RoomFormat {
 	OneVsOne,
-	OpenGroup
+	OpenGroup,
+	Solo,
+	CoOp,
 }
 
 void importSet(Sqlite db, string name, string description, string created_by, string text) {
@@ -39,6 +39,25 @@ void importSet(Sqlite db, string name, string description, string created_by, st
 		db.query("INSERT INTO square_set_members (square_set_id, square_id) VALUES (?, ?)", ssid, db.lastInsertId);
 	}
 
+}
+
+void updateSet(Sqlite db, int squareSetId, string text) {
+	import ffr_bingo.data_importer;
+
+	auto squares = importText(text);
+	foreach(existing; db.query("SELECT square_id FROM square_set_members WHERE square_set_id = ? ORDER BY square_id ASC", squareSetId)) {
+		auto square = squares[0];
+		squares = squares[1 .. $];
+		db.query("
+		UPDATE
+			squares
+		SET
+			name = ?,
+			details = ?
+		WHERE
+			id = ?
+		", square.name, square.details, existing["square_id"]);
+	}
 }
 
 Sqlite getDatabase() {
@@ -68,6 +87,7 @@ struct User {
 	string name;
 
 	string selection;
+	int team;
 
 	static User active(Cgi cgi) {
 		if(auto ptr = "sessionId" in cgi.cookies) {
@@ -98,11 +118,114 @@ struct HomeInfo {
 }
 
 class Bingo : WebObject {
+
+	auto analysis() {
+		auto db = getDatabase();
+
+		int[] pods = [
+			52,
+			60,
+			61,
+			62,
+			63,
+			68,
+			69,
+			70,
+			77,
+			79,
+			84,
+			90,
+			94,
+			95,
+			97,
+			103,
+			104,
+			105,
+			107,
+			109,
+			113,
+			115,
+			117,
+			130,
+			131,
+			135
+		];
+
+		int[] blackoutSpecial = [
+			126 // 1v1
+		];
+
+		int[] quarterfinals = [
+			147,
+			149,
+			150,
+			152
+		];
+
+		int[] semis = [
+			153,
+			151
+		];
+
+		int[] finals = [
+			154
+		];
+
+		int[] all = pods ~ blackoutSpecial ~ quarterfinals ~ semis ~ finals;
+
+		import std.string, std.algorithm;
+
+		struct A {
+			string name;
+			int appearances;
+			int setByZeroPlayers;
+			int setByOnePlayer;
+			int setByBothPlayers;
+		}
+		//string[string][] ret;
+		A[] ret;
+		foreach(row; db.query("
+		SELECT
+			name, count(id),
+			sum(player_checked_state == 0),
+			sum(player_checked_state == 1 OR player_checked_state == 2),
+			sum(player_checked_state == 3)
+		FROM
+			room_squares
+		INNER JOIN squares ON squares.id = square_id
+		WHERE
+			room_id in ("~all.map!(to!string).join(",")~")
+		GROUP BY name
+		ORDER BY easiness,name
+		"))
+			//ret ~= row.toAA;
+			ret ~= A(row[0],
+				row[1].to!int,
+				row[2].to!int,
+				row[3].to!int,
+				row[4].to!int,
+			);
+		return ret;
+	}
+
+
+
 	@UrlName("")
 	@Template("home.html")
 	HomeInfo home(User user) {
 		string[string][] ret;
-		foreach(row; getDatabase().query("SELECT * FROM rooms where closed_at is null"))
+		foreach(row; getDatabase().query("
+			SELECT
+				*
+			FROM
+				rooms
+			WHERE
+				closed_at IS NULL
+				AND
+				(format != 2 OR created_by = ?) -- solo rooms are only visible to yourself
+			ORDER BY
+				created_at DESC
+		", user.id))
 			ret ~= row.toAA;
 
 		string[string][] square_sets;
@@ -123,6 +246,13 @@ class Bingo : WebObject {
 		return HomeInfo(ret, user, square_sets);
 	}
 
+	@(Cgi.RequestMethod.CommandLine)
+	string updateSquareSet() {
+		import std.file;
+		updateSet(getDatabase(), 2, readText("data-2021.txt"));
+		return "OK";
+	}
+
 	@AutomaticForm
 	@POST
 	Redirection importSquareSet(User user, string name, Cgi.UploadedFile squaresTxt) {
@@ -135,6 +265,10 @@ class Bingo : WebObject {
 	@AutomaticForm
 	@POST
 	Redirection createRoom(User user, string name, RoomFormat roomFormat, int squareSetId, bool ignoreRarity, bool ignoreDifficulty, uint seed = 0) {
+		return Redirection(createRoomImpl(user, name, roomFormat, squareSetId, ignoreDifficulty, ignoreDifficulty, seed).url);
+	}
+
+	private Room createRoomImpl(User user, string name, RoomFormat roomFormat, int squareSetId, bool ignoreRarity, bool ignoreDifficulty, uint seed = 0) {
 		auto db = getDatabase();
 		db.query("INSERT INTO rooms (name, seed, flags, square_set_id, format, created_by, created_at) VALUES (?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)",
 			name,
@@ -148,6 +282,25 @@ class Bingo : WebObject {
 		auto room = new Room(db.lastInsertId.to!string);
 		room.newSeed(seed);
 
+		if(roomFormat == RoomFormat.Solo) {
+			room.joinGame(user);
+		}
+
+		return room;
+	}
+
+	Redirection async(Cgi cgi, User user, int squareSetId, uint seed, string challenge) {
+		if(user.id == 0) {
+			cgi.setCookie("postLoginRedirect", cgi.getCurrentCompleteUri ~ "?" ~ cgi.queryString, 0, "/", null, true, cgi.https);
+			return loginImpl();
+		}
+		auto db = getDatabase();
+		foreach(found; db.query("SELECT id FROM rooms WHERE seed = ? AND format = ? AND square_set_id = ? AND created_by = ? AND closed_at IS NULL", seed, cast(int) RoomFormat.Solo, squareSetId, user.id))
+			return Redirection((new Room(found["id"])).url);
+
+		auto room = createRoomImpl(user, user.name ~ " async seed", RoomFormat.Solo, squareSetId, false, false, seed);
+		room.assignOpponentChallenge(user, challenge);
+		room.lockIn(user);
 		return Redirection(room.url);
 	}
 
@@ -162,9 +315,11 @@ class Bingo : WebObject {
 	}
 
 	Redirection login(Cgi cgi) {
-
 		cgi.setCookie("postLoginRedirect", cgi.referrer, 0, "/", null, true, cgi.https);
+		return loginImpl();
+	}
 
+	private Redirection loginImpl() {
 		import std.file, arsd.jsvar;
 		var info = var.fromJson(readText("discord.json"));
 		return Redirection(info.authorize_url.get!string);
@@ -208,9 +363,11 @@ class Bingo : WebObject {
 			} else {
 				auto row = result.front;
 				localId = row["id"].to!int;
+				/+
 				if(discordUsername != row["display_name"]) {
 					db.query("UPDATE users SET display_name = ? WHERE id = ?", discordUsername, localId);
 				}
+				+/
 			}
 
 			import std.random;
@@ -318,12 +475,17 @@ class Room : WebObject {
 		if(this.closed)
 			this.locked_in = true;
 
-		foreach(player; db.query("SELECT * FROM room_players WHERE room_id = ? ORDER BY player_number", id)) {
+		int idx;
+		foreach(player; db.query("SELECT * FROM room_players WHERE room_id = ? ORDER BY team, player_number", id)) {
 			// FIXME: n+1 nonsense again
 			players ~= User.load(player["player_id"].to!int);
 			players[$-1].selection = player["challenge_selection"];
+			if(roomFormat == RoomFormat.CoOp)
+				players[$-1].team = player["team"].length ? player["team"].to!int : idx;
+			else
+				players[$-1].team = idx;
 			player_selections ~= player["challenge_selection"];
-
+			idx++;
 		}
 
 		this.essName = "ffr_bingo/" ~ row["id"];
@@ -347,8 +509,25 @@ class Room : WebObject {
 		return playerNumber;
 	}
 
+	private int playerTeam(User who) {
+		if(roomFormat == RoomFormat.CoOp) {
+			int t = -1;
+			foreach(number, player; players)
+				if(player.id == who.id) {
+					t = player.team;
+					break;
+				}
+			return t;
+		} else {
+			return playerNumber(who);
+		}
+	}
+
 	@POST
 	void assignOpponentChallenge(User currentUser, string challenge) {
+		if(roomFormat == RoomFormat.CoOp)
+			throw new Exception("Challenges don't work in co op mode yet (try playing coop blackout bingo!)."); // FIXME
+
 		if(this.locked_in)
 			throw new Exception("The room is already locked.");
 		if(currentUser.id == 0)
@@ -425,6 +604,98 @@ class Room : WebObject {
 		EventSourceServer.sendEvent(essName, "clock_update", msg.toJson(), 0);
 	}
 
+	@POST
+	void trackerUpdate(User who, string key, string value) {
+		// FIXME: security check based on something appropriate
+		if(who.id <= 0 || who.id > 42)
+			throw new Exception("unauthorized user");
+
+		auto dbvalue = value;
+		auto db = getDatabase();
+
+		if(key == "clock") {
+			// this means the tracker adjusted the time, we need to store this
+			// and update clock-running to reset it to the present as well if it is running.
+			db.query("UPDATE room_tracking SET v = ? WHERE room_id = ? AND k = 'clock-running' AND v != 'off'", MonoTime.currTime.ticks, id);
+		} else if(key == "clock-running") {
+			// the JS just says on/off but we need to know when it was started
+			// to give clock things later
+			if(value == "on") {
+				dbvalue = to!string(MonoTime.currTime.ticks);
+			} else if(value == "off") {
+				// need to update the clock value, this pauses it, so gotta add the elapsed time to the db
+				long clockStarted;
+				foreach(row; db.query("SELECT v FROM room_tracking WHERE room_id = ? AND k = 'clock-running'", id)) {
+					if(row[0].length && row[0] != "off")
+						clockStarted = row[0].to!long;
+				}
+
+				if(clockStarted) {
+					auto ticksElapsed = ((MonoTime.currTime.ticks - clockStarted) / (MonoTime.ticksPerSecond / 1000));
+					db.query("UPDATE room_tracking SET v = v + ? WHERE room_id = ? AND k = 'clock'", ticksElapsed, id);
+				}
+			}
+
+		}
+
+		db.query("INSERT INTO room_tracking (room_id, k, v) VALUES (?, ?, ?) ON CONFLICT(room_id, k) DO UPDATE SET v = ?", id, key, dbvalue, dbvalue);
+		var msg = var.emptyObject;
+		msg.key = key;
+		msg.value = value;
+		EventSourceServer.sendEvent(essName, "tracker_update", msg.toJson(), 0);
+	}
+
+	@Skeleton("tracker/skeleton.html")
+	@Template("tracker/tracker.html")
+	@RemoveTrailingSlash
+	MultipleResponses!(string[string], Redirection) tracker(User who) {
+
+		if(who.id == 0)
+			return typeof(return)(Redirection("/login"));
+
+		string[string] kv;
+
+		long clock_started;
+		long clock_ticks;
+
+		foreach(row; getDatabase.query("SELECT k, v FROM room_tracking WHERE room_id = ?", id)) {
+			if(row["k"] == "clock") {
+				if(row["v"].length)
+					clock_ticks = row["v"].to!long;
+			} else if(row["k"] == "clock-running") {
+				if(row["v"].length && row["v"] != "off")
+					clock_started = row["v"].to!long;
+			} else {
+				kv[row["k"]] = row["v"];
+			}
+		}
+
+		if(clock_started) {
+			auto ticksElapsed = ((MonoTime.currTime.ticks - clock_started) / (MonoTime.ticksPerSecond / 1000));
+			kv["clock-running"] = "on";
+			kv["clock"] = to!string(clock_ticks + ticksElapsed);
+		} else {
+			kv["clock-running"] = "off";
+			kv["clock"] = to!string(clock_ticks);
+		}
+
+		return typeof(return)(kv);
+	}
+
+	@Skeleton("tracker/skeleton.html")
+	@Template("tracker/layout.html")
+	@RemoveTrailingSlash
+	MultipleResponses!(string[string], Redirection) layout(User who) {
+		who = User.load(1); // FIXME
+		return tracker(who);
+	}
+
+
+	@Template("room.html")
+	RoomHome restream(User currentUser) {
+		return home(currentUser);
+	}
+
 	private void sendClockUpdate() {
 		sendClockUpdate(initialClockTicks, clockRunning);
 	}
@@ -437,7 +708,7 @@ class Room : WebObject {
 		if(player.id == 0)
 			throw new Exception("You aren't logged in");
 
-		auto playerNumber = this.playerNumber(player);
+		auto playerNumber = this.playerTeam(player);
 		if(playerNumber == -1)
 			throw new Exception("You aren't a registered player in the room");
 
@@ -460,20 +731,47 @@ class Room : WebObject {
 	}
 
 	@POST
+	Redirection changeTeam(User user, int playerId, int team) {
+		auto db = getDatabase();
+
+		if(user.id == 0)
+			return Redirection("/login");
+
+		if(this.locked_in)
+			throw new Exception("Cannot change team because the room is already locked in");
+
+		// FIXME: permission check
+
+		db.query("UPDATE room_players SET team = ? WHERE room_id = ? AND player_id = ?", team, id, playerId);
+
+		var v = var.emptyObject;
+		v.player = playerId;
+		v.team = team;
+
+		recordEvent(user, EventType.team_changed, v.toJson());
+
+		return reload;
+	}
+
+	@POST
 	Redirection joinGame(User user) {
 		if(user.id == 0)
 			return Redirection("/login");
 
 		auto db = getDatabase();
 
-		// FIXME: if player already in don't rejoin them
+		// if player already in don't rejoin them
+		if(playerNumber(user) != -1)
+			return reload;
 
-		db.query("INSERT INTO room_players (room_id, player_id, challenge_selection, player_number) VALUES (?, ?, null, (
+		db.query("INSERT INTO room_players (room_id, player_id, challenge_selection, player_number, team) VALUES (?, ?, null, (
 			SELECT count(*) FROM room_players WHERE room_id = ?
-		))", id, user.id, id);
+		), ?)", id, user.id, id, 0);
 
 		import std.conv;
 		recordEvent(user, EventType.joined, "as player " ~ to!string(players.length + 1)); // FIXME
+
+		players ~= user;
 
 		// FIXME
 		if(0) {
@@ -495,7 +793,7 @@ class Room : WebObject {
 		db.query("DELETE FROM room_players WHERE room_id = ? AND player_id = ?", id, playerId);
 
 		import std.conv;
-		recordEvent(currentUser, EventType.quit, " player " ~ to!string(playerId));
+		recordEvent(currentUser, EventType.quit, " playing");
 
 		return reload;
 	}
@@ -589,7 +887,8 @@ class Room : WebObject {
 	}
 
 	private Element feedHtml(User who, string createdAt, string inGameTime, EventType eventType, string eventMessage) {
-		string message;
+		string message; // %u to who.name. %m to details
+		string details;
 
 		bool preferGameClock;
 
@@ -597,45 +896,54 @@ class Room : WebObject {
 			case EventType.NULL:
 			break;
 			case EventType.new_seed:
-				message = who.name ~ " reset the seed";
+				message = "%u reset the seed";
 			break;
 			case EventType.lock_in:
-				message = who.name ~ " locked in the game settings";
+				message = "%u locked in the game settings";
 			break;
 			case EventType.joined:
-				message = who.name ~ " joined " ~ eventMessage;
+				message = "%u joined %m";
+				details = eventMessage;
 			break;
 			case EventType.quit:
-				message = who.name ~ " is no longer " ~ eventMessage;
+				message = "%u is no longer %m";
+				details = eventMessage;
 			break;
 			case EventType.set:
 				var o = var.fromJson(eventMessage);
-				message = who.name ~ " set square " ~ o.square.get!string;
+				message = "%u set square %m";
+				details = o.square.get!string;
 				preferGameClock = true;
 			break;
 			case EventType.unset:
 				var o = var.fromJson(eventMessage);
-				message = who.name ~ " unset square " ~ o.square.get!string;
+				message = "%u unset square %m";
+				details = o.square.get!string;
 				preferGameClock = true;
 			break;
 			case EventType.chat_message:
-				message = who.name.htmlEntitiesEncode ~ ": " ~ eventMessage.htmlEntitiesEncode;
+				message = "%u: %m";
+				details = eventMessage;
 			break;
 			case EventType.set_challenge:
-				message = who.name ~ " chose a challenge";
+				message = "%u chose a challenge";
 			break;
 			case EventType.room_closed:
-				message = who.name.htmlEntitiesEncode ~ " closed the room.";
+				message = "%u closed the room.";
 			break;
 			case EventType.swapped:
-				message = "Players just swapped colors at "~who.name.htmlEntitiesEncode~"'s request.";
+				message = "Players just swapped colors at %u's request.";
 			break;
 			case EventType.clock_reset:
-				message = "Clock reset";
+				message = "%u reset the clock";
 			break;
 			case EventType.clock:
 				var o = var.fromJson(eventMessage);
-				message = "Clock " ~ o.state.get!string;
+				message = "Clock %m";
+				details = o.state.get!string;
+			break;
+			case EventType.team_changed:
+				message = "%u changed teams";
 			break;
 		}
 
@@ -669,7 +977,10 @@ class Room : WebObject {
 
 			e.appendText(" ");
 		}
-		e.appendHtml(message);
+		e.appendHtml(message.multiReplace(
+			"%u", `<span class="who">`~who.name.htmlEntitiesEncode~`</span>`,
+			"%m", details.htmlEntitiesEncode
+		));
 		return e;
 	}
 
@@ -714,6 +1025,7 @@ class Room : WebObject {
 		User[] players;
 
 		int current_player_number;
+		int current_player_team;
 
 		uint seed;
 
@@ -736,7 +1048,7 @@ class Room : WebObject {
 		if(!locked_in) {
 			if(currentUser.id) {
 				if(playerNumber(currentUser) == -1) {
-					if(roomFormat == RoomFormat.OpenGroup) {
+					if(roomFormat == RoomFormat.OpenGroup || roomFormat == RoomFormat.CoOp) {
 						// always room here unless locked
 						can_join = true;
 					} else if(roomFormat == RoomFormat.OneVsOne) {
@@ -770,6 +1082,7 @@ class Room : WebObject {
 
 			// current_player_number
 			playerNumber(currentUser),
+			playerTeam(currentUser),
 
 			seed,
 
@@ -826,15 +1139,22 @@ class Room : WebObject {
 		room_closed,
 		swapped,
 		clock,
-		clock_reset
+		clock_reset,
+		team_changed,
 	}
 }
 
 class Presenter : WebPresenterWithTemplateSupport!Presenter {}
 
+import ffr_bingo.tracker;
+
 mixin DispatcherMain!(Presenter,
 	"/assets/".serveStaticFileDirectory,
 	"/room/".serveApi!Room,
 	"/pages/".serveTemplateDirectory,
+
+	"/assets/tracker/".serveStaticFileDirectory,
+	"/tracker/".serveApi!Tracker,
+
 	"/".serveApi!Bingo,
 );

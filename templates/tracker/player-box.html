@@ -1,0 +1,28 @@
+<div class="name box">
+	<span data-property="player-<%=data.player%>-name"></span> <span data-property="player-<%=data.player%>-pronoun" style="font-size: 50%;"></span>
+</div>
+
+<div data-property-prefix="item-player-<%=data.player%>-" class="tracker box">
+	<render-template file="tracker/item-tracker-fragment.html" />
+</div>
+
+<div data-property="player-<%=data.player%>-team" class="color box">
+	<!-- the color thing -->
+</div>
+
+<div class="clock box">
+	<span class="final-time" data-property="player-<%=data.player%>-time"></span>
+	<span class="active-clock">0:00:00</span>
+</div>
+
+<div class="position box">
+	<span data-property="player-<%=data.player%>-ranking"></span>
+</div>
+
+<div>
+	<!-- the sound on indicator -->
+</div>
+
+<div class="gameplay transparent box"></div>
+
+<div class="winner box" data-property="player-<%=data.player%>-showing-text"><span data-property="player-<%=data.player%>-text">Winner</span></div>

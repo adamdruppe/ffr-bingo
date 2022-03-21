@@ -1,9 +1,4 @@
 
-* note that a tofr run is only when you intending to defeat chaos
-	- you need to light the square as you move past the fiend planning
-	  on fighting chaos, then unlight it if you wipe.
-* you can leave shop to free up inventory then reenter
-
 shoombabi request:
 * can you extend the highlight for the selected row/col to encompass the entirety of 5 boxes maybe in a muted version of the color
 
@@ -12,10 +7,6 @@ shoombabi request:
 	* but let room creator bypass this for blackout bingo for example
 
 * show player colors in the chat and bold the username in chat messages (but not in update messages)
-
-* fix "null" in arsd.sqlite and remove those hax.
-
-* TEST THIS ---- put the mutext group in the text file somehow
 
 * TEST THIS room timer
 	- resync periodically with events
@@ -43,7 +34,6 @@ shoombabi request:
 
 * right click to private star something you intend to do.......
 
-
 * show bingos on the player list or something (maybe with a note if they did
   the required one)
 
@@ -51,5 +41,77 @@ shoombabi request:
 
 * turn off display of other players.
 
-
 * flag to ignore mutex group.
+
+* can do random challenges in the room flags maybe
+
+* a link to open a room with pre-filled settings.
+
+* try out the browser capture i might make it auto-size and crop.
+
+* count bingos on screen for easier commentation etc
+
+* Alternate views, like list of squares you need to finish bingos
+
+
+* make the delay remember for restreamers, just players get zero defualt.
+
+
+
+* Walk from coneria to elfland and Defeat 3 sahags should be swapped in
+  difficulty.
+
+* name reset the seed is buggy.
+* swap players back for the room opener.
+
+
+* "is no longer player X" from quit has the wrong variable in the message
+* discord username liable to reset if manually adjusted on next log in.
+* change Shinryu TO LordFizzlebeef
+
+* warn if locked in without people picking challenges
+
+
+* restream mode to trim the output and set a delay
+
+* co-op bingo
+	- each player gets a team
+	- challenge always just goes to other team if present
+	- teams light/unlight for themselves
+* idempotency in the swap
+
+
+* winter theme with demon's mountains
+
+* triple triad bingo
+
+* chase bingo - opponent gets one, you must too. at least until the first
+  bingo on either plaer's side
+
+
+
+
+* let players turn off all colors and just show them vs any other on their own
+  display
+
+
+* announce bingos in the chat
+
+* the corners plus the middle are mathematically a bingo too......
+
+
+
+darkmoon's old colors:
+
+.bingo-red{background-color: #ff4944;}
+.bingo-orange{background-color: #ff9c12;}
+.bingo-blue{background-color: #409cff;}
+.bingo-green{background-color: #31d814;}
+.bingo-purple{background-color: #822dbf;}
+.bingo-white{background-color: #fff;}
+.bingo-navy{background-color: #0d48b5;}
+.bingo-teal{background-color: #419695;}
+.bingo-brown{background-color: #ab5c23;}
+.bingo-pink{background-color: #ed86aa;}
+.bingo-yellow{background-color: #d8d014;}
+.bingo-black{background-color: #000;}

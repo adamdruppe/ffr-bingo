@@ -1,0 +1,63 @@
+<main>
+	<h1>Make an async link</h1>
+
+	<p>An async link is something you can share with players that creates a solo game for them with the parameters you give here. When they click it, they're brought right into a private room with these settings.</p>
+
+	<p>This lets everyone play the same board, just by themselves, like we do for weekly async games on the discord.</p>
+
+	<p>I'll make this a bit more user friendly later, but best thing to do is probably to open a solo room so you can see the card. Copy/paste the seed number out of the room over to here, then select the challenge you want to force on everyone with the drop down.</p>
+
+	<form action="/async" method="GET" onsubmit="asynchelper(this); return false;">
+		Square set:
+		<br />
+		<select name="squareSetId">
+			<option value="2">Winter 2021-2022 DAB</option>
+		</select>
+
+		<br /><br />
+
+		Seed:
+		<br />
+		<input type="text" name="seed" />
+
+		<br /><br />
+
+		Forced challenge:
+		<br />
+		<select name="challenge">
+			<option>TL-BR</option>
+			<option>BL-TR</option>
+			<option>C-1</option>
+			<option>C-2</option>
+			<option>C-3</option>
+			<option>C-4</option>
+			<option>C-5</option>
+			<option>R-1</option>
+			<option>R-2</option>
+			<option>R-3</option>
+			<option>R-4</option>
+			<option>R-5</option>
+		</select>
+
+		<br /><br />
+
+		<button type="submit">Get link to share</button>
+	</form>
+
+	<p>(when you get the link, right click and "copy link", since clicking it will bring you straight into a room made just for you)</p>
+
+	<a id="link"></a>
+
+	<script>
+	function asynchelper(form) {
+		var data = new FormData(form);
+		var search = new URLSearchParams(data);
+
+		var url = form.action + "?" + search.toString();
+
+		var l = document.getElementById("link");
+		l.textContent = url;
+		l.href = url;
+	}
+	</script>
+</main>

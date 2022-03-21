@@ -1,12 +1,12 @@
 1
 Visit Every Room on Lich 1 Floor - This is the floor with the Lich Boss tile in Earth Cave.
 Talk to 7 Dwarves in Dwarf Cave - Any 7 dwarves, take your pick. Hurray!
-Visit Bahamut - You do not need the TAIL, just talk to the main dragon.
+Visit Bahamut - You do not need the TAIL, just talk to the main dragon. {bahamut}
 
 2
-Garland Boxing - Defeat garland with only unarmed punches. Buffs/debuffs are allowed, but no direct damage or instant death spells, and no weapons.
-Kill 4 Different Wolves OR 15 Total Wolves - Wolf, GrWolf, WrWolf, and FrWolf all count.
-Open every chest on Earth 3 - This is the floor with the Rod plate. Five chests total.
+Garland Boxing - Defeat garland with only unarmed punches. Buffs/debuffs and CONF are allowed, but no direct damage or instant death spells, and no weapons.
+Defeat 4 Different Wolves OR 15 Total Wolves - Wolf, GrWolf, WrWolf, and FrWolf all count. A monster is "defeated" as soon as it is terminated or runs away from you. You do not need to finish the battle.
+Open every chest on Earth 3 - This is the floor with the Rod plate. Five chests total. A chest is still open even if you can't hold the item and remains open if you wipe or reset out as long as you press A on each chest during the course of the seed.
 Inspect All of Sarda's Furniture - Press A on each tile that contains a vase, bed, stool, etc.
 
 3
@@ -18,115 +18,115 @@ Buy Everything at the Caravan - Purchase one of each item available at the hidde
 
 4
 Collect and Keep a Copper, Silver, and Gold Bracelet - You must hold on to these through the end boss fight to retain the square as completed.
-Talk to 9 Mermaids - These ladies are traditionally found on the right side path, top floor, in the floor full of chests. Any 9 different mermaids on this floor.
-Kill 4 Different Zombies OR 15 Total Zombies - Ghoul, Gheist, Zombie, and Specter all count.
+Talk to 9 Mermaids - These ladies are traditionally found on the right side path, top floor, in the floor full of chests. Any 9 different mermaids on this floor. {mermaids}
+Defeat 4 Different Zombies OR 15 Total Zombies - Ghoul, Geist, Zombie, and Specter all count. A monster is "defeated" as soon as it is terminated or runs away from you. You do not need to finish the battle.
 Save in the Lake North of Waterfall - To reach the lake, go to Waterfall, walk in, walk out, and then go UP from the entrance. You must use a save item; you may not reset out once you reach the lake.
 
 5
 Melee the Pirates - Defeat the pirates with no offensive spells. Buffs/debuffs are allowed, but no direct damage or instant death spells. All weapons (but not the spells they may cast) are allowed.
-Kill 3 Different Ogres OR 12 Total Ogres - Ogre, GrOgre, and WzOgre all count.
-Visit Every Room on Kraken 1 Floor - This is the floor with the Kraken Boss tile in Sea Shrine.
-Defeat 2 Cobras AND 2 Asps with a STAFF melee attack - Any staff with do, so long as it's used for its melee attack and not a spell it may be able to cast.
+Defeat 3 Different Ogres OR 12 Total Ogres - Ogre, GrOgre, and WzOgre all count. A monster is "defeated" as soon as it is terminated or runs away from you. You do not need to finish the battle.
+Collect and Keep a Wood, Iron, and Steel Armor - You must hold on to these through the end boss fight to retain the square as completed. {armor}
+Step on Every Cardia Islands Tile on the Overworld - You must visit each Cardia island (Forest, Swamp, Grass, Tiny, and Double-Cave) and step on every tile of each island.
 
 6
-Collect and Keep a Wood, Iron, and Steel Armor - You must hold on to these through the end boss fight to retain the square as completed.
-Collect and Keep Gloves, Cap, Buckler, and Cloth - You must hold on to these through the end boss fight to retain the square as completed.
+Defeat 2 Cobras AND 2 Asps with a STAFF melee attack - Any staff with do, so long as it's used for its melee attack and not a spell it may be able to cast.
+Visit Every Room on Kraken 1 Floor - This is the floor with the Kraken Boss tile in Sea Shrine.
+Collect and Keep Gloves, Cap, Buckler, and Cloth - You must hold on to these through the end boss fight to retain the square as completed. {armor}
 Visit Every Room on Kary 1 Floor - This is the floor with the Kary Boss tile in Gurgu Volcano.
-Step on Every Cardia Islands Tile on the Overworld - You must visit each Cardia island (Forest, Swamp, Grass, Tiny, and Double-Cave) and step on every tile of each island.
 Kill at Least 3 Party Members with Damage Tiles - Dan whoever you want, as long as they kiss dirt. All three must go down simultaneously, even if this would wipe your party.
 Take the Grand Tour of Mirage 1 - Instead of going into the Mirage one treasury, through the door, go around the outside of the whole floor of Mirage, exterior door to exterior door. You may then proceed through the dungeon, or exit, once you've accomplished this long walk.
 
 7
-Defeat Lich 1 - You can kill the boss any way you choose, but they must die.
-Kill 4 Different Ghosts OR 15 Total Ghosts - Ghost, Image, Wraith, and Shadow all count.
+Defeat Lich 1 - You can kill the boss any way you choose, but they must die. {lich}
+Defeat 4 Different Ghosts OR 15 Total Ghosts - Ghost, Image, Wraith, and Shadow all count. A monster is "defeated" as soon as it is terminated or runs away from you. You do not need to finish the battle.
 Talk to 10 Bats in Earth Cave - You may talk to any 10 different bats across all of the Earth Cave floors.
-Kill 4 Different Slimes OR 15 Total Slimes - Scum, Muck, Ooze, and Slime (aka MtlSlime) all count.
+Defeat 4 Different Slimes OR 15 Total Slimes - Scum, Muck, Ooze, and Slime (aka MtlSlime) all count. A monster is "defeated" as soon as it is terminated or runs away from you. You do not need to finish the battle.
 Talk to All of the Robots in Mirage/Sky - There are 4 robots total (1 on Mirage 1, 1 on Mirage 2, 1 on Mirage 3, and 1 on Sky 3. The patrolling robot on Sky 4 (which could be a WarMECH) is not necessary.
 
 8
 Walk the Hall of Giants - The Hall of Giants is the long loop found (traditionally) on the left side of Earth 1. You must walk from one end of this trap tile-filled hallways to the other, north to south (or south to north if you feel saucy).
-Kill 3 Different Sahags - Sahag, R.Sahag, and WzSahag all count.
+Defeat 3 Different Sahags - Sahag, R.Sahag, and WzSahag all count. A monster is "defeated" as soon as it is terminated or runs away from you. You do not need to finish the battle.
 Examine All Computers in Sky 3 - Press A on each accessible computer tile in the 2 rooms on the south part of floor 3 in the Sky Palace.
 Defeat Every Trap Tile in Ordeals - There are three trap tiles (1 in the pillar maze, 1 at the start of the big room on Ordeals 3, and 1 at the throne of Ordeals 3) and you must fight, and defeat, each of them. Enemies running from you is fine, but to make progress on the tile, you cannot run from the encounter.
 
 9
 Defeat Kary 1 - You can kill the boss any way you choose, but they must die.
-Throw Masmune Into Space (3F Window) - Drop the Masmune while standing in front of the space window on Sky 3 floor. You must save this to keep the square and may not reset out of it after; you are throwing masa away for good.
-Sell a Ribbon and then Save - You must save after selling the Ribbon as you are selling it for good. You may not reset out of this or if you make a new game and reroll party, you must unlight the square.
-Kill 4 Different Dinosaurs OR 15 Total Dinosaurs - Tyro, TRex, Ankylo, and R.Ankylo all count.
+Defeat Tiamat 1 - You can kill the boss any way you choose, but they must die. {tiamat}
+See a Fire-elemental Skill or Spell - A spell is "seen" when an enemy uses it in battle. HEAT, SCORCH, BLAZE, INFERNO, CREMATE, FIRE, FIR2, and FIR3 all count if cast by an enemy. NUKE and NUCLEAR are non-elemental and do not count (no matter how much science you try to bring to the argument).
+Defeat 4 Different Dinosaurs OR 15 Total Dinosaurs - Tyro, TRex, Ankylo, and R.Ankylo all count. A monster is "defeated" as soon as it is terminated or runs away from you. You do not need to finish the battle.
+Defeat 4 Different Dragons OR 12 Total Dragons - ZombieD, FrostD, RedD, BlueD, and GasD all count. A monster is "defeated" as soon as it is terminated or runs away from you. You do not need to finish the battle.
 
 10
-Kill 3 Different Lizards or 12 Total Lizards - Agama, Iguana, and Sauria all count.
+Defeat 3 Different Lizards or 12 Total Lizards - Agama, Iguana, and Sauria all count. A monster is "defeated" as soon as it is terminated or runs away from you. You do not need to finish the battle.
 Spend 100,000G in One Town Visit - You can spend this in multiple shops, or multiple visits to a shop, so long as you do it all in a single shopping trip. Buy and sell as much as you need to so you reach the goal. You must save after completing this goal and may not reset out of it after.
 Visit Every Room in Marsh 3 - This is the floor full of small rooms with chests, traditionally called "Marsh Bottom". You must visit all of them, including the keylocked rooms. 16 rooms total.
-Open Every Chest on TFC and Mermaid Floors - There are 5 chests on the TFC floor (right side Sea Shrine, middle floor) and an additional 13 chests on Mermaids (right side Sea Shrine top floor). You must open all of them, 18 chests total.
+Open Every Chest on TFC and Mermaid Floors - There are 5 chests on the TFC floor (right side Sea Shrine, middle floor) and an additional 13 chests on Mermaids (right side Sea Shrine top floor). You must open all of them, 18 chests total. A chest is still open even if you can't hold the item and remains open if you wipe or reset out as long as you press A on each chest during the course of the seed. {mermaids}
 
 11
-Defeat Kraken 1 - You can kill the boss any way you choose, but they must die.
+Defeat Kraken 1 - You can kill the boss any way you choose, but they must die. {kraken}
 Defeat Every Trap Tile in Ice Cave - There are 5 unique trap tiles in Ice Cave (the Mage tile guarding the right side of the trio on Ice B2, the undead tile after the drop, the Ice Dragon tile guarding the top-left room on Ice B3, the FrWolf tile on B3, and the Eye tile on B2) and you must defeat each of them. Enemies running from you is fine, but to make progress on the tile, you cannot run from the encounter.
 Purchase 5 HP-Restoring Spells - Must be 5 different spells from among the Cure and Heal families (CURE, CUR2, CUR3, CUR4, HEAL, HEL2, and/or HEL3). Life spells (LIFE and LIF2) and the Heal Helm/Heal Staff do not count. Must be unique spells; buying the same spells on multiple casters does not count as "different" spells.
 
 12
 Purchase a Spell from Levels 1 through 7 - You only need one spell, from either spell book, at each level. May require class change to complete. {spell-purchase}
-You Must Promote, but After Level 25 - Promotion is required for your party, but only after all the party members you've taken have reached Level 25.
-Defeat Lich 2 Three Times on Every ToFR Run - A "ToFR Run" is defined as a dive with the intent to kill Chaos. If you're in the dungeon simply to hunt enemies and don't kill Lich 2 three times before proceeding you need to EXIT out and then reenter to officially begin your dive.
+You Must Promote, but After Level 25 - Promotion is required for your party, but only after all the party members you've taken have reached Level 25. {bahamut}
+Sell a Ribbon and then Save - You must save after selling the Ribbon as you are selling it for good. You may not reset out of this or if you make a new game and reroll party, you must unlight the square.
 
 13
-See a Fire-elemental Skill or Spell - HEAT, SCORCH, BLAZE, INFERNO, CREMATE, FIRE, FIR2, and FIR3 all count if cast by an enemy. NUKE and NUCLEAR are non-elemental and do not count (no matter how much science you try to bring to the argument).
-Defeat Tiamat 1 - You can kill the boss any way you choose, but they must die.
 Using Slow Boat (Hold B), Sail From Pravoka to Crescent Lake's Dock - Pravoka is the second town you visit in the vanilla game (after Coneria) and is found on the northeast section of the Circle Sea, on the Southern Continent. Crescent Lake is the fifth town, found on the southern side of the Southern Continent, and it's dock is east of the town.
 
 14
-Kill 3 Different Worms OR 12 Total Worms - Sand Worm, Gr Worm, and Worm all count.
-Open Every Chest in Ice Cave - There are 3 chests on Ice B2, 8 chests on B3, and 5 on B1 (the south side of the first floor with an exit staircase leading out). You must open all of them, 16 chests total.
+Defeat 3 Different Worms OR 12 Total Worms - Sand Worm, Gr Worm, and Worm all count. A monster is "defeated" as soon as it is terminated or runs away from you. You do not need to finish the battle.
+Open Every Chest in Ice Cave - There are 3 chests on Ice B2, 8 chests on B3, and 5 on B1 (the south side of the first floor with an exit staircase leading out). You must open all of them, 16 chests total. A chest is still open even if you can't hold the item and remains open if you wipe or reset out as long as you press A on each chest during the course of the seed.
 
 15
 Take 1 Black Belt to level 25 - Only needs to be one black belt, unless you want to show off.
-Kill 3 Different Giants OR 12 Total Giants - Giant, R. Giant, and FrGiant all count
+Defeat 3 Different Giants OR 12 Total Giants - Giant, R. Giant, and FrGiant all count. A monster is "defeated" as soon as it is terminated or runs away from you. You do not need to finish the battle.
 Hit Level 30 on at Least One Character - It can be any character, any class, but you must be save after reaching level 30. If you die after your grind but before you save you have to do the grind again. {level}
-Defeat Kary 2 Three Times on Every ToFR Run - A "ToFR Run" is defined as a dive with the intent to kill Chaos. If you're in the dungeon simply to hunt enemies and don't kill Kary 2 three times before proceeding you need to EXIT out and then reenter to officially begin your dive.
 
 16
 Canoe from Elfland to Ice Cave - Start at Elfland Town (the third town you visit in a vanilla run of the game), and then Proceed to Ice Cave via the eastern river system on the Souther Continent. You can reset once finished; saving this achievement after is not required.
 Walk from Coneria to Elfland without saving - Start at Coneria and walk (and/or Canoe) all the way from this starting town around the Circle Sea to Elfland Town (the third town you visit in a vanilla run of the game) without using a save item a single time on the journey. You can reset once finished; saving this achievement after is not required.
 
 17
-Defeat Lich with QAKE - Lich 1 or Lich 2, either is fine. You must use QAKE to strike the killing blow; any other damage spells, as well as melee attacks, do not count.
 Take 1 Thief to Level 25 - Only needs to be one thief, unless you want to show off. You may promote the thief to ninja at any time for this square.
 Defeat 2 Scorpions AND 2 Lobsters with a HAMMER melee attack - Any hammer with do, so long as it's used for its melee attack and not a spell it may be able to cast.
 
 18
 Successfully Confuse Kary - Kary 1 or Kary 2 is fine. May be done with either CONF or the Wizard Staff. You can kill Kary after any way you choose.
+Take 1 None - You must start the game with a None in at least one slot and this slot may never be filled.
 Take 1 White Mage to Level 25 - Only needs to be one white mage, unless you want to show off. You may promote the white mage to wizard at any time for this square.
-Open Every Chest in Sky - There are 10 chests on Sky 1, 10 chests on Sky 2, and 14 on Sky 3. You must open all of them, 34 chests total.
+Open Every Chest in Sky - There are 10 chests on Sky 1, 10 chests on Sky 2, and 14 on Sky 3. You must open all of them, 34 chests total. Mirage chests not included. A chest is still open even if you can't hold the item and remains open if you wipe or reset out as long as you press A on each chest during the course of the seed.
+Throw Masmune Into Space (3F Window) - Drop the Masmune while standing in front of the space window on Sky 3 floor. You must escape the dungeon and save this to keep the square and may not reset out of it after; you are throwing masa away for good.
 
 19
 Hit Level 40 on at Least One Character - It can be any character, any class, but you must be save after reaching level 40. If you die after your grind but before you save you have to do the grind again. {level}
 Walk from Coneria, around the entire inner sea, to Coneria - Start at Coneria and walk (and/or Canoe) all the way from this starting town around the Circle Sea, back to Coneria. Saving during the journey is allowed.
+Defeat Lich 2 Three Times on Every ToFR Run - A "ToFR Run" is defined as a dive with the intent to kill Chaos. If you're in the dungeon simply to hunt enemies and don't kill Lich 2 three times before proceeding you need to EXIT out and then reenter to officially begin your dive. If you wipe, you must unlight this square. {tofr}
 
 20
-Kill 4 Different Dragons OR 12 Total Dragons - ZombieD, FrostD, RedD, BlueD, and GasD all count.
-
-21
-Take 1 None - You must start the game with a None in at least one slot and this slot may never be filled.
-Defeat Kraken with BRAK - Kraken 1 or Kraken 2, either is fine. You must use BRAK to strike the killing blow; any other damage spells, as well as melee attacks, do not count.
-
-22
-Defeat WarMECH - WarMECH is patrolling on Sky 4 and, thus, is guaranteed to appear. Find him an kill him.
-Cast a Spell From Each Level, 1 through 8 - You only need to cast one spell, from either spell book, at each level. May require class change to complete. {spell-purchase}
+Defeat WarMECH - WarMECH is patrolling on Sky 4 and, thus, is guaranteed to appear. Find him and kill him.
 Check Three Kary 2 floor chests - There are four chests in ToFR's fire floor: two to the left under Kary 2 and two to the right. Check any three of them. You can keep this square if you wipe after you check them.
 
+21
+Defeat Lich with QAKE - Lich 1 or Lich 2, either is fine. You must use QAKE to strike the killing blow; any other damage spells, as well as melee attacks, do not count. {lich}
+Defeat Kraken with BRAK - Kraken 1 or Kraken 2, either is fine. You must use BRAK to strike the killing blow; any other damage spells, as well as melee attacks, do not count. {kraken}
+
+22
+Defeat Kary 2 Three Times on Every ToFR Run - A "ToFR Run" is defined as a dive with the intent to kill Chaos. If you're in the dungeon simply to hunt enemies and don't kill Kary 2 three times before proceeding you need to EXIT out and then reenter to officially begin your dive. If you wipe, you must unlight this square. {tofr}
+Cast a Spell From Each Level, 1 through 8 - You only need to cast one spell, from either spell book, at each level, in or out of battle. May require class change to complete. Item magic does NOT count toward this. {spell-purchase}
+
 23
-Defeat Tiamat with BANE - Tiamat 1 or Tiamat 2, either is fine. May be done with either BANE or the Bane Sword, but the spell must strike the killing blow; any other damage spells, as well as melee attacks, do not count.
+Defeat Tiamat with BANE - Tiamat 1 or Tiamat 2, either is fine. May be done with either BANE or the Bane Sword, but the spell must strike the killing blow; any other damage spells, as well as melee attacks, do not count. {tiamat}
 Fill All 24 Spell Slots on One Character - You will have to purchase enough spells to fill all the slots in a character's spell book. Will require class change to complete.
-Defeat Kraken 2 Twice on Every TOFR Run - A "ToFR Run" is defined as a dive with the intent to kill Chaos. If you're in the dungeon simply to hunt enemies and don't kill Kraken 2 twice times before proceeding you need to EXIT out and then reenter to officially begin your dive.
+Defeat Kraken 2 Twice on Every TOFR Run - A "ToFR Run" is defined as a dive with the intent to kill Chaos. If you're in the dungeon simply to hunt enemies and don't kill Kraken 2 twice times before proceeding you need to EXIT out and then reenter to officially begin your dive. If you wipe, you must unlight this square. {tofr}
 
 24
-See 3 Status-elemental Skills or Spells - SLEP, MUTE, DARK, SLOW, HOLD, FEAR, CONF, STUN, BLND, GAZE, FLASH, SNORTING, INK, and DAZZLE all count.
+See 3 Status-elemental Skills or Spells - A spell is "seen" when an enemy uses it in battle. SLEP, MUTE, DARK, SLOW, HOLD, FEAR, CONF, STUN, BLND, GAZE, FLASH, SNORTING, INK, and DAZZLE all count.
 Hit Level 50 on at Least One Character - It can be any character, any class, but you must be save after reaching level 50. If you die after your grind but before you save you have to do the grind again. {level}
-Defeat Tiamat 2 Twice on Every TOFR Run - A "ToFR Run" is defined as a dive with the intent to kill Chaos. If you're in the dungeon simply to hunt enemies and don't kill Tiamat 2 twice times before proceeding you need to EXIT out and then reenter to officially begin your dive.
+Defeat Tiamat 2 Twice on Every TOFR Run - A "ToFR Run" is defined as a dive with the intent to kill Chaos. If you're in the dungeon simply to hunt enemies and don't kill Tiamat 2 twice times before proceeding you need to EXIT out and then reenter to officially begin your dive. If you wipe, you must unlight this square. {tofr}
 
 25
-See 2 Poison-elemental Skills or Spells - BANE, BRAK, GLANCE, POISON (Petrify), POISON (Damage), and STINGER all count.
+See 2 Poison-elemental Skills or Spells - A spell is "seen" when an enemy uses it in battle. BANE, BRAK, GLANCE, POISON (Petrify), POISON (Damage), and STINGER all count.
 Successfully Cure a Status Ailment in Battle with White Magic - CUR4, PURE, or (if you're a hero) LAMP
-Cast a Spell of Every Element in Battle - Over the course of the seed you must cast one of each elemental type (Fire, Ice, Lightning, Earth [QAKE], Poison [BANE/BRAK], Time (STOP, ZAP!), Death (RUB/XXXX), and Status (MUTE, CONF, etc.). Also requires casting 1 non-elemental spell (HARM spells, NUKE, FADE, etc.). See AstralEsper's FAQ if you are unsure of a spell's element.
+Cast a Spell of Every Element on Enemies - Over the course of the seed you must cast one of each elemental type (Fire, Ice, Lightning, Earth [QAKE], Poison [BANE/BRAK], Time [STOP/ ZAP!], Death [RUB/XXXX], and Status [MUTE, CONF, etc.]. Also requires casting 1 non-elemental spell [HARM spells, NUKE, FADE, etc.]. Item magic DOES count toward this.

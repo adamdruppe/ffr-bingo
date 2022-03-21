@@ -3,11 +3,15 @@
 
 	<p><i>Opinion of adr</i></p>
 
+	<h2>Goal of the game</h2>
+
 	<p>There's two goals (to me, remember this whole document is just one person's opinion) to ffr bingo: to make for competitive races and to showcase parts of the game we don't see as often.</p>
 
 	<p>Competitive races have a simple goal: finish faster than your opponent. When you assign them a challenge row, you'll aim to have them spend more time completing it then you spend completing your own row. If you know a particular player, you might choose a row that doesn't play to their strengths. For example, if you know your opponent likes black belts, you might give them a row that includes "take a white mage to level 25", since that'd throw off their preferred grind.</p>
 
 	<p>Ideally, though, the different rows and columns would be about equal in terms of time on average. If you had a collection of random players, the challenge selection should similarly look random; there shouldn't be one row obviously much slower or faster than another. This would make challenge selection more of a skill - you'd want to base it on your specific opponent - and it helps the second goal of showcasing more of the game, by letting the squares be more equally played.</p>
+
+	<h2>Difficulty calculation</h2>
 
 	<p>To this end, each square is assigned a difficulty level of 1 through 5. On the site, it represents these by "* * *" stars in the details box. The card generator uses this information to try to balance rows, columns, and diagonals - each one of those will have exactly one of each difficulty. (exception: if you create the room and check the "ignore difficulty" box, of course then the generator will ignore it and be fully random! but the normal settings is to respect this and balance it.)</p>
 
@@ -22,6 +26,8 @@
 	<p>That square is, at the time of writing this document, a level 2 difficulty. One level because it is on the way, but a +1 on top of that to try to account for the risk of the cube being out of the way.</p>
 
 	<p>Defeat WarMECH would naturally be higher, since the same Chime+Cube requirement applies, plus the increased level requirement to actually defeat that nuclear robot chicken to hedge the risk of wiping to it and losing another minute or two needing to run back up to try again. The time is not entirely wasted though, since WarMECH gives valuable experience points in the game which can offset time grinding or risk in ToFR. So the designer would want to balance these factors.</p>
+
+	<h2>Mutually exclusive groups</h2>
 
 	<p>Another thing to consider are squares that should not appear together in a row. Difficulty alone would not give a fair balance if one square is a stepping-stone to another in the same row, since the total time would be less than if you had two entirely separate challenges to complete. The generator lets you put squares into "mutually exclusive groups" that lets a designer ensure they won't appear together. For example, "Bring one character to level 30" and "Bring one character to level 40" are obviously on the same path. So you might put them both in the mutually exclusive group of "{level grinding}", so the generator knows to space them apart. Whether you'd actually do this in any particular case is a judgement call for the designer to make, but another factor to consider and another feature to help you design better sets.</p>
 

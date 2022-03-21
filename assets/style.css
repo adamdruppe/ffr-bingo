@@ -56,6 +56,21 @@ h2 {
 
 	width: 110px;
 	height: 110px;
+
+	/*
+	mask-image: radial-gradient(circle, red 50%, rgba(255, 0, 0, 0.0) 50%);
+	-webkit-mask-image: radial-gradient(circle, red 50%, rgba(255, 0, 0, 0.0) 50%);
+	*/
+}
+
+.bingo-card th {
+	border: solid 1px transparent;
+}
+
+.bingo-card th:hover,
+.bingo-card .hovering,
+.bingo-square:hover {
+	border-color: white;
 }
 
 tfoot th {
@@ -73,9 +88,30 @@ tfoot th {
 	text-align: center;
 }
 
-.description {
+.bingo-card .diagonal {
+	height: 2.5em;
+}
+
+.bingo-card .spacer {
+	height: 7em;
+}
+
+.bingo-card .description-holder {
+	vertical-align: top;
+}
+
+.bingo-card .description {
 	padding: 1em;
-	min-height: 6.5em;
+	min-height: 8.75em;
+
+	background-image: url("tracker/ffr-dab.png");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.bingo-card:hover .description {
+	background-image: none;
+	/* this box could hold blursings or flags too perhaps */
 }
 
 .row, .col, .description {
@@ -83,7 +119,9 @@ tfoot th {
 }
 
 .bingo-square {
-	text-shadow: 1px 1px 1px #000000;
+	text-shadow:
+		0px 0px 4px #000000,
+		1px 1px 1px #000000;
 }
 
 .player-0-checked {
@@ -165,6 +203,15 @@ tfoot th {
 #chat .chat_message {
 	font-style: normal;
 	word-wrap: break-all;
+	margin: 2px 0px;
+	background-color: #444;
+}
+
+#chat .chat_message .who {
+	font-weight: bold;
+	background-color: white;
+	color: black;
+	padding: 0px 2px;
 }
 
 .chat form {

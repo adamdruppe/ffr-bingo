@@ -16,7 +16,7 @@
 
 		<ul>
 		<for-each over="data.rooms" as="room">
-			<li><a href="/room/<%=room.id%>/"><%=room.name%></a></li>
+			<li><a href="/room/<%=room.id%>/"><%= room.name.length ? room.name : "<unnamed>" %></a></li>
 		</for-each>
 		</ul>
 	</section>
@@ -40,6 +40,8 @@
 			<select name="roomFormat">
 				<option value="OneVsOne">1v1</option>
 				<option value="OpenGroup">Open Group</option>
+				<option value="Solo">Solo game</option>
+				<option value="CoOp">Co-op</option>
 			</select></label>
 
 			<details>
@@ -57,7 +59,7 @@
 	</section>
 	</if-true>
 	<or-else>
-		Please <a href="/login">log in to create a room</a>. It may ask you for permission to sync up your Discord username when you click that link.
+		Please <a href="/login">log in to create a room</a>. It may ask you for permission to sync up your Discord username when you click that link. Your discord username and id will be stored in the database here to sync your login. Your discord username will be displayed in the bingo room if you join a game or send a chat message. Please note these rooms, including the display of your discord username, are not private and can be seen by anybody going to this website.
 	</or-else>
 
 	<h2>Useful Links</h2>
@@ -84,6 +86,7 @@
 
 	<p><a href="pages/how-to-play">How do I play FFR bingo?</a></p>
 	<p><a href="pages/design-guidelines">How are bingo square sets designed?</a></p>
+	<p><a href="pages/async">Helper form to make async links to share</a></p>
 
 	<h2>Test / Debugging Links</h2>
 	<!--

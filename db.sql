@@ -71,9 +71,19 @@ CREATE TABLE room_players (
 	challenge_selection TEXT NULL,
 
 	player_number INTEGER NOT NULL,
+	team INTEGER NULL,
 
 	FOREIGN KEY(player_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY(room_id) REFERENCES rooms(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE room_tracking (
+	room_id INTEGER NOT NULL,
+	k TEXT NOT NULL,
+	v TEXT NOT NULL,
+
+	FOREIGN KEY(room_id) REFERENCES rooms(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	PRIMARY KEY(room_id, k)
 );
 
 -- there must be at least 5 of each difficulty category in order to fill out the board

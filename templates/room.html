@@ -1,7 +1,11 @@
 <main>
 	<script type="application/json"><%= data |> filterKeys(["-*_html", "*"]) %></script>
 	<h1><%= data.name %></h1>
-	<p><i><%= data.roomFormat == "OpenGroup" ? "open group" : "1v1" %> created by <%=data.created_by.name%></i></p>
+	<p><i><%=
+		data.roomFormat == "OpenGroup" ? "open group" :
+		(data.roomFormat == "Solo" ? "solo game" : 
+		(data.roomFormat == "CoOp" ? "co-op match" : "1v1"))
+	%> created by <%=data.created_by.name%></i></p>
 
 	<if-true cond="data.closed">
 		<strong>This room is closed.</strong>
@@ -11,12 +15,20 @@
 		<section>
 			<h2>Players</h2>
 
+			<script> window.totalNumberOfTeams = 1; </script>
+
 			<for-each over="data.players" as="player" index="number">
 				<if-true cond="number">
-					vs
+					<if-true cond="data.players[number - 1].team == player.team">
+						and
+					</if-true>
+					<or-else>
+						vs
+						<script> window.totalNumberOfTeams += 1; </script>
+					</or-else>
 				</if-true>
 				<div id="player-id-<%=player.id%>">
-					<span data-player-state="<%= (1 << number) %>" class="player-<%=number%>-checked">&nbsp;&nbsp;&nbsp;</span> <%=player.name%>
+					<span data-player-state="<%= (1 << player.team) %>" class="player-<%=player.team%>-checked">&nbsp;&nbsp;&nbsp;</span> <%=player.name%>
 					<if-true cond="false || (player.selection.length == 0) || (player.selection == 'null')">
 						<abbr title="This player hasn't selected their opponent's challenge yet." class="needs-challenge">*</abbr>
 					</if-true>
@@ -68,7 +80,7 @@
 			</form>
 			</if-true>
 
-			<if-true cond="!data.locked_in &amp;&amp; ( false || (data.roomFormat == 'OpenGroup') || (data.players.length == 2))">
+			<if-true cond="!data.locked_in &amp;&amp; ( false || (data.roomFormat == 'OpenGroup') || (data.roomFormat == 'CoOp') || (data.roomFormat == 'Solo') || (data.players.length == 2))">
 			<form method="POST" action="lock-in">
 				<p>
 				After you are satisfied the card is playable and both players have chosen their rows/columns, you can
@@ -82,7 +94,7 @@
 
 	<hr />
 
-	<div class="room-main">
+	<div class="room-main" id="card-container">
 		<%=HTML data.card_html %>
 
 		<section class="chat">
@@ -138,7 +150,7 @@
 			</if-true>
 			<or-else>
 				<form class="background-submit send-chat" method="POST" action="send-chat">
-					<input autocomplete="off" type="text" name="message" />
+					<input autocomplete="off" type="text" name="message" id="chat-input" />
 					<button type="submit">Send</button>
 				</form>
 			</or-else>
@@ -159,7 +171,7 @@
 
 	<script>
 		window.inRoom = true;
-		window.currentPlayerNumber = <%=data.current_player_number%>;
+		window.currentPlayerTeam = <%=data.current_player_team%>;
 
 		var personalStars = {};
 
@@ -187,7 +199,7 @@
 			keep.classList.add(cls);
 			keep.dataset.playerState = (1 << player);
 
-			keep.style.background = gradientForCheckedState(keep.dataset.playerState|0);
+			setGradientForCheckedState(keep, keep.dataset.playerState|0);
 		}
 
 		document.querySelectorAll(".bingo-card").forEach(function(e) {
@@ -237,6 +249,9 @@
 						return;
 					}
 
+					if(<%= data.roomFormat == "CoOp" %>)
+						return; // challenges don't work in co op
+
 					var req = new XMLHttpRequest();
 					req.open("POST", "assign-opponent-challenge");
 					var fd = new FormData();
@@ -272,8 +287,15 @@
 		var chat = document.getElementById("chat");
 
 		function reloadPage() {
+			if(location.search != "?restream")
 			try {
 				sessionStorage.setItem("scrollPosition", JSON.stringify({ "x": window.scrollTop, "y": window.scrollLeft }));
+
+				var ci = document.getElementById("chat-input");
+				sessionStorage.setItem("chatContent", JSON.stringify({
+					content: ci.value,
+					focused: document.activeElement && ci == document.activeElement
+				}));
 			} catch(e) {
 				console.log(e);
 			}
@@ -312,9 +334,12 @@
 			var ele = document.querySelector(".bingo-card [data-square-id=\"" + info.squareId + "\"]");
 			ele.classList[set ? "add" : "remove"]("player-" + (info.player == 0 ? "0" : "1") + "-checked");
 
-			ele.dataset.playerState ^= 1 << info.player;
+			if(set)
+				ele.dataset.playerState |= 1 << info.player;
+			else
+				ele.dataset.playerState &= ~(1 << info.player);
 
-			ele.style.background = gradientForCheckedState(ele.dataset.playerState|0);
+			setGradientForCheckedState(ele, ele.dataset.playerState|0);
 		}
 
 		var displayDelay = 0;
@@ -337,6 +362,7 @@
 		source.addEventListener("swapped", reloadPage);
 		source.addEventListener("swapped", reloadPage);
 		source.addEventListener("lock_in", reloadPage);
+		source.addEventListener("team_changed", reloadPage);
 
 		source.addEventListener("set_challenge", function(event) {
 			var o = JSON.parse(processMessage(event.data).eventMessage);
@@ -358,23 +384,11 @@
 
 		function updateClock() {
 			var c = document.querySelector("#clock");
-			var totalSeconds = clockTicks / 1000;
 
-			var string;
-			var seconds;
+			var info = clockInfo(clockTicks);
+			c.textContent = info.string;
 
-			if(totalSeconds >= 0) {
-				var hours = Math.floor(totalSeconds / 3600);
-				var minutes = Math.floor((totalSeconds - (hours * 3600)) / 60);
-				seconds = Math.floor((totalSeconds|0) % 60);
-
-				string = hours + ":" + (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
-			} else {
-				seconds = Math.floor(totalSeconds + .5);
-				string = "-0:00:" + (seconds > -10 ? '0' : '') + -seconds;
-			}
-
-			c.textContent = string;
+			var seconds = info.seconds;
 
 
 			if(typeof clockSoundsEnabled != "undefined")
@@ -475,13 +489,17 @@
 
 		<script>
 		document.addEventListener("DOMContentLoaded", function() {
+			if(location.search == "?restream")
+				displayDelay = 12000;
+
 			var d = window.sessionStorage.getItem('displayDelay');
 			if(d) {
 				displayDelay = d|0;
-				var dd = document.getElementById("displayDelaySlider");
-				dd.value = displayDelay;
-				dd.nextElementSibling.textContent = displayDelay / 1000;
 			}
+
+			var dd = document.getElementById("displayDelaySlider");
+			dd.value = displayDelay;
+			dd.nextElementSibling.textContent = displayDelay / 1000;
 		});
 		</script>
 	</div>

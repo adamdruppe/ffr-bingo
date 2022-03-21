@@ -155,7 +155,11 @@ final class Card {
 				this[4, row].toHtml
 			);
 
-		table.appendFooterRow(table.th("BL-TR"), Element.make("div", "", "description")).children[1].attrs.colspan = "5";
+		auto descHolder = table.appendFooterRow(table.th("BL-TR").setAttribute("class", "diagonal"), Element.make("div", "", "description")).children[1];
+		descHolder.className = "description-holder";
+		descHolder.attrs.colspan = "5";
+		descHolder.attrs.rowspan = "2";
+		table.appendFooterRow(table.td("\&nbsp;").setAttribute("class", "spacer"));
 
 		if(player_selections.length) {
 			foreach(th; table.querySelectorAll("th")) {

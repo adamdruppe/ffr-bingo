@@ -1,0 +1,134 @@
+<main class="ffmq-items">
+	<link rel="stylesheet" href="/assets/tracker/style.css?update-3" type="text/css" />
+	<style>
+		.tracker {
+			background-color: #00c;
+			user-select: none;
+		}
+		.tracker > i {
+			width: 72px;
+			height: 72px;
+			opacity: 0.5;
+		}
+
+
+		#hover-info {
+			background: black;
+			color: white;
+			padding: 4px;
+			border: solid 1px white;
+			position: absolute;
+			z-index: 999;
+		}
+
+		.locations-checklist label {
+			display: block;
+		}
+
+	</style>
+	<div style="display: none;" id="hover-info"></div>
+	<div class="tracker">
+		<render-template file="tracker/item-tracker-fragment.html" />
+	</div>
+
+	<div class="locations-checklist">
+		<label><input type="checkbox" /> Tristam in bone dungeon</label>
+		<label><input type="checkbox" /> Tristam in Fireburg</label>
+		<label><input type="checkbox" /> Kaeli after minotaur</label>
+		<label><input type="checkbox" /> Kaeli in Windia</label>
+		<label><input type="checkbox" /> Phoebe in Wintry Cave</label>
+		<label><input type="checkbox" /> Reuben in Mine</label>
+		<label><input type="checkbox" /> Reuben's father</label>
+		<label><input type="checkbox" /> Spencer</label>
+
+		<label><input type="checkbox" /> Fireburg sale</label>
+		<label><input type="checkbox" /> Aquaria sale</label>
+		<label><input type="checkbox" /> Windia sale</label>
+
+		<label><input type="checkbox" /> Snow Crab</label>
+		<label><input type="checkbox" /> Medusa</label>
+		<label><input type="checkbox" /> Gidrah</label>
+		<label><input type="checkbox" /> Dullahan </label>
+
+		<label><input type="checkbox" /> Blue battlefield #1</label>
+		<label><input type="checkbox" /> Blue battlefield #2</label>
+		<label><input type="checkbox" /> Blue battlefield #3</label>
+		<label><input type="checkbox" /> Blue battlefield #4</label>
+		<label><input type="checkbox" /> Blue battlefield #5</label>
+	</div>
+
+	<script>
+
+	document.querySelectorAll(".tracker i").forEach(function(e) {
+		e.addEventListener("mouseenter", function(event) {
+			var t = event.target.cloneNode(true);
+			t.classList.remove("on");
+			t.classList.remove("tri-on");
+			t.classList.remove("quad-on");
+			t.classList.remove("off");
+			t.classList.remove("triple");
+			t.classList.remove("quadruple");
+
+			var hi = document.getElementById("hover-info");
+			hi.textContent = t.className;
+			hi.style.display = "block";
+			t = event.target;
+			hi.style.left = t.offsetLeft + window.scrollX + t.offsetWidth +  "px";
+			hi.style.top = t.offsetTop + window.scrollY + t.offsetHeight + "px";
+		});
+		e.addEventListener("mouseleave", function(event) {
+			document.getElementById("hover-info").style.display = "none";
+		});
+	});
+
+
+	// item tracker interaction
+	document.body.addEventListener("click", function(event) {
+		if(event.target.tagName == "I") {
+			var clone = event.target.cloneNode(false);
+			clone.classList.remove("tri-on");
+			clone.classList.remove("quad-on");
+			clone.classList.remove("triple");
+			clone.classList.remove("quadruple");
+			clone.classList.remove("on");
+			clone.classList.remove("off");
+
+			var name = clone.className;
+			name = name.trim();
+
+			var v;
+
+			var isTriple = event.target.classList.contains("triple");
+			var isQuadruple = event.target.classList.contains("quadruple");
+
+			var states;
+			if(isQuadruple)
+				states = ["off", "on", "tri-on", "quad-on"];
+			else if(isTriple)
+				states = ["off", "on", "tri-on"];
+			else
+				states = ["off", "on"];
+
+			var current = 0;
+			for(var state = 0; state < states.length; state++) {
+				var s = states[state];
+				if(event.target.classList.contains(s)) {
+					event.target.classList.remove(s);
+					current = state;
+				}
+			}
+
+			current++;
+
+			if(current == states.length)
+				current = 0;
+
+			v = states[current];
+			event.target.classList.add(v);
+		}
+	});
+
+	</script>
+
+
+</main>
