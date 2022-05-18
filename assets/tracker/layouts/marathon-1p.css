@@ -1,0 +1,127 @@
+.position, .color, .bingo {
+	display: none;
+}
+
+.positioned-ur,
+.positioned-bl,
+.positioned-br {
+	display: none !important;
+}
+
+.game-type {
+	position: absolute;
+	left: 758px;
+	top: 6px;
+	width: 514px;
+	height: 69px;
+	background: white;
+	color: black;
+}
+
+.bingo {
+	display: none;
+}
+
+.logo {
+	position: absolute;
+	width: 280px;
+	height: 180px;
+	bottom: 15px;
+	left: 500px;
+}
+
+.gameplay {
+	width: 737px;
+	height: 549px;
+
+	--x: 9px;
+	--y: 6px;
+}
+
+.tracker {
+	--x: 758px;
+	--y: 163px;
+
+	width: 248px;
+	height: 328px;
+}
+
+.tracker i {
+	width: 34px;
+	height: 34px;
+	margin: 0px;
+}
+
+.clock {
+	--x: 1024px;
+	--y: 85px;
+	text-align: center;
+
+	width: 249px;
+	height: 69px;
+	font-size: 18px;
+	font-weight: bold;
+
+}
+.position {
+	--x: 4px;
+	--y: 40px;
+}
+.name {
+	--x: 758px;
+	--y: 85px;
+	text-align: center;
+
+	width: 249px;
+	height: 69px;
+	font-size: 18px;
+	font-weight: bold;
+}
+.winner {
+	--x: 450px;
+	--y: 300px;
+}
+
+.comms {
+	position: absolute;
+	padding-top: 4px;
+
+	left: 1024px;
+	top: 422px;
+
+	width: 249px;
+	height: 69px;
+}
+
+.player-camera {
+	position: absolute;
+	padding-top: 4px;
+
+	left: 1024px;
+	top: 163px;
+
+	width: 249px;
+	height: 249px;
+
+}
+
+/* these belong in the style file */
+
+.box {
+	border: none;
+	box-shadow: 4px 5px 0px #9dcbd8;
+}
+
+.funds-raised {
+	text-shadow:
+		-3px 0px 3px #ba9c6f,
+		0px 3px 3px #ba9c6f,
+		3px 0px 3px #ba9c6f,
+		0px -3px 3px #ba9c6f
+	;
+}
+
+* {
+	font-family: "BankGothic";
+	font-size: 22px;
+}

@@ -1,5 +1,12 @@
-<main class="ffmq-items layout-2p no-bingo">
+<main>
 	<style>
+
+		/*
+		.tracker, .position, .comms, .clock {
+			display: none !important;
+		}
+		*/
+
 	/* body { transform: scale(0.5) } */
 
 		/*
@@ -10,14 +17,25 @@
 				2p             .layout-2p
 				3p/4p          .layout-4p (please note child #ffr-layout.p4-showing)
 
-			bingo:
-				[ ] hide bingo .no-bingo
+			other settings:
+				[ ] hide bingo .no-bingo (might relayout)
+				[ ] show cameras (might relayout)
+				[ ] show fundraising thing (should try to avoid changing layout)
+				[ ] show additional info (blurses etc) (should try to avoid changing layout)
 
-			Tracker (independent of previous groups):
-				FF1            .ff1-items
-				FFMQ           .ffmq-items
+			Tracker (independent of previous groups, might even be different per-player like with AP):
+				FF1            .ff1-itemset
+				FFMQ           .ffmq-itemset
 			Images (independent again):
-				whatever decorations
+				whatever decorations; logo and backgrounds
+
+				Background
+				Logo (FFMQ for example)
+				Finished (bridge scene)
+
+				Loading Screen
+
+				Also the box style should be in there
 		*/
 
 		* {
@@ -27,14 +45,30 @@
 		#ffr-layout {
 			width: 1280px;
 			height: 720px;
-			background-image: url("/assets/tracker/background-chopped-3p.webp");
 
 			color: white;
 			position: relative;
 		}
 
-		#ffr-layout.p4-showing {
-			background-image: url("/assets/tracker/background-chopped-4p.webp");
+		.funds-raised {
+			font-size: 40px;
+			position: absolute;
+			right: 20px;
+			bottom: 16px;
+			text-align: right;
+		}
+
+		.logo {
+			/*background-image: url("/assets/tracker/logo-ffmq.png");*/
+			background-image: url("/assets/tracker/logo-rando-marathon-2022.png");
+			width: 400px;
+			height: 150px;
+			position: absolute;
+			left: 450px;
+			bottom: 60px;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center center;
 		}
 
 		#loading-screen {
@@ -135,240 +169,9 @@
 		.bingo {
 			background-color: black;
 		}
-
-		/* *************** */
-
-		.bingo {
-			width: 460px;
-			height: 576px;
-			position: absolute;
-			left: 410px;
-			top: 40px;
-
-			overflow: hidden;
-		}
-
-		.comms {
-			position: absolute;
-			bottom: 40px;
-			left: 515px;
-			width: 270px;
-			height: 60px;
-			padding-top: 4px;
-
-		}
-
-		.name {
-			--x: 408px;
-			height: 32px;
-			width: 220px;
-			font-size: 18px;
-			font-weight: bold;
-		}
-
-		.tracker {
-			font-size: 0px;
-			width: 274px;
-			--x: 130px;
-			--y: 306px;
-			height: 52px;
-		}
-
-		.color {
-			--y: 306px;
-			width: 52px;
-			height: 52px;
-		}
-
-		.clock {
-			--y: 332px;
-			--x: 54px;
-			width: 76px;
-			height: 26px;
-			font-size: 16px;
-			padding: 0px 2px;
-		}
-
-		.position {
-			text-align: center;
-			--y: 306px;
-			--x: 54px;
-			width: 40px;
-			height: 26px;
-			font-size: 13px;
-		}
-
-		.gameplay {
-			--x: 4px;
-			--y: 4px;
-
-			/*
-			width: 256px;
-			height: 240px;
-			*/
-			width: 400px;
-			height: 300px;
-		}
-
-		.winner {
-			--x: 330px;
-			--y: 150px;
-			z-index: 20;
-		}
-
-		/* no bingo */
-
-		.no-bingo .bingo {
-			display: none;
-		}
-
-		.no-bingo .color {
-			display: none;
-		}
-
-		.no-bingo .tracker {
-			--x: 408px;
-			--y: 42px;
-			width: 146px;
-			height: 216px;
-		}
-
-		.no-bingo .tracker i {
-			width: 32px;
-			height: 32px;
-		}
-
-		.no-bingo .clock {
-			--x: 408px;
-			--y: 262px;
-
-			width: 90px;
-			height: 31px;
-			font-size: 20px;
-		}
-
-		.no-bingo .position {
-			--x: 558px;
-			--y: 42px;
-		}
-
-		.no-bingo .comms {
-			bottom: 325px;
-			left: 515px;
-		}
-
-		/* all two player */
-
-		.layout-2p .positioned-bl,
-		.layout-2p .positioned-br {
-			display: none !important;
-		}
-
-		/* two player with bingo */
-
-		.layout-2p #ffr-layout {
-			background-image: url("/assets/tracker/background-chopped-2p-bingo.webp");
-		}
-
-
-		.layout-2p:not(.no-bingo) .positioned-ur > * {
-			left: var(--x);
-			bottom: var(--y);
-
-			right: auto;
-			top: auto;
-
-		}
-
-		.layout-2p .bingo {
-			left: 800px;
-		}
-
-		.layout-2p .comms {
-			bottom: 25px;
-			left: 900px;
-		}
-
-		.layout-2p .color {
-		}
-
-		.layout-2p .tracker {
-			--x: 408px;
-			--y: 42px;
-			width: 146px;
-			height: 216px;
-		}
-
-		.layout-2p .tracker i {
-			width: 32px;
-			height: 32px;
-		}
-
-		.layout-2p .clock {
-			--x: 408px;
-			--y: 262px;
-
-			width: 90px;
-			height: 31px;
-			font-size: 20px;
-		}
-
-		.layout-2p .position {
-			--x: 558px;
-			--y: 42px;
-		}
-
-		/* two player without bingo */
-
-		.layout-2p.no-bingo #ffr-layout {
-			background-image: url("/assets/tracker/background-ffmqr-chopped-2p.webp");
-		}
-
-		.layout-2p.no-bingo .gameplay {
-			width: 560px;
-			height: 420px;
-
-			--y: 70px;
-		}
-
-		.ffmq-items.layout-2p.no-bingo .tracker {
-			--x: 4px;
-			--y: 548px;
-
-			width: 328px;
-			height: 132px;
-		}
-
-		.ffmq-items.layout-2p.no-bingo .tracker i {
-			width: 40px;
-			height: 40px;
-			margin: 0px;
-		}
-
-		.layout-2p.no-bingo .clock {
-			--x: 4px;
-			--y: 498px;
-		}
-		.layout-2p.no-bingo .position {
-			--x: 4px;
-			--y: 40px;
-		}
-		.layout-2p.no-bingo .name {
-			--x: 150px;
-			--y: 30px;
-			text-align: center;
-		}
-		.layout-2p.no-bingo .winner {
-			--x: 450px;
-			--y: 300px;
-		}
-
-		.layout-2p.no-bingo .comms {
-			left: 500px;
-			bottom: auto;
-			top: 4px;
-		}
 	</style>
+
+	<link rel="stylesheet" href="/assets/tracker/layouts/marathon-1p.css" />
 
 	<div id="ffr-layout">
 		<div class="positioned-ul">
@@ -382,6 +185,10 @@
 		</div>
 		<div class="positioned-br" style="display: none;" data-property="player-4-showing">
 			<render-template file="tracker/player-box.html" data="{&quot;player&quot;: 4}" />
+		</div>
+
+		<div class="game-type box">
+			game type box here
 		</div>
 
 		<div class="comms box">
@@ -439,6 +246,9 @@
 				src="restream?restream#card-container"></iframe>
 		</div>
 
+		<div class="logo"></div>
+
+		<div class="funds-raised">$1000</div>
 
 		<div id="loading-screen" style="display: none;" data-property="loading-screen-showing">
 			<div style="
@@ -517,6 +327,12 @@
 			setTimeout(showingCommsUpdate, 15000);
 	}
 	showingCommsUpdate();
+</script>
+
+<script>
+	window.addEventListener("load", function() {
+		findTransparentRectangles();
+	});
 </script>
 
 </main>

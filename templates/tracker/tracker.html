@@ -1,4 +1,268 @@
-<main class="ffmq-items">
+<main>
+<div id="tracker">
+	<style>
+
+		#tracker fieldset {
+			display: inline-block;
+			vertical-align: top;
+			width: 40%;
+		}
+
+		#tracker label > span {
+			display: block;
+		}
+
+
+		.box {
+			border: ridge 3px white;
+			border-radius: 2px;
+		}
+
+		.tracker {
+			background-color: #008;
+		}
+		#tracker .tracker i {
+			width: 32px;
+			height: 32px;
+		}
+
+		.ffmq-itemset #tracker .tracker {
+			height: 84px !important;
+			width: 530px !important;
+		}
+
+		.ffmq-itemset #tracker .tracker i {
+			width: 40px;
+			height: 40px;
+		}
+
+		.tracker i {
+			opacity: 0.6;
+			filter: greyscale(1);
+		}
+
+		#hover-info {
+			background: black;
+			color: white;
+			padding: 4px;
+			border: solid 1px white;
+			position: absolute;
+			z-index: 999;
+		}
+	</style>
+
+	<div style="display: none;" id="hover-info"></div>
+
+	<label>
+		<span>Layout:</span>
+		<select>
+			<optgroup label="Plain">
+				<option>2p</option>
+				<option>4p</option>
+			</optgroup>
+			<optgroup label="Bingo">
+				<option>Bingo 2p</option>
+				<option>Bingo 4p</option>
+			</optgroup>
+			<optgroup label="Fundraiser">
+				<option>Marathon 1p</option>
+				<option>Marathon 2p</option>
+				<option>Marathon 4p</option>
+			</optgroup>
+		</select>
+	</label>
+
+	<label>
+		<span>Style Theme:</span>
+		<select>
+			<option>Blue Fog</option>
+			<option>DAB Bubbles</option>
+			<option>Liam Event</option>
+		</select>
+	</label>
+
+	<label>
+		<span>Logo:</span>
+		<select>
+			<option>None</option>
+			<option>FFR</option>
+			<option>DAB</option>
+			<option>FFMQ</option>
+			<option>FFR 2022 Marathon</option>
+		</select>
+	</label>
+
+	<label><input type="checkbox" /> Show Rank Boxes</label>
+	<label><input type="checkbox" /> Show Cameras</label>
+
+
+	<br style="clear: both;" />
+
+	<fieldset>
+		<legend>Player 1 (upper left)</legend>
+
+		<label><select name="player-1-itemset">
+			<option value="ff1-itemset">FF1 Items</option>
+			<option value="ffmq-itemset">FFMQ Items</option>
+		</select></label>
+
+		<div data-property="player-1-itemset" data-property-prefix="item-player-1-" style="font-size: 0px; width: 440px; --x: 130px; --y: 306px; height: 70px;" class="tracker box">
+			<render-template file="tracker/item-tracker-fragment.html" />
+		</div>
+
+		<label><span>Name</span> <input type="text" name="player-1-name" /></label>
+		<label><span>Pronouns</span> <input type="text" name="player-1-pronoun" /></label>
+		<label><span>Ranking/position</span> <input type="text" name="player-1-ranking" /></label>
+		<label><span>Team</span> <input type="text" name="player-1-team" /></label>
+
+		<label><span>Final time</span> <input type="text" name="player-1-time" /></label>
+		<br />
+		<label><input type="checkbox" name="player-1-showing-text" /></label>
+		<label><input type="text" name="player-1-text" value="Winner" /></label>
+	</fieldset>
+
+	<fieldset>
+		<legend>Player 2 (upper right)</legend>
+
+		<label><select name="player-2-itemset">
+			<option value="ff1-itemset">FF1 Items</option>
+			<option value="ffmq-itemset">FFMQ Items</option>
+		</select></label>
+
+		<div data-property="player-2-itemset" data-property-prefix="item-player-2-" style="font-size: 0px; width: 440px; --x: 130px; --y: 306px; height: 70px;" class="tracker box">
+			<render-template file="tracker/item-tracker-fragment.html" />
+		</div>
+
+		<label><span>Name</span> <input type="text" name="player-2-name" /></label>
+		<label><span>Pronouns</span> <input type="text" name="player-2-pronoun" /></label>
+		<label><span>Ranking/position</span> <input type="text" name="player-2-ranking" /></label>
+		<label><span>Team</span> <input type="text" name="player-2-team" /></label>
+
+		<label><span>Final time</span> <input type="text" name="player-2-time" /></label>
+		<br />
+		<label><input type="checkbox" name="player-2-showing-text" /></label>
+		<label><input type="text" name="player-2-text" value="Winner" /></label>
+	</fieldset>
+
+	<fieldset>
+		<legend>Player 3 (bottom left)</legend>
+
+		<label><select name="player-3-itemset">
+			<option value="ff1-itemset">FF1 Items</option>
+			<option value="ffmq-itemset">FFMQ Items</option>
+		</select></label>
+
+		<div data-property="player-3-itemset" data-property-prefix="item-player-3-" style="font-size: 0px; width: 440px; --x: 130px; --y: 306px; height: 70px;" class="tracker box">
+			<render-template file="tracker/item-tracker-fragment.html" />
+		</div>
+
+		<label><span>Name</span> <input type="text" name="player-3-name" /></label>
+		<label><span>Pronouns</span> <input type="text" name="player-3-pronoun" /></label>
+		<label><span>Ranking/position</span> <input type="text" name="player-3-ranking" /></label>
+		<label><span>Team</span> <input type="text" name="player-3-team" /></label>
+
+		<label><span>Final time</span> <input type="text" name="player-3-time" /></label>
+		<br />
+		<label><input type="checkbox" name="player-3-showing-text" /></label>
+		<label><input type="text" name="player-3-text" value="Winner" /></label>
+	</fieldset>
+
+	<fieldset>
+		<legend>Player 4 (bottom right)</legend>
+
+		<label><select name="player-4-itemset">
+			<option value="ff1-itemset">FF1 Items</option>
+			<option value="ffmq-itemset">FFMQ Items</option>
+		</select></label>
+
+		<div data-property="player-4-itemset" data-property-prefix="item-player-4-" style="font-size: 0px; width: 440px; --x: 130px; --y: 306px; height: 70px;" class="tracker box">
+			<render-template file="tracker/item-tracker-fragment.html" />
+		</div>
+
+		<label><input type="checkbox" name="player-4-showing" /> Showing Player 4</label>
+
+
+		<label><span>Name</span> <input type="text" name="player-4-name" /></label>
+		<label><span>Pronouns</span> <input type="text" name="player-4-pronoun" /></label>
+		<label><span>Ranking/position</span> <input type="text" name="player-4-ranking" /></label>
+		<label><span>Team</span> <input type="text" name="player-4-team" /></label>
+
+		<label><span>Final time</span> <input type="text" name="player-4-time" /></label>
+		<br />
+		<label><input type="checkbox" name="player-4-showing-text" /></label>
+		<label><input type="text" name="player-4-text" value="Winner" /></label>
+	</fieldset>
+
+	<fieldset>
+		<legend>Broadcast Team</legend>
+
+		<label><span>Comms #1</span> <input type="text" name="comms-1" /></label>
+		<label><span>Comms #2</span> <input type="text" name="comms-2" /></label>
+		<label><span>Restreamer</span> <input type="text" name="restreamer" /></label>
+		<label><span>Tracker</span> <input type="text" name="tracker" /></label>
+	</fieldset>
+
+	<fieldset>
+		<legend>Clock</legend>
+
+		<input type="text" value="0:00:00" name="clock" />
+		<label><input type="checkbox" name="clock-running" /> Running</label>
+
+		<label><span>Loading screen label</span>
+			<textarea rows="5" name="loading-screen-text"></textarea></label>
+		<label><input type="checkbox" name="loading-screen-showing" /> Showing loading screen</label>
+	</fieldset>
+
+	<script>
+	document.addEventListener("DOMContentLoaded", function() {
+		document.querySelectorAll("#tracker input, #tracker textarea, #tracker select").forEach(function(e) {
+			e.addEventListener("change", function(event) {
+				var v = e.value;
+				if(e.type == "checkbox")
+					v = e.checked ? "on" : "off";
+
+				if(e.name == "clock")
+					v = clockStringToTicks(v);
+
+				var req = new XMLHttpRequest();
+				req.open("POST", "tracker-update");
+				var fd = new FormData();
+				fd.append("key", e.name);
+				fd.append("value", v);
+				req.send(fd);
+			});
+		});
+	});
+
+
+	document.querySelectorAll(".tracker i").forEach(function(e) {
+		e.addEventListener("mouseenter", function(event) {
+			var t = event.target.cloneNode(true);
+			t.classList.remove("on");
+			t.classList.remove("tri-on");
+			t.classList.remove("quad-on");
+			t.classList.remove("off");
+			t.classList.remove("triple");
+			t.classList.remove("quadruple");
+
+			var hi = document.getElementById("hover-info");
+			hi.textContent = t.className;
+			hi.style.display = "block";
+			t = event.target;
+			hi.style.left = t.offsetLeft + window.scrollX + t.offsetWidth +  "px";
+			hi.style.top = t.offsetTop + window.scrollY + t.offsetHeight + "px";
+		});
+		e.addEventListener("mouseleave", function(event) {
+			document.getElementById("hover-info").style.display = "none";
+		});
+	});
+
+	// FIXME: clock.
+
+	// FIXME: take the event stream here too for live updates in event of multiple trackers.
+	</script>
+</div>
+
 <script>
 	// item tracker interaction
 	document.body.addEventListener("click", function(event) {
@@ -44,7 +308,7 @@
 			v = states[current];
 			event.target.classList.add(v);
 
-			var prop = event.target.parentNode.dataset.propertyPrefix;
+			var prop = event.target.parentNode.parentNode.dataset.propertyPrefix;
 			prop += name;
 
 			var req = new XMLHttpRequest();
@@ -100,201 +364,6 @@
 
 </script>
 
-<div id="tracker">
-	<style>
-		#tracker fieldset {
-			display: inline-block;
-			vertical-align: top;
-			width: 40%;
-		}
 
-		#tracker label > span {
-			display: block;
-		}
-
-
-		.box {
-			border: ridge 3px white;
-			border-radius: 2px;
-		}
-
-		.tracker {
-			background-color: #008;
-		}
-		#tracker .tracker i {
-			width: 32px;
-			height: 32px;
-		}
-
-		.ffmq-items #tracker .tracker {
-			height: 84px !important;
-		}
-
-		.ffmq-items #tracker .tracker i {
-			width: 40px;
-			height: 40px;
-		}
-
-		.tracker i {
-			opacity: 0.6;
-			filter: greyscale(1);
-		}
-
-		#hover-info {
-			background: black;
-			color: white;
-			padding: 4px;
-			border: solid 1px white;
-			position: absolute;
-			z-index: 999;
-		}
-	</style>
-
-	<div style="display: none;" id="hover-info"></div>
-
-	<fieldset>
-		<legend>Player 1 (upper left)</legend>
-
-		<div data-property-prefix="item-player-1-" style="font-size: 0px; width: 440px; --x: 130px; --y: 306px; height: 70px;" class="tracker box">
-			<render-template file="tracker/item-tracker-fragment.html" />
-		</div>
-
-		<label><span>Name</span> <input type="text" name="player-1-name" /></label>
-		<label><span>Pronouns</span> <input type="text" name="player-1-pronoun" /></label>
-		<label><span>Ranking/position</span> <input type="text" name="player-1-ranking" /></label>
-		<label><span>Team</span> <input type="text" name="player-1-team" /></label>
-
-		<label><span>Final time</span> <input type="text" name="player-1-time" /></label>
-		<br />
-		<label><input type="checkbox" name="player-1-showing-text" /></label>
-		<label><input type="text" name="player-1-text" value="Winner" /></label>
-	</fieldset>
-
-	<fieldset>
-		<legend>Player 2 (upper right)</legend>
-
-		<div data-property-prefix="item-player-2-" style="font-size: 0px; width: 440px; --x: 130px; --y: 306px; height: 70px;" class="tracker box">
-			<render-template file="tracker/item-tracker-fragment.html" />
-		</div>
-
-		<label><span>Name</span> <input type="text" name="player-2-name" /></label>
-		<label><span>Pronouns</span> <input type="text" name="player-2-pronoun" /></label>
-		<label><span>Ranking/position</span> <input type="text" name="player-2-ranking" /></label>
-		<label><span>Team</span> <input type="text" name="player-2-team" /></label>
-
-		<label><span>Final time</span> <input type="text" name="player-2-time" /></label>
-		<br />
-		<label><input type="checkbox" name="player-2-showing-text" /></label>
-		<label><input type="text" name="player-2-text" value="Winner" /></label>
-	</fieldset>
-
-	<fieldset>
-		<legend>Player 3 (bottom left)</legend>
-
-		<div data-property-prefix="item-player-3-" style="font-size: 0px; width: 440px; --x: 130px; --y: 306px; height: 70px;" class="tracker box">
-			<render-template file="tracker/item-tracker-fragment.html" />
-		</div>
-
-		<label><span>Name</span> <input type="text" name="player-3-name" /></label>
-		<label><span>Pronouns</span> <input type="text" name="player-3-pronoun" /></label>
-		<label><span>Ranking/position</span> <input type="text" name="player-3-ranking" /></label>
-		<label><span>Team</span> <input type="text" name="player-3-team" /></label>
-
-		<label><span>Final time</span> <input type="text" name="player-3-time" /></label>
-		<br />
-		<label><input type="checkbox" name="player-3-showing-text" /></label>
-		<label><input type="text" name="player-3-text" value="Winner" /></label>
-	</fieldset>
-
-	<fieldset>
-		<legend>Player 4 (bottom right)</legend>
-
-		<div data-property-prefix="item-player-4-" style="font-size: 0px; width: 440px; --x: 130px; --y: 306px; height: 70px;" class="tracker box">
-			<render-template file="tracker/item-tracker-fragment.html" />
-		</div>
-
-		<label><input type="checkbox" name="player-4-showing" /> Showing Player 4</label>
-
-
-		<label><span>Name</span> <input type="text" name="player-4-name" /></label>
-		<label><span>Pronouns</span> <input type="text" name="player-4-pronoun" /></label>
-		<label><span>Ranking/position</span> <input type="text" name="player-4-ranking" /></label>
-		<label><span>Team</span> <input type="text" name="player-4-team" /></label>
-
-		<label><span>Final time</span> <input type="text" name="player-4-time" /></label>
-		<br />
-		<label><input type="checkbox" name="player-4-showing-text" /></label>
-		<label><input type="text" name="player-4-text" value="Winner" /></label>
-	</fieldset>
-
-	<fieldset>
-		<legend>Broadcast Team</legend>
-
-		<label><span>Comms #1</span> <input type="text" name="comms-1" /></label>
-		<label><span>Comms #2</span> <input type="text" name="comms-2" /></label>
-		<label><span>Restreamer</span> <input type="text" name="restreamer" /></label>
-		<label><span>Tracker</span> <input type="text" name="tracker" /></label>
-	</fieldset>
-
-	<fieldset>
-		<legend>Clock</legend>
-
-		<input type="text" value="0:00:00" name="clock" />
-		<label><input type="checkbox" name="clock-running" /> Running</label>
-
-		<label><span>Loading screen label</span>
-			<textarea rows="5" name="loading-screen-text"></textarea></label>
-		<label><input type="checkbox" name="loading-screen-showing" /> Showing loading screen</label>
-	</fieldset>
-
-	<script>
-	document.addEventListener("DOMContentLoaded", function() {
-		document.querySelectorAll("#tracker input, #tracker textarea").forEach(function(e) {
-			e.addEventListener("change", function(event) {
-				var v = e.value;
-				if(e.type == "checkbox")
-					v = e.checked ? "on" : "off";
-
-				if(e.name == "clock")
-					v = clockStringToTicks(v);
-
-				var req = new XMLHttpRequest();
-				req.open("POST", "tracker-update");
-				var fd = new FormData();
-				fd.append("key", e.name);
-				fd.append("value", v);
-				req.send(fd);
-			});
-		});
-	});
-
-
-	document.querySelectorAll(".tracker i").forEach(function(e) {
-		e.addEventListener("mouseenter", function(event) {
-			var t = event.target.cloneNode(true);
-			t.classList.remove("on");
-			t.classList.remove("tri-on");
-			t.classList.remove("quad-on");
-			t.classList.remove("off");
-			t.classList.remove("triple");
-			t.classList.remove("quadruple");
-
-			var hi = document.getElementById("hover-info");
-			hi.textContent = t.className;
-			hi.style.display = "block";
-			t = event.target;
-			hi.style.left = t.offsetLeft + window.scrollX + t.offsetWidth +  "px";
-			hi.style.top = t.offsetTop + window.scrollY + t.offsetHeight + "px";
-		});
-		e.addEventListener("mouseleave", function(event) {
-			document.getElementById("hover-info").style.display = "none";
-		});
-	});
-
-	// FIXME: clock.
-
-	// FIXME: take the event stream here too for live updates in event of multiple trackers.
-	</script>
-</div>
 
 </main>

@@ -307,6 +307,59 @@ document.addEventListener("DOMContentLoaded", function() {
 	}
 });
 
+function findTransparentRectangles() {
+	var answers = [];
+	var p = document.querySelector("#ffr-layout");
+	document.querySelectorAll(".transparent").forEach(function(e) {
+		if(p != e.offsetParent)
+			return;
+		if(e.offsetWidth == 0 || e.offsetHeight == 0)
+			return;
+
+		var rect = {};
+		rect.left = e.offsetLeft;
+		rect.top = e.offsetTop;
+		rect.width = e.offsetWidth;
+		rect.height = e.offsetHeight;
+
+		answers.push(rect);
+	});
+
+	var img = new Image();
+	//var cs = getComputedStyle(p).backgroundImage;
+	//img.src = cs.substring(5, cs.length - 2);
+	//img.src = "/assets/tracker/background-fog.webp";
+	img.src = "/assets/tracker/background-liam.png";
+	img.onload = function() {
+		var canvas = document.createElement("canvas");
+		canvas.setAttribute("width", 1280);
+		canvas.setAttribute("height", 720);
+		var ctx = canvas.getContext("2d");
+		ctx.drawImage(img, 0, 0);
+
+		var idata = ctx.getImageData(0, 0, canvas.width, canvas.height);
+		var data = idata.data;
+
+		for(var rect of answers) {
+			for(var y = rect.top; y < rect.top + rect.height; y++)
+			for(var x = rect.left; x < rect.left + rect.width; x++) {
+				var i = y * canvas.width + x;
+				i *= 4;
+				data[i + 0] = 0;
+				data[i + 1] = 0;
+				data[i + 2] = 0;
+				data[i + 3] = 0;
+			}
+		}
+
+		ctx.putImageData(idata, 0, 0);
+
+		p.style.backgroundImage = "url('" + canvas.toDataURL() + "')";
+	};
+
+	return answers;
+}
+
 function updateTrackerProperty(key, value) {
 	if(key == "clock") {
 		trackerClockTicks = value|0;
@@ -346,10 +399,19 @@ function updateTrackerProperty(key, value) {
 	}
 
 	document.querySelectorAll("[data-property=\"" + key + "\"]").forEach(function(e) {
-		if(e.tagName == "SPAN")
+		if(e.classList.contains("tracker")) {
+			for(c of e.classList) {
+				if(c.indexOf("-itemset") != -1)
+					e.classList.remove(c);
+			}
+
+			e.classList.add(value);
+		} else if(e.tagName == "SPAN") {
 			e.textContent = value;
-		else if(e.tagName == "DIV") {
-			if(e.classList.contains("color")) {
+		} else if(e.tagName == "DIV") {
+			if(e.classList.contains("class-toggle")) {
+				e.classList.toggle(value);
+			} else if(e.classList.contains("color")) {
 				e.classList.remove("player-0-checked");
 				e.classList.remove("player-1-checked");
 				e.classList.remove("player-2-checked");

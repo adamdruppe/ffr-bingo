@@ -2,7 +2,7 @@
 	<span data-property="player-<%=data.player%>-name"></span> <span data-property="player-<%=data.player%>-pronoun" style="font-size: 50%;"></span>
 </div>
 
-<div data-property-prefix="item-player-<%=data.player%>-" class="tracker box">
+<div data-property="player-<%=data.player%>-itemset" data-property-prefix="item-player-<%=data.player%>-" class="tracker box">
 	<render-template file="tracker/item-tracker-fragment.html" />
 </div>
 
@@ -24,5 +24,7 @@
 </div>
 
 <div class="gameplay transparent box"></div>
+
+<div class="player-camera transparent box"></div>
 
 <div class="winner box" data-property="player-<%=data.player%>-showing-text"><span data-property="player-<%=data.player%>-text">Winner</span></div>

@@ -1,0 +1,92 @@
+.game-type,
+.bingo,
+.color {
+	display: none;
+}
+
+.logo {
+	bottom: 320px;
+}
+
+.positioned-bl > * {
+	left: var(--x);
+	bottom: calc(var(--y) + 65px);
+}
+.positioned-br > * {
+	right: var(--x);
+	bottom: calc(var(--y) + 65px);
+}
+
+
+.comms {
+	position: absolute;
+	width: 270px;
+	height: 45px;
+	padding-top: 4px;
+
+	left: 65px;
+	bottom: 370px;
+}
+
+.name {
+	--x: 408px;
+	height: 32px;
+	width: 220px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.tracker {
+	font-size: 0px;
+	width: 274px;
+	--x: 130px;
+	--y: 306px;
+	height: 52px;
+
+	--x: 408px;
+	--y: 42px;
+	width: 146px;
+	height: 216px;
+}
+
+.tracker i {
+	width: 32px;
+	height: 32px;
+}
+
+.clock {
+	padding: 0px 2px;
+
+	--x: 408px;
+	--y: 262px;
+
+	width: 90px;
+	height: 31px;
+	font-size: 20px;
+
+}
+
+.position {
+	text-align: center;
+	width: 40px;
+	height: 26px;
+	font-size: 13px;
+
+	--x: 558px;
+	--y: 42px;
+}
+
+.gameplay {
+	--x: 4px;
+	--y: 4px;
+
+	width: 400px;
+	height: 300px;
+}
+
+.winner {
+	--x: 330px;
+	--y: 150px;
+	z-index: 20;
+}
+

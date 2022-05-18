@@ -1,0 +1,124 @@
+.logo, .game-type, .funds-raised {
+	display: none;
+}
+
+.positioned-bl,
+.positioned-br {
+	display: none !important;
+}
+
+.bingo {
+	width: 460px;
+	height: 576px;
+	position: absolute;
+	left: 410px;
+	top: 40px;
+
+	overflow: hidden;
+
+	left: 800px;
+}
+
+.comms {
+	position: absolute;
+	bottom: 40px;
+	left: 515px;
+	width: 270px;
+	height: 60px;
+	padding-top: 4px;
+
+	bottom: 25px;
+	left: 900px;
+}
+
+.ffmq-itemset.layout-4p.no-bingo .comms {
+	left: 65px;
+}
+
+.name {
+	--x: 408px;
+	height: 32px;
+	width: 220px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.tracker {
+	font-size: 0px;
+	width: 274px;
+	--x: 130px;
+	--y: 306px;
+	height: 52px;
+
+	--x: 408px;
+	--y: 42px;
+	width: 146px;
+	height: 216px;
+}
+
+.tracker i {
+	width: 32px;
+	height: 32px;
+}
+
+.color {
+	--y: 306px;
+	width: 52px;
+	height: 52px;
+}
+
+.clock {
+	--y: 332px;
+	--x: 54px;
+	width: 76px;
+	height: 26px;
+	font-size: 16px;
+	padding: 0px 2px;
+
+	--x: 408px;
+	--y: 262px;
+
+	width: 90px;
+	height: 31px;
+	font-size: 20px;
+
+}
+
+.position {
+	text-align: center;
+	--y: 306px;
+	--x: 54px;
+	width: 40px;
+	height: 26px;
+	font-size: 13px;
+
+	--x: 558px;
+	--y: 42px;
+}
+
+.gameplay {
+	--x: 4px;
+	--y: 4px;
+
+	/*
+	width: 256px;
+	height: 240px;
+	*/
+	width: 400px;
+	height: 300px;
+}
+
+.winner {
+	--x: 330px;
+	--y: 150px;
+	z-index: 20;
+}
+
+.positioned-ur > * {
+	left: var(--x);
+	bottom: var(--y);
+
+	right: auto;
+	top: auto;
+
+}
