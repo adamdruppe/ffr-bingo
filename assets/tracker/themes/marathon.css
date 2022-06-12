@@ -1,0 +1,31 @@
+#ffr-layout {
+	background-image: url("/assets/tracker/background-liam.png");
+}
+
+.box {
+	border: none;
+	background-color: #00004f;
+	box-shadow: 4px 5px 0px #9dcbd8;
+}
+
+.game-type {
+	background: #583600;
+	color: white;
+}
+
+.funds-raised {
+	text-shadow:
+		-3px 0px 3px #ba9c6f,
+		0px 3px 3px #ba9c6f,
+		3px 0px 3px #ba9c6f,
+		0px -3px 3px #ba9c6f
+	;
+}
+
+* {
+	font-family: "BankGothic";
+}
+
+html {
+	font-size: 22px;
+}

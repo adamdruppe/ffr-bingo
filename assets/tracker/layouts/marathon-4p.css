@@ -4,6 +4,10 @@
 	display: none;
 }
 
+.show-rank-boxes .position {
+	display: block;
+}
+
 .logo {
 	bottom: 320px;
 }
@@ -21,11 +25,16 @@
 .comms {
 	position: absolute;
 	width: 270px;
-	height: 45px;
+	height: 40px;
 	padding-top: 4px;
 
 	left: 65px;
-	bottom: 370px;
+	bottom: 374px;
+
+	--size: 12px;
+
+	font-size: 16px;
+	line-height: 110%;
 }
 
 .name {
@@ -56,6 +65,10 @@
 
 .clock {
 	padding: 0px 2px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
 	--x: 408px;
 	--y: 262px;

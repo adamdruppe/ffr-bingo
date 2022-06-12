@@ -82,11 +82,6 @@ html, body {
     opacity: 0.3;
 }
 
-.tracker.ff1-itemset i {
-    background-image: url('/assets/tracker/ffr-items-sprite-2021.png');
-    background-size: 500% 1100%;
-}
-
 .tracker i.quad-on,
 .tracker i.tri-on,
 .tracker i.on {
@@ -94,20 +89,18 @@ html, body {
 	filter: none;
 }
 
-
 .tracker > div.itemset {
 	display: none;
 }
 
+
+.tracker.ff1-itemset i {
+    background-image: url('/assets/tracker/ffr-items-sprite-2021.png');
+    background-size: 500% 1100%;
+}
 .ff1-itemset.tracker > .ff1-itemset {
 	display: block;
 }
-
-.ffmq-itemset.tracker > .ffmq-itemset {
-	display: block;
-}
-
-
 .ff1-itemset .earth{background-position: 0 40%;}
 .ff1-itemset .earth.on{background-position: 0 50%;}
 .ff1-itemset .fire{background-position: 25% 40%;}
@@ -152,9 +145,10 @@ html, body {
 .ff1-itemset .chime{background-position: 100% 10%;}
 .ff1-itemset .cube{background-position: 75% 20%;}
 
-.ffmq-itemset.tracker {
-}
 
+.ffmq-itemset.tracker > .ffmq-itemset {
+	display: block;
+}
 .ffmq-itemset.tracker i {
     background-image: url('/assets/tracker/ffmqr-items-sprite.png');
     background-size: 500% 2000%;
@@ -221,3 +215,636 @@ html, body {
 .ffmq-itemset .sky-coin {background-position: 75% 45%; }
 
 
+.ctjot-itemset.tracker > .ctjot-itemset {
+	display: block;
+}
+.ctjot-itemset.tracker i {
+    background-image: url('/assets/tracker/tracker - ctjot.png');
+    background-size: 700% 500%;
+}
+.ctjot-itemset .crono{background-position: 0 0;}
+.ctjot-itemset .marle{background-position: 16.6% 0;}
+.ctjot-itemset .lucca{background-position: 33.3% 0;}
+.ctjot-itemset .robo{background-position: 50% 0;}
+.ctjot-itemset .frog{background-position: 66.6% 0;}
+.ctjot-itemset .ayla{background-position: 83.3% 0;}
+.ctjot-itemset .magus{background-position: 100% 0;}
+.ctjot-itemset .badge{background-position: 0 25%;}
+.ctjot-itemset .hilt{background-position: 16.6% 25%;}
+.ctjot-itemset .blade{background-position: 33.3% 25%;}
+.ctjot-itemset .melchior{background-position: 50% 25%;}
+.ctjot-itemset .masamune{background-position: 66.6% 25%;}
+
+.ctjot-itemset .key{background-position: 83.3% 25%;}
+.ctjot-itemset .rock{background-position: 100% 25%;}
+.ctjot-itemset .pop{background-position: 0 50%;}
+.ctjot-itemset .pendant{background-position: 16.6% 50%;}
+.ctjot-itemset .shell{background-position: 33.3% 50%;}
+.ctjot-itemset .moonstone{background-position: 50% 50%;}
+.ctjot-itemset .jerky{background-position: 66.6% 50%;}
+.ctjot-itemset .ribbon{background-position: 83.3% 50%;}
+.ctjot-itemset .go{background-position: 100% 50%;}
+.ctjot-itemset .magic{background-position: 0 75%;}
+.ctjot-itemset .tools{background-position: 16.6% 75%;}
+.ctjot-itemset .doll{background-position: 33.3% 75%;}
+
+.ctjot-itemset .trigger{background-position: 50% 75%;}
+.ctjot-itemset .knife{background-position: 66.6% 75%;}
+.ctjot-itemset .kitty{background-position: 83.3% 75%;}
+.ctjot-itemset .spacer{background-position: 0 100%;}
+
+
+.cvaos-itemset.tracker > .cvaos-itemset {
+	display: block;
+}
+.cvaos-itemset.tracker i {
+    background-image: url('/assets/tracker/tracker - cvaos.png');
+    background-size: 400% 300%;
+}
+.cvaos-itemset .bdash{background-position: 0px 0px;}
+.cvaos-itemset .double{background-position: 33.3% 0px;}
+.cvaos-itemset .undine{background-position: 66.6% 0px;}
+.cvaos-itemset .skulla{background-position: 100% 0px;}
+
+.cvaos-itemset .slide{background-position: 0px 50%;}
+.cvaos-itemset .kick{background-position: 33.3% 50%;}
+.cvaos-itemset .flying{background-position: 66.6% 50%;}
+.cvaos-itemset .rush{background-position: 100% 50%;}
+
+.cvaos-itemset .hijump{background-position: 0px 100%;}
+.cvaos-itemset .time{background-position: 33.3% 100%;}
+.cvaos-itemset .bat{background-position: 66.6% 100%;}
+.cvaos-itemset .dash{background-position: 100% 100%;}
+
+
+.cvsotn-itemset.tracker > .cvsotn-itemset {
+	display: block;
+}
+.cvsotn-itemset.tracker i {
+    background-image: url('/assets/tracker/tracker - cvsotn.png');
+    background-size: 600% 400%;
+}
+.cvsotn-itemset .item1{background-position: 0px 0px;}
+.cvsotn-itemset .item2{background-position: 20% 0px;}
+.cvsotn-itemset .item3{background-position: 40% 0px;}
+.cvsotn-itemset .item4{background-position: 60% 0px;}
+.cvsotn-itemset .item5{background-position: 80% 0px;}
+.cvsotn-itemset .item6{background-position: 100% 0px;}
+
+.cvsotn-itemset .item7{background-position: 0px 33.3%;}
+.cvsotn-itemset .item8{background-position: 20% 33.3%;}
+.cvsotn-itemset .item9{background-position: 40% 33.3%;}
+.cvsotn-itemset .item10{background-position: 60% 33.3%;}
+.cvsotn-itemset .item11{background-position: 80% 33.3%;}
+.cvsotn-itemset .item12{background-position: 100% 33.3%;}
+
+.cvsotn-itemset .item13{background-position: 0px 66.6%;}
+.cvsotn-itemset .item14{background-position: 20% 66.6%;}
+.cvsotn-itemset .item15{background-position: 40% 66.6%;}
+.cvsotn-itemset .item16{background-position: 60% 66.6%;}
+.cvsotn-itemset .item17{background-position: 80% 66.6%;}
+.cvsotn-itemset .item18{background-position: 100% 66.6%;}
+
+.cvsotn-itemset .item19{background-position: 0px 100%;}
+.cvsotn-itemset .item20{background-position: 20% 100%;}
+.cvsotn-itemset .item21{background-position: 40% 100%;}
+.cvsotn-itemset .item22{background-position: 60% 100%;}
+.cvsotn-itemset .item23{background-position: 80% 100%;}
+.cvsotn-itemset .item24{background-position: 100% 100%;}
+
+
+.ff5cd-itemset.tracker > .ff5cd-itemset {
+	display: block;
+}
+.ff5cd-itemset.tracker i {
+    background-image: url('/assets/tracker/tracker - ff5cd.png');
+    background-size: 600% 400%;
+}
+.ff5cd-itemset .item1{background-position: 0px 0px;}
+.ff5cd-itemset .item2{background-position: 20% 0px;}
+.ff5cd-itemset .item3{background-position: 40% 0px;}
+.ff5cd-itemset .item4{background-position: 60% 0px;}
+.ff5cd-itemset .item5{background-position: 80% 0px;}
+.ff5cd-itemset .item6{background-position: 100% 0px;}
+
+.ff5cd-itemset .item7{background-position: 0px 33.3%;}
+.ff5cd-itemset .item8{background-position: 20% 33.3%;}
+.ff5cd-itemset .item9{background-position: 40% 33.3%;}
+.ff5cd-itemset .item10{background-position: 60% 33.3%;}
+.ff5cd-itemset .item11{background-position: 80% 33.3%;}
+.ff5cd-itemset .item12{background-position: 100% 33.3%;}
+
+.ff5cd-itemset .item13{background-position: 0px 66.6%;}
+.ff5cd-itemset .item14{background-position: 20% 66.6%;}
+.ff5cd-itemset .item15{background-position: 40% 66.6%;}
+.ff5cd-itemset .item16{background-position: 60% 66.6%;}
+.ff5cd-itemset .item17{background-position: 80% 66.6%;}
+.ff5cd-itemset .item18{background-position: 100% 66.6%;}
+
+.ff5cd-itemset .item19{background-position: 0px 100%;}
+.ff5cd-itemset .item20{background-position: 20% 100%;}
+.ff5cd-itemset .item21{background-position: 40% 100%;}
+.ff5cd-itemset .item22{background-position: 60% 100%;}
+.ff5cd-itemset .item23{background-position: 80% 100%;}
+.ff5cd-itemset .item24{background-position: 100% 100%;}
+
+
+.metroidfusion-itemset.tracker > .metroidfusion-itemset {
+	display: block;
+}
+.metroidfusion-itemset.tracker i {
+    background-image: url('/assets/tracker/tracker - metroid fusion.png');
+    background-size: 600% 400%;
+}
+.metroidfusion-itemset .item1{background-position: 0px 0px;}
+.metroidfusion-itemset .item2{background-position: 20% 0px;}
+.metroidfusion-itemset .item3{background-position: 40% 0px;}
+.metroidfusion-itemset .item4{background-position: 60% 0px;}
+.metroidfusion-itemset .item5{background-position: 80% 0px;}
+.metroidfusion-itemset .item6{background-position: 100% 0px;}
+
+.metroidfusion-itemset .item7{background-position: 0px 33.3%;}
+.metroidfusion-itemset .item8{background-position: 20% 33.3%;}
+.metroidfusion-itemset .item9{background-position: 40% 33.3%;}
+.metroidfusion-itemset .item10{background-position: 60% 33.3%;}
+.metroidfusion-itemset .item11{background-position: 80% 33.3%;}
+.metroidfusion-itemset .item12{background-position: 100% 33.3%;}
+
+.metroidfusion-itemset .item13{background-position: 0px 66.6%;}
+.metroidfusion-itemset .item14{background-position: 20% 66.6%;}
+.metroidfusion-itemset .item15{background-position: 40% 66.6%;}
+.metroidfusion-itemset .item16{background-position: 60% 66.6%;}
+.metroidfusion-itemset .item17{background-position: 80% 66.6%;}
+.metroidfusion-itemset .item18{background-position: 100% 66.6%;}
+
+.metroidfusion-itemset .item19{background-position: 0px 100%;}
+.metroidfusion-itemset .item20{background-position: 20% 100%;}
+.metroidfusion-itemset .item21{background-position: 40% 100%;}
+.metroidfusion-itemset .item22{background-position: 60% 100%;}
+.metroidfusion-itemset .item23{background-position: 80% 100%;}
+.metroidfusion-itemset .item24{background-position: 100% 100%;}
+
+
+.smrpg-itemset.tracker > .smrpg-itemset {
+	display: block;
+}
+.smrpg-itemset.tracker i {
+    background-image: url('/assets/tracker/tracker - smrpg.png');
+    background-size: 700% 400%;
+}
+.smrpg-itemset .item1{background-position: 0px 0px;}
+.smrpg-itemset .item2{background-position: 16.67% 0px;}
+.smrpg-itemset .item3{background-position: 33.33% 0px;}
+.smrpg-itemset .item4{background-position: 50.00% 0px;}
+.smrpg-itemset .item5{background-position: 66.67% 0px;}
+.smrpg-itemset .item6{background-position: 83.33% 0px;}
+.smrpg-itemset .item7{background-position: 100% 0px;}
+
+.smrpg-itemset .item8{background-position: 0% 33.3%;}
+.smrpg-itemset .item9{background-position: 16.67% 33.3%;}
+.smrpg-itemset .item10{background-position: 33.33% 33.3%;}
+.smrpg-itemset .item11{background-position: 50% 33.3%;}
+.smrpg-itemset .item12{background-position: 66.67% 33.3%;}
+.smrpg-itemset .item13{background-position: 83.33% 33.3%;}
+.smrpg-itemset .item14{background-position: 100% 33.3%;}
+
+.smrpg-itemset .item15{background-position: 0% 66.66%;}
+.smrpg-itemset .item16{background-position: 16.67% 66.66%;}
+.smrpg-itemset .item17{background-position: 33.3% 66.66%;}
+.smrpg-itemset .item18{background-position: 50% 66.66%;}
+.smrpg-itemset .item19{background-position: 66.67% 66.66%;}
+.smrpg-itemset .item20{background-position: 83.33% 66.66%;}
+.smrpg-itemset .item21{background-position: 100% 66.66%;}
+
+.smrpg-itemset .item22{background-position: 0% 100%;}
+.smrpg-itemset .item23{background-position: 16.67% 100%;}
+.smrpg-itemset .item24{background-position: 33.3% 100%;}
+.smrpg-itemset .item25{background-position: 50% 100%;}
+.smrpg-itemset .item26{background-position: 66.67% 100%;}
+.smrpg-itemset .item27{background-position: 83.33% 100%;}
+.smrpg-itemset .item28{background-position: 100% 100%;}
+
+
+
+/* super metroid + zelda 3 link to the past */
+.smz3-itemset.tracker > .smz3-itemset {
+	display: block;
+}
+.smz3-itemset.tracker i {
+    background-image: url('/assets/tracker/tracker - smz3.png');
+    background-size: 600% 1300%;
+}
+.smz3-itemset .item1{background-position: 0px 0px;}
+.smz3-itemset .item2{background-position: 20% 0px;}
+.smz3-itemset .item3{background-position: 40% 0px;}
+.smz3-itemset .item4{background-position: 60% 0px;}
+.smz3-itemset .item5{background-position: 80% 0px;}
+.smz3-itemset .item6{background-position: 100% 0px;}
+
+.smz3-itemset .item7{background-position: 0px 8.3%;}
+.smz3-itemset .item8{background-position: 20% 8.3%;}
+.smz3-itemset .item9{background-position: 40% 8.3%;}
+.smz3-itemset .item10{background-position: 60% 8.3%;}
+.smz3-itemset .item11{background-position: 80% 8.3%;}
+.smz3-itemset .item12{background-position: 100% 8.3%;}
+
+.smz3-itemset .item13{background-position: 0px 16.67%;}
+.smz3-itemset .item14{background-position: 20% 16.67%;}
+.smz3-itemset .item15{background-position: 40% 16.67%;}
+.smz3-itemset .item16{background-position: 60% 16.67%;}
+.smz3-itemset .item17{background-position: 80% 16.67%;}
+.smz3-itemset .item18{background-position: 100% 16.67%;}
+
+.smz3-itemset .item19{background-position: 0px 25%;}
+.smz3-itemset .item20{background-position: 20% 25%;}
+.smz3-itemset .item21{background-position: 40% 25%;}
+.smz3-itemset .item22{background-position: 60% 25%;}
+.smz3-itemset .item23{background-position: 80% 25%;}
+.smz3-itemset .item24{background-position: 100% 25%;}
+
+.smz3-itemset .item25{background-position: 0px 33.33%;}
+.smz3-itemset .item26{background-position: 20% 33.33%;}
+.smz3-itemset .item27{background-position: 40% 33.33%;}
+.smz3-itemset .item28{background-position: 60% 33.33%;}
+.smz3-itemset .item29{background-position: 80% 33.33%;}
+.smz3-itemset .item30{background-position: 100% 33.33%;}
+
+.smz3-itemset .item31{background-position: 0px 41.67%;}
+.smz3-itemset .item32{background-position: 20% 41.67%;}
+.smz3-itemset .item33{background-position: 40% 41.67%;}
+.smz3-itemset .item34{background-position: 60% 41.67%;}
+.smz3-itemset .item35{background-position: 80% 41.67%;}
+.smz3-itemset .item36{background-position: 100% 41.67%;}
+
+.smz3-itemset .item37{background-position: 0px 50%;}
+.smz3-itemset .item38{background-position: 20% 50%;}
+.smz3-itemset .item39{background-position: 40% 50%;}
+.smz3-itemset .item40{background-position: 60% 50%;}
+.smz3-itemset .item41{background-position: 80% 50%;}
+.smz3-itemset .item42{background-position: 100% 50%;}
+
+.smz3-itemset .item43{background-position: 0px 58.33%;}
+.smz3-itemset .item44{background-position: 20% 58.33%;}
+.smz3-itemset .item45{background-position: 40% 58.33%;}
+.smz3-itemset .item46{background-position: 60% 58.33%;}
+.smz3-itemset .item47{background-position: 80% 58.33%;}
+.smz3-itemset .item48{background-position: 100% 58.33%;}
+
+.smz3-itemset .item49{background-position: 0px 66.67%;}
+.smz3-itemset .item50{background-position: 20% 66.67%;}
+.smz3-itemset .item51{background-position: 40% 66.67%;}
+.smz3-itemset .item52{background-position: 60% 66.67%;}
+.smz3-itemset .item53{background-position: 80% 66.67%;}
+.smz3-itemset .item54{background-position: 100% 66.67%;}
+
+.smz3-itemset .item55{background-position: 0px 75%;}
+.smz3-itemset .item56{background-position: 20% 75%;}
+.smz3-itemset .item57{background-position: 40% 75%;}
+.smz3-itemset .item58{background-position: 60% 75%;}
+.smz3-itemset .item59{background-position: 80% 75%;}
+.smz3-itemset .item60{background-position: 100% 75%;}
+
+.smz3-itemset .item61{background-position: 0px 83.33%;}
+.smz3-itemset .item62{background-position: 20% 83.33%;}
+.smz3-itemset .item63{background-position: 40% 83.33%;}
+.smz3-itemset .item64{background-position: 60% 83.33%;}
+.smz3-itemset .item65{background-position: 80% 83.33%;}
+.smz3-itemset .item66{background-position: 100% 83.33%;}
+
+.smz3-itemset .item67{background-position: 0px 91.67%;}
+.smz3-itemset .item68{background-position: 20% 91.67%;}
+.smz3-itemset .item69{background-position: 40% 91.67%;}
+.smz3-itemset .item70{background-position: 60% 91.67%;}
+.smz3-itemset .item71{background-position: 80% 91.67%;}
+.smz3-itemset .item72{background-position: 100% 91.67%;}
+
+.smz3-itemset .item73{background-position: 0px 100%;}
+.smz3-itemset .item74{background-position: 20% 100%;}
+.smz3-itemset .item75{background-position: 40% 100%;}
+.smz3-itemset .item76{background-position: 60% 100%;}
+.smz3-itemset .item77{background-position: 80% 100%;}
+.smz3-itemset .item78{background-position: 100% 100%;}
+
+
+.faxanadu-itemset.tracker > .faxanadu-itemset {
+	display: block;
+}
+.faxanadu-itemset.tracker i {
+    background-image: url('/assets/tracker/tracker - faxanadu.png');
+    background-size: 600% 400%;
+}
+.faxanadu-itemset .item1{background-position: 0px 0px;}
+.faxanadu-itemset .item2{background-position: 20% 0px;}
+.faxanadu-itemset .item3{background-position: 40% 0px;}
+.faxanadu-itemset .item4{background-position: 60% 0px;}
+.faxanadu-itemset .item5{background-position: 80% 0px;}
+.faxanadu-itemset .item6{background-position: 100% 0px;}
+
+.faxanadu-itemset .item7{background-position: 0px 33.3%;}
+.faxanadu-itemset .item8{background-position: 20% 33.3%;}
+.faxanadu-itemset .item9{background-position: 40% 33.3%;}
+.faxanadu-itemset .item10{background-position: 60% 33.3%;}
+.faxanadu-itemset .item11{background-position: 80% 33.3%;}
+.faxanadu-itemset .item12{background-position: 100% 33.3%;}
+
+.faxanadu-itemset .item13{background-position: 0px 66.6%;}
+.faxanadu-itemset .item14{background-position: 20% 66.6%;}
+.faxanadu-itemset .item15{background-position: 40% 66.6%;}
+.faxanadu-itemset .item16{background-position: 60% 66.6%;}
+.faxanadu-itemset .item17{background-position: 80% 66.6%;}
+.faxanadu-itemset .item18{background-position: 100% 66.6%;}
+
+.faxanadu-itemset .item19{background-position: 0px 100%;}
+.faxanadu-itemset .item20{background-position: 20% 100%;}
+.faxanadu-itemset .item21{background-position: 40% 100%;}
+.faxanadu-itemset .item22{background-position: 60% 100%;}
+.faxanadu-itemset .item23{background-position: 80% 100%;}
+.faxanadu-itemset .item24{background-position: 100% 100%;}
+
+
+.earthbound-itemset.tracker > .earthbound-itemset {
+	display: block;
+}
+.earthbound-itemset.tracker i {
+    background-image: url('/assets/tracker/tracker - earthbound.png');
+    background-size: 600% 400%;
+}
+.earthbound-itemset .item1{background-position: 0px 0px;}
+.earthbound-itemset .item2{background-position: 20% 0px;}
+.earthbound-itemset .item3{background-position: 40% 0px;}
+.earthbound-itemset .item4{background-position: 60% 0px;}
+.earthbound-itemset .item5{background-position: 80% 0px;}
+.earthbound-itemset .item6{background-position: 100% 0px;}
+
+.earthbound-itemset .item7{background-position: 0px 33.3%;}
+.earthbound-itemset .item8{background-position: 20% 33.3%;}
+.earthbound-itemset .item9{background-position: 40% 33.3%;}
+.earthbound-itemset .item10{background-position: 60% 33.3%;}
+.earthbound-itemset .item11{background-position: 80% 33.3%;}
+.earthbound-itemset .item12{background-position: 100% 33.3%;}
+
+.earthbound-itemset .item13{background-position: 0px 66.6%;}
+.earthbound-itemset .item14{background-position: 20% 66.6%;}
+.earthbound-itemset .item15{background-position: 40% 66.6%;}
+.earthbound-itemset .item16{background-position: 60% 66.6%;}
+.earthbound-itemset .item17{background-position: 80% 66.6%;}
+.earthbound-itemset .item18{background-position: 100% 66.6%;}
+
+.earthbound-itemset .item19{background-position: 0px 100%;}
+.earthbound-itemset .item20{background-position: 20% 100%;}
+.earthbound-itemset .item21{background-position: 40% 100%;}
+.earthbound-itemset .item22{background-position: 60% 100%;}
+.earthbound-itemset .item23{background-position: 80% 100%;}
+.earthbound-itemset .item24{background-position: 100% 100%;}
+
+
+.zelda1-itemset.tracker > .zelda1-itemset {
+	display: block;
+}
+.zelda1-itemset.tracker i {
+    background-image: url('/assets/tracker/tracker - zelda 1.png');
+    background-size: 600% 400%;
+}
+.zelda1-itemset .item1{background-position: 0px 0px;}
+.zelda1-itemset .item2{background-position: 20% 0px;}
+.zelda1-itemset .item3{background-position: 40% 0px;}
+.zelda1-itemset .item4{background-position: 60% 0px;}
+.zelda1-itemset .item5{background-position: 80% 0px;}
+.zelda1-itemset .item6{background-position: 100% 0px;}
+
+.zelda1-itemset .item7{background-position: 0px 33.3%;}
+.zelda1-itemset .item8{background-position: 20% 33.3%;}
+.zelda1-itemset .item9{background-position: 40% 33.3%;}
+.zelda1-itemset .item10{background-position: 60% 33.3%;}
+.zelda1-itemset .item11{background-position: 80% 33.3%;}
+.zelda1-itemset .item12{background-position: 100% 33.3%;}
+
+.zelda1-itemset .item13{background-position: 0px 66.6%;}
+.zelda1-itemset .item14{background-position: 20% 66.6%;}
+.zelda1-itemset .item15{background-position: 40% 66.6%;}
+.zelda1-itemset .item16{background-position: 60% 66.6%;}
+.zelda1-itemset .item17{background-position: 80% 66.6%;}
+.zelda1-itemset .item18{background-position: 100% 66.6%;}
+
+.zelda1-itemset .item19{background-position: 0px 100%;}
+.zelda1-itemset .item20{background-position: 20% 100%;}
+.zelda1-itemset .item21{background-position: 40% 100%;}
+.zelda1-itemset .item22{background-position: 60% 100%;}
+.zelda1-itemset .item23{background-position: 80% 100%;}
+.zelda1-itemset .item24{background-position: 100% 100%;}
+
+
+.zelda2-itemset.tracker > .zelda2-itemset {
+	display: block;
+}
+.zelda2-itemset.tracker i {
+    background-image: url('/assets/tracker/tracker - zelda 2.png');
+    background-size: 600% 400%;
+}
+.zelda2-itemset .item1{background-position: 0px 0px;}
+.zelda2-itemset .item2{background-position: 20% 0px;}
+.zelda2-itemset .item3{background-position: 40% 0px;}
+.zelda2-itemset .item4{background-position: 60% 0px;}
+.zelda2-itemset .item5{background-position: 80% 0px;}
+.zelda2-itemset .item6{background-position: 100% 0px;}
+
+.zelda2-itemset .item7{background-position: 0px 33.3%;}
+.zelda2-itemset .item8{background-position: 20% 33.3%;}
+.zelda2-itemset .item9{background-position: 40% 33.3%;}
+.zelda2-itemset .item10{background-position: 60% 33.3%;}
+.zelda2-itemset .item11{background-position: 80% 33.3%;}
+.zelda2-itemset .item12{background-position: 100% 33.3%;}
+
+.zelda2-itemset .item13{background-position: 0px 66.6%;}
+.zelda2-itemset .item14{background-position: 20% 66.6%;}
+.zelda2-itemset .item15{background-position: 40% 66.6%;}
+.zelda2-itemset .item16{background-position: 60% 66.6%;}
+.zelda2-itemset .item17{background-position: 80% 66.6%;}
+.zelda2-itemset .item18{background-position: 100% 66.6%;}
+
+.zelda2-itemset .item19{background-position: 0px 100%;}
+.zelda2-itemset .item20{background-position: 20% 100%;}
+.zelda2-itemset .item21{background-position: 40% 100%;}
+.zelda2-itemset .item22{background-position: 60% 100%;}
+.zelda2-itemset .item23{background-position: 80% 100%;}
+.zelda2-itemset .item24{background-position: 100% 100%;}
+
+
+
+.hollowknight-itemset.tracker > .hollowknight-itemset {
+	display: block;
+}
+.hollowknight-itemset.tracker i {
+    background-image: url('/assets/tracker/tracker - hollow knight.png');
+    background-size: 600% 400%;
+}
+.hollowknight-itemset .item1{background-position: 0px 0px;}
+.hollowknight-itemset .item2{background-position: 25% 0px;}
+.hollowknight-itemset .item3{background-position: 50% 0px;}
+.hollowknight-itemset .item4{background-position: 75% 0px;}
+
+.hollowknight-itemset .item5{background-position: 0px 33.33%;}
+.hollowknight-itemset .item6{background-position: 25% 33.33%;}
+.hollowknight-itemset .item7{background-position: 50% 33.33%;}
+.hollowknight-itemset .item8{background-position: 75% 33.33%;}
+
+.hollowknight-itemset .item9{background-position: 0px 66.67%;}
+.hollowknight-itemset .item10{background-position: 25% 66.67%;}
+.hollowknight-itemset .item11{background-position: 50% 66.67%;}
+.hollowknight-itemset .item12{background-position: 75% 66.67%;}
+
+.hollowknight-itemset .item13{background-position: 0px 100%;}
+.hollowknight-itemset .item14{background-position: 25% 100%;}
+.hollowknight-itemset .item15{background-position: 50% 100%;}
+.hollowknight-itemset .item16{background-position: 75% 100%;}
+.hollowknight-itemset .item17{background-position: 100% 100%;}
+
+
+.zeldamm-itemset.tracker > .zeldamm-itemset {
+	display: block;
+}
+.zeldamm-itemset.tracker i {
+    background-image: url('/assets/tracker/tracker - zelda mm.png');
+    background-size: 600% 1300%;
+}
+.zeldamm-itemset .item1{background-position: 0px 0px;}
+.zeldamm-itemset .item2{background-position: 20% 0px;}
+.zeldamm-itemset .item3{background-position: 40% 0px;}
+.zeldamm-itemset .item4{background-position: 60% 0px;}
+.zeldamm-itemset .item5{background-position: 80% 0px;}
+.zeldamm-itemset .item6{background-position: 100% 0px;}
+
+.zeldamm-itemset .item7{background-position: 0px 8.3%;}
+.zeldamm-itemset .item8{background-position: 20% 8.3%;}
+.zeldamm-itemset .item9{background-position: 40% 8.3%;}
+.zeldamm-itemset .item10{background-position: 60% 8.3%;}
+.zeldamm-itemset .item11{background-position: 80% 8.3%;}
+.zeldamm-itemset .item12{background-position: 100% 8.3%;}
+
+.zeldamm-itemset .item13{background-position: 0px 16.67%;}
+.zeldamm-itemset .item14{background-position: 20% 16.67%;}
+.zeldamm-itemset .item15{background-position: 40% 16.67%;}
+.zeldamm-itemset .item16{background-position: 60% 16.67%;}
+.zeldamm-itemset .item17{background-position: 80% 16.67%;}
+.zeldamm-itemset .item18{background-position: 100% 16.67%;}
+
+.zeldamm-itemset .item19{background-position: 0px 25%;}
+.zeldamm-itemset .item20{background-position: 20% 25%;}
+.zeldamm-itemset .item21{background-position: 40% 25%;}
+.zeldamm-itemset .item22{background-position: 60% 25%;}
+.zeldamm-itemset .item23{background-position: 80% 25%;}
+.zeldamm-itemset .item24{background-position: 100% 25%;}
+
+.zeldamm-itemset .item25{background-position: 0px 33.33%;}
+.zeldamm-itemset .item26{background-position: 20% 33.33%;}
+.zeldamm-itemset .item27{background-position: 40% 33.33%;}
+.zeldamm-itemset .item28{background-position: 60% 33.33%;}
+.zeldamm-itemset .item29{background-position: 80% 33.33%;}
+.zeldamm-itemset .item30{background-position: 100% 33.33%;}
+
+.zeldamm-itemset .item31{background-position: 0px 41.67%;}
+.zeldamm-itemset .item32{background-position: 20% 41.67%;}
+.zeldamm-itemset .item33{background-position: 40% 41.67%;}
+.zeldamm-itemset .item34{background-position: 60% 41.67%;}
+.zeldamm-itemset .item35{background-position: 80% 41.67%;}
+.zeldamm-itemset .item36{background-position: 100% 41.67%;}
+
+.zeldamm-itemset .item37{background-position: 0px 50%;}
+.zeldamm-itemset .item38{background-position: 20% 50%;}
+.zeldamm-itemset .item39{background-position: 40% 50%;}
+.zeldamm-itemset .item40{background-position: 60% 50%;}
+.zeldamm-itemset .item41{background-position: 80% 50%;}
+.zeldamm-itemset .item42{background-position: 100% 50%;}
+
+.zeldamm-itemset .item43{background-position: 0px 58.33%;}
+.zeldamm-itemset .item44{background-position: 20% 58.33%;}
+.zeldamm-itemset .item45{background-position: 40% 58.33%;}
+.zeldamm-itemset .item46{background-position: 60% 58.33%;}
+.zeldamm-itemset .item47{background-position: 80% 58.33%;}
+.zeldamm-itemset .item48{background-position: 100% 58.33%;}
+
+.zeldamm-itemset .item49{background-position: 0px 66.67%;}
+.zeldamm-itemset .item50{background-position: 20% 66.67%;}
+.zeldamm-itemset .item51{background-position: 40% 66.67%;}
+.zeldamm-itemset .item52{background-position: 60% 66.67%;}
+.zeldamm-itemset .item53{background-position: 80% 66.67%;}
+.zeldamm-itemset .item54{background-position: 100% 66.67%;}
+
+.zeldamm-itemset .item55{background-position: 0px 75%;}
+.zeldamm-itemset .item56{background-position: 20% 75%;}
+.zeldamm-itemset .item57{background-position: 40% 75%;}
+.zeldamm-itemset .item58{background-position: 60% 75%;}
+.zeldamm-itemset .item59{background-position: 80% 75%;}
+.zeldamm-itemset .item60{background-position: 100% 75%;}
+
+
+.soulblazer-itemset.tracker > .soulblazer-itemset {
+        display: block;
+}
+.soulblazer-itemset.tracker i {
+    background-image: url('/assets/tracker/tracker - soul blazer.png');
+    background-size: 800% 400%;
+}
+
+.soulblazer-itemset .item1{background-position: 0.00% 0.00%;}
+.soulblazer-itemset .item2{background-position: 14.29% 0.00%;}
+.soulblazer-itemset .item3{background-position: 28.57% 0.00%;}
+.soulblazer-itemset .item4{background-position: 42.86% 0.00%;}
+.soulblazer-itemset .item5{background-position: 57.14% 0.00%;}
+.soulblazer-itemset .item6{background-position: 71.43% 0.00%;}
+.soulblazer-itemset .item7{background-position: 85.71% 0.00%;}
+.soulblazer-itemset .item8{background-position: 100.00% 0.00%;}
+.soulblazer-itemset .item9{background-position: 0.00% 33.33%;}
+.soulblazer-itemset .item10{background-position: 14.29% 33.33%;}
+.soulblazer-itemset .item11{background-position: 28.57% 33.33%;}
+.soulblazer-itemset .item12{background-position: 42.86% 33.33%;}
+.soulblazer-itemset .item13{background-position: 57.14% 33.33%;}
+.soulblazer-itemset .item14{background-position: 71.43% 33.33%;}
+.soulblazer-itemset .item15{background-position: 85.71% 33.33%;}
+.soulblazer-itemset .item16{background-position: 100.00% 33.33%;}
+.soulblazer-itemset .item17{background-position: 0.00% 66.67%;}
+.soulblazer-itemset .item18{background-position: 14.29% 66.67%;}
+.soulblazer-itemset .item19{background-position: 28.57% 66.67%;}
+.soulblazer-itemset .item20{background-position: 42.86% 66.67%;}
+.soulblazer-itemset .item21{background-position: 57.14% 66.67%;}
+.soulblazer-itemset .item22{background-position: 71.43% 66.67%;}
+.soulblazer-itemset .item23{background-position: 85.71% 66.67%;}
+.soulblazer-itemset .item24{background-position: 100.00% 66.67%;}
+.soulblazer-itemset .item25{background-position: 0.00% 100.00%;}
+.soulblazer-itemset .item26{background-position: 14.29% 100.00%;}
+.soulblazer-itemset .item27{background-position: 28.57% 100.00%;}
+.soulblazer-itemset .item28{background-position: 42.86% 100.00%;}
+.soulblazer-itemset .item29{background-position: 57.14% 100.00%;}
+.soulblazer-itemset .item30{background-position: 71.43% 100.00%;}
+.soulblazer-itemset .item31{background-position: 85.71% 100.00%;}
+.soulblazer-itemset .item32{background-position: 100.00% 100.00%;}
+
+.metroidprime-itemset.tracker > .metroidprime-itemset {
+        display: block;
+}
+.metroidprime-itemset.tracker i {
+    background-image: url('/assets/tracker/tracker - metroid prime - items.png');
+    background-size: 500% 400%;
+}
+/* FIXME do the map */
+
+.metroidprime-itemset .item1{background-position: 0.00% 0.00%;}
+.metroidprime-itemset .item2{background-position: 25.00% 0.00%;}
+.metroidprime-itemset .item3{background-position: 50.00% 0.00%;}
+.metroidprime-itemset .item4{background-position: 75.00% 0.00%;}
+.metroidprime-itemset .item5{background-position: 100.00% 0.00%;}
+.metroidprime-itemset .item6{background-position: 0.00% 33.33%;}
+.metroidprime-itemset .item7{background-position: 25.00% 33.33%;}
+.metroidprime-itemset .item8{background-position: 50.00% 33.33%;}
+.metroidprime-itemset .item9{background-position: 75.00% 33.33%;}
+.metroidprime-itemset .item10{background-position: 100.00% 33.33%;}
+.metroidprime-itemset .item11{background-position: 0.00% 66.67%;}
+.metroidprime-itemset .item12{background-position: 25.00% 66.67%;}
+.metroidprime-itemset .item13{background-position: 50.00% 66.67%;}
+.metroidprime-itemset .item14{background-position: 75.00% 66.67%;}
+.metroidprime-itemset .item15{background-position: 100.00% 66.67%;}
+.metroidprime-itemset .item16{background-position: 0.00% 100.00%;}
+.metroidprime-itemset .item17{background-position: 25.00% 100.00%;}
+.metroidprime-itemset .item18{background-position: 50.00% 100.00%;}
+.metroidprime-itemset .item19{background-position: 75.00% 100.00%;}
+.metroidprime-itemset .item20{background-position: 100.00% 100.00%;}

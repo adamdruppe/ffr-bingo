@@ -15,7 +15,7 @@
 			mutually exclusive layouts:
 				1p             .layout-1p (not implemented)
 				2p             .layout-2p
-				3p/4p          .layout-4p (please note child #ffr-layout.p4-showing)
+				3p/4p          .layout-4p (please note child #ffr-layout.player-4-showing)
 
 			other settings:
 				[ ] hide bingo .no-bingo (might relayout)
@@ -50,6 +50,19 @@
 			position: relative;
 		}
 
+		.comms {
+			--size: 20px;
+		}
+
+		.comms span {
+			white-space: nowrap;
+		}
+
+		.position,
+		.player-camera {
+			display: none; /* hide these by default, the layouts can choose to show them again when .show-rank-boxes and .show-cameras are on the top element */
+		}
+
 		.funds-raised {
 			font-size: 40px;
 			position: absolute;
@@ -59,8 +72,6 @@
 		}
 
 		.logo {
-			/*background-image: url("/assets/tracker/logo-ffmq.png");*/
-			background-image: url("/assets/tracker/logo-rando-marathon-2022.png");
 			width: 400px;
 			height: 150px;
 			position: absolute;
@@ -82,8 +93,9 @@
 			z-index: 1000;
 		}
 
+		.transparent-itemset,
 		.transparent {
-			background: transparent;
+			background: transparent !important;
 		}
 
 		.box {
@@ -111,6 +123,10 @@
 			background-color: black;
 			font-size: 22px;
 			padding: 4px 20px;
+			display: none;
+		}
+
+		.tracker.null-itemset {
 			display: none;
 		}
 
@@ -161,6 +177,15 @@
 			display: none;
 		}
 
+		.comms > div > div > span:first-child {
+			position: absolute;
+			top: 6px;
+		}
+		.comms > div > div > span {
+			position: absolute;
+			bottom: 6px;
+		}
+
 		.gameplay.finished {
 			background: url("/assets/tracker/bridge-scene-nes.png");
 			background-size: cover;
@@ -171,7 +196,9 @@
 		}
 	</style>
 
-	<link rel="stylesheet" href="/assets/tracker/layouts/marathon-1p.css" />
+	<link rel="stylesheet" id="theme-stylesheet" href="/assets/tracker/themes/marathon.css" />
+	<link rel="stylesheet" id="layout-stylesheet" href="/assets/tracker/layouts/marathon-1p.css" />
+	<link rel="stylesheet" id="logo-stylesheet" href="/assets/tracker/logos/null.css" />
 
 	<div id="ffr-layout">
 		<div class="positioned-ul">
@@ -188,7 +215,9 @@
 		</div>
 
 		<div class="game-type box">
-			game type box here
+			<span class="game-name" data-property="game-type"></span>
+			<span class="game-system" data-property="game-system"></span>
+			<span class="game-goal" data-property="game-goal"></span>
 		</div>
 
 		<div class="comms box">
@@ -196,7 +225,7 @@
 				<img alt="+" width="20" height="20" src="/assets/tracker/sprite.svg#svgView(viewBox(60, 0, 20, 20))" style="
 					position: absolute;
 					left: 2px;
-					top: 14px;
+					top: calc(50% - 10px);
 				" />
 
 				<div style="margin-left: 22px;">
@@ -211,13 +240,17 @@
 					position: absolute;
 					left: 2px;
 					top: 6px;
+					height: var(--size);
+					width: var(--size);
 				" />
 
 
 				<img alt="+" width="20" height="20" src="/assets/tracker/sprite.svg#svgView(viewBox(40, 0, 20, 20))" style="
 					position: absolute;
 					left: 2px;
-					top: 28px;
+					bottom: 6px;
+					width: var(--size);
+					height: var(--size);
 				" />
 
 				<div style="margin-left: 26px;">
@@ -248,7 +281,7 @@
 
 		<div class="logo"></div>
 
-		<div class="funds-raised">$1000</div>
+		<div class="funds-raised"><span data-property="funds-raised"></span></div>
 
 		<div id="loading-screen" style="display: none;" data-property="loading-screen-showing">
 			<div style="
@@ -322,16 +355,16 @@
 		showingCommsCounter = showingCommsCounter ? 0 : 1;
 
 		if(showingCommsCounter)
-			setTimeout(showingCommsUpdate, 60000);
+			setTimeout(showingCommsUpdate, 4000);//60000);
 		else
-			setTimeout(showingCommsUpdate, 15000);
+			setTimeout(showingCommsUpdate, 4000);//15000);
 	}
 	showingCommsUpdate();
 </script>
 
 <script>
 	window.addEventListener("load", function() {
-		findTransparentRectangles();
+		findTransparentRectanglesQueue();
 	});
 </script>
 

@@ -55,45 +55,72 @@
 
 	<label>
 		<span>Layout:</span>
-		<select>
+		<select name="layout-sheet">
 			<optgroup label="Plain">
-				<option>2p</option>
-				<option>4p</option>
+				<option value="2p.css">2p</option>
+				<option value="4p.css">4p</option>
 			</optgroup>
 			<optgroup label="Bingo">
-				<option>Bingo 2p</option>
-				<option>Bingo 4p</option>
+				<option value="bingo-2p.css">Bingo 2p</option>
+				<option value="bingo-4p.css">Bingo 4p</option>
 			</optgroup>
 			<optgroup label="Fundraiser">
-				<option>Marathon 1p</option>
-				<option>Marathon 2p</option>
-				<option>Marathon 4p</option>
+				<option value="marathon-1p.css">Marathon 1p</option>
+				<option value="marathon-2p.css">Marathon 2p</option>
+				<option value="marathon-4p.css">Marathon 4p</option>
 			</optgroup>
 		</select>
 	</label>
 
+	<br />
+	<label><input name="show-rank-boxes" type="checkbox" /> Show Rank Boxes</label>
+	<br />
+	<label><input name="show-cameras" type="checkbox" /> Show Cameras</label>
+
+
 	<label>
 		<span>Style Theme:</span>
-		<select>
-			<option>Blue Fog</option>
-			<option>DAB Bubbles</option>
-			<option>Liam Event</option>
+		<select name="style-sheet">
+			<option value="fog.css">Blue Fog</option>
+			<option value="bubbles.css">DAB Bubbles</option>
+			<option value="marathon.css">Liam Event</option>
 		</select>
 	</label>
 
 	<label>
 		<span>Logo:</span>
-		<select>
-			<option>None</option>
-			<option>FFR</option>
-			<option>DAB</option>
-			<option>FFMQ</option>
-			<option>FFR 2022 Marathon</option>
+		<select name="logo-sheet">
+			<option value="null.css">None</option>
+			<option value="ffr.css">FFR</option>
+			<option value="dab.css">DAB</option>
+			<option value="ffmq.css">FFMQ</option>
+			<option value="marathon.css">FFR 2022 Marathon</option>
 		</select>
 	</label>
 
-	<label><input type="checkbox" /> Show Rank Boxes</label>
-	<label><input type="checkbox" /> Show Cameras</label>
+	<br />
+	<label>
+		Game Name
+		<input name="game-type" type="text" />
+	</label>
+
+	<br />
+	<label>
+		Game System
+		<input name="game-system" type="text" />
+	</label>
+
+	<br />
+	<label>
+		Game Goal
+		<input name="game-goal" type="text" />
+	</label>
+
+	<br />
+	<label>
+		Funds Raised
+		<input name="funds-raised" type="text" />
+	</label>
 
 
 	<br style="clear: both;" />
@@ -102,8 +129,26 @@
 		<legend>Player 1 (upper left)</legend>
 
 		<label><select name="player-1-itemset">
+			<option value="null-itemset">No tracker</option>
+			<option value="transparent-itemset">Transparent (restreamer can crop runner's own tracker)</option>
 			<option value="ff1-itemset">FF1 Items</option>
 			<option value="ffmq-itemset">FFMQ Items</option>
+
+			<option value="ctjot-itemset">CT JOT Items</option>
+			<option value="cvaos-itemset">CV AOS Items</option>
+			<option value="cvsotn-itemset">CV SOTN Items</option>
+			<option value="ff5cd-itemset">FF5 CD Items</option>
+			<option value="hollowknight-itemset">Hollow Knight Items</option>
+			<option value="metroidfusion-itemset">Metroid Fusion Items</option>
+			<option value="metroidprime-itemset">Metroid Prime Items</option>
+			<option value="smrpg-itemset">SM RPG Items</option>
+			<option value="smz3-itemset">SMZ3 Items</option>
+			<option value="soulblazer-itemset">Soul Blazer Items</option>
+			<option value="zelda1-itemset">Zelda 1 Items</option>
+			<option value="zelda2-itemset">Zelda 2 Items</option>
+			<option value="zeldamm-itemset">Zelda Majora's Mask Items</option>
+			<option value="faxanadu-itemset">Faxanadu Items</option>
+			<option value="earthbound-itemset">Earthbound Items</option>
 		</select></label>
 
 		<div data-property="player-1-itemset" data-property-prefix="item-player-1-" style="font-size: 0px; width: 440px; --x: 130px; --y: 306px; height: 70px;" class="tracker box">
@@ -124,9 +169,28 @@
 	<fieldset>
 		<legend>Player 2 (upper right)</legend>
 
+
 		<label><select name="player-2-itemset">
+			<option value="null-itemset">No tracker</option>
+			<option value="transparent-itemset">Transparent (restreamer can crop runner's own tracker)</option>
 			<option value="ff1-itemset">FF1 Items</option>
 			<option value="ffmq-itemset">FFMQ Items</option>
+
+			<option value="ctjot-itemset">CT JOT Items</option>
+			<option value="cvaos-itemset">CV AOS Items</option>
+			<option value="cvsotn-itemset">CV SOTN Items</option>
+			<option value="ff5cd-itemset">FF5 CD Items</option>
+			<option value="hollowknight-itemset">Hollow Knight Items</option>
+			<option value="metroidfusion-itemset">Metroid Fusion Items</option>
+			<option value="metroidprime-itemset">Metroid Prime Items</option>
+			<option value="smrpg-itemset">SM RPG Items</option>
+			<option value="smz3-itemset">SMZ3 Items</option>
+			<option value="soulblazer-itemset">Soul Blazer Items</option>
+			<option value="zelda1-itemset">Zelda 1 Items</option>
+			<option value="zelda2-itemset">Zelda 2 Items</option>
+			<option value="zeldamm-itemset">Zelda Majora's Mask Items</option>
+			<option value="faxanadu-itemset">Faxanadu Items</option>
+			<option value="earthbound-itemset">Earthbound Items</option>
 		</select></label>
 
 		<div data-property="player-2-itemset" data-property-prefix="item-player-2-" style="font-size: 0px; width: 440px; --x: 130px; --y: 306px; height: 70px;" class="tracker box">
@@ -148,8 +212,26 @@
 		<legend>Player 3 (bottom left)</legend>
 
 		<label><select name="player-3-itemset">
+			<option value="null-itemset">No tracker</option>
+			<option value="transparent-itemset">Transparent (restreamer can crop runner's own tracker)</option>
 			<option value="ff1-itemset">FF1 Items</option>
 			<option value="ffmq-itemset">FFMQ Items</option>
+
+			<option value="ctjot-itemset">CT JOT Items</option>
+			<option value="cvaos-itemset">CV AOS Items</option>
+			<option value="cvsotn-itemset">CV SOTN Items</option>
+			<option value="ff5cd-itemset">FF5 CD Items</option>
+			<option value="hollowknight-itemset">Hollow Knight Items</option>
+			<option value="metroidfusion-itemset">Metroid Fusion Items</option>
+			<option value="metroidprime-itemset">Metroid Prime Items</option>
+			<option value="smrpg-itemset">SM RPG Items</option>
+			<option value="smz3-itemset">SMZ3 Items</option>
+			<option value="soulblazer-itemset">Soul Blazer Items</option>
+			<option value="zelda1-itemset">Zelda 1 Items</option>
+			<option value="zelda2-itemset">Zelda 2 Items</option>
+			<option value="zeldamm-itemset">Zelda Majora's Mask Items</option>
+			<option value="faxanadu-itemset">Faxanadu Items</option>
+			<option value="earthbound-itemset">Earthbound Items</option>
 		</select></label>
 
 		<div data-property="player-3-itemset" data-property-prefix="item-player-3-" style="font-size: 0px; width: 440px; --x: 130px; --y: 306px; height: 70px;" class="tracker box">
@@ -171,8 +253,26 @@
 		<legend>Player 4 (bottom right)</legend>
 
 		<label><select name="player-4-itemset">
+			<option value="null-itemset">No tracker</option>
+			<option value="transparent-itemset">Transparent (restreamer can crop runner's own tracker)</option>
 			<option value="ff1-itemset">FF1 Items</option>
 			<option value="ffmq-itemset">FFMQ Items</option>
+
+			<option value="ctjot-itemset">CT JOT Items</option>
+			<option value="cvaos-itemset">CV AOS Items</option>
+			<option value="cvsotn-itemset">CV SOTN Items</option>
+			<option value="ff5cd-itemset">FF5 CD Items</option>
+			<option value="hollowknight-itemset">Hollow Knight Items</option>
+			<option value="metroidfusion-itemset">Metroid Fusion Items</option>
+			<option value="metroidprime-itemset">Metroid Prime Items</option>
+			<option value="smrpg-itemset">SM RPG Items</option>
+			<option value="smz3-itemset">SMZ3 Items</option>
+			<option value="soulblazer-itemset">Soul Blazer Items</option>
+			<option value="zelda1-itemset">Zelda 1 Items</option>
+			<option value="zelda2-itemset">Zelda 2 Items</option>
+			<option value="zeldamm-itemset">Zelda Majora's Mask Items</option>
+			<option value="faxanadu-itemset">Faxanadu Items</option>
+			<option value="earthbound-itemset">Earthbound Items</option>
 		</select></label>
 
 		<div data-property="player-4-itemset" data-property-prefix="item-player-4-" style="font-size: 0px; width: 440px; --x: 130px; --y: 306px; height: 70px;" class="tracker box">

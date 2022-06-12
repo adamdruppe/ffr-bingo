@@ -1,0 +1,5 @@
+Themes work together with layouts. Layouts determine positions and sizes, themes determine images, fonts, colors, decorations, etc.
+
+They can ideally (but not always in practice) be mixed and matched.
+
+A theme should generally NOT show or hide things since that's the layout's job.

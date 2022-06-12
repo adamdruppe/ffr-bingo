@@ -307,10 +307,24 @@ document.addEventListener("DOMContentLoaded", function() {
 	}
 });
 
+var findTransparentRectanglesQueued = null;
+function findTransparentRectanglesQueue() {
+	if(findTransparentRectanglesQueued)
+		return;
+	findTransparentRectanglesQueued = setTimeout(findTransparentRectangles, 50);
+
+}
+
 function findTransparentRectangles() {
+	findTransparentRectanglesQueued = null;
+
+	document.querySelectorAll("span[data-property]").forEach(function(e) {
+		setTimeout(function() { makeTextFit(e); }, 100);
+	});
+
 	var answers = [];
 	var p = document.querySelector("#ffr-layout");
-	document.querySelectorAll(".transparent").forEach(function(e) {
+	document.querySelectorAll(".transparent, .transparent-itemset").forEach(function(e) {
 		if(p != e.offsetParent)
 			return;
 		if(e.offsetWidth == 0 || e.offsetHeight == 0)
@@ -325,11 +339,15 @@ function findTransparentRectangles() {
 		answers.push(rect);
 	});
 
+	// want to get the image out of the stylesheet
+	p.style.backgroundImage = null;
+	var cs = getComputedStyle(p);
+	var bgimg = cs.backgroundImage;
+	if(bgimg == "none")
+		return;
+
 	var img = new Image();
-	//var cs = getComputedStyle(p).backgroundImage;
-	//img.src = cs.substring(5, cs.length - 2);
-	//img.src = "/assets/tracker/background-fog.webp";
-	img.src = "/assets/tracker/background-liam.png";
+	img.src = bgimg.substring(5, bgimg.length - 2);
 	img.onload = function() {
 		var canvas = document.createElement("canvas");
 		canvas.setAttribute("width", 1280);
@@ -360,27 +378,93 @@ function findTransparentRectangles() {
 	return answers;
 }
 
-function updateTrackerProperty(key, value) {
-	if(key == "clock") {
-		trackerClockTicks = value|0;
-		updateTrackerClock();
+// see above for where this s is called this on all possible elements when the theme changes
+function makeTextFit(element) {
+
+	element.style.transform = null;
+	element.style.transformOrigin = null;
+	element.style.display = null;
+
+	var cs = getComputedStyle(element);
+	var maxSize = element.parentNode.offsetWidth -
+		parseFloat(cs.borderLeftWidth) -
+		parseFloat(cs.paddingLeft) -
+		parseFloat(cs.borderRightWidth) -
+		parseFloat(cs.paddingRight);
+
+	var currentSize = element.offsetWidth;
+
+	if(maxSize <= 0)
 		return;
-	}
-	if(key == "clock-running") {
-		if(value == "on")
-			startTrackerClock();
-		else
-			stopTrackerClock();
+
+	if(currentSize <= 0)
+		return;
+
+	if(currentSize > maxSize) {
+		var ratio = maxSize / currentSize;
+		element.style.transform = "scaleX("+ratio+")";
+		element.style.transformOrigin = "left center";
+		element.style.display = "block";
 	}
 
-	if(key == "player-4-showing") {
-		var m = document.querySelector("#ffr-layout");
-		if(m) {
+}
+
+function updateTrackerProperty(key, value) {
+
+	document.querySelectorAll("[name=\"" + key + "\"]").forEach(function(e) {
+		if(e.type == "checkbox")
+			e.checked = value == "on";
+		else
+			e.value = value;
+	});
+
+	switch(key) {
+		case "clock":
+			trackerClockTicks = value|0;
+			updateTrackerClock();
+			return;
+		case "clock-running":
 			if(value == "on")
-				m.classList.add("p4-showing");
+				startTrackerClock();
 			else
-				m.classList.remove("p4-showing");
-		}
+				stopTrackerClock();
+			break;
+		case "layout-sheet":
+			var i = document.getElementById("layout-stylesheet");
+			if(i) {
+				i.href = "/assets/tracker/layouts/" + value;
+				findTransparentRectanglesQueue();
+			}
+			return;
+		case "style-sheet":
+			var i = document.getElementById("theme-stylesheet");
+			if(i) {
+				i.href = "/assets/tracker/themes/" + value;
+				findTransparentRectanglesQueue();
+			}
+			return;
+		case "logo-sheet":
+			var i = document.getElementById("logo-stylesheet");
+			if(i) {
+				i.href = "/assets/tracker/logos/" + value;
+			}
+			return;
+		case "show-rank-boxes":
+		case "show-cameras":
+		case "player-4-showing":
+			var m = document.querySelector("#ffr-layout");
+			if(m) {
+				if(value == "on")
+					m.classList.add(key);
+				else
+					m.classList.remove(key);
+				findTransparentRectanglesQueue();
+			}
+
+			break;
+		default:
+			// handled below
+			break;
 	}
 
 	if(key.startsWith("item-player-")) {
@@ -401,13 +485,20 @@ function updateTrackerProperty(key, value) {
 	document.querySelectorAll("[data-property=\"" + key + "\"]").forEach(function(e) {
 		if(e.classList.contains("tracker")) {
 			for(c of e.classList) {
-				if(c.indexOf("-itemset") != -1)
+				if(c.indexOf("-itemset") != -1) {
+					if(c == "transparent-itemset")
+						findTransparentRectanglesQueue();
 					e.classList.remove(c);
+				}
 			}
+
+			if(value == "transparent-itemset")
+				findTransparentRectanglesQueue();
 
 			e.classList.add(value);
 		} else if(e.tagName == "SPAN") {
 			e.textContent = value;
+			setTimeout(function() { makeTextFit(e); }, 100); // idk why this needs a timer but it does seem to help soooo maybe the value isn't recalculated right until it gets painted?
 		} else if(e.tagName == "DIV") {
 			if(e.classList.contains("class-toggle")) {
 				e.classList.toggle(value);
@@ -433,13 +524,6 @@ function updateTrackerProperty(key, value) {
 				e.style.display = value == "on" ? "block" : "none";
 			}
 		}
-	});
-
-	document.querySelectorAll("[name=\"" + key + "\"]").forEach(function(e) {
-		if(e.type == "checkbox")
-			e.checked = value == "on";
-		else
-			e.value = value;
 	});
 }
 

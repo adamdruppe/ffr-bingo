@@ -1155,6 +1155,8 @@ mixin DispatcherMain!(Presenter,
 
 	"/assets/tracker/".serveStaticFileDirectory,
 	"/assets/tracker/layouts/".serveStaticFileDirectory,
+	"/assets/tracker/themes/".serveStaticFileDirectory,
+	"/assets/tracker/logos/".serveStaticFileDirectory,
 	"/tracker/".serveApi!Tracker,
 
 	"/".serveApi!Bingo,

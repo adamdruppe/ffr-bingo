@@ -1,0 +1,113 @@
+.positioned-bl,
+.positioned-br {
+	display: none !important;
+}
+
+/*
+ * FIXME: add the info box thing.
+ */
+
+/* need this if cameras supported on the layout */
+.show-cameras .player-camera {
+	display: block;
+}
+
+.bingo {
+	display: none;
+}
+
+.gameplay {
+	width: 560px;
+	height: 420px;
+
+	--y: 70px;
+}
+
+.tracker {
+	--x: 4px;
+	--y: 496px;
+
+	width: 328px;
+	height: 132px;
+}
+
+.player-camera {
+	--x: 340px;
+	--y: 496px;
+
+	width: 132px;
+	height: 132px;
+}
+
+.tracker i {
+	width: 34px;
+	height: 34px;
+	margin: 0px;
+}
+
+.clock {
+	--x: 4px;
+	--y: 4px;
+	z-index: 10;
+}
+.position {
+	--x: 4px;
+	--y: 40px;
+}
+.name {
+	--x: 4px;
+	--y: 30px;
+
+	height: 32px;
+	width: 220px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.player-pronoun {
+	display: block;
+}
+
+.winner {
+	--x: 450px;
+	--y: 300px;
+	width: 160px;
+	text-align: center;
+}
+
+.game-type {
+	position: absolute;
+	left: 310px;
+	top: 4px;
+	width: 270px;
+	height: 60px;
+	white-space: nowrap;
+	font-size: 26px;
+}
+
+.game-system {
+	position: absolute;
+	font-size: 18px;
+	left: 4px;
+	bottom: 4px;
+}
+
+.game-goal {
+	position: absolute;
+	font-size: 18px;
+	right: 4px;
+	bottom: 4px;
+}
+
+
+.comms {
+	position: absolute;
+	/*left: 500px;*/
+	left: 700px;
+	bottom: auto;
+	top: 4px;
+	width: 270px;
+	height: 60px;
+	padding-top: 4px;
+}
+

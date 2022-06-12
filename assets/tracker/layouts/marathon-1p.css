@@ -14,9 +14,34 @@
 	top: 6px;
 	width: 514px;
 	height: 69px;
-	background: white;
-	color: black;
+
+	font-size: 58px;
+	white-space: nowrap;
 }
+
+/* need this if cameras supported on the layout */
+.show-cameras .player-camera {
+	display: block;
+}
+
+.show-rank-boxes .position {
+	display: block;
+}
+
+.game-system {
+	position: absolute;
+	font-size: 18px;
+	left: 4px;
+	bottom: 4px;
+}
+
+.game-goal {
+	position: absolute;
+	font-size: 18px;
+	right: 4px;
+	bottom: 4px;
+}
+
 
 .bingo {
 	display: none;
@@ -44,12 +69,14 @@
 
 	width: 248px;
 	height: 328px;
+
+	text-align: center;
 }
 
 .tracker i {
-	width: 34px;
-	height: 34px;
-	margin: 0px;
+	width: 48px;
+	height: 48px;
+	margin: 1px;
 }
 
 .clock {
@@ -59,7 +86,8 @@
 
 	width: 249px;
 	height: 69px;
-	font-size: 18px;
+	font-size: 2.25rem;
+	padding-top: 6px;
 	font-weight: bold;
 
 }
@@ -74,12 +102,22 @@
 
 	width: 249px;
 	height: 69px;
-	font-size: 18px;
+	font-size: 2.0rem;
 	font-weight: bold;
 }
+
+.player-pronoun {
+	display: block;
+	position: absolute;
+	right: 4px;
+	bottom: 4px;
+}
+
 .winner {
-	--x: 450px;
-	--y: 300px;
+	--x: 250px;
+	--y: 550px;
+	width: 150px;
+	text-align: center;
 }
 
 .comms {
@@ -87,10 +125,12 @@
 	padding-top: 4px;
 
 	left: 1024px;
-	top: 422px;
+	top: 163px;
 
 	width: 249px;
 	height: 69px;
+
+	font-size: 30px;
 }
 
 .player-camera {
@@ -98,30 +138,9 @@
 	padding-top: 4px;
 
 	left: 1024px;
-	top: 163px;
+	top: 242px;
 
 	width: 249px;
 	height: 249px;
 
-}
-
-/* these belong in the style file */
-
-.box {
-	border: none;
-	box-shadow: 4px 5px 0px #9dcbd8;
-}
-
-.funds-raised {
-	text-shadow:
-		-3px 0px 3px #ba9c6f,
-		0px 3px 3px #ba9c6f,
-		3px 0px 3px #ba9c6f,
-		0px -3px 3px #ba9c6f
-	;
-}
-
-* {
-	font-family: "BankGothic";
-	font-size: 22px;
 }
