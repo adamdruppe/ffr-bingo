@@ -1,49 +1,5 @@
 <main>
 	<style>
-
-		/*
-		.tracker, .position, .comms, .clock {
-			display: none !important;
-		}
-		*/
-
-	/* body { transform: scale(0.5) } */
-
-		/*
-		        mode                   <main> class
-			-----------------------------------------
-			mutually exclusive layouts:
-				1p             .layout-1p (not implemented)
-				2p             .layout-2p
-				3p/4p          .layout-4p (please note child #ffr-layout.player-4-showing)
-
-			other settings:
-				[ ] hide bingo .no-bingo (might relayout)
-				[ ] show cameras (might relayout)
-				[ ] show fundraising thing (should try to avoid changing layout)
-				[ ] show additional info (blurses etc) (should try to avoid changing layout)
-
-			Tracker (independent of previous groups, might even be different per-player like with AP):
-				FF1            .ff1-itemset
-				FFMQ           .ffmq-itemset
-			Images (independent again):
-				whatever decorations; logo and backgrounds
-
-				Background
-				Logo (FFMQ for example)
-				Finished (bridge scene)
-
-				Loading Screen
-
-				Also the box style should be in there
-
-
-			Theme:
-				background images, loading screen, box style
-			Logo:
-				game logo, secondary, bridge scene
-		*/
-
 		* {
 			box-sizing: border-box;
 		}
@@ -271,27 +227,217 @@
 		}
 	</style>
 
-	<link rel="stylesheet" id="theme-stylesheet" href="/assets/tracker/themes/fog.css" />
-	<link rel="stylesheet" id="layout-stylesheet" href="/assets/tracker/layouts/2p.css" />
+	<link rel="stylesheet" id="theme-stylesheet" href="/assets/tracker/themes/marathon.css" />
+	<link rel="stylesheet" id="layout-stylesheet" href="/assets/tracker/layouts/marathon-1p.css" />
 	<link rel="stylesheet" id="logo-stylesheet" href="/assets/tracker/logos/null.css" />
 
+	<style>
+		.gameplay {
+			width: 300px;
+			height: 225px;
+		}
+
+		.tracker {
+			position: absolute;
+			width: 300px;
+			height: 120px;
+			padding-top: 5px;
+			text-align: center;
+		}
+
+		.name {
+			position: absolute;
+			width: 170px;
+		}
+
+		.comms {
+			top: 100px;
+			left: 505px;
+		}
+
+		.logo {
+			top: 4px;
+			left: 320px;
+			width: 210px;
+		}
+
+		.secondary-logo {
+			top: 4px;
+			left: 540px;
+			width: 140px;
+		}
+
+		.team-name {
+			display: block;
+			position: absolute;
+			width: 300px;
+			text-align: center;
+		}
+
+		.clock {
+			position: absolute;
+		}
+
+		.team-logo-holder {
+			display: flex;
+			align-content: center;
+			justify-content: center;
+		}
+
+		.team-logo-holder img {
+			max-width: 100%;
+			max-height: 100%;
+		}
+	</style>
+
 	<div id="ffr-layout">
-		<div class="positioned-ul">
-			<render-template file="tracker/player-box.html" data="{&quot;player&quot;: 1}" />
-		</div>
-		<div class="positioned-ur">
-			<render-template file="tracker/player-box.html" data="{&quot;player&quot;: 2}" />
-		</div>
-		<div class="positioned-bl">
-			<render-template file="tracker/player-box.html" data="{&quot;player&quot;: 3}" />
-		</div>
-		<div class="positioned-br" style="display: none;" data-property="player-4-showing">
-			<render-template file="tracker/player-box.html" data="{&quot;player&quot;: 4}" />
+
+<div class="gameplay transparent box" style="top: 8px; left: 4px;"></div>
+<div class="gameplay transparent box" style="top: 246px; left: 4px;"></div>
+<div class="gameplay transparent box" style="top: 484px; left: 4px;"></div>
+<div class="gameplay transparent box" style="top: 484px; left: 318px;"></div>
+
+<div class="gameplay transparent box" style="top: 8px; right: 4px;"></div>
+<div class="gameplay transparent box" style="top: 246px; right: 4px;"></div>
+<div class="gameplay transparent box" style="top: 484px; right: 4px;"></div>
+<div class="gameplay transparent box" style="top: 484px; right: 318px;"></div>
+
+<div class="clock box" style="
+	left: 318px;
+	top: 90px;
+">
+	<span class="final-time" data-property="player-1-time"></span>
+	<span class="active-clock">0:00:00</span>
+</div>
+<div class="clock box" style="
+	right: 318px;
+	top: 90px;
+">
+	<span class="final-time" data-property="player-2-time"></span>
+	<span class="active-clock">0:00:00</span>
+</div>
+
+<div class="team-logo-holder" style="
+	position: absolute;
+	left: 494px;
+	top: 190px;
+	width: 120px;
+	height: 120px;
+	background: black;
+"><img src="/assets/alt2-small.png" />
+</div>
+
+<div class="team-logo-holder" style="
+	position: absolute;
+	right: 494px;
+	top: 190px;
+	width: 120px;
+	height: 120px;
+	background: black;
+">
+<img src="/assets/tof_logo-small.png" />
+</div>
+
+
+<div style="
+	left: 318px;
+	top: 124px;
+" class="name box">
+	<div class="element-container player-name"><span>2BigEyes</span></div>
+	<span class="player-pronoun">he/him</span>
+</div>
+
+<div style="
+	left: 318px;
+	top: 173px;
+" class="name box">
+	<div class="element-container player-name"><span>ProphetofRetro</span></div>
+	<span class="player-pronoun">he/him</span>
+</div>
+
+<div style="
+	left: 318px;
+	top: 222px;
+" class="name box">
+	<div class="element-container player-name"><span>se7en5se7en</span></div>
+	<span class="player-pronoun">he/him</span>
+</div>
+
+<div style="
+	left: 318px;
+	top: 271px;
+" class="name box">
+	<div class="element-container player-name"><span>FredFuchs</span></div>
+	<span class="player-pronoun">he/him</span>
+</div>
+
+<div style="
+	right: 318px;
+	top: 124px;
+	text-align: right;
+" class="name box">
+	<div class="element-container player-name"><span>Shoombabi</span></div>
+	<span class="player-pronoun">he/him</span>
+</div>
+
+<div style="
+	right: 318px;
+	top: 173px;
+	text-align: right;
+" class="name box">
+	<div class="element-container player-name"><span>LuffyDV</span></div>
+	<span class="player-pronoun">he/him</span>
+</div>
+
+<div style="
+	right: 318px;
+	top: 222px;
+	text-align: right;
+" class="name box">
+	<div class="element-container player-name"><span>Chanigan</span></div>
+	<span class="player-pronoun">he/him</span>
+</div>
+
+<div style="
+	right: 318px;
+	top: 271px;
+	text-align: right;
+" class="name box">
+	<div class="element-container player-name"><span>picklesandbeer</span></div>
+	<span class="player-pronoun">he/him</span>
+</div>
+
+
+
+		<div style="
+			left: 318px;
+			top: 320px;
+		" class="team-name box squeeze-vertically">
+			<span data-property="player-1-team"></span>
 		</div>
 
-		<div class="positioned-center" style="display: none;">
-			<render-template file="tracker/player-box.html" data="{&quot;player&quot;: 5}" />
+		<div style="
+			right: 318px;
+			top: 320px;
+		" class="team-name box squeeze-vertically">
+			<span data-property="player-2-team"></span>
 		</div>
+
+		<div style="
+			left: 318px;
+			top: 354px;
+		" data-property="player-1-itemset" data-property-prefix="item-player-1-" class="tracker box">
+			<render-template file="tracker/item-tracker-fragment.html" />
+		</div>
+
+		<div style="
+			right: 318px;
+			top: 354px;
+		" data-property="player-2-itemset" data-property-prefix="item-player-2-" class="tracker box">
+			<render-template file="tracker/item-tracker-fragment.html" />
+		</div>
+
+
 
 		<div class="game-type box">
 			<div class="element-container"><span class="game-name" data-property="game-type"></span></div>
@@ -341,26 +487,6 @@
 
 		</div>
 
-
-		<div class="bingo box">
-			<!--
-			Bingo disabled during marathon
-			-->
-			<iframe
-				style="
-					position: absolute;
-					left: 0px;
-					top: 0px;
-					width: 640px;
-					height: 770px;
-					overflow: hidden;
-					transform: scaleX(0.75) scaleY(0.75);
-					transform-origin: 0 0;
-				"
-				scrolling="no"
-				src="restream?restream#card-container"></iframe>
-		</div>
-
 		<div class="logo"></div>
 		<div class="secondary-logo"></div>
 
@@ -376,7 +502,7 @@
 		<div class="funds-raised"><span data-property="funds-raised"></span></div>
 
 		<div id="normal-footer-1" class="more-info-top"><span data-property="more-info-top"></span></div>
-		<div id="normal-footer-2" class="more-info-bottom"><span style="transform: scaleX(0.589); transform-origin: left center 0px; display: block;" data-property="more-info-bottom"></span></div>
+		<div id="normal-footer-2" class="more-info-bottom"><span data-property="more-info-bottom"></span></div>
 
 		<div id="incentive-footer-1" style="display: none;" class="more-info-top"><span></span></div>
 		<div id="incentive-footer-2" style="display: none;" class="more-info-bottom"><span></span></div>

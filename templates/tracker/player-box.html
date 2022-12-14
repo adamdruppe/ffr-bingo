@@ -1,12 +1,17 @@
 <div class="name box">
-	<span class="player-name" data-property="player-<%=data.player%>-name"></span> <span class="player-pronoun" data-property="player-<%=data.player%>-pronoun" style="font-size: 50%;"></span>
+	<div class="element-container player-name"><span data-property="player-<%=data.player%>-name" data-speaking-role="<%=data.player+4%>"></span></div>
+	<span class="player-pronoun" data-property="player-<%=data.player%>-pronoun"></span>
 </div>
 
 <div data-property="player-<%=data.player%>-itemset" data-property-prefix="item-player-<%=data.player%>-" class="tracker box">
 	<render-template file="tracker/item-tracker-fragment.html" />
 </div>
 
-<div data-property="player-<%=data.player%>-team" class="color box">
+<div class="team-name box squeeze-vertically">
+	<span data-property="player-<%=data.player%>-team"></span>
+</div>
+
+<div data-property="player-<%=data.player%>-team" class="color box transparent">
 	<!-- the color thing -->
 </div>
 

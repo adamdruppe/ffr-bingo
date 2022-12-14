@@ -90,6 +90,8 @@ shoombabi request:
 
 
 
+* need to center single comms name
+
 
 * let players turn off all colors and just show them vs any other on their own
   display

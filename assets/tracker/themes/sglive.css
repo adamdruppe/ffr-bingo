@@ -1,0 +1,35 @@
+#loading-screen,
+#ffr-layout {
+	background-image: url("/assets/tracker/layout_-_trackers.png");
+}
+
+#loading-screen > .loading-screen-text {
+	position: absolute;
+	left: 60px;
+	top: 180px;
+	width: 405px;
+	height: 240px;
+	background-color: rgba(96, 96, 96, 0.8);
+	border: ridge 8px white;
+	border-radius: 8px;
+	color: white;
+	font-size: 32px;
+
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#loading-screen .loading-screen-primary-logo {
+	position: absolute;
+	left: 807px;
+	top: 250px;
+	width: 418px;
+	height: 162px;
+
+	display: block;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+

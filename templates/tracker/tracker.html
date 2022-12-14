@@ -8,7 +8,19 @@
 			width: 40%;
 		}
 
+		#tracker input[type=text] {
+			width: 80%;
+		}
+
+		#tracker textarea {
+			min-width: 20ch;
+		}
+
 		#tracker label > span {
+			display: block;
+		}
+
+		.smrpg-itemset .stars {
 			display: block;
 		}
 
@@ -49,84 +61,35 @@
 			position: absolute;
 			z-index: 999;
 		}
+
+		.simplified > fieldset > *:not(legend, .tracker, .visible-simplified) {
+			display: none;
+		}
 	</style>
 
 	<div style="display: none;" id="hover-info"></div>
 
-	<label>
-		<span>Layout:</span>
-		<select name="layout-sheet">
-			<optgroup label="Plain">
-				<option value="2p.css">2p</option>
-				<option value="4p.css">4p</option>
-			</optgroup>
-			<optgroup label="Bingo">
-				<option value="bingo-2p.css">Bingo 2p</option>
-				<option value="bingo-4p.css">Bingo 4p</option>
-			</optgroup>
-			<optgroup label="Fundraiser">
-				<option value="marathon-1p.css">Marathon 1p</option>
-				<option value="marathon-2p.css">Marathon 2p</option>
-				<option value="marathon-4p.css">Marathon 4p</option>
-			</optgroup>
-		</select>
-	</label>
-
-	<br />
-	<label><input name="show-rank-boxes" type="checkbox" /> Show Rank Boxes</label>
-	<br />
-	<label><input name="show-cameras" type="checkbox" /> Show Cameras</label>
-
-
-	<label>
-		<span>Style Theme:</span>
-		<select name="style-sheet">
-			<option value="fog.css">Blue Fog</option>
-			<option value="bubbles.css">DAB Bubbles</option>
-			<option value="marathon.css">Liam Event</option>
-		</select>
-	</label>
-
-	<label>
-		<span>Logo:</span>
-		<select name="logo-sheet">
-			<option value="null.css">None</option>
-			<option value="ffr.css">FFR</option>
-			<option value="dab.css">DAB</option>
-			<option value="ffmq.css">FFMQ</option>
-			<option value="marathon.css">FFR 2022 Marathon</option>
-		</select>
-	</label>
-
-	<br />
-	<label>
-		Game Name
-		<input name="game-type" type="text" />
-	</label>
-
-	<br />
-	<label>
-		Game System
-		<input name="game-system" type="text" />
-	</label>
-
-	<br />
-	<label>
-		Game Goal
-		<input name="game-goal" type="text" />
-	</label>
-
-	<br />
-	<label>
-		Funds Raised
-		<input name="funds-raised" type="text" />
-	</label>
-
+	<button type="button" onclick="this.parentNode.classList.add('simplified');">Simplified View</button>
+	<button type="button" onclick="this.parentNode.classList.remove('simplified');">Full View</button>
 
 	<br style="clear: both;" />
 
 	<fieldset>
 		<legend>Player 1 (upper left)</legend>
+		<label class="visible-simplified"><span>Name</span> <input type="text" name="player-1-name" /></label>
+		<label><span>Pronouns</span> <input type="text" name="player-1-pronoun" /></label>
+		<label><span>Ranking/position</span> <input type="text" name="player-1-ranking" /></label>
+		<label><span>Team</span> <input type="text" name="player-1-team" /></label>
+
+		<label class="visible-simplified"><span>Final time</span> <input type="text" name="player-1-time" /></label>
+		<div class="visible-simplified">
+		<label><input type="checkbox" name="player-1-showing-text" /></label>
+		<label><input type="text" name="player-1-text" value="Winner" /></label>
+		</div>
+
+		<!--
+		<label class="visible-simplified"><span>Shard count</span> <input type="number" name="player-1-ranking" /></label>
+		-->
 
 		<label><select name="player-1-itemset">
 			<option value="null-itemset">No tracker</option>
@@ -137,6 +100,7 @@
 			<option value="ctjot-itemset">CT JOT Items</option>
 			<option value="cvaos-itemset">CV AOS Items</option>
 			<option value="cvsotn-itemset">CV SOTN Items</option>
+			<option value="ff4ls-itemset">FF4 Lunarian Shuffle Characters</option>
 			<option value="ff5cd-itemset">FF5 CD Items</option>
 			<option value="hollowknight-itemset">Hollow Knight Items</option>
 			<option value="metroidfusion-itemset">Metroid Fusion Items</option>
@@ -146,28 +110,32 @@
 			<option value="soulblazer-itemset">Soul Blazer Items</option>
 			<option value="zelda1-itemset">Zelda 1 Items</option>
 			<option value="zelda2-itemset">Zelda 2 Items</option>
+			<option value="zelda3-itemset">Zelda ALttP Items</option>
 			<option value="zeldamm-itemset">Zelda Majora's Mask Items</option>
 			<option value="faxanadu-itemset">Faxanadu Items</option>
 			<option value="earthbound-itemset">Earthbound Items</option>
 		</select></label>
 
-		<div data-property="player-1-itemset" data-property-prefix="item-player-1-" style="font-size: 0px; width: 440px; --x: 130px; --y: 306px; height: 70px;" class="tracker box">
+		<div data-property="player-1-itemset" data-property-prefix="item-player-1-" style="font-size: 0px; max-width: 440px; --x: 130px; --y: 306px; min-height: 70px;" class="tracker box">
 			<render-template file="tracker/item-tracker-fragment.html" />
 		</div>
 
-		<label><span>Name</span> <input type="text" name="player-1-name" /></label>
-		<label><span>Pronouns</span> <input type="text" name="player-1-pronoun" /></label>
-		<label><span>Ranking/position</span> <input type="text" name="player-1-ranking" /></label>
-		<label><span>Team</span> <input type="text" name="player-1-team" /></label>
 
-		<label><span>Final time</span> <input type="text" name="player-1-time" /></label>
-		<br />
-		<label><input type="checkbox" name="player-1-showing-text" /></label>
-		<label><input type="text" name="player-1-text" value="Winner" /></label>
 	</fieldset>
 
 	<fieldset>
 		<legend>Player 2 (upper right)</legend>
+
+		<label class="visible-simplified"><span>Name</span> <input type="text" name="player-2-name" /></label>
+		<label><span>Pronouns</span> <input type="text" name="player-2-pronoun" /></label>
+		<label><span>Ranking/position</span> <input type="text" name="player-2-ranking" /></label>
+		<label><span>Team</span> <input type="text" name="player-2-team" /></label>
+
+		<label class="visible-simplified"><span>Final time</span> <input type="text" name="player-2-time" /></label>
+		<div class="visible-simplified">
+		<label><input type="checkbox" name="player-2-showing-text" /></label>
+		<label><input type="text" name="player-2-text" value="Winner" /></label>
+		</div>
 
 
 		<label><select name="player-2-itemset">
@@ -179,6 +147,7 @@
 			<option value="ctjot-itemset">CT JOT Items</option>
 			<option value="cvaos-itemset">CV AOS Items</option>
 			<option value="cvsotn-itemset">CV SOTN Items</option>
+			<option value="ff4ls-itemset">FF4 Lunarian Shuffle Characters</option>
 			<option value="ff5cd-itemset">FF5 CD Items</option>
 			<option value="hollowknight-itemset">Hollow Knight Items</option>
 			<option value="metroidfusion-itemset">Metroid Fusion Items</option>
@@ -188,24 +157,16 @@
 			<option value="soulblazer-itemset">Soul Blazer Items</option>
 			<option value="zelda1-itemset">Zelda 1 Items</option>
 			<option value="zelda2-itemset">Zelda 2 Items</option>
+			<option value="zelda3-itemset">Zelda ALttP Items</option>
 			<option value="zeldamm-itemset">Zelda Majora's Mask Items</option>
 			<option value="faxanadu-itemset">Faxanadu Items</option>
 			<option value="earthbound-itemset">Earthbound Items</option>
 		</select></label>
 
-		<div data-property="player-2-itemset" data-property-prefix="item-player-2-" style="font-size: 0px; width: 440px; --x: 130px; --y: 306px; height: 70px;" class="tracker box">
+		<div data-property="player-2-itemset" data-property-prefix="item-player-2-" style="font-size: 0px; max-width: 440px; --x: 130px; --y: 306px; min-height: 70px;" class="tracker box">
 			<render-template file="tracker/item-tracker-fragment.html" />
 		</div>
 
-		<label><span>Name</span> <input type="text" name="player-2-name" /></label>
-		<label><span>Pronouns</span> <input type="text" name="player-2-pronoun" /></label>
-		<label><span>Ranking/position</span> <input type="text" name="player-2-ranking" /></label>
-		<label><span>Team</span> <input type="text" name="player-2-team" /></label>
-
-		<label><span>Final time</span> <input type="text" name="player-2-time" /></label>
-		<br />
-		<label><input type="checkbox" name="player-2-showing-text" /></label>
-		<label><input type="text" name="player-2-text" value="Winner" /></label>
 	</fieldset>
 
 	<fieldset>
@@ -220,6 +181,7 @@
 			<option value="ctjot-itemset">CT JOT Items</option>
 			<option value="cvaos-itemset">CV AOS Items</option>
 			<option value="cvsotn-itemset">CV SOTN Items</option>
+			<option value="ff4ls-itemset">FF4 Lunarian Shuffle Characters</option>
 			<option value="ff5cd-itemset">FF5 CD Items</option>
 			<option value="hollowknight-itemset">Hollow Knight Items</option>
 			<option value="metroidfusion-itemset">Metroid Fusion Items</option>
@@ -229,24 +191,26 @@
 			<option value="soulblazer-itemset">Soul Blazer Items</option>
 			<option value="zelda1-itemset">Zelda 1 Items</option>
 			<option value="zelda2-itemset">Zelda 2 Items</option>
+			<option value="zelda3-itemset">Zelda ALttP Items</option>
 			<option value="zeldamm-itemset">Zelda Majora's Mask Items</option>
 			<option value="faxanadu-itemset">Faxanadu Items</option>
 			<option value="earthbound-itemset">Earthbound Items</option>
 		</select></label>
 
-		<div data-property="player-3-itemset" data-property-prefix="item-player-3-" style="font-size: 0px; width: 440px; --x: 130px; --y: 306px; height: 70px;" class="tracker box">
+		<div data-property="player-3-itemset" data-property-prefix="item-player-3-" style="font-size: 0px; max-width: 440px; --x: 130px; --y: 306px; min-height: 70px;" class="tracker box">
 			<render-template file="tracker/item-tracker-fragment.html" />
 		</div>
 
-		<label><span>Name</span> <input type="text" name="player-3-name" /></label>
+		<label class="visible-simplified"><span>Name</span> <input type="text" name="player-3-name" /></label>
 		<label><span>Pronouns</span> <input type="text" name="player-3-pronoun" /></label>
 		<label><span>Ranking/position</span> <input type="text" name="player-3-ranking" /></label>
 		<label><span>Team</span> <input type="text" name="player-3-team" /></label>
 
-		<label><span>Final time</span> <input type="text" name="player-3-time" /></label>
-		<br />
+		<label class="visible-simplified"><span>Final time</span> <input type="text" name="player-3-time" /></label>
+		<div class="visible-simplified">
 		<label><input type="checkbox" name="player-3-showing-text" /></label>
 		<label><input type="text" name="player-3-text" value="Winner" /></label>
+		</div>
 	</fieldset>
 
 	<fieldset>
@@ -261,6 +225,7 @@
 			<option value="ctjot-itemset">CT JOT Items</option>
 			<option value="cvaos-itemset">CV AOS Items</option>
 			<option value="cvsotn-itemset">CV SOTN Items</option>
+			<option value="ff4ls-itemset">FF4 Lunarian Shuffle Characters</option>
 			<option value="ff5cd-itemset">FF5 CD Items</option>
 			<option value="hollowknight-itemset">Hollow Knight Items</option>
 			<option value="metroidfusion-itemset">Metroid Fusion Items</option>
@@ -270,28 +235,103 @@
 			<option value="soulblazer-itemset">Soul Blazer Items</option>
 			<option value="zelda1-itemset">Zelda 1 Items</option>
 			<option value="zelda2-itemset">Zelda 2 Items</option>
+			<option value="zelda3-itemset">Zelda ALttP Items</option>
 			<option value="zeldamm-itemset">Zelda Majora's Mask Items</option>
 			<option value="faxanadu-itemset">Faxanadu Items</option>
 			<option value="earthbound-itemset">Earthbound Items</option>
 		</select></label>
 
-		<div data-property="player-4-itemset" data-property-prefix="item-player-4-" style="font-size: 0px; width: 440px; --x: 130px; --y: 306px; height: 70px;" class="tracker box">
+		<div data-property="player-4-itemset" data-property-prefix="item-player-4-" style="font-size: 0px; max-width: 440px; --x: 130px; --y: 306px; min-height: 70px;" class="tracker box">
 			<render-template file="tracker/item-tracker-fragment.html" />
 		</div>
 
 		<label><input type="checkbox" name="player-4-showing" /> Showing Player 4</label>
 
 
-		<label><span>Name</span> <input type="text" name="player-4-name" /></label>
+		<label class="visible-simplified"><span>Name</span> <input type="text" name="player-4-name" /></label>
 		<label><span>Pronouns</span> <input type="text" name="player-4-pronoun" /></label>
 		<label><span>Ranking/position</span> <input type="text" name="player-4-ranking" /></label>
 		<label><span>Team</span> <input type="text" name="player-4-team" /></label>
 
-		<label><span>Final time</span> <input type="text" name="player-4-time" /></label>
-		<br />
+		<label class="visible-simplified"><span>Final time</span> <input type="text" name="player-4-time" /></label>
+		<div class="visible-simplified">
 		<label><input type="checkbox" name="player-4-showing-text" /></label>
 		<label><input type="text" name="player-4-text" value="Winner" /></label>
+		</div>
 	</fieldset>
+
+	<fieldset>
+		<legend>Player 5 (center)</legend>
+
+		<label><select name="player-5-itemset">
+			<option value="null-itemset">No tracker</option>
+			<option value="transparent-itemset">Transparent (restreamer can crop runner's own tracker)</option>
+			<option value="ff1-itemset">FF1 Items</option>
+			<option value="ffmq-itemset">FFMQ Items</option>
+
+			<option value="ctjot-itemset">CT JOT Items</option>
+			<option value="cvaos-itemset">CV AOS Items</option>
+			<option value="cvsotn-itemset">CV SOTN Items</option>
+			<option value="ff4ls-itemset">FF4 Lunarian Shuffle Characters</option>
+			<option value="ff5cd-itemset">FF5 CD Items</option>
+			<option value="hollowknight-itemset">Hollow Knight Items</option>
+			<option value="metroidfusion-itemset">Metroid Fusion Items</option>
+			<option value="metroidprime-itemset">Metroid Prime Items</option>
+			<option value="smrpg-itemset">SM RPG Items</option>
+			<option value="smz3-itemset">SMZ3 Items</option>
+			<option value="soulblazer-itemset">Soul Blazer Items</option>
+			<option value="zelda1-itemset">Zelda 1 Items</option>
+			<option value="zelda2-itemset">Zelda 2 Items</option>
+			<option value="zelda3-itemset">Zelda ALttP Items</option>
+			<option value="zeldamm-itemset">Zelda Majora's Mask Items</option>
+			<option value="faxanadu-itemset">Faxanadu Items</option>
+			<option value="earthbound-itemset">Earthbound Items</option>
+		</select></label>
+
+		<div data-property="player-5-itemset" data-property-prefix="item-player-5-" style="font-size: 0px; max-width: 440px; --x: 130px; --y: 306px; min-height: 70px;" class="tracker box">
+			<render-template file="tracker/item-tracker-fragment.html" />
+		</div>
+
+		<label><input type="checkbox" name="player-5-showing" /> Showing Player 5</label>
+
+
+		<label class="visible-simplified"><span>Name</span> <input type="text" name="player-5-name" /></label>
+		<label><span>Pronouns</span> <input type="text" name="player-5-pronoun" /></label>
+		<label><span>Ranking/position</span> <input type="text" name="player-5-ranking" /></label>
+		<label><span>Team</span> <input type="text" name="player-5-team" /></label>
+
+		<label class="visible-simplified"><span>Final time</span> <input type="text" name="player-5-time" /></label>
+		<div class="visible-simplified">
+		<label><input type="checkbox" name="player-5-showing-text" /></label>
+		<label><input type="text" name="player-5-text" value="Winner" /></label>
+		</div>
+	</fieldset>
+
+
+	<fieldset>
+		<legend>Clock</legend>
+
+		<div class="visible-simplified">
+
+		<input type="text" value="0:00:00" name="clock" style="width: 10ch;" />
+		<label><input type="checkbox" name="clock-running" /> Running</label>
+
+		</div>
+
+		<br />
+		<br />
+
+		<label>
+			<span>Loading screen label (Usually this tells the upcoming game(s).)</span>
+			<textarea rows="5" name="loading-screen-text"></textarea></label>
+		<label><input type="checkbox" name="loading-screen-showing" /> Showing loading screen</label>
+	</fieldset>
+
+
+
+	<hr />
+	<button onclick="resetTracking();" type="button">Reset all item trackers</button>
+	<hr />
 
 	<fieldset>
 		<legend>Broadcast Team</legend>
@@ -302,16 +342,210 @@
 		<label><span>Tracker</span> <input type="text" name="tracker" /></label>
 	</fieldset>
 
+
+
 	<fieldset>
-		<legend>Clock</legend>
+		<legend>Restreamer Setup</legend>
+		<label>
+			<span>Layout:</span>
+			<select name="layout-sheet">
+				<optgroup label="Plain">
+					<option value="2p.css">2p</option>
+					<option value="4p.css">4p</option>
+					<option value="5p.css">5p</option>
+				</optgroup>
+				<optgroup label="Bingo">
+					<option value="bingo-2p.css">Bingo 2p</option>
+					<option value="bingo-4p.css">Bingo 4p</option>
+				</optgroup>
+				<optgroup label="Co-op">
+					<option value="coop-2v2.css">Co-Op 2v2</option>
+				</optgroup>
+				<optgroup label="Fundraiser">
+					<option value="marathon-1p.css">Marathon 1p</option>
+					<option value="marathon-2p.css">Marathon 2p</option>
+					<option value="marathon-4p.css">Marathon 4p</option>
 
-		<input type="text" value="0:00:00" name="clock" />
-		<label><input type="checkbox" name="clock-running" /> Running</label>
+					<option value="marathon-bingo-2p.css">Marathon Bingo 2p</option>
+					<option value="marathon-bingo-4p.css">Marathon Bingo 4p</option>
+				</optgroup>
+			</select>
+		</label>
 
-		<label><span>Loading screen label</span>
-			<textarea rows="5" name="loading-screen-text"></textarea></label>
-		<label><input type="checkbox" name="loading-screen-showing" /> Showing loading screen</label>
+		<br />
+		<label><input name="show-rank-boxes" type="checkbox" /> Show Rank Boxes</label>
+		<br />
+		<label><input name="show-cameras" type="checkbox" /> Show Cameras</label>
+
+
+		<label>
+			<span>Style Theme:</span>
+			<select name="style-sheet">
+				<option value="fog.css">Blue Fog</option>
+				<option value="bubbles.css">DAB Bubbles</option>
+				<option value="marathon-2022-summer.css">FFR Marathon Summer 2022</option>
+				<option value="derby.css">Duck Derby</option>
+				<option value="desert.css">Yannikrum Desert</option>
+				<option value="fall.css">Fall League 2022</option>
+				<option value="sglive.css">SG Live</option>
+				<option value="marathon-2022-winter.css">FFR Marathon Winter 2022</option>
+				<option value="ffr-wt-2023.css">FFR Winter Tournament 2023</option>
+			</select>
+		</label>
+
+		<label>
+			<span>Logo:</span>
+			<select name="logo-sheet">
+				<option value="null.css">None</option>
+				<option value="ffr.css">FFR</option>
+				<option value="derby.css">FFR Duck Derby</option>
+				<option value="dab.css">DAB</option>
+				<option value="ffmq.css">FFMQ</option>
+				<option value="marathon-2022-summer.css">FFR 2022 Summer Marathon</option>
+				<option value="ffr-coop-2022.css">FFR Co-Op 2022</option>
+				<option value="marathon-2022-winter.css">FFR 2022 Winter Marathon</option>
+				<option value="ffr-wt-2023.css">FFR Winter Tournament 2023</option>
+			</select>
+		</label>
 	</fieldset>
+
+	<fieldset>
+		<legend>Game Info</legend>
+
+		<label>
+			<span>Game Name</span>
+			<input name="game-type" type="text" />
+		</label>
+
+		<br />
+		<label>
+			<span>Game System</span>
+			<input name="game-system" type="text" />
+		</label>
+
+		<br />
+		<label>
+			<span>Game Goal</span>
+			<input name="game-goal" type="text" />
+		</label>
+
+		<br />
+		<div>
+			<span>Game Details</span>
+
+			<div style="display: grid; grid-template-columns: repeat(3, 1fr);">
+
+			<details>
+				<summary>Page 1</summary>
+				<textarea cols="40" rows="6" name="info-text-1"></textarea>
+				<br />
+				<button type="button" onclick="showDetailsPage(1);">Show Now</button>
+			</details>
+			<details>
+				<summary>Page 2</summary>
+				<textarea cols="40" rows="6" name="info-text-2"></textarea>
+				<br />
+				<button type="button" onclick="showDetailsPage(2);">Show Now</button>
+			</details>
+			<details>
+				<summary>Page 3</summary>
+				<textarea cols="40" rows="6" name="info-text-3"></textarea>
+				<br />
+				<button type="button" onclick="showDetailsPage(3);">Show Now</button>
+			</details>
+			<details>
+				<summary>Page 4</summary>
+				<textarea cols="40" rows="6" name="info-text-4"></textarea>
+				<br />
+				<button type="button" onclick="showDetailsPage(4);">Show Now</button>
+			</details>
+			<details>
+				<summary>Page 5</summary>
+				<textarea cols="40" rows="6" name="info-text-5"></textarea>
+				<br />
+				<button type="button" onclick="showDetailsPage(5);">Show Now</button>
+			</details>
+			<details>
+				<summary>Page 6</summary>
+				<textarea cols="40" rows="6" name="info-text-6"></textarea>
+				<br />
+				<button type="button" onclick="showDetailsPage(6);">Show Now</button>
+			</details>
+			</div>
+		</div>
+
+		<br />
+		<label>
+			<input type="checkbox" name="auto-rotate-details" /> Display Auto-rotating details pages
+		</label>
+	</fieldset>
+
+	<fieldset>
+		<legend>Fundraiser Footer Info</legend>
+
+		<label>
+			<span>Funds Raised</span>
+			<input placeholder="$1000" name="funds-raised" type="text" />
+		</label>
+
+		<label>
+			<span>More info line 1</span>
+			<input placeholder="See the list of run and all prizes at" name="more-info-top" type="text" />
+		</label>
+		<label>
+			<span>More info line 2</span>
+			<input placeholder="finalfantasyrandomizer.com/marathon" name="more-info-bottom" type="text" />
+		</label>
+
+		<br />
+	</fieldset>
+
+	<fieldset>
+		<legend>Fundraiser Incentives</legend>
+
+		<p>Put the games in chronological order.</p>
+
+		<p>Please note: unlike the rest of the fields, you MUST click "Update" at the bottom for these changes to take effect.</p>
+
+		<div class="incentive-game">
+			<label><span>Game Name</span>
+			<input type="text" /></label>
+
+			<br />
+
+			Incentives
+			<div class="game-incentive">
+				<input type="text" />
+			</div>
+			<button type="button" onclick="
+				var n = this.parentNode.insertBefore(this.previousElementSibling.cloneNode(true), this);
+				var i = n.querySelector('input');
+				i.value = '';
+				i.focus();
+			">Add incentive</button>
+
+			<hr />
+		</div>
+		<button type="button" onclick="
+			var n = this.parentNode.insertBefore(this.previousElementSibling.cloneNode(true), this);
+			n.querySelectorAll('input[type=text]').forEach(function(e) {
+				e.value = '';
+			});
+			n.querySelector('input[type=text]').focus();
+		">Add game</button>
+
+		<br />
+		<br />
+		<button type="button" onclick="sendUpdateForIncentives();">Update</button>
+
+		<br />
+		<button type="button" onclick="sendUpdateForIncentives(1);">Clone update to room 1</button>
+		<button type="button" onclick="sendUpdateForIncentives(2);">Clone update to room 2</button>
+	</fieldset>
+
+
+
+
 
 	<script>
 	document.addEventListener("DOMContentLoaded", function() {
@@ -341,16 +575,18 @@
 			t.classList.remove("on");
 			t.classList.remove("tri-on");
 			t.classList.remove("quad-on");
+			t.classList.remove("penta-on");
 			t.classList.remove("off");
 			t.classList.remove("triple");
 			t.classList.remove("quadruple");
+			t.classList.remove("pentuple");
 
 			var hi = document.getElementById("hover-info");
 			hi.textContent = t.className;
 			hi.style.display = "block";
 			t = event.target;
-			hi.style.left = t.offsetLeft + window.scrollX + t.offsetWidth +  "px";
-			hi.style.top = t.offsetTop + window.scrollY + t.offsetHeight + "px";
+			hi.style.left = t.offsetLeft + t.offsetWidth +  "px";
+			hi.style.top = t.offsetTop + t.offsetHeight + "px";
 		});
 		e.addEventListener("mouseleave", function(event) {
 			document.getElementById("hover-info").style.display = "none";
@@ -363,15 +599,100 @@
 	</script>
 </div>
 
+<div id="ff4ls-choices" class="ff4ls-itemset" style="
+	position: absolute;
+	width: 300px;
+	height: 120px;
+	display: none;
+	image-rendering: pixelated;
+	border: solid 2px white;
+	background-color: black;
+">
+	<div class="character option-dkcecil"><span class="option"></span></div>
+	<div class="character option-kain"><span class="option"></span></div>
+	<div class="character option-rydia"><span class="option"></span></div>
+	<div class="character option-adult-rydia"><span class="option"></span></div>
+	<div class="character option-tellah"><span class="option"></span></div>
+	<div class="character option-edward"><span class="option"></span></div>
+	<div class="character option-rosa"><span class="option"></span></div>
+	<div class="character option-yang"><span class="option"></span></div>
+	<div class="character option-porom"><span class="option"></span></div>
+	<div class="character option-palom"><span class="option"></span></div>
+	<div class="character option-pcecil"><span class="option"></span></div>
+	<div class="character option-cid"><span class="option"></span></div>
+	<div class="character option-edge"><span class="option"></span></div>
+	<div class="character option-fusoya"><span class="option"></span></div>
+	<div class="character option-golbez"><span class="option"></span></div>
+</div>
+
 <script>
 	// item tracker interaction
+
+	function getPropertyPrefix(element) {
+		var p = element.parentNode;
+		while(p && !p.hasAttribute("data-property-prefix"))
+			p = p.parentNode;
+		if(p)
+			return p.dataset.propertyPrefix;
+		return "";
+	}
+
+	document.querySelectorAll(".ff4ls-itemset:not(#ff4ls-choices) .character").forEach(function(chara) {
+		chara.addEventListener("click", function(event) {
+			var choices = document.getElementById("ff4ls-choices");
+			choices.style.display = "block";
+			if(this.offsetLeft + 300 > window.innerWidth)
+				choices.style.left = (this.offsetLeft - 150) + "px";
+			else
+				choices.style.left = this.offsetLeft + "px";
+			choices.style.top = (this.offsetTop + this.offsetHeight - 32) + "px";
+			//this.classList.add("option-dkcecil");
+
+			var tgt = this;
+
+			var handler = function(event) {
+				var choice = event.target.parentNode.cloneNode(false);
+				choice.classList.remove("character");
+
+				var opt = tgt.cloneNode(false);
+				opt.classList.remove("character");
+
+				opt.classList.forEach(function(o) {
+					if(o.startsWith("option-"))
+						opt.classList.remove(o);
+				});
+
+				var prefix = getPropertyPrefix(tgt);
+				var prop = prefix;
+				prop += opt.className;
+
+				if(prop == prefix)
+					return; // can't send invalid stuff or i'll break it
+
+				var req = new XMLHttpRequest();
+				req.open("POST", "tracker-update");
+				var fd = new FormData();
+				fd.append("key", prop);
+				fd.append("value", choice.className);
+				req.send(fd);
+
+				choices.removeEventListener("click", handler);
+
+				choices.style.display = "none";
+			};
+			choices.addEventListener("click", handler);
+		});
+	});
+
 	document.body.addEventListener("click", function(event) {
 		if(event.target.tagName == "I") {
 			var clone = event.target.cloneNode(false);
 			clone.classList.remove("tri-on");
 			clone.classList.remove("quad-on");
+			clone.classList.remove("penta-on");
 			clone.classList.remove("triple");
 			clone.classList.remove("quadruple");
+			clone.classList.remove("pentuple");
 			clone.classList.remove("on");
 			clone.classList.remove("off");
 
@@ -382,9 +703,12 @@
 
 			var isTriple = event.target.classList.contains("triple");
 			var isQuadruple = event.target.classList.contains("quadruple");
+			var isPenta = event.target.classList.contains("pentuple");
 
 			var states;
-			if(isQuadruple)
+			if(isPenta)
+				states = ["off", "on", "tri-on", "quad-on", "penta-on"];
+			else if(isQuadruple)
 				states = ["off", "on", "tri-on", "quad-on"];
 			else if(isTriple)
 				states = ["off", "on", "tri-on"];
@@ -408,7 +732,13 @@
 			v = states[current];
 			event.target.classList.add(v);
 
-			var prop = event.target.parentNode.parentNode.dataset.propertyPrefix;
+			var pr = event.target.parentNode;
+			if(pr.classList.contains("stars") || pr.classList.contains("map"))
+				pr = pr.parentNode;
+
+			pr = pr.parentNode;
+
+			var prop = pr.dataset.propertyPrefix;
 			prop += name;
 
 			var req = new XMLHttpRequest();
@@ -428,38 +758,93 @@
 
 <script>
 	document.addEventListener("DOMContentLoaded", function() {
-		for(key in data) {
-			var value = data[key];
-			updateTrackerProperty(key, value);
-		}
+		activateTracking(data, function() { /* intentionally blank since i don't want to deal with maintaining user partial input in connection loss (though it should be fixed) */ } );
 	});
 
-	var source = new EventSource("event-stream");
-
-	function reloadPage() {
-		/* intentionally blank, don't want to deal with the hassle here even though is hould just do it right */
+	function resetTracking() {
+		var req = new XMLHttpRequest();
+		req.open("POST", "tracker-reset");
+		req.send();
 	}
 
-	var sourceTimeout;
-	function keepalive(period) {
-		if(!period)
-			period = 18000;
-		if(sourceTimeout)
-			clearTimeout(sourceTimeout);
-		sourceTimeout = setTimeout(reloadPage, period);
+	function showDetailsPage(page) {
+		var req = new XMLHttpRequest();
+		req.open("POST", "tracker-show-details");
+
+		var fd = new FormData();
+		fd.append("page", page);
+		req.send(fd);
 	}
 
-	keepalive();
+	function sendUpdateForIncentives(room) {
+		var all = [];
+		document.querySelectorAll(".incentive-game").forEach(function(game) {
+			var gameName = game.querySelector("input[type=text]").value;
+			if(gameName.length == 0)
+				return;
+			var gameIncentives = [];
+			game.querySelectorAll("div > div input[type=text]").forEach(function(incentive) {
+				if(incentive.value.length)
+					gameIncentives.push(incentive.value);
+			});
 
-	source.addEventListener("keepalive", function() { keepalive(); });
+			all.push({
+				"gameName": gameName,
+				"gameIncentives": gameIncentives
+			});
+		});
 
-	source.addEventListener("tracker_update", function(event) {
-		var obj = JSON.parse(event.data);
+		var req = new XMLHttpRequest();
+		if(room)
+			req.open("POST", "../"+room+"/tracker-update");
+		else
+			req.open("POST", "tracker-update");
 
-		updateTrackerProperty(obj.key, obj.value);
+		var fd = new FormData();
+		fd.append("key", "incentives-json");
+		fd.append("value", JSON.stringify(all));
+		req.send(fd);
 
-		keepalive();
-	});
+
+		console.log(all);
+	}
+
+	function receiveIncentivesUpdate(json) {
+		var all = JSON.parse(json);
+
+		var originals = document.querySelectorAll(".incentive-game");
+
+		var temp = document.querySelector(".incentive-game");
+		var others = temp.querySelectorAll("div > div");
+		for(var i = 1; i < others.length; i++)
+			others[i].parentNode.removeChild(others[i]);
+
+
+		all.forEach(function(game) {
+			var n = temp.cloneNode(true);
+			n.querySelector("input[type=text]").value = game.gameName;
+
+			var originalDivs = n.querySelectorAll(".game-incentive");
+
+			game.gameIncentives.forEach(function(gi) {
+				var n2 = originalDivs[0].cloneNode(true);
+				n2.querySelector("input[type=text]").value = gi;
+				originalDivs[0].parentNode.insertBefore(n2, originalDivs[0]);
+			});
+
+			temp.parentNode.insertBefore(n, temp);
+
+			// if there were any, you want to remove them all since it was inserted above
+			// but otherwise wanna keep one as the placeholder to clone later
+			for(var i = game.gameIncentives.length ? 0 : 1; i < originalDivs.length; i++)
+				originalDivs[i].parentNode.removeChild(originalDivs[i]);
+		});
+
+
+		for(var i = all.length ? 0 : 1; i < originals.length; i++)
+			originals[i].parentNode.removeChild(originals[i]);
+		
+	}
 
 
 </script>

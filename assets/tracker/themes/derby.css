@@ -1,0 +1,48 @@
+#loading-screen,
+#ffr-layout {
+	background-image: url("/assets/tracker/background-derby.png?cachebust");
+}
+
+.secondary-logo {
+	display: block;
+}
+
+#loading-screen > .loading-screen-primary-logo {
+	position: absolute;
+	right: 64px;
+	top: 130px;
+	width: 400px;
+	height: 300px;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#loading-screen > .loading-screen-secondary-logo {
+	position: absolute;
+	right: 64px;
+	bottom: 130px;
+	width: 400px;
+	height: 300px;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#loading-screen > .loading-screen-text {
+	position: absolute;
+	left: 80px;
+	top: 130px;
+	width: 405px;
+	height: 240px;
+	color: white;
+	font-size: 32px;
+
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	background: black;
+	border: ridge 6px white;
+	border-radius: 8px;
+}
+

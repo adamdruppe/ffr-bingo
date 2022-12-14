@@ -51,8 +51,11 @@
 	z-index: 10;
 }
 .position {
-	--x: 4px;
-	--y: 40px;
+	--x: 104px;
+	--y: 4px;
+}
+.show-rank-boxes .position {
+	display: block;
 }
 .name {
 	--x: 4px;
@@ -85,6 +88,10 @@
 	font-size: 26px;
 }
 
+.game-type .element-container {
+	text-align: center;
+}
+
 .game-system {
 	position: absolute;
 	font-size: 18px;
@@ -111,3 +118,88 @@
 	padding-top: 4px;
 }
 
+.ff1-itemset.tracker {
+	padding: 8px 2px;
+}
+
+.cvaos-itemset.tracker {
+	padding-top: 6px;
+	text-align: center;
+	width: 278px;
+}
+
+.cvaos-itemset.tracker i {
+	width: 38px;
+	height: 38px;
+}
+
+.smrpg-itemset {
+	padding-top: 2px;
+}
+
+.smrpg-itemset.tracker i {
+	width: 28px;
+	height: 28px;
+	margin: 0px 6px;
+}
+
+.smrpg-itemset .stars {
+	display: block;
+}
+
+.smz3-itemset.tracker i {
+	width: 16px;
+	height: 16px;
+	margin: 0px;
+}
+
+.zelda3-itemset.tracker i {
+	width: 24px;
+	height: 24px;
+	margin: 0px;
+}
+
+.ff5cd-itemset.tracker {
+	padding-left: 2px;
+}
+
+.ff5cd-itemset.tracker i {
+	margin: 3px 0px;
+}
+
+.info-area {
+	display: block;
+
+	position: absolute;
+	left: 410px;
+	width: 466px;
+	height: 145px;
+	bottom: 80px;
+	padding: 0.5em;
+
+	white-space: pre-line;
+}
+
+.info-area > div {
+	padding: 4px;
+}
+
+.ff4ls-itemset.tracker {
+	height: 164px;
+	text-align: center;
+}
+
+.ff4ls-itemset .palette {
+        width: 32px;
+        height: 32px;
+}
+
+.ff4ls-itemset .option {
+        width: 32px;
+        height: 48px;
+}
+
+/*
+ * progressive items marked off in other games
+ * any leftover little details?
+ */

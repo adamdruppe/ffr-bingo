@@ -292,6 +292,7 @@
 				sessionStorage.setItem("scrollPosition", JSON.stringify({ "x": window.scrollTop, "y": window.scrollLeft }));
 
 				var ci = document.getElementById("chat-input");
+				if(ci)
 				sessionStorage.setItem("chatContent", JSON.stringify({
 					content: ci.value,
 					focused: document.activeElement && ci == document.activeElement
@@ -503,4 +504,10 @@
 		});
 		</script>
 	</div>
+
+	<!--
+	<script>
+		setTimeout(reloadPage, 1000);
+	</script>
+	-->
 </main>

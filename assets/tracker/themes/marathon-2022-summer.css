@@ -1,0 +1,157 @@
+#ffr-layout {
+	background-image: url("/assets/tracker/background-liam.png");
+}
+
+.box {
+	border: none;
+	box-shadow: 4px 5px 0px #9dcbd8;
+	background-color: #00004f;
+}
+
+#loading-screen > div {
+	border: none;
+	box-shadow: 4px 5px 0px #9dcbd8;
+	background-color: white;
+	color: black;
+	position: absolute;
+}
+
+#loading-screen > .loading-screen-primary-logo {
+	background: transparent;
+	border: none;
+	box-shadow: none;
+
+	left: 847px;
+	top: 20px;
+	width: 418px;
+	height: 162px;
+
+	background-image: url("/assets/tracker/logo-rando-marathon-2022.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 80%;
+}
+#loading-screen > .loading-screen-secondary-logo {
+	left: 847px;
+	top: 195px;
+	width: 418px;
+	height: 208px;
+
+	background-image: url("../about-liam.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+#loading-screen > .loading-screen-long-text {
+	width: 810px;
+	height: 575px;
+	left: 20px;
+	top: 20px;
+
+	padding: 0px;
+
+	white-space: initial;
+	font-size: 21px;
+	overflow: hidden;
+}
+#loading-screen > .loading-screen-long-text > h3 {
+	font-size: inherit;
+	font-weight: bold;
+	background: #5c1e91;
+	color: white;
+	margin: 0px;
+	font-size: 125%;
+	padding: 0.5em 1em;
+	padding-left: 0.75em;
+}
+#loading-screen > .loading-screen-long-text > h4 {
+	font-size: inherit;
+	font-weight: bold;
+	background: #a0e2f5;
+	color: black;
+	margin: 0px;
+	padding: 0.5em 1em;
+}
+#loading-screen > .loading-screen-long-text > p {
+	padding: 0.5em 1em;
+	margin: 0px;
+}
+
+#loading-screen > .loading-screen-text {
+	left: 847px;
+	top: 420px;
+	width: 418px;
+	height: 194px;
+	padding: 1em;
+	font-size: 22px;
+}
+
+.game-type {
+	background: #583600;
+	color: white;
+}
+
+.info-area {
+	color: white;
+	background: #583600cc;
+	text-shadow:
+		-3px 0px 3px black,
+		0px 3px 3px black,
+		3px 0px 3px black,
+		0px -3px 3px black
+	;
+
+}
+
+.funds-raised {
+	display: block;
+	text-shadow:
+		-3px 0px 3px #ba9c6f,
+		0px 3px 3px #ba9c6f,
+		3px 0px 3px #ba9c6f,
+		0px -3px 3px #ba9c6f
+	;
+}
+
+.more-info-top {
+	display: block;
+
+	font-size: 20px;
+	position: absolute;
+	left: 20px;
+	bottom: 36px;
+	text-align: left;
+	font-weight: bold;
+	width: 800px;
+	white-space: nowrap;
+}
+
+.more-info-bottom {
+	display: block;
+
+	font-size: 32px;
+	position: absolute;
+	left: 18px;
+	bottom: 6px;
+	text-align: left;
+	font-weight: bold;
+	width: 800px;
+	white-space: nowrap;
+}
+
+.more-info-top,
+.more-info-bottom,
+.funds-raised {
+	z-index: 1001;
+}
+
+#loading-screen {
+	background-image: url("/assets/tracker/background-liam.png");
+}
+
+* {
+	font-family: "BankGothic";
+}
+
+html {
+	font-size: 22px;
+}

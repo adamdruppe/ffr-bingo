@@ -1,0 +1,147 @@
+.game-type,
+.funds-raised,
+.bingo {
+	display: none;
+}
+
+.logo {
+	display: block;
+	position: absolute;
+	left: 170px;
+	top: 310px;
+	width: 300px;
+	height: 100px;
+}
+
+.secondary-logo {
+	display: block;
+	position: absolute;
+	left: 820px;
+	top: 310px;
+	width: 300px;
+	height: 100px;
+}
+
+
+.comms {
+	position: absolute;
+	bottom: 40px;
+	left: 515px;
+	width: 270px;
+	height: 60px;
+	padding-top: 4px;
+
+	left: 65px;
+
+	bottom: 325px;
+	left: 515px;
+}
+
+.name {
+	--x: 4px;
+	width: 146px;
+	height: 58px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.color {
+	--y: 509px;
+	width: 146px;
+	height: 146px;
+}
+
+.positioned-bl .color,
+.positioned-br .color,
+.positioned-bl .team-name,
+.positioned-br .team-name {
+	display: none;
+}
+
+.player-name {
+	text-align: center;
+}
+
+.player-pronoun {
+	display: block;
+	font-size: 80%;
+	margin-top: 5px;
+	padding-left: 2px;
+}
+
+.team-name {
+	display: block;
+
+	--x: 4px;
+	--y: 416px;
+	width: 146px;
+	height: 88px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background-color: black;
+}
+
+.tracker {
+	font-size: 0px;
+
+	--x: 4px;
+	--y: 64px;
+	width: 146px;
+	height: 240px;
+	padding-top: 2px;
+	text-align: center;
+}
+
+.tracker i {
+	width: 32px;
+	height: 32px;
+	margin-bottom: 6px;
+}
+
+.clock {
+	--x: 4px;
+	--y: 270px;
+	--y: 307px;
+	width: 146px;
+	height: 31px;
+	font-size: 16px;
+	padding: 0px 2px;
+
+	font-size: 20px;
+	text-align: center;
+	letter-spacing: 4px;
+
+}
+
+.position {
+	text-align: center;
+	--y: 306px;
+	--x: 54px;
+	width: 40px;
+	height: 26px;
+	font-size: 13px;
+
+	--x: 558px;
+	--y: 42px;
+}
+
+.gameplay {
+	--x: 154px;
+	--y: 4px;
+
+	width: 400px;
+	height: 300px;
+}
+
+.winner {
+	--x: 450px;
+	--y: 150px;
+        width: 150px;
+        text-align: center;
+	z-index: 20;
+}
+
+

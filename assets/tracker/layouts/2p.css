@@ -3,8 +3,48 @@
 	display: none !important;
 }
 
+.info-area {
+	position: absolute;
+	width: 320px;
+	height: 180px;
+	left: 480px;
+	bottom: 40px;
+
+	background: rgba(0, 0, 0, 0.6);
+	color: white;
+}
+
+.show-rank-boxes .position {
+	display: block;
+}
+
+.color,
 .player-camera, .game-type, .bingo {
 	display: none;
+}
+
+.show-cameras .player-camera {
+	display: block;
+}
+
+.show-cameras .logo {
+	width: 320px;
+	left: 480px;
+	/*bottom: 20px;*/
+
+}
+
+.secondary-logo {
+	top: 60px;
+	width: 150px;
+	left: 565px;
+}
+
+.player-camera {
+	--x: 336px;
+	--y: 548px;
+	width: 132px;
+	height: 132px;
 }
 
 .gameplay {
@@ -20,6 +60,8 @@
 
 	width: 328px;
 	height: 132px;
+	text-align: center;
+	padding-top: 6px;
 }
 
 .tracker i {
@@ -34,14 +76,19 @@
 }
 .position {
 	--x: 4px;
-	--y: 40px;
+	--y: 36px;
+	padding: 0px 2px;
 }
 .name {
 	--x: 150px;
-	--y: 30px;
-	text-align: center;
+	--y: 18px;
+	text-align: center !important;
 
-	height: 32px;
+	padding-top: 4px;
+
+	line-height: 0.9;
+
+	height: 46px;
 	width: 220px;
 	font-size: 18px;
 	font-weight: bold;

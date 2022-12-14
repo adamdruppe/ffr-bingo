@@ -1,0 +1,10 @@
+.loading-screen-primary-logo,
+.logo {
+	background-image: url("/assets/tracker/ffr-derby.png");
+}
+.loading-screen-secondary-logo,
+.secondary-logo {
+	background-image: url("/assets/tracker/ffr-derby-logo.png");
+}
+
+

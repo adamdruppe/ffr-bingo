@@ -1,3 +1,23 @@
+#loading-screen,
 #ffr-layout {
 	background-image: url("/assets/tracker/background-fog.webp");
 }
+
+#loading-screen > .loading-screen-text {
+	position: absolute;
+	left: 80px;
+	top: 130px;
+	width: 405px;
+	height: 240px;
+	background-color: #ccc;
+	border: ridge 8px white;
+	border-radius: 8px;
+	color: black;
+	font-size: 32px;
+
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+

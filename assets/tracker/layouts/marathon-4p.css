@@ -1,4 +1,3 @@
-.game-type,
 .bingo,
 .color {
 	display: none;
@@ -6,10 +5,36 @@
 
 .show-rank-boxes .position {
 	display: block;
+	font-size: 18px;
 }
 
 .logo {
 	bottom: 320px;
+}
+
+.tracker {
+	z-index: 4;
+}
+
+.info-area {
+	z-index: 5;
+}
+
+.info-area {
+	display: block;
+
+	position: absolute;
+	left: 510px;
+	width: 266px;
+	height: 145px;
+	bottom: 320px;
+	padding: 0.5em;
+
+	white-space: pre-line;
+}
+
+.info-area > div {
+	padding: 4px;
 }
 
 .positioned-bl > * {
@@ -28,22 +53,79 @@
 	height: 40px;
 	padding-top: 4px;
 
-	left: 65px;
+	right: 65px;
 	bottom: 374px;
 
 	--size: 12px;
 
 	font-size: 16px;
-	line-height: 110%;
+	line-height: 45px;
 }
+
+.tracker {
+	text-align: center;
+	padding-top: 2px;
+}
+
+.game-type {
+	position: absolute;
+	bottom: 374px;
+	left: 65px;
+	width: 270px;
+	height: 40px;
+	white-space: nowrap;
+	font-size: 22px;
+}
+
+.game-type .element-container {
+	text-align: center;
+}
+
+.game-name {
+}
+
+.game-system {
+	position: absolute;
+	font-size: 14px;
+	left: 4px;
+	bottom: 4px;
+}
+
+.game-goal {
+	position: absolute;
+	font-size: 14px;
+	right: 4px;
+	bottom: 4px;
+}
+
+
 
 .name {
 	--x: 408px;
 	height: 32px;
 	width: 220px;
-	font-size: 18px;
+	font-size: 24px;
 	font-weight: bold;
+	padding: 0px 2px;
 }
+
+.name,
+.player-pronoun {
+	vertical-align: bottom;
+	display: block;
+}
+
+.player-pronoun {
+	vertical-align: top;
+	position: relative;
+	top: -6px;
+}
+
+/*
+.name::first-line {
+	font-size: 25px;
+}
+*/
 
 .tracker {
 	font-size: 0px;
@@ -63,6 +145,17 @@
 	height: 32px;
 }
 
+.smz3-itemset.tracker i {
+	width: 20px;
+	height: 19px;
+}
+
+.smrpg-itemset.tracker i {
+	width: 28px;
+	height: 28px;
+	margin: 1px 4px;
+}
+
 .clock {
 	padding: 0px 2px;
 
@@ -75,7 +168,7 @@
 
 	width: 90px;
 	height: 31px;
-	font-size: 20px;
+	font-size: 19px;
 
 }
 
@@ -103,3 +196,36 @@
 	z-index: 20;
 }
 
+.ff4ls-itemset.tracker {
+	padding: 4px 12px;
+	text-align: center;
+}
+
+.ff4ls-itemset .palette {
+        width: 24px;
+        height: 24px;
+}
+
+.ff4ls-itemset .option {
+        width: 24px;
+        height: 32px;
+}
+
+.ff4ls-itemset .connector-arrow::after {
+    content: '\25bc';
+    font-size: 10px;
+    display: block;
+    text-align: center;
+}
+
+.zelda3-itemset.tracker i {
+	width: 24px;
+	height: 24px;
+	margin: 1px;
+}
+
+.ctjot-itemset.tracker i {
+	width: 30px;
+	height: 30px;
+	margin: 0px;
+}

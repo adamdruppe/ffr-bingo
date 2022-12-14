@@ -19,6 +19,10 @@
 	white-space: nowrap;
 }
 
+.game-type .element-container {
+	text-align: center;
+}
+
 /* need this if cameras supported on the layout */
 .show-cameras .player-camera {
 	display: block;
@@ -55,6 +59,10 @@
 	left: 500px;
 }
 
+.secondary-logo {
+    left: 850px;
+}
+
 .gameplay {
 	width: 737px;
 	height: 549px;
@@ -78,6 +86,24 @@
 	height: 48px;
 	margin: 1px;
 }
+
+.soulblazer-itemset.tracker i {
+	width: 40px;
+	height: 40px;
+}
+
+.zeldamm-itemset.tracker i {
+	width: 32px;
+	height: 32px;
+	margin: 0px;
+}
+
+.smz3-itemset.tracker i {
+	width: 29px;
+	height: 29px;
+	margin: 0px;
+}
+
 
 .clock {
 	--x: 1024px;
@@ -143,4 +169,56 @@
 	width: 249px;
 	height: 249px;
 
+}
+
+.info-area {
+	display: block;
+
+	position: absolute;
+	right: 20px;
+	width: 466px;
+	height: 145px;
+	bottom: 72px;
+	padding: 0.5em;
+
+	white-space: pre-line;
+}
+
+.info-area > div {
+	padding: 4px;
+}
+
+.metroidprime-itemset.tracker .map {
+    width: 111px;
+    height: 113px;
+    margin: 6px auto;
+}
+
+.metroidprime-itemset.tracker i {
+	width: 42px;
+	height: 42px;
+}
+
+.ff4ls-itemset {
+    padding: 8px;
+}
+
+.zelda1-itemset {
+    padding-top: 3px;
+}
+
+.ff4ls-itemset .connector-arrow::after {
+    content: '\25bc';
+    font-size: 10px;
+    display: block;
+}
+
+.ctjot-itemset.tracker {
+    padding-top: 8px;
+}
+
+.ctjot-itemset.tracker i {
+    width: 44px;
+    height: 44px;
+    margin: 2px 0px;
 }

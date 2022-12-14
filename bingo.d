@@ -310,8 +310,8 @@ class Bingo : WebObject {
 		cgi.write(import("data-2021.txt"), true);
 	}
 
-	Square[] squares() {
-		return loadSquareSet(2);
+	Square[] squares(int set = 2) {
+		return loadSquareSet(set);
 	}
 
 	Redirection login(Cgi cgi) {
@@ -605,10 +605,28 @@ class Room : WebObject {
 	}
 
 	@POST
+	void trackerReset(User 	who) {
+		auto db = getDatabase();
+
+		foreach(row; db.query("SELECT k FROM room_tracking WHERE room_id = ? AND k LIKE 'item-player-%' AND v != 'off'", id)) {
+			trackerUpdate(who, row[0], "off");
+		}
+	}
+
+	@POST
+	void trackerShowDetails(User who, int page) {
+		var msg = var.emptyObject;
+		msg.key = "showing-details-page";
+		msg.value = page;
+		// this doesn't go in the database since it is transient on the display...
+		EventSourceServer.sendEvent(essName, "tracker_update", msg.toJson(), 0);
+	}
+
+	@POST
 	void trackerUpdate(User who, string key, string value) {
 		// FIXME: security check based on something appropriate
-		if(who.id <= 0 || who.id > 42)
-			throw new Exception("unauthorized user");
+		//if(who.id <= 0 || who.id > 42)
+			//throw new Exception("unauthorized user");
 
 		auto dbvalue = value;
 		auto db = getDatabase();
@@ -650,8 +668,8 @@ class Room : WebObject {
 	@RemoveTrailingSlash
 	MultipleResponses!(string[string], Redirection) tracker(User who) {
 
-		if(who.id == 0)
-			return typeof(return)(Redirection("/login"));
+		//if(who.id == 0)
+			//return typeof(return)(Redirection("/login"));
 
 		string[string] kv;
 
@@ -685,10 +703,36 @@ class Room : WebObject {
 	@Skeleton("tracker/skeleton.html")
 	@Template("tracker/layout.html")
 	@RemoveTrailingSlash
-	MultipleResponses!(string[string], Redirection) layout(User who) {
+	MultipleResponses!(string[string], Redirection) layout(User who, bool skipOverlays = false) {
 		who = User.load(1); // FIXME
-		return tracker(who);
+		auto ret = tracker(who);
+		ret.visit(
+			(string[string] values) {
+				if(skipOverlays)
+					values["skipOverlays"] = "true";
+			},
+			(Redirection r) {}
+		);
+		return ret;
 	}
+
+	@Skeleton("tracker/skeleton.html")
+	@Template("tracker/layout8.html")
+	@RemoveTrailingSlash
+	MultipleResponses!(string[string], Redirection) layout8(User who, bool skipOverlays = false) {
+		who = User.load(1); // FIXME
+		auto ret = tracker(who);
+		ret.visit(
+			(string[string] values) {
+				if(skipOverlays)
+					values["skipOverlays"] = "true";
+			},
+			(Redirection r) {}
+		);
+		return ret;
+	}
+
+
 
 
 	@Template("room.html")
@@ -883,6 +927,7 @@ class Room : WebObject {
 
 	//
 	void eventStream(Cgi cgi) {
+		cgi.header("Access-Control-Allow-Origin: http://adamdruppe.com:8080");
 		EventSourceServer.adoptConnection(cgi, essName);
 	}
 

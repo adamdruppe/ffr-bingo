@@ -384,29 +384,136 @@ function makeTextFit(element) {
 	element.style.transform = null;
 	element.style.transformOrigin = null;
 	element.style.display = null;
+	element.classList.remove("shrunk");
+	element.parentNode.classList.remove("contains-shrunk");
 
-	var cs = getComputedStyle(element);
-	var maxSize = element.parentNode.offsetWidth -
-		parseFloat(cs.borderLeftWidth) -
-		parseFloat(cs.paddingLeft) -
-		parseFloat(cs.borderRightWidth) -
-		parseFloat(cs.paddingRight);
+	if(element.parentNode.classList.contains("squeeze-vertically")) {
+		var cs = getComputedStyle(element.parentNode);
 
-	var currentSize = element.offsetWidth;
+		var maxSize = element.parentNode.offsetHeight -
+			parseFloat(cs.borderTopWidth) -
+			parseFloat(cs.paddingTop) -
+			parseFloat(cs.borderBottomWidth) -
+			parseFloat(cs.paddingBottom);
 
-	if(maxSize <= 0)
-		return;
+		var currentSize = element.offsetHeight;
 
-	if(currentSize <= 0)
-		return;
+		if(maxSize <= 0)
+			return;
 
-	if(currentSize > maxSize) {
-		var ratio = maxSize / currentSize;
-		element.style.transform = "scaleX("+ratio+")";
-		element.style.transformOrigin = "left center";
-		element.style.display = "block";
+		if(currentSize <= 0)
+			return;
+
+		if(currentSize > maxSize) {
+			var ratio = maxSize / currentSize;
+			element.style.transform = "scaleY("+ratio+")";
+			element.style.transformOrigin = "left top";
+			element.style.display = "block";
+			element.classList.add("shrunk");
+			element.parentNode.classList.add("contains-shrunk");
+		}
+	} else {
+		var cs = getComputedStyle(element.parentNode);
+
+		var maxSize = element.parentNode.offsetWidth -
+			parseFloat(cs.borderLeftWidth) -
+			parseFloat(cs.paddingLeft) -
+			parseFloat(cs.borderRightWidth) -
+			parseFloat(cs.paddingRight);
+
+		var currentSize = element.offsetWidth;
+
+		if(maxSize <= 0)
+			return;
+
+		if(currentSize <= 0)
+			return;
+
+		if(currentSize > maxSize) {
+			var ratio = maxSize / currentSize;
+			element.style.transform = "scaleX("+ratio+")";
+			element.style.transformOrigin = "left center";
+			element.style.display = "block";
+			element.classList.add("shrunk");
+			element.parentNode.classList.add("contains-shrunk");
+		}
+	}
+}
+
+var detailsTimeout;
+var autoRotateDetails = false;
+
+function queueNextDetailsPage(currentPage) {
+	if(autoRotateDetails) {
+		if(!detailsTimeout) {
+			var pages = document.querySelectorAll(".info-area > div > span");
+
+			var pageIndex = currentPage - 1;
+
+			var max = pages.length;
+			while(max > 0) {
+				max--;
+				pageIndex++;
+				if(pageIndex >= pages.length)
+					pageIndex = 0;
+
+				if(pages[pageIndex].textContent != "")
+					break;
+			}
+
+			if(pageIndex < 0)
+				return;
+
+			if(pages[pageIndex].textContent != "")
+				detailsTimeout = setTimeout(function() {
+					fadeInDetails(pageIndex + 1);
+				}, 30000);
+		}
 	}
 
+}
+
+function fadeInDetails(page) {
+	var pages = document.querySelectorAll(".info-area > div");
+	if(pages.length == 0)
+		return;
+
+	if(detailsTimeout) {
+		clearTimeout(detailsTimeout);
+		detailsTimeout = null;
+	}
+
+	var container = pages[0].parentNode;
+	if(container.classList.contains("actively-showing")) {
+		container.classList.remove("actively-showing");
+		if(page)
+			detailsTimeout = setTimeout(function() { fadeInDetails(page); }, 500);
+		return;
+	}
+
+	if(page) {
+		container.classList.add("actively-showing");
+
+		// max show time = 15 seconds
+		detailsTimeout = setTimeout(function() {
+			fadeInDetails(0);
+			queueNextDetailsPage(page);
+		}, 15000);
+
+		pages.forEach(function(p) {
+			p.style.display = "none";
+		});
+
+		pages[page-1].style.display = "block";
+
+		setTimeout(function() {
+			makeTextFit(pages[page-1].querySelector("span"));
+		}, 50);
+	}
+}
+
+function cacheBuster() {
+	return "?7";
 }
 
 function updateTrackerProperty(key, value) {
@@ -419,6 +526,21 @@ function updateTrackerProperty(key, value) {
 	});
 
 	switch(key) {
+		case "incentives-json":
+			try {
+				receiveIncentivesUpdate(value);
+			} catch(e) {
+				console.log(e);
+			}
+		break;
+		case "showing-details-page":
+			fadeInDetails(value|0);
+		break;
+		case "auto-rotate-details":
+			autoRotateDetails = value == "on";
+			if(autoRotateDetails)
+				setTimeout(function() { queueNextDetailsPage(0); }, 1000);
+		break;
 		case "clock":
 			trackerClockTicks = value|0;
 			updateTrackerClock();
@@ -432,21 +554,21 @@ function updateTrackerProperty(key, value) {
 		case "layout-sheet":
 			var i = document.getElementById("layout-stylesheet");
 			if(i) {
-				i.href = "/assets/tracker/layouts/" + value;
+				i.href = "/assets/tracker/layouts/" + value + cacheBuster();
 				findTransparentRectanglesQueue();
 			}
 			return;
 		case "style-sheet":
 			var i = document.getElementById("theme-stylesheet");
 			if(i) {
-				i.href = "/assets/tracker/themes/" + value;
+				i.href = "/assets/tracker/themes/" + value + cacheBuster();
 				findTransparentRectanglesQueue();
 			}
 			return;
 		case "logo-sheet":
 			var i = document.getElementById("logo-stylesheet");
 			if(i) {
-				i.href = "/assets/tracker/logos/" + value;
+				i.href = "/assets/tracker/logos/" + value + cacheBuster();
 			}
 			return;
 		case "show-rank-boxes":
@@ -475,8 +597,15 @@ function updateTrackerProperty(key, value) {
 			e.classList.remove("on");
 			e.classList.remove("tri-on");
 			e.classList.remove("quad-on");
+			e.classList.remove("penta-on");
 
-			e.classList.add(value);
+			e.classList.forEach(function(o) {
+				if(o.startsWith("option-"))
+					e.classList.remove(o);
+			});
+
+			if(value.length)
+				e.classList.add(value);
 		});
 
 		return;
@@ -507,15 +636,18 @@ function updateTrackerProperty(key, value) {
 				e.classList.remove("player-1-checked");
 				e.classList.remove("player-2-checked");
 				e.classList.remove("player-3-checked");
+				e.classList.remove("transparent");
 
 				if(value == "A")
 					e.classList.add("player-0-checked");
-				if(value == "B")
+				else if(value == "B")
 					e.classList.add("player-1-checked");
-				if(value == "C")
+				else if(value == "C")
 					e.classList.add("player-2-checked");
-				if(value == "D")
+				else if(value == "D")
 					e.classList.add("player-3-checked");
+				else
+					e.classList.add("transparent");
 			} else {
 				if(value == "on")
 					e.classList.add("property-enabled");
@@ -585,10 +717,14 @@ function updateTrackerClock() {
 }
 
 var trackerClockTimeout;
+var previousIntervalDate;
 
 function startTrackerClock() {
+	previousIntervalDate = new Date();
 	trackerClockTimeout = setInterval(function() {
-		trackerClockTicks += 1000;
+		var n = new Date();
+		trackerClockTicks += n - previousIntervalDate;
+		previousIntervalDate = n;
 		updateTrackerClock();
 	}, 1000);
 }
@@ -598,6 +734,62 @@ function stopTrackerClock() {
 	trackerClockTimeout = null;
 }
 
+function openEventSource() {
+
+	var c = location.href;
+	var url = "event-stream";
+
+	// bypass the annoying 6 connection limit via random subdomain
+	if(c.indexOf("//adamdruppe.com" != 0)) {
+		url = c.substring(0, c.lastIndexOf("/") + 1).
+			replace("adamdruppe.com", "stream"+Math.floor(Math.random() * 100)+".adamdruppe.com") + url;
+		console.log("Connecting to " + url);
+	}
+
+	var source = new EventSource(url);
+
+	return source;
+}
+
+function activateTracking(data, reloadPage) {
+
+	// initial population, data comes from the server side template
+	for(key in data) {
+		var value = data[key];
+		try {
+			updateTrackerProperty(key, value);
+		} catch(e) {
+			console.error(e);
+		}
+	}
+
+	var source = openEventSource();
+
+	var sourceTimeout;
+	function keepalive(period) {
+		if(!period)
+			period = 18000;
+		if(sourceTimeout)
+			clearTimeout(sourceTimeout);
+		sourceTimeout = setTimeout(reloadPage, period);
+	}
+
+	keepalive();
+
+	source.addEventListener("keepalive", function() { keepalive(); });
+
+	source.addEventListener("tracker_update", function(event) {
+		var obj = JSON.parse(event.data);
+
+		try {
+			updateTrackerProperty(obj.key, obj.value);
+		} catch(e) {
+			console.error(e);
+		}
+
+		keepalive();
+	});
+}
 
 
 // FIXME: the tracker page needs to listen to updates too

@@ -1,68 +1,48 @@
-.game-type,
-.funds-raised,
-.bingo,
-.color {
+.logo, .game-type {
 	display: none;
 }
 
-.show-rank-boxes .position {
-	display: block;
+.positioned-ur > * {
+	left: var(--x);
+	bottom: calc(var(--y) + 70px);
+
+	right: auto;
+	top: auto;
 }
 
-.logo {
-	position: absolute;
-	top: 312px;
-	height: 100px;
-	left: 870px;
+.positioned-bl,
+.positioned-br {
+	display: none !important;
 }
 
-.secondary-logo {
-	display: block;
+.bingo {
+	width: 460px;
+	height: 576px;
 	position: absolute;
-	left: 50px;
-	top: 310px;
-	width: 300px;
-	height: 100px;
+	left: 410px;
+	top: 40px;
 
-	image-rendering: pixelated;
+	overflow: hidden;
+
+	left: 800px;
 }
 
 .comms {
 	position: absolute;
-	bottom: 40px;
+	top: 300px;
 	left: 515px;
 	width: 270px;
 	height: 60px;
 	padding-top: 4px;
-
-	left: 65px;
-
-	bottom: 325px;
-	left: 515px;
 }
 
 .name {
 	--x: 408px;
-	height: 44px;
+	height: 32px;
 	width: 220px;
 	font-size: 18px;
 	font-weight: bold;
-	line-height: 0.9;
-	padding: 4px 2px;
 }
-
-.position {
-	text-align: center;
-	--y: 306px;
-	--x: 54px;
-	width: 40px;
-	height: 26px;
-	font-size: 13px;
-
-	--x: 558px;
-	--y: 50px;
-}
-
 
 .tracker {
 	font-size: 0px;
@@ -72,7 +52,7 @@
 	height: 52px;
 
 	--x: 408px;
-	--y: 50px;
+	--y: 42px;
 	width: 146px;
 	height: 216px;
 }
@@ -80,6 +60,14 @@
 .tracker i {
 	width: 32px;
 	height: 32px;
+}
+
+.color {
+	--x: 508px;
+	--y: 262px;
+	width: 26px;
+	height: 26px;
+	z-index: 6;
 }
 
 .clock {
@@ -91,7 +79,7 @@
 	padding: 0px 2px;
 
 	--x: 408px;
-	--y: 269px;
+	--y: 262px;
 
 	width: 90px;
 	height: 31px;
@@ -99,10 +87,26 @@
 
 }
 
+.position {
+	text-align: center;
+	--y: 306px;
+	--x: 54px;
+	width: 40px;
+	height: 26px;
+	font-size: 13px;
+
+	--x: 558px;
+	--y: 42px;
+}
+
 .gameplay {
 	--x: 4px;
 	--y: 4px;
 
+	/*
+	width: 256px;
+	height: 240px;
+	*/
 	width: 400px;
 	height: 300px;
 }

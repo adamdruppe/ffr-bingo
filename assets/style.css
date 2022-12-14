@@ -104,7 +104,9 @@ tfoot th {
 	padding: 1em;
 	min-height: 8.75em;
 
-	background-image: url("tracker/ffr-dab.png");
+	background-image: url("tracker/logo-rando-marathon-2022-winter-dab.png");
+	background-size: contain;
+	/*background-image: url("tracker/ffr-dab.png");*/
 	background-repeat: no-repeat;
 	background-position: center;
 }
