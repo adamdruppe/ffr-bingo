@@ -1,6 +1,6 @@
 #loading-screen,
 #ffr-layout {
-	background-image: url("/assets/tracker/layout_-_trackers.png");
+	background-image: url("layout_-_trackers.png");
 }
 
 #loading-screen > .loading-screen-text {

@@ -7,16 +7,16 @@
 
 #loading-screen,
 #ffr-layout {
-	background-image: url("/assets/tracker/fall-league-2022.png");
+	background-image: url("fall-league-2022.png");
 }
 
 .loading-screen-primary-logo,
 .logo {
-	background-image: url("/assets/tracker/logo-ffr-black.png") !important;
+	background-image: url("logo-ffr-black.png") !important;
 }
 .loading-screen-secondary-logo,
 .secondary-logo {
-	background-image: url("/assets/tracker/logo-melmond-murder-mystery.png");
+	background-image: url("logo-melmond-murder-mystery.png");
 }
 
 

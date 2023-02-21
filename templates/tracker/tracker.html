@@ -1,5 +1,5 @@
 <main>
-<div id="tracker">
+<div id="tracker" class="<%= data.simplified_view %>">
 	<style>
 
 		#tracker fieldset {
@@ -79,6 +79,7 @@
 		<label class="visible-simplified"><span>Name</span> <input type="text" name="player-1-name" /></label>
 		<label><span>Pronouns</span> <input type="text" name="player-1-pronoun" /></label>
 		<label><span>Ranking/position</span> <input type="text" name="player-1-ranking" /></label>
+		<label><span>Wins/Best Of</span> <input type="text" name="player-1-wins" placeholder="1/3" /></label>
 		<label><span>Team</span> <input type="text" name="player-1-team" /></label>
 
 		<label class="visible-simplified"><span>Final time</span> <input type="text" name="player-1-time" /></label>
@@ -129,6 +130,7 @@
 		<label class="visible-simplified"><span>Name</span> <input type="text" name="player-2-name" /></label>
 		<label><span>Pronouns</span> <input type="text" name="player-2-pronoun" /></label>
 		<label><span>Ranking/position</span> <input type="text" name="player-2-ranking" /></label>
+		<label><span>Wins/Best Of</span> <input type="text" name="player-2-wins" placeholder="1/3" /></label>
 		<label><span>Team</span> <input type="text" name="player-2-team" /></label>
 
 		<label class="visible-simplified"><span>Final time</span> <input type="text" name="player-2-time" /></label>
@@ -204,6 +206,7 @@
 		<label class="visible-simplified"><span>Name</span> <input type="text" name="player-3-name" /></label>
 		<label><span>Pronouns</span> <input type="text" name="player-3-pronoun" /></label>
 		<label><span>Ranking/position</span> <input type="text" name="player-3-ranking" /></label>
+		<label><span>Wins/Best Of</span> <input type="text" name="player-3-wins" placeholder="1/3" /></label>
 		<label><span>Team</span> <input type="text" name="player-3-team" /></label>
 
 		<label class="visible-simplified"><span>Final time</span> <input type="text" name="player-3-time" /></label>
@@ -251,6 +254,7 @@
 		<label class="visible-simplified"><span>Name</span> <input type="text" name="player-4-name" /></label>
 		<label><span>Pronouns</span> <input type="text" name="player-4-pronoun" /></label>
 		<label><span>Ranking/position</span> <input type="text" name="player-4-ranking" /></label>
+		<label><span>Wins/Best Of</span> <input type="text" name="player-4-wins" placeholder="1/3" /></label>
 		<label><span>Team</span> <input type="text" name="player-4-team" /></label>
 
 		<label class="visible-simplified"><span>Final time</span> <input type="text" name="player-4-time" /></label>
@@ -298,6 +302,7 @@
 		<label class="visible-simplified"><span>Name</span> <input type="text" name="player-5-name" /></label>
 		<label><span>Pronouns</span> <input type="text" name="player-5-pronoun" /></label>
 		<label><span>Ranking/position</span> <input type="text" name="player-5-ranking" /></label>
+		<label><span>Wins/Best Of</span> <input type="text" name="player-5-wins" placeholder="1/3" /></label>
 		<label><span>Team</span> <input type="text" name="player-5-team" /></label>
 
 		<label class="visible-simplified"><span>Final time</span> <input type="text" name="player-5-time" /></label>
@@ -354,6 +359,9 @@
 					<option value="4p.css">4p</option>
 					<option value="5p.css">5p</option>
 				</optgroup>
+				<optgroup label="Trackers only">
+					<option value="4trackers.css">Croppable 4 trackers</option>
+				</optgroup>
 				<optgroup label="Bingo">
 					<option value="bingo-2p.css">Bingo 2p</option>
 					<option value="bingo-4p.css">Bingo 4p</option>
@@ -381,30 +389,49 @@
 		<label>
 			<span>Style Theme:</span>
 			<select name="style-sheet">
-				<option value="fog.css">Blue Fog</option>
-				<option value="bubbles.css">DAB Bubbles</option>
-				<option value="marathon-2022-summer.css">FFR Marathon Summer 2022</option>
-				<option value="derby.css">Duck Derby</option>
-				<option value="desert.css">Yannikrum Desert</option>
-				<option value="fall.css">Fall League 2022</option>
-				<option value="sglive.css">SG Live</option>
-				<option value="marathon-2022-winter.css">FFR Marathon Winter 2022</option>
-				<option value="ffr-wt-2023.css">FFR Winter Tournament 2023</option>
+				<optgroup label="Generic">
+					<option value="fog/fog.css">Blue Fog</option>
+				</optgroup>
+				<optgroup label="FFR">
+					<option value="bubbles/bubbles.css">DAB Bubbles</option>
+					<option value="derby/derby.css">Duck Derby</option>
+					<option value="desert/desert.css">Yannikrum Desert</option>
+					<option value="fall/fall.css">Fall League 2022</option>
+					<option value="ffr-wt-2023/ffr-wt-2023.css">FFR Winter Tournament 2023</option>
+				</optgroup>
+				<optgroup label="Special">
+					<option value="marathon/marathon-2022-summer.css">FFR Marathon Summer 2022</option>
+					<option value="sglive/sglive.css">SG Live</option>
+					<option value="marathon/marathon-2022-winter.css">FFR Marathon Winter 2022</option>
+				</optgroup>
+				<optgroup label="Other games">
+					<option value="zladx/zladx.css">Zelda: Link's Awakening</option>
+				</optgroup>
 			</select>
 		</label>
 
 		<label>
-			<span>Logo:</span>
+			<span>Logo set:</span>
 			<select name="logo-sheet">
-				<option value="null.css">None</option>
-				<option value="ffr.css">FFR</option>
-				<option value="derby.css">FFR Duck Derby</option>
-				<option value="dab.css">DAB</option>
-				<option value="ffmq.css">FFMQ</option>
-				<option value="marathon-2022-summer.css">FFR 2022 Summer Marathon</option>
-				<option value="ffr-coop-2022.css">FFR Co-Op 2022</option>
-				<option value="marathon-2022-winter.css">FFR 2022 Winter Marathon</option>
-				<option value="ffr-wt-2023.css">FFR Winter Tournament 2023</option>
+				<optgroup label="Generic">
+					<option value="null.css">None</option>
+					<option value="ffr-ocho.css">FFR8: The Ocho</option>
+				</optgroup>
+				<optgroup label="FFR">
+					<option value="ffr.css">Light Blue</option>
+					<option value="derby.css">Duck Derby</option>
+					<option value="dab.css">DAB</option>
+					<option value="ffr-coop-2022.css">Co-Op 2022</option>
+					<option value="ffr-wt-2023.css">Winter Tournament 2023</option>
+				</optgroup>
+				<optgroup label="Special">
+					<option value="marathon-2022-summer.css">FFR 2022 Summer Marathon</option>
+					<option value="marathon-2022-winter.css">FFR 2022 Winter Marathon</option>
+				</optgroup>
+				<optgroup label="Other games">
+					<option value="ffmq.css">FFMQ</option>
+					<option value="zladx.css">Zelda: Link's Awakening</option>
+				</optgroup>
 			</select>
 		</label>
 	</fieldset>

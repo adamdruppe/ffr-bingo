@@ -1,6 +1,6 @@
 #loading-screen,
 #ffr-layout {
-	background-image: url("/assets/tracker/background-derby.png?cachebust");
+	background-image: url("background-derby.png");
 }
 
 .secondary-logo {

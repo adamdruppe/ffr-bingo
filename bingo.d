@@ -666,7 +666,7 @@ class Room : WebObject {
 	@Skeleton("tracker/skeleton.html")
 	@Template("tracker/tracker.html")
 	@RemoveTrailingSlash
-	MultipleResponses!(string[string], Redirection) tracker(User who) {
+	MultipleResponses!(string[string], Redirection) tracker(User who, bool simplified = false) {
 
 		//if(who.id == 0)
 			//return typeof(return)(Redirection("/login"));
@@ -697,7 +697,16 @@ class Room : WebObject {
 			kv["clock"] = to!string(clock_ticks);
 		}
 
+		kv["simplified_view"] = simplified ? "simplified" : "";
+
 		return typeof(return)(kv);
+	}
+
+	@Skeleton("tracker/skeleton.html")
+	@Template("tracker/tracker.html")
+	@RemoveTrailingSlash
+	MultipleResponses!(string[string], Redirection) trackers(User who) {
+		return tracker(who, true);
 	}
 
 	@Skeleton("tracker/skeleton.html")
@@ -1194,14 +1203,10 @@ class Presenter : WebPresenterWithTemplateSupport!Presenter {}
 import ffr_bingo.tracker;
 
 mixin DispatcherMain!(Presenter,
-	"/assets/".serveStaticFileDirectory,
+	"/assets/".serveStaticFileDirectory(null, true),
 	"/room/".serveApi!Room,
 	"/pages/".serveTemplateDirectory,
 
-	"/assets/tracker/".serveStaticFileDirectory,
-	"/assets/tracker/layouts/".serveStaticFileDirectory,
-	"/assets/tracker/themes/".serveStaticFileDirectory,
-	"/assets/tracker/logos/".serveStaticFileDirectory,
 	"/tracker/".serveApi!Tracker,
 
 	"/".serveApi!Bingo,

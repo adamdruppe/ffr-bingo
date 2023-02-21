@@ -99,7 +99,7 @@ html, body {
 
 
 .tracker.ff1-itemset i {
-    background-image: url('/assets/tracker/ffr-items-sprite-2021.png');
+    background-image: url('/assets/tracker/itemsets/ffr-items-sprite-2021.png');
     background-size: 500% 1100%;
 }
 .ff1-itemset.tracker > .ff1-itemset {
@@ -154,7 +154,7 @@ html, body {
 	display: block;
 }
 .ffmq-itemset.tracker i {
-    background-image: url('/assets/tracker/ffmqr-items-sprite.png');
+    background-image: url('/assets/tracker/itemsets/ffmqr-items-sprite.png');
     background-size: 500% 2100%;
 }
 
@@ -223,7 +223,7 @@ html, body {
 	display: block;
 }
 .ctjot-itemset.tracker i {
-    background-image: url('/assets/tracker/tracker - ctjot.png');
+    background-image: url('/assets/tracker/itemsets/tracker - ctjot.png');
     background-size: 700% 500%;
 }
 .ctjot-itemset .crono{background-position: 0 0;}
@@ -262,7 +262,7 @@ html, body {
 	display: block;
 }
 .cvaos-itemset.tracker i {
-    background-image: url('/assets/tracker/tracker - cvaos.png');
+    background-image: url('/assets/tracker/itemsets/tracker - cvaos.png');
     background-size: 400% 300%;
 }
 .cvaos-itemset .bdash{background-position: 0px 0px;}
@@ -285,7 +285,7 @@ html, body {
 	display: block;
 }
 .cvsotn-itemset.tracker i {
-    background-image: url('/assets/tracker/tracker - cvsotn.png');
+    background-image: url('/assets/tracker/itemsets/tracker - cvsotn.png');
     background-size: 600% 400%;
 }
 .cvsotn-itemset .item1{background-position: 0px 0px;}
@@ -321,7 +321,7 @@ html, body {
 	display: block;
 }
 .ff5cd-itemset.tracker i {
-    background-image: url('/assets/tracker/tracker - ff5cd.png');
+    background-image: url('/assets/tracker/itemsets/tracker - ff5cd.png');
     background-size: 600% 400%;
 }
 .ff5cd-itemset .item1{background-position: 0px 0px;}
@@ -357,7 +357,7 @@ html, body {
 	display: block;
 }
 .metroidfusion-itemset.tracker i {
-    background-image: url('/assets/tracker/tracker - metroid fusion.png');
+    background-image: url('/assets/tracker/itemsets/tracker - metroid fusion.png');
     background-size: 600% 400%;
 }
 .metroidfusion-itemset .item1{background-position: 0px 0px;}
@@ -393,7 +393,7 @@ html, body {
 	display: block;
 }
 .smrpg-itemset.tracker i {
-    background-image: url('/assets/tracker/tracker - smrpg.png');
+    background-image: url('/assets/tracker/itemsets/tracker - smrpg.png');
     background-size: 700% 400%;
 }
 .smrpg-itemset .item1{background-position: 0px 0px;}
@@ -435,7 +435,7 @@ html, body {
 	display: block;
 }
 .smz3-itemset.tracker i {
-    background-image: url('/assets/tracker/tracker - smz3.png');
+    background-image: url('/assets/tracker/itemsets/tracker - smz3.png');
     background-size: 600% 1300%;
 }
 .smz3-itemset .item1{background-position: 0px 0px;}
@@ -534,7 +534,7 @@ html, body {
 	display: block;
 }
 .faxanadu-itemset.tracker i {
-    background-image: url('/assets/tracker/tracker - faxanadu.png');
+    background-image: url('/assets/tracker/itemsets/tracker - faxanadu.png');
     background-size: 600% 400%;
 }
 .faxanadu-itemset .item1{background-position: 0px 0px;}
@@ -570,7 +570,7 @@ html, body {
 	display: block;
 }
 .earthbound-itemset.tracker i {
-    background-image: url('/assets/tracker/tracker - earthbound.png');
+    background-image: url('/assets/tracker/itemsets/tracker - earthbound.png');
     background-size: 600% 400%;
 }
 .earthbound-itemset .item1{background-position: 0px 0px;}
@@ -606,7 +606,7 @@ html, body {
 	display: block;
 }
 .zelda1-itemset.tracker i {
-    background-image: url('/assets/tracker/tracker - zelda 1.png');
+    background-image: url('/assets/tracker/itemsets/tracker - zelda 1.png');
     background-size: 600% 400%;
 }
 .zelda1-itemset .item1{background-position: 0px 0px;}
@@ -642,7 +642,7 @@ html, body {
 	display: block;
 }
 .zelda2-itemset.tracker i {
-    background-image: url('/assets/tracker/tracker - zelda 2.png');
+    background-image: url('/assets/tracker/itemsets/tracker - zelda 2.png');
     background-size: 600% 400%;
 }
 .zelda2-itemset .item1{background-position: 0px 0px;}
@@ -679,7 +679,7 @@ html, body {
 	display: block;
 }
 .hollowknight-itemset.tracker i {
-    background-image: url('/assets/tracker/tracker - hollow knight.png');
+    background-image: url('/assets/tracker/itemsets/tracker - hollow knight.png');
     background-size: 600% 400%;
 }
 .hollowknight-itemset .item1{background-position: 0px 0px;}
@@ -708,7 +708,7 @@ html, body {
 	display: block;
 }
 .zeldamm-itemset.tracker i {
-    background-image: url('/assets/tracker/tracker - zelda mm.png');
+    background-image: url('/assets/tracker/itemsets/tracker - zelda mm.png');
     background-size: 600% 1300%;
 }
 .zeldamm-itemset .item1{background-position: 0px 0px;}
@@ -786,7 +786,7 @@ html, body {
         display: block;
 }
 .soulblazer-itemset.tracker i {
-    background-image: url('/assets/tracker/tracker - soul blazer.png');
+    background-image: url('/assets/tracker/itemsets/tracker - soul blazer.png');
     background-size: 800% 400%;
 }
 
@@ -827,13 +827,13 @@ html, body {
         display: block;
 }
 .metroidprime-itemset.tracker i {
-    background-image: url('/assets/tracker/tracker - metroid prime - items.png');
+    background-image: url('/assets/tracker/itemsets/tracker - metroid prime - items.png');
     background-size: 500% 400%;
 }
 
 
 .metroidprime-itemset.tracker .map {
-    background-image: url('/assets/tracker/tracker - metroid prime - map.png');
+    background-image: url('/assets/tracker/itemsets/tracker - metroid prime - map.png');
     background-size: 100% 100%;
     width: calc(111px / 1);
     height: calc(133px / 1);
@@ -952,7 +952,7 @@ html, body {
 	display: block;
 }
 .zelda3-itemset.tracker i {
-    background-image: url('/assets/tracker/tracker - smz3.png');
+    background-image: url('/assets/tracker/itemsets/tracker - smz3.png');
     background-size: 600% 1300%;
 }
 .zelda3-itemset .item25{background-position: 0px 33.33%;}

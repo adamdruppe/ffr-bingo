@@ -1,3 +1,15 @@
 The stylesheets in here should just set position, size, and maybe display none on the various top-level classes. It can also set size on tracker i children and font sizes, if needed, to make it fit.
 
 Colors, borders, etc., are set in the style theme sheets instead.
+	* Loading screen background
+	* Main background
+	* Box bg
+	* Default logos attached as vars on `body` (which overrides the default one on html)
+
+	* Might adjust things from the layout but really shouldn't.
+
+
+What about the win orbs?! Is that theme or logo? Perhaps theme default with a logo that can override again.
+
+Logos may be specified in the theme but can be overridden by the logo sheet.
+	* New logos attached as vars on main (so the cascade will override the defaults!)

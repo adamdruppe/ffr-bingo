@@ -1,14 +1,14 @@
 .loading-screen-primary-logo,
 .logo {
-	background-image: url("/assets/tracker/logo-ffr.png");
+	background-image: url("logo-ffr.png");
 }
 .loading-screen-secondary-logo,
 .secondary-logo {
-	background-image: url("/assets/tracker/logo-yannikrum.png");
+	background-image: url("logo-yannikrum.png");
 }
 
 #loading-screen {
-	background-image: url("/assets/tracker/background-desert.png");
+	background-image: url("../themes/desert/background-desert.png");
 	/*border: solid 8px #f3fdff;*/
 }
 

@@ -269,9 +269,22 @@
 		.bingo {
 			background-color: black;
 		}
+
+		.wins-counter > .win-indicator {
+			display: inline-block;
+			width: 24px;
+			height: 24px;
+			background-size: contain;
+
+			background-image: url("/assets/tracker/win-orb-off.png");
+		}
+
+		.wins-counter > .win-indicator.indicated-win {
+			background-image: url("/assets/tracker/win-orb-on.png");
+		}
 	</style>
 
-	<link rel="stylesheet" id="theme-stylesheet" href="/assets/tracker/themes/fog.css" />
+	<link rel="stylesheet" id="theme-stylesheet" href="/assets/tracker/themes/fog/fog.css" />
 	<link rel="stylesheet" id="layout-stylesheet" href="/assets/tracker/layouts/2p.css" />
 	<link rel="stylesheet" id="logo-stylesheet" href="/assets/tracker/logos/null.css" />
 
@@ -398,7 +411,15 @@
 
 <script>
 	document.addEventListener("DOMContentLoaded", function() {
-		activateTracking(data, function() { location.reload(); } );
+		activateTracking(data, function() {
+			var xhr = new XMLHttpRequest();
+			xhr.open("GET", "/", true);
+			// only actually reload if the server is up
+			xhr.onload = function() {
+				location.reload();
+			};
+			xhr.send();
+		} );
 	});
 </script>
 

@@ -1,6 +1,14 @@
 .positioned-bl,
 .positioned-br {
+}
+
+.name,
+.clock,
+.comms,
+.gameplay {
 	display: none !important;
+	width: 1px !important;
+	height: 1px !important;
 }
 
 .info-area {
@@ -55,8 +63,8 @@
 }
 
 .tracker {
-	--x: 4px;
-	--y: 548px;
+	--x: 40px;
+	--y: 40px;
 
 	width: 328px;
 	height: 132px;
@@ -74,18 +82,6 @@
 	--x: 4px;
 	--y: 498px;
 }
-
-.wins-counter {
-	--x: 4px;
-	--y: 498px;
-	width: 560px;
-	text-align: right;
-}
-
-.positioned-ur .wins-counter {
-	text-align: left;
-}
-
 .position {
 	--x: 4px;
 	--y: 36px;

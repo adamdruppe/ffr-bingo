@@ -513,7 +513,7 @@ function fadeInDetails(page) {
 }
 
 function cacheBuster() {
-	return "?7";
+	return "?9";
 }
 
 function updateTrackerProperty(key, value) {
@@ -625,6 +625,21 @@ function updateTrackerProperty(key, value) {
 				findTransparentRectanglesQueue();
 
 			e.classList.add(value);
+		} else if(e.classList.contains("wins-counter")) {
+			e.innerHTML = "";
+			var parts = value.split("/");
+			if(parts.length == 2) {
+				var wins = Number(parts[0]);
+				var needed = Math.floor(Number(parts[1]) / 2 + 1);
+
+				for(var thing = 0; thing < needed; thing++) {
+					var thingElement = document.createElement("span");
+					thingElement.className = "win-indicator";
+					if(thing < wins)
+						thingElement.className += " indicated-win";
+					e.appendChild(thingElement);
+				}
+			}
 		} else if(e.tagName == "SPAN") {
 			e.textContent = value;
 			setTimeout(function() { makeTextFit(e); }, 100); // idk why this needs a timer but it does seem to help soooo maybe the value isn't recalculated right until it gets painted?

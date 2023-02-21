@@ -1,10 +1,10 @@
 .loading-screen-primary-logo,
 .logo {
-	background-image: url("ffr-derby.png");
+	background-image: url("zladx-logo.png");
 }
 .loading-screen-secondary-logo,
 .secondary-logo {
-	background-image: url("ffr-derby-logo.png");
+	display: none;
 }
 
 
