@@ -15,6 +15,7 @@ Talk to 5 Cardia Dragons - Any 5 different dragons in Cardia Isle locations (Bah
 Talk to 10 Bats in Marsh - Any 10 different bats among all Marsh floors.  You do not have to talk to all 10 on the same floor.
 Do a Full Lap of Ice Floor 2 - Walk from the entrance stairs to the exit stairs and back again without leaving the floor. Exploring the rest of Ice Cave part way into the loop is not allowed.
 Buy Everything at the Caravan - Purchase one of each item available at the hidden Oasis Caravan.
+Bottling Up Emotions - Show Underhill at the Caravan the BOTTLE before releasing the Fairy.
 
 4
 Collect and Keep a Copper, Silver, and Gold Bracelet - You must hold on to these through the end boss fight to retain the square as completed.
@@ -42,6 +43,8 @@ Defeat 4 Different Ghosts OR 15 Total Ghosts - Ghost, Image, Wraith, and Shadow 
 Talk to 10 Bats in Earth Cave - You may talk to any 10 different bats across all of the Earth Cave floors.
 Defeat 4 Different Slimes OR 15 Total Slimes - Scum, Muck, Ooze, and Slime (aka MtlSlime) all count. A monster is "defeated" as soon as it is terminated or runs away from you. You do not need to finish the battle.
 Talk to All of the Robots in Mirage/Sky - There are 4 robots total (1 on Mirage 1, 1 on Mirage 2, 1 on Mirage 3, and 1 on Sky 3. The patrolling robot on Sky 4 (which could be a WarMECH) is not necessary.
+Muckin' Around - Hit a Slime-type (MUCK, OOZE, SCUM, SLIME) with its elemental weakness
+Time Loop - Do a full lap around the floor with the LUTE plate
 
 8
 Walk the Hall of Giants - The Hall of Giants is the long loop found (traditionally) on the left side of Earth 1. You must walk from one end of this trap tile-filled hallways to the other, north to south (or south to north if you feel saucy).
@@ -74,10 +77,16 @@ Sell a Ribbon and then Save - You must save after selling the Ribbon as you are 
 
 13
 Using Slow Boat (Hold B), Sail From Pravoka to Crescent Lake's Dock - Pravoka is the second town you visit in the vanilla game (after Coneria) and is found on the northeast section of the Circle Sea, on the Southern Continent. Crescent Lake is the fifth town, found on the southern side of the Southern Continent, and it's dock is east of the town.
+Step on every pillar in Ordeals
+Revive a character in battle
+Make Blind Enemy Miss You - give an enemy dark status in battle then wait for them to attack and miss you
+Mitigate damage with elemental white magic - Use a spell like ALIT in a battle before an enemy casts a matching elemental spell on you when you are not already resistant to the element from armor. Note that WALL does not count as it is non-elemental, but ARUB protecting you from an instadeath does count.
 
 14
 Defeat 3 Different Worms OR 12 Total Worms - Sand Worm, Gr Worm, and Worm all count. A monster is "defeated" as soon as it is terminated or runs away from you. You do not need to finish the battle.
 Open Every Chest in Ice Cave - There are 3 chests on Ice B2, 8 chests on B3, and 5 on B1 (the south side of the first floor with an exit staircase leading out). You must open all of them, 16 chests total. A chest is still open even if you can't hold the item and remains open if you wipe or reset out as long as you press A on each chest during the course of the seed.
+Are you my Mummy - With a single Mummy left in the encounter, cast HOLD on the Mummy, then defeat it.
+Yahnikurm Together - Kill the first encounter off the hard reset in each quadrant of the Yahnikurm Desert.
 
 15
 Take 1 Black Belt to level 25 - Only needs to be one black belt, unless you want to show off.
@@ -98,6 +107,9 @@ Take 1 None - You must start the game with a None in at least one slot and this 
 Take 1 White Mage to Level 25 - Only needs to be one white mage, unless you want to show off. You may promote the white mage to wizard at any time for this square.
 Open Every Chest in Sky - There are 10 chests on Sky 1, 10 chests on Sky 2, and 14 on Sky 3. You must open all of them, 34 chests total. Mirage chests not included. A chest is still open even if you can't hold the item and remains open if you wipe or reset out as long as you press A on each chest during the course of the seed.
 Throw Masmune Into Space (3F Window) - Drop the Masmune while standing in front of the space window on Sky 3 floor. You must escape the dungeon and save this to keep the square and may not reset out of it after; you are throwing masa away for good.
+Dock Times Indeed - Get off the boat at every dock enabled on the map. (Corneria, Dwarf Cave, Matoya, Pravoka, Elfland North, Melmond, Elfland South, Crescent Lake, East of Ice Cave, Near Peninsula of Power; if enabled, also includes Northern Continent, Bahamut, Ryukahn)
+So Take Off All Your Clothes - Walk through Volcano from main entrance through KARY's exit without healing any damage.
+
 
 19
 Hit Level 40 on at Least One Character - It can be any character, any class, but you must be save after reaching level 40. If you die after your grind but before you save you have to do the grind again. {level}
@@ -122,11 +134,12 @@ Fill All 24 Spell Slots on One Character - You will have to purchase enough spel
 Defeat Kraken 2 Twice on Every TOFR Run - A "ToFR Run" is defined as a dive with the intent to kill Chaos. If you're in the dungeon simply to hunt enemies and don't kill Kraken 2 twice times before proceeding you need to EXIT out and then reenter to officially begin your dive. If you wipe, you must unlight this square. {tofr}
 
 24
-See 3 Status-elemental Skills or Spells - A spell is "seen" when an enemy uses it in battle. SLEP, MUTE, DARK, SLOW, HOLD, FEAR, CONF, STUN, BLND, GAZE, FLASH, SNORTING, INK, and DAZZLE all count.
-Hit Level 50 on at Least One Character - It can be any character, any class, but you must be save after reaching level 50. If you die after your grind but before you save you have to do the grind again. {level}
+See 3 Status-elemental Skills or Spells - A spell is "seen" when an enemy uses it in battle. SLEP, MUTE, DARK, SLOW, HOLD, FEAR, CONF, STUN, BLND, GAZE, FLASH, SNORTING, INK, and DAZZLE all count. An enemy affecting you with mute, stun, or sleep touch also counts.
 Defeat Tiamat 2 Twice on Every TOFR Run - A "ToFR Run" is defined as a dive with the intent to kill Chaos. If you're in the dungeon simply to hunt enemies and don't kill Tiamat 2 twice times before proceeding you need to EXIT out and then reenter to officially begin your dive. If you wipe, you must unlight this square. {tofr}
+Taking in the Sights - While docked below the river system on the Onrac continent, walk and canoe your way to the tip of the furthest peninsula on the island. You must use camping gear and save at the very tip.
+Show me your Moves - In [long tofr]/(short tofr),  spend one full turn on [2]/(4) fiends with every party member using an ITEM that has no in-battle utility.
 
 25
-See 2 Poison-elemental Skills or Spells - A spell is "seen" when an enemy uses it in battle. BANE, BRAK, GLANCE, POISON (Petrify), POISON (Damage), and STINGER all count.
+See 2 Poison-elemental Skills or Spells - A spell is "seen" when an enemy uses it in battle. BANE, BRAK, GLANCE, POISON (Petrify), POISON (Damage), and STINGER all count. An enemy affecting you with poison or stone touch also counts.
 Successfully Cure a Status Ailment in Battle with White Magic - CUR4, PURE, or (if you're a hero) LAMP
 Cast a Spell of Every Element on Enemies - Over the course of the seed you must cast one of each elemental type (Fire, Ice, Lightning, Earth [QAKE], Poison [BANE/BRAK], Time [STOP/ ZAP!], Death [RUB/XXXX], and Status [MUTE, CONF, etc.]. Also requires casting 1 non-elemental spell [HARM spells, NUKE, FADE, etc.]. Item magic DOES count toward this.
