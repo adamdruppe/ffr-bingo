@@ -1,0 +1,27 @@
+.loading-screen-primary-logo,
+.logo {
+	background-position: bottom center;
+	background-image: url("smrpg-logo.png");
+}
+.loading-screen-secondary-logo,
+.secondary-logo {
+	background-image: url("smrpg-wt-2023-logo.png");
+}
+
+/* just hacks */
+.logo{
+	transform: translateY(15px);
+}
+.secondary-logo {
+	display: block;
+	top: auto;
+	bottom: 0px;
+	height: 50px;
+	width: 200px;
+	left: 550px;
+
+}
+
+.tracker {
+	transform: translateY(-15px);
+}

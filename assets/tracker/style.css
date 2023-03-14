@@ -25,14 +25,14 @@ html, body {
 	font-family: "chicago";
 	src:
 		local("Chicago"),
-		url("/assets/tracker/chicago.woff2") format("woff2");
+		url("chicago.woff2") format("woff2");
 }
 
 @font-face {
 	font-family: "BankGothic";
 	src:
 		local("BankGothic"),
-		url("/assets/tracker/BankGothic-Regular.woff2") format("woff2");
+		url("BankGothic-Regular.woff2") format("woff2");
 }
 
 @font-face {
@@ -40,7 +40,7 @@ html, body {
 	font-weight: bold;
 	src:
 		local("BankGothic"),
-		url("/assets/tracker/BankGothic-Bold.woff2") format("woff2");
+		url("BankGothic-Bold.woff2") format("woff2");
 }
 
 .player-0-checked {
@@ -394,39 +394,43 @@ html, body {
 }
 .smrpg-itemset.tracker i {
     background-image: url('/assets/tracker/itemsets/tracker - smrpg.png');
-    background-size: 700% 400%;
+    background-size: 800% 400%;
 }
 .smrpg-itemset .item1{background-position: 0px 0px;}
-.smrpg-itemset .item2{background-position: 16.67% 0px;}
-.smrpg-itemset .item3{background-position: 33.33% 0px;}
-.smrpg-itemset .item4{background-position: 50.00% 0px;}
-.smrpg-itemset .item5{background-position: 66.67% 0px;}
-.smrpg-itemset .item6{background-position: 83.33% 0px;}
-.smrpg-itemset .item7{background-position: 100% 0px;}
+.smrpg-itemset .item2{background-position: 14.29% 0px;}
+.smrpg-itemset .item3{background-position: 28.57% 0px;}
+.smrpg-itemset .item4{background-position: 42.86% 0px;}
+.smrpg-itemset .item5{background-position: 57.14% 0px;}
+.smrpg-itemset .item6{background-position: 71.43% 0px;}
+.smrpg-itemset .item7{background-position: 85.71% 0px;}
+.smrpg-itemset .item8{background-position: 100% 0px;}
 
-.smrpg-itemset .item8{background-position: 0% 33.3%;}
-.smrpg-itemset .item9{background-position: 16.67% 33.3%;}
-.smrpg-itemset .item10{background-position: 33.33% 33.3%;}
-.smrpg-itemset .item11{background-position: 50% 33.3%;}
-.smrpg-itemset .item12{background-position: 66.67% 33.3%;}
-.smrpg-itemset .item13{background-position: 83.33% 33.3%;}
-.smrpg-itemset .item14{background-position: 100% 33.3%;}
+.smrpg-itemset .item9{background-position: 0% 33.3%;}
+.smrpg-itemset .item10{background-position: 14.29% 33.3%;}
+.smrpg-itemset .item11{background-position: 28.57% 33.3%;}
+.smrpg-itemset .item12{background-position: 42.86% 33.3%;}
+.smrpg-itemset .item13{background-position: 57.14% 33.3%;}
+.smrpg-itemset .item14{background-position: 71.43% 33.3%;}
+.smrpg-itemset .item15{background-position: 85.71% 33.33%;}
+.smrpg-itemset .item16{background-position: 100% 33.33%;}
 
-.smrpg-itemset .item15{background-position: 0% 66.66%;}
-.smrpg-itemset .item16{background-position: 16.67% 66.66%;}
-.smrpg-itemset .item17{background-position: 33.3% 66.66%;}
-.smrpg-itemset .item18{background-position: 50% 66.66%;}
-.smrpg-itemset .item19{background-position: 66.67% 66.66%;}
-.smrpg-itemset .item20{background-position: 83.33% 66.66%;}
-.smrpg-itemset .item21{background-position: 100% 66.66%;}
+.smrpg-itemset .item17{background-position: 0 66.66%;}
+.smrpg-itemset .item18{background-position: 14.29% 66.66%;}
+.smrpg-itemset .item19{background-position: 28.57% 66.66%;}
+.smrpg-itemset .item20{background-position: 42.86% 66.66%;}
+.smrpg-itemset .item21{background-position: 57.14% 66.66%;}
+.smrpg-itemset .item22{background-position: 71.43% 66.66%;}
+.smrpg-itemset .item23{background-position: 85.71% 66.66%;}
+.smrpg-itemset .item24{background-position: 100% 66.66%;}
 
-.smrpg-itemset .item22{background-position: 0% 100%;}
-.smrpg-itemset .item23{background-position: 16.67% 100%;}
-.smrpg-itemset .item24{background-position: 33.3% 100%;}
-.smrpg-itemset .item25{background-position: 50% 100%;}
-.smrpg-itemset .item26{background-position: 66.67% 100%;}
-.smrpg-itemset .item27{background-position: 83.33% 100%;}
-.smrpg-itemset .item28{background-position: 100% 100%;}
+.smrpg-itemset .item25{background-position: 0% 100%;}
+.smrpg-itemset .item26{background-position: 14.29% 100%;}
+.smrpg-itemset .item27{background-position: 28.57% 100%;}
+.smrpg-itemset .item28{background-position: 42.86% 100%;}
+.smrpg-itemset .item29{background-position: 57.14% 100%;}
+.smrpg-itemset .item30{background-position: 71.43% 100%;}
+.smrpg-itemset .item31{background-position: 85.71% 100%;}
+.smrpg-itemset .item32{background-position: 100% 100%;}
 
 
 

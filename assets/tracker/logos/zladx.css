@@ -1,5 +1,6 @@
 .loading-screen-primary-logo,
 .logo {
+	background-position: bottom center;
 	background-image: url("zladx-logo.png");
 }
 .loading-screen-secondary-logo,
