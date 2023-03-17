@@ -1,0 +1,57 @@
+#ffr-layout, #loading-screen {
+	background-image: url("layout_bootcamp.png");
+}
+
+.loading-screen-primary-logo,
+.logo {
+	background-image: url("../../logos/ffr_logo-wt-2023.png");
+}
+.loading-screen-secondary-logo,
+.secondary-logo {
+	background-image: url("logo_-_bootcamp.png");
+}
+
+
+
+.secondary-logo {
+	display: block;
+}
+
+#loading-screen > .loading-screen-primary-logo {
+	position: absolute;
+	right: 44px;
+	top: 230px;
+	width: 400px;
+	height: 300px;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#loading-screen > .loading-screen-secondary-logo {
+	position: absolute;
+	right: 64px;
+	bottom: 00px;
+	width: 400px;
+	height: 300px;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#loading-screen > .loading-screen-text {
+	position: absolute;
+	left: 80px;
+	top: 130px;
+	width: 505px;
+	height: 340px;
+	color: white;
+	font-size: 32px;
+
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	background: rgba(0, 0, 0, 0.45);
+	border: ridge 6px white;
+	border-radius: 8px;
+}

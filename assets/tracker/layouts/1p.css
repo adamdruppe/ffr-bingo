@@ -1,0 +1,218 @@
+.position, .color, .bingo {
+	display: none;
+}
+
+.positioned-ur,
+.positioned-bl,
+.positioned-br {
+	display: none !important;
+}
+
+.game-type {
+	display: none;
+}
+
+/* need this if cameras supported on the layout */
+.show-cameras .player-camera {
+	display: block;
+}
+
+.show-rank-boxes .position {
+	display: block;
+}
+.bingo {
+	display: none;
+}
+
+.logo {
+	position: absolute;
+	width: 380px;
+	height: 240px;
+	top: 340px;
+	left: 862px;
+}
+
+.secondary-logo {
+    left: 850px;
+}
+
+.gameplay {
+	width: 800px;
+	height: 600px;
+
+	--x: 9px;
+	--y: 6px;
+}
+
+.soulblazer-itemset.tracker i {
+	width: 40px;
+	height: 40px;
+}
+
+.zeldamm-itemset.tracker i {
+	width: 32px;
+	height: 32px;
+	margin: 0px;
+}
+
+.smz3-itemset.tracker i {
+	width: 29px;
+	height: 29px;
+	margin: 0px;
+}
+
+
+.clock {
+	--x: 300px;
+	--y: 616px;
+	text-align: center;
+
+	width: 200px;
+	height: 69px;
+	font-size: 2.25rem;
+	padding-top: 6px;
+	font-weight: bold;
+
+}
+.position {
+	--x: 4px;
+	--y: 40px;
+}
+.name {
+	--x: 816px;
+	--y: 6px;
+	text-align: center;
+
+	width: 456px;
+	height: 69px;
+	font-size: 2.0rem;
+	font-weight: bold;
+}
+
+.comms {
+	position: absolute;
+	padding-top: 4px;
+
+	left: 816px;
+	top: 82px;
+
+	width: 456px;
+	height: 69px;
+
+	font-size: 24px;
+}
+
+.tracker {
+	--x: 816px;
+	--y: 160px;
+
+	padding: 2px;
+	width: 456px;
+	height: 170px;
+
+	text-align: center;
+}
+
+.tracker i {
+	width: 48px;
+	height: 48px;
+	margin: 1px;
+}
+
+.show-cameras .tracker {
+	width: 224px;
+	height: 224px;
+}
+
+.show-cameras .tracker i {
+	width: 32px;
+	height: 32px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+.show-cameras .tracker i:nth-child(1) {
+	margin-left: 16px;
+}
+.show-cameras .tracker i:nth-child(4) {
+	margin-right: 16px;
+}
+
+.player-camera {
+	position: absolute;
+	padding-top: 4px;
+
+	left: 1048px;
+	top: 160px; /* 342px */
+
+	width: 224px;
+	height: 224px;
+
+}
+
+.player-pronoun {
+	display: block;
+	position: absolute;
+	right: 4px;
+	bottom: 4px;
+}
+
+.winner {
+	--x: 250px;
+	--y: 550px;
+	width: 150px;
+	text-align: center;
+}
+
+
+.info-area {
+	display: block;
+
+	position: absolute;
+	right: 20px;
+	width: 466px;
+	height: 145px;
+	bottom: 72px;
+	padding: 0.5em;
+
+	white-space: pre-line;
+}
+
+.info-area > div {
+	padding: 4px;
+}
+
+.metroidprime-itemset.tracker .map {
+    width: 111px;
+    height: 113px;
+    margin: 6px auto;
+}
+
+.metroidprime-itemset.tracker i {
+	width: 42px;
+	height: 42px;
+}
+
+.ff4ls-itemset {
+    padding: 8px;
+}
+
+.zelda1-itemset {
+    padding-top: 3px;
+}
+
+.ff4ls-itemset .connector-arrow::after {
+    content: '\25bc';
+    font-size: 10px;
+    display: block;
+}
+
+.ctjot-itemset.tracker {
+    padding-top: 8px;
+}
+
+.ctjot-itemset.tracker i {
+    width: 44px;
+    height: 44px;
+    margin: 2px 0px;
+}

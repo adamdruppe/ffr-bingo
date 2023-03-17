@@ -1,0 +1,57 @@
+#loading-screen,
+#ffr-layout {
+	background-image: url("background.png");
+}
+
+.box {
+	background-color: #300;
+}
+
+#loading-screen > .loading-screen-text {
+	position: absolute;
+	left: 80px;
+	top: 130px;
+	width: 405px;
+	height: 240px;
+	background-color: #300;
+	border: ridge 8px white;
+	border-radius: 8px;
+	color: white;
+	font-size: 32px;
+
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#loading-screen > .loading-screen-primary-logo {
+	display: block;
+	position: absolute;
+	left: 600px;
+	top: 50px;
+	width: 500px;
+	height: 300px;
+	right: auto;
+	bottom: auto;
+
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+#loading-screen > .loading-screen-secondary-logo {
+	display: block;
+	position: absolute;
+	left: 600px;
+	top: 450px;
+	width: 500px;
+	height: 300px;
+	right: auto;
+	bottom: auto;
+
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center top;
+
+}
