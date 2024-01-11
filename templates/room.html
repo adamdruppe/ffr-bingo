@@ -14,6 +14,9 @@
 
 	<div class="room-info">
 		<section>
+
+			<label><input type="checkbox" id="grey-out-others-picker" /> <span style="display: inline;" class="label-text">Grey out other player's squares</span></label>
+
 			<h2>Players</h2>
 
 			<script> window.totalNumberOfTeams = 1; </script>
@@ -322,6 +325,9 @@
 		}
 
 		var source = new EventSource("event-stream");
+		var mergedSource = null;
+		if(location.search.indexOf("?mergeWith=") == 0)
+			mergedSource = new EventSource("../" + location.search.substring("?mergeWith=".length) + "/event-stream");
 
 		var sourceTimeout;
 		function keepalive(period) {
@@ -342,14 +348,20 @@
 			keepalive();
 		});
 
-		function squareSetter(set, info) {
+		function squareSetter(set, info, fromOriginal) {
 			var ele = document.querySelector(".bingo-card [data-square-id=\"" + info.squareId + "\"]");
-			ele.classList[set ? "add" : "remove"]("player-" + (info.player == 0 ? "0" : "1") + "-checked");
+
+			if(fromOriginal)
+				ele.classList[set ? "add" : "remove"]("player-" + (info.player == 0 ? "0" : "1") + "-checked");
+
+			var playerNumber = info.player;
+			if(!fromOriginal)
+				playerNumber += 2; // FIXME hack, there could be more than 2 players
 
 			if(set)
-				ele.dataset.playerState |= 1 << info.player;
+				ele.dataset.playerState |= 1 << playerNumber;
 			else
-				ele.dataset.playerState &= ~(1 << info.player);
+				ele.dataset.playerState &= ~(1 << playerNumber);
 
 			setGradientForCheckedState(ele, ele.dataset.playerState|0);
 		}
@@ -358,16 +370,33 @@
 
 		source.addEventListener("set", function(event) {
 			setTimeout(function() {
-			squareSetter(true, JSON.parse(processMessage(event.data).eventMessage));
+			squareSetter(true, JSON.parse(processMessage(event.data).eventMessage), true);
 			}, displayDelay);
 			keepalive();
 		});
 		source.addEventListener("unset", function(event) {
 			setTimeout(function() {
-			squareSetter(false, JSON.parse(processMessage(event.data).eventMessage));
+			squareSetter(false, JSON.parse(processMessage(event.data).eventMessage), true);
 			}, displayDelay);
 			keepalive();
 		});
+
+
+		if(mergedSource) {
+			mergedSource.addEventListener("set", function(event) {
+				setTimeout(function() {
+				squareSetter(true, JSON.parse(processMessage(event.data).eventMessage), false);
+				}, displayDelay);
+				keepalive();
+			});
+			mergedSource.addEventListener("unset", function(event) {
+				setTimeout(function() {
+				squareSetter(false, JSON.parse(processMessage(event.data).eventMessage), false);
+				}, displayDelay);
+				keepalive();
+			});
+		}
+
 		source.addEventListener("new_seed", reloadPage);
 		source.addEventListener("joined", reloadPage);
 		source.addEventListener("quit", reloadPage);

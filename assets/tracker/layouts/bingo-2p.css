@@ -122,3 +122,15 @@
 	top: auto;
 
 }
+
+.wins-counter {
+	display: none;
+}
+
+.player-name {
+	display: inline;
+}
+
+.tracker.ffmq-itemset {
+	width: 180px;
+}

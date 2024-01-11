@@ -121,9 +121,29 @@
 			display: none; /* hide these by default, the layouts can choose to show them again when .show-rank-boxes and .show-cameras are on the top element */
 		}
 
+		.prize,
+		.player-twitch,
 		.funds-raised,
 		.more-info-top,
 		.more-info-bottom {
+			display: none;
+		}
+
+		.prize {
+			text-align: center;
+		}
+
+		.prize img {
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		.player-twitch:not(:empty) span::before {
+			content: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="16" height="16" viewBox="0 0 256 268"%3E%3Cpath fill="%235A3E85" d="M17.458 0L0 46.556v186.201h63.983v34.934h34.931l34.898-34.934h52.36L256 162.954V0H17.458Zm23.259 23.263H232.73v128.029l-40.739 40.741H128L93.113 226.92v-34.886H40.717V23.263Zm64.008 116.405H128V69.844h-23.275v69.824Zm63.997 0h23.27V69.844h-23.27v69.824Z"%2F%3E%3C%2Fsvg%3E');
+		}
+
+		#loading-screen .short-title,
+		#loading-screen .funds-raised {
 			display: none;
 		}
 
@@ -246,6 +266,10 @@
 			display: none;
 		}
 
+		.tracker.transparent-itemset {
+			min-height: 129px;
+		}
+
 		/*
 		[data-property="comms-1"]:has(~ span:empty) {
 			top: 16px;
@@ -310,6 +334,8 @@
 			<div class="element-container"><span class="game-name" data-property="game-type"></span></div>
 			<span class="game-system" data-property="game-system"></span>
 			<span class="game-goal" data-property="game-goal"></span>
+
+			<img class="game-image" data-property="game-image" />
 		</div>
 
 		<div class="comms box">
@@ -371,11 +397,16 @@
 					transform-origin: 0 0;
 				"
 				scrolling="no"
-				src="restream?restream#card-container"></iframe>
+				src="restream?restream#card-container"></iframe> <!-- change ?restream to ?mergeWith=xxx for a 4p semifinal thing -->
 		</div>
 
 		<div class="logo"></div>
 		<div class="secondary-logo"></div>
+		<!--
+		<div class="prize">
+			<img class="prize-image" data-property="prize-image" />
+		</div>
+		-->
 
 		<div class="info-area box">
 			<div class="squeeze-vertically"><span data-property="info-text-1"></span></div>
@@ -388,19 +419,25 @@
 
 		<div class="funds-raised"><span data-property="funds-raised"></span></div>
 
-		<div id="normal-footer-1" class="more-info-top"><span data-property="more-info-top"></span></div>
-		<div id="normal-footer-2" class="more-info-bottom"><span style="transform: scaleX(0.589); transform-origin: left center 0px; display: block;" data-property="more-info-bottom"></span></div>
+		<div class="marathon-information-holder">
+			<div id="normal-footer-1" class="more-info-top"><span data-property="more-info-top"></span></div>
+			<div id="normal-footer-2" class="more-info-bottom"><span style="transform: scaleX(0.589); transform-origin: left center 0px; display: block;" data-property="more-info-bottom"></span></div>
 
-		<div id="incentive-footer-1" style="display: none;" class="more-info-top"><span></span></div>
-		<div id="incentive-footer-2" style="display: none;" class="more-info-bottom"><span></span></div>
+			<div id="incentive-footer-1" style="display: none;" class="more-info-top"><span></span></div>
+			<div id="incentive-footer-2" style="display: none;" class="more-info-bottom"><span></span></div>
+		</div>
 
 		<if-true cond="!data.skipOverlays">
 			<div id="loading-screen" style="display: none;" data-property="loading-screen-showing">
+				<div class="short-title"><span data-property="short-title"></span></div>
+
 				<div class="loading-screen-text squeeze-vertically"><span data-property="loading-screen-text"></span></div>
 				<div class="loading-screen-primary-logo"></div>
 				<div class="loading-screen-long-text squeeze-vertically">
 				</div>
 				<div class="loading-screen-secondary-logo"></div>
+
+				<div class="funds-raised"><span data-property="funds-raised"></span></div>
 			</div>
 		</if-true>
 	</div>
@@ -478,11 +515,16 @@
 	}
 
 	function showNormalIncentiveFooter() {
-		document.getElementById("incentive-footer-1").style.display = "none";
-		document.getElementById("incentive-footer-2").style.display = "none";
+		var if1 = document.getElementById("normal-footer-1");
+		if(if1.textContent != "") {
+			document.getElementById("incentive-footer-1").style.display = "none";
+			document.getElementById("incentive-footer-2").style.display = "none";
 
-		document.getElementById("normal-footer-1").style.display = null;
-		document.getElementById("normal-footer-2").style.display = null;
+			document.getElementById("normal-footer-1").style.display = null;
+			document.getElementById("normal-footer-2").style.display = null;
+		} else {
+			showRandomIncentive();
+		}
 	}
 
 	var incentiveRotationTime = 30000;
@@ -495,8 +537,8 @@
 		else
 			showRandomIncentive();
 		incentiveRotationTimeout = setTimeout(rotateIncentive, incentiveRotationTime);
-
 	}
+	incentiveRotationTimeout = setTimeout(rotateIncentive, 500); // to display a random one immediately
 
 	var updateLoadingScreenLongTextWithIncentivesTmeout = null;
 	function updateLoadingScreenLongTextWithIncentives(page) {
@@ -603,6 +645,10 @@
 			e.classList[msg.speaking ? "add" : "remove"]("speaking-now");
 		});
 	};
+</script>
+
+<script>
+	// setTimeout(function() { location.reload(); }, 5000);
 </script>
 
 </main>

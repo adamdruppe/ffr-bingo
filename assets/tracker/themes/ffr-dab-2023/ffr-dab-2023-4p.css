@@ -1,0 +1,74 @@
+#ffr-layout, #loading-screen {
+	background-image: url("background_full.png");
+}
+
+.loading-screen-primary-logo,
+.logo {
+	background-image: url("../../logos/ffr_logo-wt-2023.png");
+}
+.loading-screen-secondary-logo,
+.secondary-logo {
+	background-image: url("bingo_logo.png");
+}
+
+.logo {
+	display: block !important;
+	left: 140px;
+	right: auto;
+	top: 302px;
+	height: 120px;
+	width: 270px;
+	bottom: auto;
+}
+
+.secondary-logo {
+	display: block;
+	left: auto;
+	right: 70px;
+	top: 302px;
+	height: 120px;
+	bottom: auto;
+}
+
+.tracker {
+	z-index: 1;
+}
+
+#loading-screen > .loading-screen-primary-logo {
+	position: absolute;
+	left: 24px;
+	top: 300px;
+	width: 400px;
+	height: 300px;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#loading-screen > .loading-screen-secondary-logo {
+	position: absolute;
+	right: 24px;
+	top: 270px;
+	width: 400px;
+	height: 300px;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#loading-screen > .loading-screen-text {
+	position: absolute;
+	left: 415px;
+	top: 190px;
+	width: 445px;
+	height: 340px;
+	color: white;
+	font-size: 32px;
+
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	background: rgba(0, 0, 0, 0.45);
+	border: none;
+	border-radius: 8px;
+}

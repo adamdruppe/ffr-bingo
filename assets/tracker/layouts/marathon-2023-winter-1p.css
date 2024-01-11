@@ -1,0 +1,271 @@
+.position, .color, .bingo {
+	display: none;
+}
+
+.positioned-ur,
+.positioned-bl,
+.positioned-br {
+	display: none !important;
+}
+
+.game-type {
+	position: absolute;
+	right: 8px;
+	top: 200px;
+
+	width: 249px;
+	height: 182px;
+
+	font-size: 58px;
+	white-space: nowrap;
+}
+
+.game-type .element-container {
+	text-align: center;
+}
+
+/* need this if cameras supported on the layout */
+.show-cameras .player-camera {
+	display: block;
+}
+
+.show-rank-boxes .position {
+	display: block;
+}
+
+.game-system {
+	position: absolute;
+	font-size: 18px;
+	left: 4px;
+	bottom: 4px;
+}
+
+.game-goal {
+	position: absolute;
+	font-size: 18px;
+	right: 4px;
+	bottom: 4px;
+}
+
+
+.bingo {
+	display: none;
+}
+
+.gameplay {
+	width: 740px;
+	height: 560px;
+
+	--x: 26px;
+	--y: 26px;
+}
+
+.tracker {
+	--x: 790px;
+	--y: 260px;
+
+	width: 250px;
+	height: 328px;
+
+	text-align: center;
+	font-size: 1px;
+}
+
+.tracker i {
+	width: 48px;
+	height: 48px;
+	margin: 1px;
+}
+
+.soulblazer-itemset.tracker i {
+	width: 40px;
+	height: 40px;
+}
+
+.zeldamm-itemset.tracker i {
+	width: 32px;
+	height: 32px;
+	margin: 0px;
+}
+
+.smz3-itemset.tracker i {
+	width: 29px;
+	height: 29px;
+	margin: 0px;
+}
+
+.clock {
+	--x: 1047px;
+	--y: 135px;
+	text-align: center;
+
+	width: 210px;
+	height: 64px;
+	font-size: 1.2rem;
+	padding-top: 16px;
+	font-weight: bold;
+
+}
+.position {
+	--x: 4px;
+	--y: 40px;
+}
+
+.prize {
+	left: 1055px;
+	top: 387px;
+}
+
+.marathon-information-holder {
+	position: absolute;
+	left: 790px;
+	top: 12px;
+}
+
+
+.name {
+	--x: 790px;
+	--y: 135px;
+	text-align: center;
+
+	width: 250px;
+	height: 64px;
+	font-size: 1.4rem;
+	font-weight: bold;
+	padding: 4px;
+}
+
+.player-pronoun {
+	display: block;
+	position: absolute;
+	left: 4px;
+	bottom: 4px;
+	width: 50%;
+	text-align: center;
+	font-size: 0.6rem;
+}
+
+.player-twitch {
+	display: block;
+	position: absolute;
+	right: 4px;
+	bottom: 4px;
+	width: 50%;
+	text-align: center;
+	font-size: 0.6rem;
+	overflow: hidden;
+}
+
+
+.winner {
+	--x: 550px;
+	--y: 560px;
+	width: 200px;
+	text-align: center;
+}
+
+.comms {
+	position: absolute;
+
+	left: 790px;
+	top: 202px;
+	text-align: left;
+
+	width: 250px;
+	height: 54px;
+	font-size: 0.8rem;
+	font-weight: bold;
+	padding: 4px;
+
+}
+
+.player-camera {
+	position: absolute;
+	padding-top: 4px;
+
+	left: 1024px;
+	top: 242px;
+
+	width: 249px;
+	height: 249px;
+
+}
+
+.info-area {
+	display: block;
+
+	position: absolute;
+	right: 20px;
+	width: 466px;
+	height: 145px;
+	bottom: 72px;
+	padding: 0.5em;
+
+	white-space: pre-line;
+}
+
+.info-area > div {
+	padding: 4px;
+}
+
+.metroidprime-itemset.tracker .map {
+    width: 111px;
+    height: 113px;
+    margin: 6px auto;
+}
+
+.metroidprime-itemset.tracker i {
+	width: 42px;
+	height: 42px;
+}
+
+.ff4ls-itemset {
+    padding: 8px;
+}
+
+.zelda1-itemset {
+    padding-top: 3px;
+}
+
+.ff4ls-itemset .connector-arrow::after {
+    content: '\25bc';
+    font-size: 10px;
+    display: block;
+}
+
+.ctjot-itemset.tracker {
+    padding-top: 8px;
+}
+
+.ctjot-itemset.tracker i {
+    width: 44px;
+    height: 44px;
+    margin: 2px 0px;
+}
+.cvaos-itemset {
+	padding-top: 14px;
+}
+
+.cvhod-itemset {
+	padding-top: 6px;
+}
+
+.cvcotm-itemset {
+	font-size: 1px;
+	padding-top: 8px;
+}
+
+.cvcotm-itemset.tracker i {
+	width: 36px;
+	height: 54px;
+}
+
+.zladx-itemset.tracker {
+	padding-top: 12px;
+}
+
+.zladx-itemset.tracker i {
+	width: 30px;
+	height: 30px;
+}
+

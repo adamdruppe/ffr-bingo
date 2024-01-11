@@ -1,0 +1,71 @@
+#ffr-layout {
+	background-image: url("background.png");
+}
+
+#loading-screen > div {
+	position: absolute;
+	left: 80px;
+	top: 130px;
+	width: 405px;
+	height: 240px;
+	color: white;
+	font-size: 32px;
+
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.loading-screen-primary-logo,
+.secondary-logo {
+	background-image: url("coop-ffr.png");
+}
+.loading-screen-secondary-logo,
+.logo {
+	background-image: url("coop-logo.png");
+}
+
+#loading-screen {
+	background-image: url("background.png");
+	/*border: solid 8px #f3fdff;*/
+}
+
+#loading-screen .loading-screen-long-text {
+	display: none;
+}
+
+#loading-screen .loading-screen-text {
+	color: white;
+	background-color: black;
+	height: auto;
+	min-height: 300px;
+
+	border: ridge 3px white;
+	border-radius: 2px;
+}
+
+#loading-screen .loading-screen-primary-logo {
+	image-rendering: pixelated;
+	position: absolute;
+	left: auto;
+	bottom: auto;
+	right: 114px;
+	top: 164px;
+	width: 500px;
+	height: 300px;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#loading-screen .loading-screen-secondary-logo {
+	position: absolute;
+	left: auto;
+	top: auto;
+	right: 64px;
+	bottom: 64px;
+	width: 600px;
+	height: 300px;
+	background-repeat: no-repeat;
+	background-size: contain;
+}

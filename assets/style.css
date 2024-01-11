@@ -227,3 +227,22 @@ tfoot th {
 .chat form.send-chat button {
 	width: 4em;
 }
+
+.automatic-data-display .bingo-square {
+	width: auto;
+	height: auto;
+	display: block;
+}
+
+.automatic-data-display .bingo-square::after {
+	display: block;
+	white-space: pre-line;
+	text-align: left;
+	content:
+		'(' attr(data-difficulty) ')'
+		'\a'
+		attr(data-details)
+		' '
+		'{' attr(data-mutex-group) '}'
+		;
+}

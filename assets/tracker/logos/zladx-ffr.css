@@ -1,0 +1,11 @@
+.loading-screen-primary-logo,
+.logo {
+	background-position: bottom center;
+	background-image: url("zladx-ffr-logo.png");
+}
+.loading-screen-secondary-logo,
+.secondary-logo {
+	display: none;
+}
+
+

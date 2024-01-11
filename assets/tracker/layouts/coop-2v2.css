@@ -4,6 +4,10 @@
 	display: none;
 }
 
+.wins-counter {
+	top: 345px;
+}
+
 .logo {
 	display: block;
 	position: absolute;
@@ -144,4 +148,9 @@
 	z-index: 20;
 }
 
+.itemset.zladx-itemset i {
+	width: 20px;
+	height: 20px;
+	margin: 1px;
+}
 

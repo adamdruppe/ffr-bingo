@@ -83,6 +83,14 @@ html, body {
     margin: 1px;
     display: inline-block;
     opacity: 0.3;
+
+    vertical-align: top;
+    line-height: 24px;
+    text-align: center;
+    font-size: 12px;
+    text-shadow: 1px 1px 3px black;
+    color: white;
+    font-style: normal;
 }
 
 .tracker i.penta-on,
@@ -218,6 +226,11 @@ html, body {
 .ffmq-itemset .sun-coin {background-position: 50% 45%; }
 .ffmq-itemset .sky-coin {background-position: 75% 45%; }
 
+.ffmq-itemset .crystal-1 {background-position: 0% 70%; }
+.ffmq-itemset .crystal-2 {background-position: 25% 70%; }
+.ffmq-itemset .crystal-3 {background-position: 50% 70%; }
+.ffmq-itemset .crystal-4 {background-position: 75% 70%; }
+
 
 .ctjot-itemset.tracker > .ctjot-itemset {
 	display: block;
@@ -260,10 +273,11 @@ html, body {
 
 .cvaos-itemset.tracker > .cvaos-itemset {
 	display: block;
+	font-size: 4px;
 }
 .cvaos-itemset.tracker i {
-    background-image: url('/assets/tracker/itemsets/tracker - cvaos.png');
-    background-size: 400% 300%;
+    background-image: url('/assets/tracker/itemsets/tracker - cvaos2.png');
+    background-size: 700% 400%;
 }
 .cvaos-itemset .bdash{background-position: 0px 0px;}
 .cvaos-itemset .double{background-position: 33.3% 0px;}
@@ -279,6 +293,95 @@ html, body {
 .cvaos-itemset .time{background-position: 33.3% 100%;}
 .cvaos-itemset .bat{background-position: 66.6% 100%;}
 .cvaos-itemset .dash{background-position: 100% 100%;}
+
+
+.cvaos-itemset .bdash {background-position: 0.00% 0.00%;}
+.cvaos-itemset .double {background-position: 16.67% 0.00%;}
+.cvaos-itemset .undine {background-position: 33.33% 0.00%;}
+.cvaos-itemset .skulla {background-position: 50.00% 0.00%;}
+.cvaos-itemset .slide {background-position: 0.00% 33.33%;}
+.cvaos-itemset .kick {background-position: 16.67% 33.33%;}
+.cvaos-itemset .flying {background-position: 33.33% 33.33%;}
+.cvaos-itemset .rush {background-position: 50.00% 33.33%;}
+.cvaos-itemset .hijump {background-position: 0.00% 66.67%;}
+.cvaos-itemset .time {background-position: 16.67% 66.67%;}
+.cvaos-itemset .bat {background-position: 33.33% 66.67%;}
+.cvaos-itemset .dash {background-position: 50.00% 66.67%;}
+
+.cvaos-itemset .item22 {background-position: 0.00% 100.00%;}
+.cvaos-itemset .item23 {background-position: 16.67% 100.00%;}
+.cvaos-itemset .item24 {background-position: 33.33% 100.00%;}
+.cvaos-itemset .item25 {background-position: 50.00% 100.00%;}
+.cvaos-itemset .item26 {background-position: 66.67% 100.00%;}
+.cvaos-itemset .item27 {background-position: 83.33% 100.00%;}
+
+.cvhod-itemset.tracker > .cvhod-itemset {
+	display: block;
+}
+.cvhod-itemset.tracker i {
+    background-image: url('/assets/tracker/itemsets/tracker_-_cvhod.png');
+    background-size: 400% 400%;
+}
+
+.cvhod-itemset .lizard-tail {background-position: 0.00% 0.00%;}
+.cvhod-itemset .sylph-feather {background-position: 33.33% 0.00%;}
+.cvhod-itemset .roc-wing {background-position: 66.67% 0.00%;}
+.cvhod-itemset .hint-card {background-position: 100.00% 0.00%;}
+.cvhod-itemset .crush-stone {background-position: 0.00% 33.33%;}
+.cvhod-itemset .crush-boots {background-position: 33.33% 33.33%;}
+.cvhod-itemset .mk-bracelet {background-position: 66.67% 33.33%;}
+.cvhod-itemset .eye-of-vlad {background-position: 100.00% 33.33%;}
+.cvhod-itemset .heart-of-vlad {background-position: 0.00% 66.67%;}
+.cvhod-itemset .ring-of-vlad {background-position: 33.33% 66.67%;}
+.cvhod-itemset .rib-of-vlad {background-position: 66.67% 66.67%;}
+.cvhod-itemset .nail-of-vlad {background-position: 100.00% 66.67%;}
+.cvhod-itemset .fang-of-vlad {background-position: 0.00% 100.00%;}
+.cvhod-itemset .floodgate-key {background-position: 33.33% 100.00%;}
+.cvhod-itemset .lure-key {background-position: 66.67% 100.00%;}
+.cvhod-itemset .skull-key {background-position: 100.00% 100.00%;}
+
+
+.cvcotm-itemset.tracker > .cvcotm-itemset {
+	display: block;
+}
+.cvcotm-itemset.tracker i {
+    background-image: url('/assets/tracker/itemsets/tracker-_-cvcotm.png');
+    background-size: 1000% 500%;
+    /*
+    width: 32px !important;
+    height: 72px !important;
+    */
+}
+.cvcotm-itemset .item1 {background-position: 0.00% 0.00%;}
+.cvcotm-itemset .item2 {background-position: 11.11% 0.00%;}
+.cvcotm-itemset .item3 {background-position: 22.22% 0.00%;}
+.cvcotm-itemset .item4 {background-position: 33.33% 0.00%;}
+.cvcotm-itemset .item5 {background-position: 44.44% 0.00%;}
+.cvcotm-itemset .item6 {background-position: 55.56% 0.00%;}
+.cvcotm-itemset .item7 {background-position: 66.67% 0.00%;}
+.cvcotm-itemset .item8 {background-position: 77.78% 0.00%;}
+.cvcotm-itemset .item9 {background-position: 88.89% 0.00%;}
+.cvcotm-itemset .item10 {background-position: 100.00% 0.00%;}
+.cvcotm-itemset .item11 {background-position: 0.00% 50.00%;}
+.cvcotm-itemset .item12 {background-position: 11.11% 50.00%;}
+.cvcotm-itemset .item13 {background-position: 22.22% 50.00%;}
+.cvcotm-itemset .item14 {background-position: 33.33% 50.00%;}
+.cvcotm-itemset .item15 {background-position: 44.44% 50.00%;}
+.cvcotm-itemset .item16 {background-position: 55.56% 50.00%;}
+.cvcotm-itemset .item17 {background-position: 66.67% 50.00%;}
+.cvcotm-itemset .item18 {background-position: 77.78% 50.00%;}
+.cvcotm-itemset .item19 {background-position: 88.89% 50.00%;}
+.cvcotm-itemset .item20 {background-position: 100.00% 50.00%;}
+.cvcotm-itemset .item21 {background-position: 0.00% 100.00%;}
+.cvcotm-itemset .item22 {background-position: 11.11% 100.00%;}
+.cvcotm-itemset .item23 {background-position: 22.22% 100.00%;}
+.cvcotm-itemset .item24 {background-position: 33.33% 100.00%;}
+.cvcotm-itemset .item25 {background-position: 44.44% 100.00%;}
+.cvcotm-itemset .item26 {background-position: 55.56% 100.00%;}
+.cvcotm-itemset .item27 {background-position: 66.67% 100.00%;}
+.cvcotm-itemset .item28 {background-position: 77.78% 100.00%;}
+.cvcotm-itemset .item29 {background-position: 88.89% 100.00%;}
+.cvcotm-itemset .item30 {background-position: 100.00% 100.00%;}
 
 
 .cvsotn-itemset.tracker > .cvsotn-itemset {
@@ -784,6 +887,79 @@ html, body {
 .zeldamm-itemset .item58{background-position: 60% 75%;}
 .zeldamm-itemset .item59{background-position: 80% 75%;}
 .zeldamm-itemset .item60{background-position: 100% 75%;}
+
+.zladx-itemset.tracker > .zladx-itemset {
+	display: block;
+}
+.zladx-itemset.tracker i {
+    background-image: url('/assets/tracker/itemsets/zladx-items.png');
+    background-size: 800% 800%;
+}
+
+.zladx-itemset .tail-key {background-position: 0.00% 0.00%;}
+.zladx-itemset .angler-key {background-position: 14.29% 0.00%;}
+.zladx-itemset .face-key {background-position: 28.57% 0.00%;}
+.zladx-itemset .bird-key {background-position: 42.86% 0.00%;}
+.zladx-itemset .slime-key {background-position: 57.14% 0.00%;}
+.zladx-itemset .gold-leaf {background-position: 71.43% 0.00%;}
+.zladx-itemset .d9 {background-position: 85.71% 0.00%;}
+.zladx-itemset .d9-key {background-position: 100.00% 0.00%;}
+.zladx-itemset .d1 {background-position: 0.00% 14.29%;}
+.zladx-itemset .d2 {background-position: 14.29% 14.29%;}
+.zladx-itemset .d3 {background-position: 28.57% 14.29%;}
+.zladx-itemset .d4 {background-position: 42.86% 14.29%;}
+.zladx-itemset .d5 {background-position: 57.14% 14.29%;}
+.zladx-itemset .d6 {background-position: 71.43% 14.29%;}
+.zladx-itemset .d7 {background-position: 85.71% 14.29%;}
+.zladx-itemset .d8 {background-position: 100.00% 14.29%;}
+.zladx-itemset .d1-key {background-position: 0.00% 28.57%;}
+.zladx-itemset .d2-key {background-position: 14.29% 28.57%;}
+.zladx-itemset .d3-key {background-position: 28.57% 28.57%;}
+.zladx-itemset .d4-key {background-position: 42.86% 28.57%;}
+.zladx-itemset .d5-key {background-position: 57.14% 28.57%;}
+.zladx-itemset .d6-key {background-position: 71.43% 28.57%;}
+.zladx-itemset .d7-key {background-position: 85.71% 28.57%;}
+.zladx-itemset .d8-key {background-position: 100.00% 28.57%;}
+.zladx-itemset .shield {background-position: 0.00% 42.86%;}
+.zladx-itemset .shield.tri-on {background-position: 0.00% 57.14%;}
+.zladx-itemset .sword {background-position: 14.29% 42.86%;}
+.zladx-itemset .sword.tri-on {background-position: 14.29% 57.14%;}
+.zladx-itemset .powder {background-position: 28.57% 42.86%;}
+.zladx-itemset .feather {background-position: 42.86% 42.86%;}
+.zladx-itemset .bracelet {background-position: 57.14% 42.86%;}
+.zladx-itemset .bracelet.tri-on {background-position: 57.14% 57.14%;}
+.zladx-itemset .boots {background-position: 71.43% 42.86%;}
+.zladx-itemset .shovel {background-position: 85.71% 42.86%;}
+.zladx-itemset .bomb {background-position: 100.00% 42.86%;}
+.zladx-itemset .bow {background-position: 28.57% 57.14%;}
+.zladx-itemset .magic-rod {background-position: 42.86% 57.14%;}
+.zladx-itemset .hookshot {background-position: 71.43% 57.14%;}
+.zladx-itemset .boomerang {background-position: 85.71% 57.14%;}
+.zladx-itemset .flippers {background-position: 100.00% 57.14%;}
+.zladx-itemset .yoshi {background-position: 0.00% 71.43%;}
+.zladx-itemset .ribbon {background-position: 14.29% 71.43%;}
+.zladx-itemset .dog-food {background-position: 28.57% 71.43%;}
+.zladx-itemset .bananas {background-position: 42.86% 71.43%;}
+.zladx-itemset .stick {background-position: 57.14% 71.43%;}
+.zladx-itemset .honeycomb {background-position: 71.43% 71.43%;}
+.zladx-itemset .pineapple {background-position: 85.71% 71.43%;}
+.zladx-itemset .hibiscus {background-position: 100.00% 71.43%;}
+.zladx-itemset .letter {background-position: 0.00% 85.71%;}
+.zladx-itemset .broom {background-position: 14.29% 85.71%;}
+.zladx-itemset .fishing-hook {background-position: 28.57% 85.71%;}
+.zladx-itemset .necklace {background-position: 42.86% 85.71%;}
+.zladx-itemset .scale {background-position: 57.14% 85.71%;}
+.zladx-itemset .magnifying-glass {background-position: 71.43% 85.71%;}
+.zladx-itemset .bowwow {background-position: 85.71% 85.71%;}
+.zladx-itemset .rooster {background-position: 100.00% 85.71%;}
+.zladx-itemset .ocarina {background-position: 0.00% 100.00%;}
+.zladx-itemset .ballad {background-position: 14.29% 100.00%;}
+.zladx-itemset .mambo {background-position: 28.57% 100.00%;}
+.zladx-itemset .song {background-position: 42.86% 100.00%;}
+.zladx-itemset .tunic {background-position: 57.14% 100.00%;}
+.zladx-itemset .tunic.tri-on {background-position: 71.43% 100.00%;}
+.zladx-itemset .tunic.quad-on {background-position: 85.71% 100.00%;}
+.zladx-itemset .seashell {background-position: 100.00% 100.00%;}
 
 
 .soulblazer-itemset.tracker > .soulblazer-itemset {

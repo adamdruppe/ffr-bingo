@@ -491,6 +491,18 @@ class Room : WebObject {
 		this.essName = "ffr_bingo/" ~ row["id"];
 	}
 
+	private string mergedWith;
+	private int playerCountPriorToMerge;
+	private void mergeWith(string id) {
+		auto room2 = new Room(id);
+		this.playerCountPriorToMerge = cast(int) this.players.length;
+		this.players ~= room2.players;
+		foreach(ref player; this.players[playerCountPriorToMerge .. $])
+			player.team += playerCountPriorToMerge;
+		this.player_selections ~= room2.player_selections;
+		this.mergedWith = id;
+	}
+
 	@POST
 	void sendChat(User currentUser, string message) {
 		if(currentUser.id)
@@ -602,6 +614,15 @@ class Room : WebObject {
 		msg.state = running;
 		msg.time = ticks;
 		EventSourceServer.sendEvent(essName, "clock_update", msg.toJson(), 0);
+	}
+
+	string bingosync() {
+		var ex = [];
+		auto card = this.card(User.init);
+		foreach(item; 0 .. 25) {
+			ex ~= ["name": card[item].name];
+		}
+		return ex.toJson;
 	}
 
 	@POST
@@ -745,7 +766,9 @@ class Room : WebObject {
 
 
 	@Template("room.html")
-	RoomHome restream(User currentUser) {
+	RoomHome restream(User currentUser, string mergeWith = null) {
+		if(mergeWith.length)
+			this.mergeWith(mergeWith);
 		return home(currentUser);
 	}
 
@@ -1160,6 +1183,14 @@ class Room : WebObject {
 		}
 
 		auto db = getDatabase();
+
+		string[] merged;
+
+		if(this.mergedWith.length) {
+			foreach(hack; db.query("SELECT player_checked_state FROM room_squares WHERE room_id = ? ORDER BY position", this.mergedWith)) 
+				merged ~= hack[0];
+		}
+
 		int pos;
 		foreach(row; db.query("
 			SELECT
@@ -1174,7 +1205,12 @@ class Room : WebObject {
 				position
 		", id))
 		{
-			card[pos++] = new InGameSquare(row.toAA);
+			auto aa = row.toAA;
+			if(merged.length) {
+				aa["player_checked_state"] = to!string(to!ulong(aa["player_checked_state"]) | (to!ulong(merged[pos]) << this.playerCountPriorToMerge));
+			}
+
+			card[pos++] = new InGameSquare(aa);
 		}
 
 		return card;

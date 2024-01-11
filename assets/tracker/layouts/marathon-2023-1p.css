@@ -1,0 +1,269 @@
+.position, .color, .bingo {
+	display: none;
+}
+
+.positioned-ur,
+.positioned-bl,
+.positioned-br {
+	display: none !important;
+}
+
+.game-type {
+	position: absolute;
+	right: 8px;
+	top: 262px;
+
+	width: 249px;
+	height: 252px;
+
+	font-size: 58px;
+	white-space: nowrap;
+}
+
+.game-type .element-container {
+	text-align: center;
+}
+
+/* need this if cameras supported on the layout */
+.show-cameras .player-camera {
+	display: block;
+}
+
+.show-rank-boxes .position {
+	display: block;
+}
+
+.game-system {
+	position: absolute;
+	font-size: 18px;
+	left: 4px;
+	bottom: 4px;
+}
+
+.game-goal {
+	position: absolute;
+	font-size: 18px;
+	right: 4px;
+	bottom: 4px;
+}
+
+
+.bingo {
+	display: none;
+}
+
+.gameplay {
+	width: 737px;
+	height: 549px;
+
+	--x: 9px;
+	--y: 6px;
+}
+
+.tracker {
+	--x: 758px;
+	--y: 193px;
+
+	width: 248px;
+	height: 328px;
+
+	text-align: center;
+	font-size: 1px;
+}
+
+.tracker i {
+	width: 48px;
+	height: 48px;
+	margin: 1px;
+}
+
+.soulblazer-itemset.tracker i {
+	width: 40px;
+	height: 40px;
+}
+
+.zeldamm-itemset.tracker i {
+	width: 32px;
+	height: 32px;
+	margin: 0px;
+}
+
+.smz3-itemset.tracker i {
+	width: 29px;
+	height: 29px;
+	margin: 0px;
+}
+
+.clock {
+	--x: 1024px;
+	--y: 193px;
+	text-align: center;
+
+	width: 249px;
+	height: 69px;
+	font-size: 1.5rem;
+	padding-top: 16px;
+	font-weight: bold;
+
+}
+.position {
+	--x: 4px;
+	--y: 40px;
+}
+
+
+.marathon-information-holder {
+	position: absolute;
+	right: 8px;
+	top: 8px;
+	width: 514px;
+	height: 89px;
+}
+
+
+.name {
+	--x: 758px;
+	--y: 115px;
+	text-align: center;
+
+	width: 514px;
+	height: 69px;
+	font-size: 1.7rem;
+	font-weight: bold;
+	padding: 4px;
+}
+
+.player-pronoun {
+	display: block;
+	position: absolute;
+	left: 4px;
+	bottom: 4px;
+	width: 50%;
+	text-align: center;
+	font-size: 0.6rem;
+}
+
+.player-twitch {
+	display: block;
+	position: absolute;
+	right: 4px;
+	bottom: 4px;
+	width: 50%;
+	text-align: center;
+	font-size: 0.6rem;
+}
+
+
+.winner {
+	--x: 250px;
+	--y: 550px;
+	width: 150px;
+	text-align: center;
+}
+
+.comms {
+	position: absolute;
+	padding-top: 4px;
+
+	left: 1024px;
+	top: 163px;
+
+	width: 249px;
+	height: 69px;
+
+	font-size: 30px;
+}
+
+.player-camera {
+	position: absolute;
+	padding-top: 4px;
+
+	left: 1024px;
+	top: 242px;
+
+	width: 249px;
+	height: 249px;
+
+}
+
+.info-area {
+	display: block;
+
+	position: absolute;
+	right: 20px;
+	width: 466px;
+	height: 145px;
+	bottom: 72px;
+	padding: 0.5em;
+
+	white-space: pre-line;
+}
+
+.info-area > div {
+	padding: 4px;
+}
+
+.metroidprime-itemset.tracker .map {
+    width: 111px;
+    height: 113px;
+    margin: 6px auto;
+}
+
+.metroidprime-itemset.tracker i {
+	width: 42px;
+	height: 42px;
+}
+
+.ff4ls-itemset {
+    padding: 8px;
+}
+
+.zelda1-itemset {
+    padding-top: 3px;
+}
+
+.ff4ls-itemset .connector-arrow::after {
+    content: '\25bc';
+    font-size: 10px;
+    display: block;
+}
+
+.ctjot-itemset.tracker {
+    padding-top: 8px;
+}
+
+.ctjot-itemset.tracker i {
+    width: 44px;
+    height: 44px;
+    margin: 2px 0px;
+}
+.cvaos-itemset {
+	padding-top: 14px;
+}
+
+.cvhod-itemset {
+	padding-top: 6px;
+}
+
+.cvcotm-itemset {
+	font-size: 1px;
+	padding-top: 8px;
+}
+
+.cvcotm-itemset.tracker i {
+	width: 36px;
+	height: 54px;
+}
+
+.zladx-itemset.tracker {
+	padding-top: 12px;
+}
+
+.zladx-itemset.tracker i {
+	width: 30px;
+	height: 30px;
+}
+.funds-raised {
+	bottom: 136px;
+	right: 5px;
+}

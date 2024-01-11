@@ -3,6 +3,13 @@
 	display: none !important;
 }
 
+/*
+.player-twitch {
+	display: inline-block;
+	float: right;
+}
+*/
+
 .info-area {
 	position: absolute;
 	width: 320px;
@@ -34,6 +41,35 @@
 
 }
 
+link[href*=ffr-wt-2024] ~ #ffr-layout .logo {
+	width: 250px;
+	left: 350px;
+	bottom: 80px;
+
+}
+
+link[href*=ffr-wt-2024] ~ #ffr-layout .secondary-logo {
+        width: 250px;
+        left: 665px;
+	top: auto;
+	bottom: 74px;
+}
+
+link[href*=ffr-wt-2024] ~ #ffr-layout.show-cameras .logo {
+	width: 250px;
+	left: 520px;
+	bottom: 100px;
+
+}
+
+link[href*=ffr-wt-2024] ~ #ffr-layout.show-cameras .secondary-logo {
+        width: 250px;
+	left: 520px;
+	top: auto;
+	bottom: 0px;
+}
+
+
 .secondary-logo {
 	top: 60px;
 	width: 150px;
@@ -42,7 +78,7 @@
 
 .player-camera {
 	--x: 336px;
-	--y: 548px;
+	--y: 496px;
 	width: 132px;
 	height: 132px;
 }
@@ -56,12 +92,19 @@
 
 .tracker {
 	--x: 4px;
-	--y: 548px;
+	--y: 496px;
 
 	width: 328px;
 	height: 132px;
 	text-align: center;
 	padding-top: 6px;
+}
+
+.tracker.box.ff1-itemset {
+	height: 124px;
+}
+.tracker.box.ffmq-itemset {
+	height: 153px;
 }
 
 .tracker i {
@@ -72,13 +115,13 @@
 
 .clock {
 	--x: 4px;
-	--y: 498px;
+	--y: 35px; /* want teh bottom to be at 64, its height is 29 */
 }
 
 .wins-counter {
 	--x: 4px;
-	--y: 498px;
-	width: 560px;
+	--y: 38px;
+	width: 490px;
 	text-align: right;
 }
 
@@ -88,7 +131,7 @@
 
 .position {
 	--x: 4px;
-	--y: 36px;
+	--y: 3px;
 	padding: 0px 2px;
 }
 .name {

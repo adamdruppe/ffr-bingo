@@ -1,0 +1,238 @@
+#ffr-layout {
+	background-image: url("winter2023/background.png");
+
+	text-transform: uppercase;
+}
+
+.logo {
+	background-image: url("winter2023/logo_2023_-_winter_sunset.png");
+
+	position: absolute;
+	width: 230px;
+	bottom: -20px;
+	left: 20px;
+}
+
+.secondary-logo {
+	background-image: url("winter2023/musc-logo.png");
+	display: block;
+	width: 233px;
+	height: 66px;
+	position: absolute;
+	left: auto;
+	top: auto;
+	right: 0px;
+	bottom: 16px;
+}
+
+.prize {
+	display: block;
+	width: 199px;
+	height: 217px;
+	position: absolute;
+
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 16px;
+	padding-bottom: 16px;
+	overflow: hidden;
+
+	border: none;
+	background-image: url("winter2023/prize-box.png");
+}
+
+.prize > .box {
+	position: absolute;
+	left: 3px;
+	top: 16px;
+	width: 191px;
+	height: 185px;
+}
+
+.funds-raised {
+	display: block;
+	padding: 14px 12px;
+	font-size: 20px;
+	text-align: right;
+
+	background: url("winter2023/donate-box.png") no-repeat;
+	width: 468px !important;
+	height: 58px !important;
+	border: none;
+
+	bottom: 26px;
+	left: 415px;
+}
+
+.funds-raised > span {
+}
+
+.funds-raised::before {
+	content: "HIGH SCORE: ";
+	float: left;
+}
+
+.marathon-information-holder,
+.box {
+	border: solid 3px #1155f0;
+	background-color: #000000;
+	border-radius: 4px;
+}
+
+.marathon-information-holder {
+	border-color: #00d691;
+	border: none;
+	padding: 4px 8px;
+	padding-top: 26px;
+
+	background: url("winter2023/incentives-box.png") no-repeat;
+	width: 468px !important;
+	height: 116px !important;
+}
+
+.more-info-top {
+	display: block;
+	margin-bottom: 0.75em;
+}
+
+.more-info-bottom {
+	display: block;
+	text-align: right;
+}
+
+
+#loading-screen > div {
+	position: absolute;
+
+	border: solid 3px #1155f0;
+	background-color: #000000;
+	border-radius: 4px;
+	color: white;
+}
+
+#loading-screen > .loading-screen-primary-logo {
+	display: none;
+}
+#loading-screen > .loading-screen-secondary-logo {
+	display: none;
+}
+#loading-screen > .loading-screen-long-text {
+	width: 701px;
+	height: 538px;
+	left: 30px;
+	top: 92px;
+
+	white-space: initial;
+	font-size: 21px;
+	overflow: hidden;
+
+	background: url("winter2023/splash-upcoming-incentives.png");
+	border: none;
+	padding: 4px;
+	padding-top: 23px;
+}
+#loading-screen > .loading-screen-long-text > h3 {
+	font-size: inherit;
+	font-weight: bold;
+	background: transparent;
+	color: white;
+	margin: 0px;
+	font-size: 125%;
+	padding: 0.5em 1em;
+	padding-left: 0.75em;
+}
+#loading-screen > .loading-screen-long-text > h4 {
+	font-size: inherit;
+	font-weight: bold;
+	background: #a0e2f5;
+	color: black;
+	margin: 0px;
+	padding: 0.5em 1em;
+}
+#loading-screen > .loading-screen-long-text > p {
+	padding: 0.5em 1em;
+	margin: 0px;
+}
+
+#loading-screen > .loading-screen-text {
+	left: 948px;
+	top: 420px;
+	width: 318px;
+	height: 194px;
+	padding: 1em;
+	font-size: 22px;
+	white-space: pre-line;
+}
+
+#loading-screen .short-title {
+	padding: 8px;
+	padding-top: 10px;
+	display: block;
+	border-color: #00d691;
+	position: absolute;
+	left: 30px;
+	top: 42px;
+}
+
+.game-type {
+	background: transparent;
+	border: none;
+	text-align: center;
+}
+.game-type > * {
+	display: none;
+}
+.game-type > img {
+	display: inline-block;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.info-area {
+	color: white;
+	background: #583600cc;
+	text-shadow:
+		-3px 0px 3px black,
+		0px 3px 3px black,
+		3px 0px 3px black,
+		0px -3px 3px black
+	;
+
+}
+
+#loading-screen {
+	background-image: url("winter2023/background-splash.png");
+}
+
+#loading-screen .funds-raised {
+	border: none;
+	display: block;
+	left: 264px;
+	top: 636px;
+}
+
+@font-face {
+        font-family: "PressStart";
+	font-smooth: never;
+        src:
+                local("PressStart"),
+                url("summer2023/PressStart2P-Regular.woff2") format("woff2");
+}
+
+@font-face {
+        font-family: "PressStart";
+	font-smooth: never;
+	font-weight: bold;
+        src:
+                local("PressStart"),
+                url("summer2023/PressStart2P-Regular.woff2") format("woff2");
+}
+
+
+* {
+	font-family: "PressStart";
+}
+
+html {
+	font-size: 22px;
+}

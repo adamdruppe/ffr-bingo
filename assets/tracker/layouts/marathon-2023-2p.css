@@ -1,0 +1,141 @@
+.positioned-ur .clock,
+.positioned-bl,
+.positioned-br {
+	display: none !important;
+}
+
+/* need this if cameras supported on the layout */
+.show-cameras .player-camera {
+	display: block;
+}
+
+.color, .bingo {
+	display: none;
+}
+
+.gameplay {
+	width: 498px;
+	height: 370px;
+
+	--y: 130px;
+}
+
+.name {
+	--x: 4px;
+	--y: 52px;
+	text-align: center !important;
+
+	width: 464px;
+	height: 69px;
+	font-size: 1.7rem;
+	font-weight: bold;
+	padding: 4px;
+}
+
+.positioned-ul .name {
+	--y: 510px;
+}
+
+.player-pronoun {
+	display: block;
+	position: absolute;
+	left: 4px;
+	bottom: 4px;
+	width: 50%;
+	text-align: center;
+	font-size: 0.6rem;
+}
+
+.player-twitch {
+	display: block;
+	position: absolute;
+	right: 4px;
+	bottom: 4px;
+	width: 50%;
+	text-align: center;
+	font-size: 0.6rem;
+}
+
+
+.game-type {
+	position: absolute;
+	left: 520px;
+	top: 50px;
+	width: 245px;
+	height: 250px;
+}
+
+.marathon-information-holder {
+	position: absolute;
+	left: 4px;
+	top: 16px;
+	width: 480px;
+	height: 92px;
+}
+
+.funds-raised {
+	bottom: 166px;
+	right: 5px;
+}
+
+.clock {
+	--x: 515px;
+	--y: 330px;
+	text-align: center;
+
+	width: 249px;
+	height: 69px;
+	font-size: 1.5rem;
+	padding-top: 16px;
+	font-weight: bold;
+}
+
+.tracker {
+	display: none;
+}
+
+.player-camera {
+	--x: 340px;
+	--y: 496px;
+
+	width: 132px;
+	height: 132px;
+}
+
+.tracker i {
+	width: 34px;
+	height: 34px;
+	margin: 0px;
+}
+
+.position {
+	display: none;
+}
+
+.winner {
+	--x: 450px;
+	--y: 300px;
+	width: 160px;
+	text-align: center;
+}
+
+.comms {
+	display: none;
+}
+
+.info-area {
+	display: block;
+
+	position: absolute;
+	left: 410px;
+	width: 466px;
+	height: 145px;
+	bottom: 80px;
+	padding: 0.5em;
+
+	white-space: pre-line;
+}
+
+.info-area > div {
+	padding: 4px;
+}

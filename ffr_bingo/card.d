@@ -161,13 +161,16 @@ final class Card {
 		descHolder.attrs.rowspan = "2";
 		table.appendFooterRow(table.td("\&nbsp;").setAttribute("class", "spacer"));
 
+		// for the 4p semifinals thing, see comment where i use it too
+		// static immutable int[] selectionForOmg = [1, 0, 3, 2];
+
 		if(player_selections.length) {
 			foreach(th; table.querySelectorAll("th")) {
 				uint mask = 0;
 				foreach(idx, selection; player_selections)
 					if(selection == th.textContent) {
 						// you choose it for the next player in the list
-						auto selectedFor = cast(int) idx;
+						auto selectedFor = /*selectionForOmg[idx]; */ cast(int) idx;
 						selectedFor++;
 						if(selectedFor == player_selections.length)
 							selectedFor = 0;

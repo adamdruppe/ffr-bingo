@@ -1,0 +1,156 @@
+.positioned-bl > * {
+	left: var(--x);
+	bottom: calc(var(--y) + 126px);
+}
+.positioned-br > * {
+	right: var(--x);
+	bottom: calc(var(--y) + 126px);
+}
+
+.positioned-bl > .clock,
+.positioned-br > .clock,
+.positioned-bl > .name,
+.positioned-br > .name {
+	bottom: calc(var(--y) - 26px);
+}
+
+
+/* need this if cameras supported on the layout */
+.show-cameras .player-camera {
+	display: block;
+}
+
+.color, .bingo {
+	display: none;
+}
+
+.gameplay {
+	width: 360px;
+	height: 270px;
+
+	--y: 16px;
+}
+
+.name {
+	--x: 370px;
+	--y: 128px;
+	text-align: center !important;
+
+	width: 240px;
+	height: 66px;
+	font-size: 1.0rem;
+	font-weight: bold;
+	padding: 4px;
+}
+
+.player-pronoun {
+	display: block;
+	position: absolute;
+	left: 4px;
+	bottom: 4px;
+	width: 100%;
+	text-align: center;
+	font-size: 0.6rem;
+}
+
+.player-twitch {
+	display: none;
+}
+
+.game-type {
+	position: absolute;
+	left: 668px;
+	top: 230px;
+	width: 234px;
+	height: 192px;
+}
+
+.marathon-information-holder {
+	position: absolute;
+	left: 408px;
+	top: 8px;
+	width: 475px;
+	height: 100px;
+}
+
+.clock {
+	--x: 370px;
+	--y: 200px;
+	text-align: center;
+	padding: 4px;
+	/*
+
+	width: 236px;
+	height: 69px;
+	font-size: 1.4rem;
+	padding-top: 16px;
+	font-weight: bold;
+	*/
+}
+
+.tracker {
+	display: none;
+}
+
+.player-camera {
+	--x: 340px;
+	--y: 496px;
+
+	width: 132px;
+	height: 132px;
+}
+
+.tracker i {
+	width: 34px;
+	height: 34px;
+	margin: 0px;
+}
+
+.position {
+	display: none;
+}
+
+.winner {
+	--x: 100px;
+	--y: 250px;
+	width: 160px;
+	text-align: center;
+}
+
+.prize {
+	position: absolute;
+	left: 412px;
+	top: 268px;
+}
+
+.comms {
+	position: absolute;
+
+	left: 636px;
+	top: 426px;
+	text-align: left;
+
+	width: 250px;
+	height: 54px;
+	font-size: 0.8rem;
+	font-weight: bold;
+	padding: 4px;
+}
+
+
+.info-area {
+	display: block;
+
+	position: absolute;
+	left: 410px;
+	width: 466px;
+	height: 145px;
+	bottom: 80px;
+	padding: 0.5em;
+
+	white-space: pre-line;
+}
+
+.info-area > div {
+	padding: 4px;
+}

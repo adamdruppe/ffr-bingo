@@ -38,7 +38,7 @@ function getColorForPlayerNumberHelper(playerNumber) {
 	return baseColorTable[Math.floor(playerNumber % baseColorTable.length)] + Math.floor(playerNumber / baseColorTable.length) * 15;
 }
 
-function getColorForPlayerNumber(playerNumber) {
+function getHueForPlayerNumber(playerNumber) {
 	if(window.currentPlayerTeam === playerNumber && personalColor !== null)
 		return personalColor;
 
@@ -55,6 +55,31 @@ function getColorForPlayerNumber(playerNumber) {
 	}
 
 	return color;
+}
+
+function getColorForPlayerNumber(playerNumber, lightnessMultiplier) {
+	var hue = getHueForPlayerNumber(playerNumber);
+
+	var saturation = 100;
+	var lightness = lightnessMultiplier;
+
+	if(window.greyOutOthersEnabled) {
+		if(/*(window.currentPlayerTeam == -1 && playerNumber == 0) ||*/ window.currentPlayerTeam === playerNumber) {
+			// keep it the same
+		} else {
+			// grey out and darken a bit
+			saturation = 10;
+			lightness *= 0.7;
+		}
+	}
+
+	return "hsl(" + hue + ", " + saturation + "%, " + lightness + "%)";
+}
+
+function updateGreyOutOthers(enabled) {
+	document.querySelectorAll("[data-player-state]").forEach(function(e) {
+		setGradientForCheckedState(e, e.dataset.playerState|0);
+	});
 }
 
 function setGradientForCheckedState(e, checkedState) {
@@ -87,10 +112,9 @@ function gradientForCheckedStateConic(checkedState) {
 		var spot = i * allocation;
 
 		if(checkedState & playerMask) {
-			var color = getColorForPlayerNumber(i);
-			stops.push("hsl("+color+", 100%, 25%) "+(spot)+"%");
-			stops.push("hsl("+color+", 100%, 50%) "+(spot + allocation/2)+"%");
-			stops.push("hsl("+color+", 100%, 25%) "+(spot + allocation)+"%");
+			stops.push(getColorForPlayerNumber(i, 25) + " "+(spot)+"%");
+			stops.push(getColorForPlayerNumber(i, 50) + " "+(spot + allocation/2)+"%");
+			stops.push(getColorForPlayerNumber(i, 25) + " "+(spot + allocation)+"%");
 			hits++;
 		} else {
 			stops.push("black "+(spot + 2)+"%");
@@ -142,11 +166,9 @@ function gradientForCheckedStateLinear(checkedState) {
 	var stops = [];
 
 	if(hits == 1) {
-		var color = getColorForPlayerNumber(colors[0]);
-
-		stops.push("hsl("+color+", 100%, 50%) 0%");
-		stops.push("hsl("+color+", 100%, 25%) 50%");
-		stops.push("hsl("+color+", 100%, 50%) 100%");
+		stops.push(getColorForPlayerNumber(colors[0], 50) + " 0%");
+		stops.push(getColorForPlayerNumber(colors[0], 25) + " 50%");
+		stops.push(getColorForPlayerNumber(colors[0], 50) + " 100%");
 
 		/*
 		#f00 0%,
@@ -155,17 +177,15 @@ function gradientForCheckedStateLinear(checkedState) {
 		#0ff 100%);
 		*/
 	} else for(var i = 0; i < colors.length; i++) {
-		var color = getColorForPlayerNumber(colors[i]);
-
 		var allocation = 100 / hits;
 		var spot = i * allocation;
 
 		if(i % 2 == 0) {
-			stops.push("hsl("+color+", 100%, 50%) "+(spot + 2)+"%");
-			stops.push("hsl("+color+", 100%, 25%) "+(spot + allocation - 2)+"%");
+			stops.push(getColorForPlayerNumber(i, 50) + " "+(spot + 2)+"%");
+			stops.push(getColorForPlayerNumber(i, 25) + " "+(spot + allocation - 2)+"%");
 		} else {
-			stops.push("hsl("+color+", 100%, 25%) "+(spot + 2)+"%");
-			stops.push("hsl("+color+", 100%, 50%) "+(spot + allocation - 2)+"%");
+			stops.push(getColorForPlayerNumber(i, 25) + " "+(spot + 2)+"%");
+			stops.push(getColorForPlayerNumber(i, 50) + " "+(spot + allocation - 2)+"%");
 		}
 	}
 
@@ -226,6 +246,7 @@ function getBingoSquares(header) {
 
 var clockSoundsEnabled = false;
 var chatSoundsEnabled = false;
+var greyOutOthersEnabled = false;
 
 document.addEventListener("DOMContentLoaded", function() {
 	var test = window.localStorage.getItem("clockSoundsEnabled");
@@ -234,6 +255,10 @@ document.addEventListener("DOMContentLoaded", function() {
 	test = window.localStorage.getItem("chatSoundsEnabled");
 	if(test === "true")
 		chatSoundsEnabled = true;
+	test = window.localStorage.getItem("greyOutOthersEnabled");
+	if(test === "true") {
+		greyOutOthersEnabled = true;
+	}
 
 	var pc = window.localStorage.getItem("personalColor");
 	if(!pc)
@@ -273,6 +298,16 @@ document.addEventListener("DOMContentLoaded", function() {
 			window.localStorage.setItem("chatSoundsEnabled", event.target.checked ? "true" : "false");
 		};
 	}
+	picker = document.getElementById("grey-out-others-picker");
+	if(picker) {
+		picker.checked = greyOutOthersEnabled;
+		picker.onchange = function(event) {
+			window.greyOutOthersEnabled = event.target.checked;
+			window.localStorage.setItem("greyOutOthersEnabled", event.target.checked ? "true" : "false");
+			updateGreyOutOthers(greyOutOthersEnabled);
+		};
+	}
+
 
 	document.querySelectorAll("[data-player-state]").forEach(function(e) {
 		setGradientForCheckedState(e, e.dataset.playerState|0);
@@ -513,7 +548,7 @@ function fadeInDetails(page) {
 }
 
 function cacheBuster() {
-	return "?9";
+	return "?15";
 }
 
 function updateTrackerProperty(key, value) {
@@ -604,8 +639,15 @@ function updateTrackerProperty(key, value) {
 					e.classList.remove(o);
 			});
 
-			if(value.length)
+			if(value.length != 0 && !isNaN(Number(value))) {
+				e.textContent = value;
+				if(value > 0)
+					e.classList.add("on");
+				else
+					e.textContent = "";
+			} else if(value.length) {
 				e.classList.add(value);
+			}
 		});
 
 		return;
@@ -640,6 +682,8 @@ function updateTrackerProperty(key, value) {
 					e.appendChild(thingElement);
 				}
 			}
+		} else if(e.tagName == "IMG") {
+			e.src = value;
 		} else if(e.tagName == "SPAN") {
 			e.textContent = value;
 			setTimeout(function() { makeTextFit(e); }, 100); // idk why this needs a timer but it does seem to help soooo maybe the value isn't recalculated right until it gets painted?

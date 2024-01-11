@@ -1,0 +1,179 @@
+.player-pronoun, .marathon-information-holder, .game-type {
+	display: none;
+}
+
+.clock, .color {
+	display: none;
+}
+
+.funds-raised {
+	left: 300px;
+	width: 680px;
+}
+
+.bingo {
+	width: 460px;
+	height: 506px;
+	position: absolute;
+	left: 410px;
+	top: 50px;
+
+	overflow: hidden;
+}
+
+.bingo iframe {
+	display: none;
+}
+
+.positioned-br > *,
+.positioned-bl > * {
+	bottom: calc(var(--y) + 106px);
+}
+
+.positioned-br > .clock,
+.positioned-bl > .clock {
+	padding-top: 6px;
+}
+
+.positioned-bl > *:not(.gameplay, .winner, .name) {
+	left: auto;
+	right: calc(1280px - 400px + var(--x));
+}
+
+.positioned-br > *:not(.gameplay, .winner, .name) {
+	right: auto;
+	left: calc(1280px - 400px + var(--x));
+}
+
+.comms {
+	position: absolute;
+	/*
+	bottom: 40px;
+	left: 515px;
+	width: 270px;
+	height: 60px;
+	*/
+
+	left: 110px;
+	top: 308px;
+	width: 180px;
+	height: 36px;
+	line-height: 10px;
+
+	padding-top: 4px;
+
+	--size: 12px;
+
+}
+
+.name {
+	--x: 408px;
+	height: 32px;
+	width: 220px;
+	font-size: 18px;
+	font-weight: bold;
+
+	padding: 3px;
+	padding-top: 6px;
+	line-height: 80%;
+}
+
+.tracker {
+	display: none; /* no room on the marathon and the bingo board is more important anyway */
+}
+
+.color {
+	--x: 2px;
+	--y: 308px;
+	width: 26px;
+	height: 26px;
+}
+
+.clock {
+	--y: 308px;
+	--x: 32px;
+	width: 76px;
+	height: 26px;
+	font-size: 16px;
+	padding: 0px 2px;
+}
+
+.position {
+	text-align: center;
+	--y: 306px;
+	--x: 54px;
+	width: 40px;
+	height: 26px;
+	font-size: 13px;
+}
+
+.gameplay {
+	--x: 4px;
+	--y: 4px;
+
+	/*
+	width: 256px;
+	height: 240px;
+	*/
+	width: 400px;
+	height: 300px;
+}
+
+.winner {
+	--x: 330px;
+	--y: 150px;
+	z-index: 20;
+}
+
+
+
+
+
+
+.game-type {
+	position: absolute;
+	left: 310px;
+	top: 4px;
+	width: 270px;
+	height: 60px;
+	white-space: nowrap;
+	font-size: 26px;
+}
+
+.game-type .element-container {
+	text-align: center;
+}
+
+.game-system {
+	position: absolute;
+	font-size: 18px;
+	left: 4px;
+	bottom: 4px;
+}
+
+.game-goal {
+	position: absolute;
+	font-size: 18px;
+	right: 4px;
+	bottom: 4px;
+}
+
+
+
+.info-area {
+	display: block;
+
+	position: absolute;
+	left: 410px;
+	width: 466px;
+	height: 145px;
+	bottom: 80px;
+	padding: 0.5em;
+
+	white-space: pre-line;
+}
+
+.info-area > div {
+	padding: 4px;
+}
+

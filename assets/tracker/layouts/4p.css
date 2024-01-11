@@ -113,4 +113,20 @@
 	z-index: 20;
 }
 
+.wins-counter {
+	--y: 305px;
+}
+
+.tracker.ffmq-itemset {
+	width: 180px;
+}
+
+.tracker.zladx-itemset {
+	width: 220px;
+}
+
+.itemset.zladx-itemset i {
+	width: 24px;
+	height: 24px;
+}
 

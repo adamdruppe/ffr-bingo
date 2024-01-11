@@ -50,7 +50,7 @@
 
 .clock {
 	--y: 332px;
-	--x: 54px;
+	--x: 55px;
 	width: 76px;
 	height: 26px;
 	font-size: 16px;
@@ -84,3 +84,10 @@
 	z-index: 20;
 }
 
+.wins-counter {
+	display: none;
+}
+
+.player-name {
+	display: inline;
+}

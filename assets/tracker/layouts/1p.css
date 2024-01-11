@@ -216,3 +216,18 @@
     height: 44px;
     margin: 2px 0px;
 }
+
+.zladx-itemset.tracker i {
+    width: 28px;
+    height: 28px;
+    margin: 2px 0px;
+}
+
+.tracker.box.ffmq-itemset {
+	height: 212px;
+}
+
+.wins-counter {
+	--y: 620px;
+	--x: 8px;
+}

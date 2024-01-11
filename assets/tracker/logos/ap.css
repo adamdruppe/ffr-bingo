@@ -1,0 +1,8 @@
+.loading-screen-primary-logo,
+.logo {
+	background-image: url("ap-logo.png");
+}
+.loading-screen-secondary-logo,
+.secondary-logo {
+	background-image: url("ap-text.png");
+}

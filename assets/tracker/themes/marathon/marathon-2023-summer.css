@@ -1,0 +1,207 @@
+#ffr-layout {
+	background-image: url("summer2023/layout_-_background.png");
+
+	text-transform: uppercase;
+}
+
+.logo {
+	background-image: url("summer2023/logo_2023_-_sunset.png");
+
+	position: absolute;
+	width: 230px;
+	bottom: -20px;
+	left: 20px;
+}
+
+.secondary-logo {
+	background-image: url("summer2023/liam.png");
+	display: block;
+	width: 233px;
+	height: 66px;
+	position: absolute;
+	left: auto;
+	top: auto;
+	right: 8px;
+	bottom: 25px;
+}
+
+.comms {
+	display: none;
+}
+
+.funds-raised {
+	display: block;
+	border: solid 3px blue;
+	background-color: #000000;
+	padding: 4px 8px;
+	font-size: 24px;
+	text-align: right;
+}
+
+.funds-raised > span {
+}
+
+.funds-raised::before {
+	content: "HIGH SCORE: ";
+	float: left;
+}
+
+.marathon-information-holder,
+.box {
+	border: solid 3px red;
+	background-color: #000000;
+	border-radius: 4px;
+}
+
+.marathon-information-holder {
+	border-color: blue;
+	padding: 4px 8px;
+	padding-top: 8px;
+}
+
+.more-info-top {
+	display: block;
+	margin-bottom: 0.75em;
+}
+
+.more-info-bottom {
+	display: block;
+	text-align: right;
+}
+
+
+#loading-screen > div {
+	position: absolute;
+
+	border: solid 3px red;
+	background-color: #000000;
+	border-radius: 4px;
+	color: white;
+}
+
+#loading-screen > .loading-screen-primary-logo {
+	display: none;
+}
+#loading-screen > .loading-screen-secondary-logo {
+	display: none;
+}
+#loading-screen > .loading-screen-long-text {
+	width: 700px;
+	height: 520px;
+	left: 30px;
+	top: 92px;
+
+	padding: 0px;
+
+	white-space: initial;
+	font-size: 21px;
+	overflow: hidden;
+}
+#loading-screen > .loading-screen-long-text > h3 {
+	font-size: inherit;
+	font-weight: bold;
+	background: #5c1e91;
+	color: white;
+	margin: 0px;
+	font-size: 125%;
+	padding: 0.5em 1em;
+	padding-left: 0.75em;
+}
+#loading-screen > .loading-screen-long-text > h4 {
+	font-size: inherit;
+	font-weight: bold;
+	background: #a0e2f5;
+	color: black;
+	margin: 0px;
+	padding: 0.5em 1em;
+}
+#loading-screen > .loading-screen-long-text > p {
+	padding: 0.5em 1em;
+	margin: 0px;
+}
+
+#loading-screen > .loading-screen-text {
+	left: 937px;
+	top: 420px;
+	width: 318px;
+	height: 194px;
+	padding: 1em;
+	font-size: 22px;
+	white-space: pre-line;
+}
+
+#loading-screen .short-title {
+	padding: 8px;
+	padding-top: 10px;
+	display: block;
+	border-color: blue;
+	position: absolute;
+	left: 30px;
+	top: 42px;
+}
+
+.game-type {
+	background: transparent;
+	border: none;
+	text-align: center;
+}
+.game-type > * {
+	display: none;
+}
+.game-type > img {
+	display: inline-block;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.info-area {
+	color: white;
+	background: #583600cc;
+	text-shadow:
+		-3px 0px 3px black,
+		0px 3px 3px black,
+		3px 0px 3px black,
+		0px -3px 3px black
+	;
+
+}
+
+#loading-screen {
+	background-image: url("summer2023/splash_-_background.png");
+}
+
+#loading-screen .funds-raised {
+	display: block;
+	left: 264px;
+	top: 621px;
+	min-width: 468px;
+	height: 38px;
+	padding-top: 8px;
+	border-color: blue;
+}
+
+@font-face {
+        font-family: "PressStart";
+	font-smooth: never;
+        src:
+                local("PressStart"),
+                url("summer2023/PressStart2P-Regular.woff2") format("woff2");
+}
+
+@font-face {
+        font-family: "PressStart";
+	font-smooth: never;
+	font-weight: bold;
+        src:
+                local("PressStart"),
+                url("summer2023/PressStart2P-Regular.woff2") format("woff2");
+}
+
+
+* {
+	font-family: "PressStart";
+}
+
+html {
+	font-size: 22px;
+}
